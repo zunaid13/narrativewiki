@@ -1,0 +1,205 @@
+{
+ "series": "oz",
+ "rows": [
+  {
+   "t": 1,
+   "future_only_vocabulary": 188,
+   "cutoff": {
+    "files": 76,
+    "strings_hit": 4,
+    "hits": {
+     "Queen of the Field Mice": [
+      "wiki\\v01\\relationships\\cowardly-lion--dorothy.md",
+      "wiki\\v01\\relationships\\cowardly-lion--scarecrow.md",
+      "wiki\\v01\\relationships\\cowardly-lion--tin-woodman.md",
+      "wiki\\v01\\relationships\\cowardly-lion--toto.md",
+      "wiki\\v01\\relationships\\dorothy--scarecrow.md"
+     ],
+     "Royal Palace": [
+      "wiki\\v01\\codex\\places.md",
+      "wiki\\v01\\relationships\\cowardly-lion--dorothy.md",
+      "wiki\\v01\\relationships\\cowardly-lion--scarecrow.md",
+      "wiki\\v01\\relationships\\cowardly-lion--tin-woodman.md",
+      "wiki\\v01\\relationships\\cowardly-lion--toto.md"
+     ],
+     "The Sorceress": [
+      "wiki\\v01\\codex\\tech.md"
+     ],
+     "the Sorceress": [
+      "wiki\\v01\\codex\\tech.md"
+     ]
+    }
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 79,
+    "strings_hit": 4,
+    "hits": {
+     "Queen of the Field Mice": [
+      "wiki-html\\v01\\relationships\\cowardly-lion--dorothy\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--scarecrow\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--tin-woodman\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--toto\\index.html",
+      "wiki-html\\v01\\relationships\\dorothy--scarecrow\\index.html"
+     ],
+     "Royal Palace": [
+      "wiki-html\\v01\\codex\\places\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--dorothy\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--scarecrow\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--tin-woodman\\index.html",
+      "wiki-html\\v01\\relationships\\cowardly-lion--toto\\index.html"
+     ],
+     "The Sorceress": [
+      "wiki-html\\v01\\codex\\tech\\index.html"
+     ],
+     "the Sorceress": [
+      "wiki-html\\v01\\codex\\tech\\index.html"
+     ]
+    }
+   },
+   "slugs": {
+    "files": 76,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 2,
+   "future_only_vocabulary": 122,
+   "cutoff": {
+    "files": 148,
+    "strings_hit": 3,
+    "hits": {
+     "The Sawhorse": [
+      "wiki\\v02\\character\\glinda.md",
+      "wiki\\v02\\character\\ozma.md",
+      "wiki\\v02\\relationships\\general-jinjur--glinda.md",
+      "wiki\\v02\\relationships\\general-jinjur--green-whiskers.md",
+      "wiki\\v02\\relationships\\general-jinjur--nick-chopper.md"
+     ],
+     "the Sawhorse": [
+      "wiki\\v02\\character\\glinda.md",
+      "wiki\\v02\\character\\ozma.md",
+      "wiki\\v02\\relationships\\general-jinjur--glinda.md",
+      "wiki\\v02\\relationships\\general-jinjur--green-whiskers.md",
+      "wiki\\v02\\relationships\\general-jinjur--nick-chopper.md"
+     ],
+     "wooden Saw-Horse": [
+      "wiki\\v02\\character\\horse.md",
+      "wiki\\v02\\character\\scarecrow.md"
+     ]
+    }
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 151,
+    "strings_hit": 3,
+    "hits": {
+     "The Sawhorse": [
+      "wiki-html\\v02\\character\\glinda\\index.html",
+      "wiki-html\\v02\\character\\ozma\\index.html",
+      "wiki-html\\v02\\relationships\\general-jinjur--glinda\\index.html",
+      "wiki-html\\v02\\relationships\\general-jinjur--green-whiskers\\index.html",
+      "wiki-html\\v02\\relationships\\general-jinjur--nick-chopper\\index.html"
+     ],
+     "the Sawhorse": [
+      "wiki-html\\v02\\character\\glinda\\index.html",
+      "wiki-html\\v02\\character\\ozma\\index.html",
+      "wiki-html\\v02\\relationships\\general-jinjur--glinda\\index.html",
+      "wiki-html\\v02\\relationships\\general-jinjur--green-whiskers\\index.html",
+      "wiki-html\\v02\\relationships\\general-jinjur--nick-chopper\\index.html"
+     ],
+     "wooden Saw-Horse": [
+      "wiki-html\\v02\\character\\horse\\index.html",
+      "wiki-html\\v02\\character\\scarecrow\\index.html"
+     ]
+    }
+   },
+   "slugs": {
+    "files": 148,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 3,
+   "future_only_vocabulary": 70,
+   "cutoff": {
+    "files": 215,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 218,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "slugs": {
+    "files": 215,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 4,
+   "future_only_vocabulary": 45,
+   "cutoff": {
+    "files": 258,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 261,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "slugs": {
+    "files": 258,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 5,
+   "future_only_vocabulary": 0,
+   "cutoff": {
+    "files": 334,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 337,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "slugs": {
+    "files": 334,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  }
+ ]
+}

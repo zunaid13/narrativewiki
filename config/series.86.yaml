@@ -1,0 +1,204 @@
+# Series configuration — 86—EIGHTY-SIX (Yen On / Yen Press)
+#
+# Everything series-specific lives here. No character name, faction, volume count or EPUB quirk
+# belongs in src/. To add another series, copy this file and edit `series` + `source`; the quirk
+# sections below have sensible defaults and most series need none of them.
+
+series:
+  id: "86"
+  title: "86—EIGHTY-SIX"          # note: em dash, not a hyphen
+  author: "Asato Asato"
+  illustrator: "Shirabii"
+  publisher: "Yen On"
+  language: en
+  expected_words: 936000   # `wiki audit ingest`'s sanity note; omit for a series with no known total
+
+source:
+  # Volumes are discovered by regex against filenames in `dir`, so adding volume 14 needs no edit.
+  dir: "corpus/86"
+  glob: "*.epub"
+  # The named group `vol` must capture the 1-indexed volume number.
+  volume_pattern: 'v(?P<vol>\d{2})'
+  # Optional per-volume overrides; only needed when the filename lies about the volume number.
+  overrides: {}
+
+# ---------------------------------------------------------------------------
+# EPUB parsing quirks. Defaults handle ordinary Sigil-produced EPUB3.
+# Every entry here was found by inspecting all 13 volumes — see CLAUDE.md §3.
+# ---------------------------------------------------------------------------
+epub:
+  # Table of contents source, in priority order. nav.xhtml is BROKEN in v02 and v03
+  # (it omits every chapter), so toc.xhtml leads.
+  toc_sources: ["toc.xhtml", "toc.ncx", "nav.xhtml"]
+
+  # A new chapter starts at a heading matching this selector. Documents in the spine that contain
+  # no such heading are appended to the current chapter — chapters span several XHTML files and
+  # the continuation files carry no <h1>. Never group by filename; the sort order is wrong.
+  chapter_start_selector: "h1.chapter-number"
+  chapter_title_selector: "h1.chapter-title"
+
+  # Dropped regardless of epub:type. copyright.xhtml is mistagged "bodymatter chapter" in every
+  # volume, which is why this is a filename list and not a type filter.
+  skip_files:
+    - "cover.xhtml"
+    - "titlepage.xhtml"
+    - "copyright.xhtml"
+    - "toc.xhtml"
+    - "nav.xhtml"
+    - "newsletterSignup.xhtml"
+
+  # epub:type values kept as prose. Anything else is treated as front/back matter.
+  keep_epub_types:
+    ["bodymatter", "chapter", "prologue", "epilogue", "preface", "epigraph", "appendix"]
+
+  # Sections with almost no text and at least one image are art plates, not prose.
+  image_page_max_words: 10
+
+# ---------------------------------------------------------------------------
+# Speech-channel detection. See docs/CONTRACTS.md §1.1.
+# ---------------------------------------------------------------------------
+speech:
+  # This series HAS a radio/telepathic channel and every real volume must show at least one such
+  # paragraph -- `wiki audit ingest` FAILs the whole run when a volume reports zero (see below).
+  # A series with no such channel at all (e.g. Spice and Wolf -- ordinary prose dialogue only)
+  # leaves this absent/false so the same check does not misfire on a text that never had a
+  # Para-RAID-equivalent channel to begin with. See docs/CONTRACTS.md section 1.1.
+  require_para_raid: true
+
+  # Para-RAID (Sensory Resonance) radio comms. The class is renamed SEVEN times across the series
+  # and moves from block <p class> in v01 to inline <span class> from v02 on, so this is a regex
+  # over the class of the <p> OR any descendant <span>.
+  #   v01 san | v02 pararaid | v03 para-raid | v04-05 para-raid-char
+  #   v06-10,12-13 special | v11 special-1, special2-1
+  # These paragraphs are the densest source of call signs and vocatives in the corpus.
+  para_raid_class_pattern: '^(san|pararaid|para-raid.*|special.*)$'
+
+  # Legion / OS synthetic voice: <<...>> (v07+) or <...> (v01-v06), inside div.ecom_*.
+  machine_voice_container_pattern: '^ecom_'
+  machine_voice_text_pattern: '^<{1,2}.*>{1,2}$'
+
+  # A paragraph whose entire content is one <em> is interior monologue.
+  monologue_wrapper: "em"
+
+  dialogue_open_quotes: ["“"]     # left double quotation mark
+
+# ---------------------------------------------------------------------------
+# Scene boundaries — never build an evidence window across a hard break.
+# ---------------------------------------------------------------------------
+scene_breaks:
+  hard_image_class: "ornament"                       # img.ornament = scene/POV change
+  soft_paragraph_classes: ["space-break", "space-break1", "space-break2"]
+
+# ---------------------------------------------------------------------------
+# Text normalisation. Order matters: images become text BEFORE images are stripped,
+# and HTML entities are decoded AFTER tags are stripped (or <<...>> looks like markup).
+# ---------------------------------------------------------------------------
+normalize:
+  # Some em dashes are inline JPEGs (v01, v09, v11). Strip images blindly and interrupted
+  # speech silently corrupts: "thank you for saving m".
+  image_text_substitutions:
+    - { src_contains: "mdash", text: "—" }
+    - { src_contains: "line",  text: "—" }
+  strip_remaining_images: true
+  preserve_print_page_anchors: true                  # <a id="page-N"> → citation page numbers
+  collapse_whitespace: true
+
+# ---------------------------------------------------------------------------
+# Entity discovery hints. These bias candidate mining; they never hard-code an answer.
+# ---------------------------------------------------------------------------
+entities:
+  # Titles and ranks that precede a name. Used as a strong candidate signal, then stripped
+  # from the surface form so "Major Milizé" and "Milizé" resolve to one entity.
+  honorifics:
+    ["Captain", "Major", "Colonel", "Lieutenant", "Second Lieutenant", "First Lieutenant",
+     "General", "Marshal", "Sergeant", "Corporal", "Private", "Ensign", "Commander",
+     "President", "Prince", "Princess", "King", "Queen", "Lord", "Lady", "Sir", "Miss", "Mr.",
+     "Mrs.", "Ms.", "Dr.", "Handler", "Colonel General", "Brigadier General"]
+
+  # Words that look like names but are not entities on their own.
+  stopword_surfaces:
+    ["Legion", "Republic", "Federacy", "Empire", "Alliance", "Kingdom", "Sector", "Front",
+     "Squadron", "Regiment", "Battalion", "Processor", "Handler", "Eighty-Six", "Alba"]
+  # NOTE: several of these ARE real entities when they appear with a modifier
+  # ("the Republic of San Magnolia"). They are blocked only as bare surface forms.
+
+  min_mentions: 3                  # candidates below this are dropped unless LLM-confirmed
+  max_candidates_per_volume: 400   # caps the classification cost
+  # max_llm_alias_pairs: 300       # [24] optional override of entities/alias.py::MAX_LLM_PAIRS --
+  # already binding at 4 volumes here (303 candidates -> 1,533 same-type pairs upper bound,
+  # docs/vision/plans/0008-pre-full-scale-audit.md B1) and the tail it cuts is exactly the low-fuzzy
+  # nickname/call-sign pairs tier d exists to catch. `wiki audit gazetteer` now reports the actual
+  # dropped count after a build -- measure that before raising this, not before.
+
+  # Manual corrections applied after automatic clustering. This is the escape hatch you use
+  # after reviewing data/02_entities/roster.html — see USER_GUIDE.md §2.
+  entity_overrides:
+    # v01 real-run roster review (2026-09-02): the protagonist split across three clusters —
+    # "shin" (the dominant surface, 439 mentions), "the-reaper" (call sign "Reaper"/"Six"), and
+    # "personal-name" (co-occurrence-merged "Undertaker" with the literal candidate phrase
+    # "Personal Name" -- a mining false positive: the text explains Undertaker is his call sign,
+    # not his *personal name*, and "Personal Name" got mined and typed as a CHARACTER of its
+    # own). Reaper/Six are genuine call signs, folded straight in; Undertaker is a genuine call
+    # sign but is pulled out of its cluster and re-added cleanly via `aliases` instead of merged
+    # wholesale, so the generic phrase "Personal Name" is never indexed as a surface form of him
+    # (it would otherwise false-positive-match any future literal "Personal Name" in the corpus).
+    #
+    # v01-04 real-run roster review (2026-09-02): two more issues surfaced once mining stopped
+    # eating leading conjunctions into canonical names (see alias.py's `_canonical_rank` fix,
+    # same commit).
+    #
+    # (1) "eighty" / "Eighty" / "Six": every sampled mention is the phrase "Eighty-Six" used
+    # as the Republic's slur for the San Magnolian minority ("subhuman Eighty-Six", "the
+    # Eighty-Sixth Sector") -- a collective/demographic term, never a named individual, exactly
+    # like "Colorata"/"Alba" (already correctly typed FACTION elsewhere in this roster). The
+    # classifier mistyped this one candidate as CHARACTER; force_type corrects it.
+    #
+    # (2) "shourei-nouzen": tier-b's fuzzy auto-merge (typo/transliteration tolerant, threshold
+    # 90, no human or LLM check) folded FOUR unrelated surfaces into one cluster purely on string
+    # similarity: "Shinei Nouzen" (protagonist's real name -- confirmed by dozens of unambiguous
+    # mentions: "My name is Shinei Nouzen, a captain...") and "Shourei Nouzen" (a DIFFERENT,
+    # distinct Nouzen-clan ancestor -- "Could you possibly be related to Shourei Nouzen? He was a
+    # Name Bearer called Dullahan...") differ by two letters and scored as a typo of each other.
+    # Also swept in was bare "Nouzen", which the text uses for at least three different people
+    # (Shin via rank+surname, his late brother Kiriya, their grandfather Marquis Seiei Nouzen) --
+    # genuinely ambiguous, not safely indexable to any one of them. Fix: drop the whole bad
+    # cluster, then re-add just the confirmed-Shin surfaces to `shin` directly. "Shourei Nouzen"
+    # and bare "Nouzen" are deliberately left unindexed rather than guessed at -- a missed mention
+    # of a very minor figure is a far smaller error than a wrongly-attributed one.
+    #
+    # (3) "vladilena-milize" (25 mentions, canonical mined as the all-caps chapter-epigraph
+    # byline "VLADILENA MILIZÉ") never merged with "lena" (668 mentions) -- fuzzy/co-occurrence
+    # matching missed it since "Lena" and "Vladilena Milizé" don't share enough characters/tokens
+    # to trigger tiers b/c, and it apparently never won an LLM tier-d call. Unambiguous from
+    # context ("My name is...Lena. Vladilena...Milizé." / "And I'm Vladilena Milizé. Please call
+    # me Lena."). Likewise "kiri" (22) never merged with "kiriya" (55) -- "Kiri" is Kiriya's own
+    # nickname ("Kiri was not a direct descendant of the Nouzen patriarchy...").
+    #
+    # (4) "the-ameise" / "the-grauwolf" / "the-nachzehrer": Legion unit types occasionally get
+    # typed CHARACTER instead of TECH in a passage that narrates them as actively doing something
+    # ("The Ameise platoon entered the kill zone", "The Grauwolf stampeded..."), producing a
+    # duplicate CHARACTER cluster alongside the correctly-typed TECH one ("ameise"/"grauwolf",
+    # both 54 mentions). "the-nachzehrer" has no TECH twin to merge into, so it's force_type only.
+    merge:
+      - { into: "shin", from: ["the-reaper"] }
+      - { into: "lena", from: ["vladilena-milize"] }
+      - { into: "kiriya", from: ["kiri"] }
+      - { into: "ameise", from: ["the-ameise"] }
+      - { into: "grauwolf", from: ["the-grauwolf"] }
+    split: []      # - { entity: "nouzen", into: ["shinei-nouzen", "kiriya-nouzen"] }
+    force_type:
+      - { entity: "eighty", type: "FACTION" }
+      - { entity: "the-nachzehrer", type: "TECH" }
+    aliases:
+      - { entity: "shin", add: ["Undertaker"], first_vol: 1 }
+      - { entity: "shin", add: ["Shinei", "Shinei Nouzen"], first_vol: 1 }
+    exclude: ["personal-name", "shourei-nouzen"]
+
+# ---------------------------------------------------------------------------
+# Rendering hints for the generated site.
+# ---------------------------------------------------------------------------
+site:
+  title: "86—EIGHTY-SIX Character Wiki"
+  subtitle: "Spoiler-scoped. Set the volume you have read up to."
+  volume_labels_from_epub: true    # use dc:title from each EPUB as the tab label
+  default_upto: 1                  # open at maximum safety, not maximum information

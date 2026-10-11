@@ -1,0 +1,31 @@
+% T2: main comparison (two-column table*). Means over cutoffs; every cell is in Appendix E.
+% The decontaminated block is tables/t2b-decon.tex, read only under \nwdecontrue.
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{@{}llccccrr@{}}
+\toprule
+ &  & \multicolumn{1}{c}{\nwhead{Recall}} & \multicolumn{1}{c}{\nwhead{Precision}} & \multicolumn{1}{c}{\nwhead{Citation}} & \nwhead{Later facts} & \nwhead{Distinct} & \nwhead{Tokens} \\
+\multicolumn{2}{@{}l}{\nwhead{System (cutoff enforced by)}} & \multicolumn{1}{c}{\nwhead{$\uparrow$}} & \multicolumn{1}{c}{\nwhead{$\uparrow$}} & \multicolumn{1}{c}{\nwhead{sufficiency $\uparrow$}} & \nwhead{disclosed $\downarrow$} & \nwhead{assertions} & \nwhead{in / out (M)} \\
+\midrule
+B1 & Long context (input) & \cellcolor{nwhighcyan}\best{\res{M1-anne-avg-B1}}\sdev{\res{STAT-M1-B1-sd}} & \res{M3-anne-avg-B1}\sdev{\res{STAT-M3-B1-sd}} & \res{M8-anne-avg-B1}\sdev{\res{STAT-M8-B1-sd}} & \res{M4-anne-total-B1} & \res{ND-anne-avg-B1} & \res{TOK-anne-B1} \\
+B2 & Prefix retrieval (input) & \res{M1-anne-avg-B2}\sdev{\res{STAT-M1-B2-sd}} & \res{M3-anne-avg-B2}\sdev{\res{STAT-M3-B2-sd}} & \res{M8-anne-avg-B2}\sdev{\res{STAT-M8-B2-sd}} & \res{M4-anne-total-B2} & \res{ND-anne-avg-B2} & \cellcolor{nwhighlavender}\best{\res{TOK-anne-B2}} \\
+B3 & LightRAG (input) & \res{M1-anne-avg-B3}\sdev{\res{STAT-M1-B3-sd}} & \res{M3-anne-avg-B3}\sdev{\res{STAT-M3-B3-sd}} & \res{M8-anne-avg-B3}\sdev{\res{STAT-M8-B3-sd}} & \res{M4-anne-total-B3} & \res{ND-anne-avg-B3} & \res{TOK-anne-B3} \\
+B4 & Graph baseline & \res{M1-anne-avg-B4}\sdev{\res{STAT-M1-B4-sd}} & \cellcolor{nwhighcyan}\best{\res{M3-anne-avg-B4}}\sdev{\res{STAT-M3-B4-sd}} & \cellcolor{nwhighcyan}\best{\res{M8-anne-avg-B4}}\sdev{\res{STAT-M8-B4-sd}} & \res{M4-anne-total-B4} & \res{ND-anne-avg-B4} & +\res{TOK-anne-B4} \\
+B5 & \sys (data) & \res{M1-anne-avg-B5}\sdev{\res{STAT-M1-B5-sd}} & \res{M3-anne-avg-B5}\sdev{\res{STAT-M3-B5-sd}} & \res{M8-anne-avg-B5}\sdev{\res{STAT-M8-B5-sd}} & \cellcolor{nwhighpink}\best{\res{M4-anne-total-B5}} & \cellcolor{nwhighlavender}\best{\res{ND-anne-avg-B5}} & \res{TOK-anne-B5} \\
+\midrule
+X1 & Closed book (none) & \res{M1-anne-avg-X1}\sdev{\res{STAT-M1-X1-sd}} & \res{M3-anne-avg-X1}\sdev{\res{STAT-M3-X1-sd}} & -- & \cellcolor{nwhighpink}\best{\res{M4-anne-total-X1}} & \res{ND-anne-avg-X1} & \res{TOK-anne-X1} \\
+X2 & Full text (instruction) & \res{M1-anne-avg-X2}\sdev{\res{STAT-M1-X2-sd}} & \res{M3-anne-avg-X2}\sdev{\res{STAT-M3-X2-sd}} & \res{M8-anne-avg-X2}\sdev{\res{STAT-M8-X2-sd}} & \cellcolor{nwhighpink}\best{\res{M4-anne-total-X2}} & \res{ND-anne-avg-X2} & \res{TOK-anne-X2} \\
+\bottomrule
+\end{tabular}
+\caption{Main comparison on Anne: rates are mean $\pm$ sample standard deviation across
+$t=1..5$. Recall uses eligible gold facts; precision and citation sufficiency use 40 sampled
+atoms per cutoff, judged in page context. Disclosure counts stated or implied later facts
+across $t=1..4$. Distinct assertions are means per cutoff; tokens (millions, input / output)
+cover the reported build. X1 and X2
+are diagnostics; X1 cites nothing. Bold identifies rate and assertion-count maxima and
+minimum measured cost among B1--B5, plus non-zero disclosures. Cyan highlights performance
+maxima, pink disclosures, and lavender inventory and minimum cost. B4 reuses B5's graph;
+its cell is the page generation added to B5's build. Distributions are in Table~\ref{tab:stats}.}
+\label{tab:main}
+\end{table*}

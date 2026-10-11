@@ -1,0 +1,17 @@
+{
+  "series": "spice-and-wolf",
+  "passed": 2,
+  "judged": 2,
+  "rows": [
+    [
+      "PASS",
+      "different_entities",
+      "Elsa ['elsa'] / Melta ['melta']"
+    ],
+    [
+      "PASS",
+      "not_an_entity",
+      "Isuna Hasekura"
+    ]
+  ]
+}

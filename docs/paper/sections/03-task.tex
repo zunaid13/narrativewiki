@@ -1,0 +1,32 @@
+% Task definition and threat model. Definitions only; no results.
+\section{Task and Threat Model}
+\label{sec:task}
+
+\paragraph{Cutoffs and the delivered artifact.}
+A series comprises ordered volumes $v_1,\dots,v_N$. At cutoff $t$, the reader has read
+$\Dt = v_1 \cdots v_t$; the cutoff follows reading order, not story time. The delivered
+artifact $\Wt$ includes page text, links and backlinks, titles and addresses, shared
+navigation and search, group and place pages, and source views opened by citations. All
+these surfaces belong to the evaluation scope. Unrequested later information is in scope; deliberately
+opening a later cutoff is outside the threat model.
+
+\paragraph{Facts and assertions.}
+A gold fact $g$ is a selected character statement with reveal volume $\reveal(g)$, the earliest
+volume whose text suffices to establish it. Eligible gold facts are
+$\Gt=\{g:\reveal(g)\le t\}$; assessed later facts are
+$\Ft=\{g: t<\reveal(g)\le N\}$. The latter are a finite probe set, not an exhaustive spoiler
+inventory. Story-level truth, support from eligible text and citation sufficiency are
+distinct properties: a true assertion supported only by later text violates the cutoff.
+Support must preserve attribution and modality: \emph{A believes B is her father} does
+not establish \emph{B is A's father}.
+
+\paragraph{Threats.}
+We distinguish three channels.
+\emph{Construction dependence}: processing volumes beyond $t$ shapes the early artifact
+through alias merges, canonical names or pages created for later characters, even when
+rendered claims are filtered.
+\emph{Published disclosure}: a delivered surface directly exposes later content, such as
+a name in shared navigation.
+\emph{Parametric contribution}: the generator supplies memorized information about the work.
+An observed disclosure alone cannot identify its channel; experiments therefore vary what
+each system can access (Figure~\ref{fig:systems}).

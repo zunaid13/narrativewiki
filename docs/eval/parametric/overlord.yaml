@@ -1,0 +1,84 @@
+# Phase 32 multi-cutoff gold for Overlord, volumes 1-5 (plan 0011 S6). Same conventions as
+# spice-and-wolf.yaml: hand-written 2026-09-27, every evidence para_id found by search and read in
+# data/overlord/01_parsed/; a fact's volume is its evidence's volume. Keys must equal canonical
+# names in the gazetteer (checked, and renamed if needed, after the final v1-5 gazetteer build).
+series: overlord
+characters:
+  Ainz Ooal Gown:
+    facts:
+      - {claim: "He was the guild master of the guild Ainz Ooal Gown, under the name Momonga.", evidence: v01:c03:p0448}
+      - {claim: "He gives his name as Ainz Ooal Gown.", evidence: v01:c03:p0450}
+      - {claim: "He edited Albedo's bio to say she is in love with Momonga.", evidence: v01:c01:p0443}
+      - {claim: "As an adventurer he calls himself Momon, with Narberal as his partner Nabe.", evidence: v02:c01:p0012, keywords: ["Momon", "Nabe"]}
+      - {claim: "Momon starts as a copper plate adventurer.", evidence: v02:c02:p0340, keywords: ["copper plate"]}
+      - {claim: "He names the Wise King of the Forest Hamusuke.", evidence: v02:c04:p0054, keywords: ["Hamusuke"]}
+      - {claim: "He resurrects Shalltear after she was mind controlled.", evidence: v03:c04:p0459, keywords: ["resurrection", "resurrect"]}
+  Albedo:
+    facts:
+      - {claim: "Albedo is the captain of the floor guardians.", evidence: v01:c02:p0613}
+      - {claim: "Albedo's bio was edited to say she is in love with Momonga.", evidence: v01:c01:p0443}
+  Demiurge:
+    facts:
+      - {claim: "Demiurge is the guardian of the seventh level, a demon who commands defense operations.", evidence: v01:c02:p0412}
+  Shalltear Bloodfallen:
+    facts:
+      - {claim: "Shalltear is the guardian of the first three levels and a true vampire.", evidence: v01:c02:p0366}
+      - {claim: "Shalltear is mind controlled.", evidence: v03:c01:p0627, keywords: ["mind control", "mind-control"]}
+      - {claim: "Ainz resurrects Shalltear.", evidence: v03:c04:p0459, keywords: ["resurrect"]}
+  Sebas:
+    facts:
+      - {claim: "Sebas is the butler, and the Pleiades combat maids report to him.", evidence: v01:c01:p0141}
+      - {claim: "Sebas takes in a girl named Tsuare.", evidence: v05:c03:p0404, keywords: ["Tsuare"]}
+      - {claim: "Sebas's full name is Sebas Tian.", evidence: v05:c03:p0404, keywords: ["Sebas Tian"]}
+  Aura Bella Fiora:
+    facts:
+      - {claim: "Aura and Mare are twins set up by the guild member BubblingTeapot.", evidence: v01:c02:p0047}
+  Mare:
+    facts:
+      - {claim: "Mare is Aura's twin.", evidence: v01:c02:p0045}
+  Narberal Gamma:
+    facts:
+      - {claim: "Narberal is one of the Pleiades and poses as Nabe, Momon's adventurer partner.", evidence: v02:c01:p0012}
+  Enri:
+    facts:
+      - {claim: "Enri Emmott is a sixteen-year-old girl of her village.", evidence: v01:c01:p0257}
+      - {claim: "Enri's younger sister is Nemu.", evidence: v01:c01:p0276}
+  Gazef Stronoff:
+    facts:
+      - {claim: "Gazef Stronoff is the pride of the Re-Estize Kingdom and captain of its guard.", evidence: v01:c02:p0163}
+      - {claim: "Gazef takes the broken Brain Unglaus with him.", evidence: v05:c00:p0081, keywords: ["Brain"]}
+  Nigun:
+    facts:
+      - {claim: "Nigun Grid Lewin is captain of the Sunlit Scripture.", evidence: v01:c04:p0256}
+      - {claim: "Nigun's mission is to kill Gazef Stronoff.", evidence: v01:c04:p0281}
+  Nfirea Baleare:
+    facts:
+      - {claim: "Nfirea works on potions with his grandmother Lizzy.", evidence: v02:c01:p0302}
+  Swords of Darkness:
+    facts:
+      - {claim: "Peter Mauk leads the Swords of Darkness; Lukrut Volve is their ranger.", evidence: v02:c01:p0363}
+  Wise King of the Forest:
+    facts:
+      - {claim: "Ainz names the Wise King of the Forest Hamusuke.", evidence: v02:c04:p0054}
+  Brain Unglaus:
+    facts:
+      - {claim: "Brain Unglaus fights with a katana.", evidence: v03:c01:p0150}
+      - {claim: "Gazef finds Brain broken and takes him along.", evidence: v05:c00:p0024}
+  Zaryusu Shasha:
+    facts:
+      - {claim: "Zaryusu is a lizardman traveler.", evidence: v04:c01:p0024}
+      - {claim: "Zaryusu carries Frost Pain, one of the Four Great Treasures.", evidence: v04:c01:p0026}
+      - {claim: "Zaryusu's elder brother Shasuryu Shasha is chief of the Green Claw tribe.", evidence: v04:c01:p0047}
+  Crusch Lulu:
+    facts:
+      - {claim: "Crusch Lulu is the acting chief of the Red Eye tribe.", evidence: v04:c02:p0050}
+      - {claim: "Crusch Lulu is an accomplished druid.", evidence: v04:c02:p0109}
+  Cocytus:
+    facts:
+      - {claim: "Cocytus leads Nazarick's army against the lizardmen.", evidence: v04:c04:p0416}
+  Climb:
+    facts:
+      - {claim: "Climb, a lowborn soldier, serves as Princess Renner's personal attendant.", evidence: v05:c01:p0439}
+  Renner:
+    facts:
+      - {claim: "Renner is a princess; Climb protects her.", evidence: v05:c01:p0439}

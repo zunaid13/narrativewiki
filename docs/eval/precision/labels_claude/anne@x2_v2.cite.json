@@ -1,0 +1,18 @@
+{
+ "0": "S", "3": "S", "4": "S", "6": "S", "8": "S", "9": "S", "12": "S", "14": "S", "15": "S", "17": "S", "18": "S",
+ "19": "S", "20": "S", "21": "S", "22": "S", "23": "S", "24": "S", "25": "S", "26": "S", "27": "S", "28": "S",
+ "31": "S", "32": "S", "33": "S", "35": "S", "36": "S", "37": "S",
+ "1": ["I", "none of the ten cited paragraphs has a plan to keep Echo Lodge for the summers"],
+ "2": ["P", "Prince Edward Island and Avonlea are in the cited paragraphs (v02:c01:p0000, c06:p0008); none of them names Green Gables"],
+ "5": ["P", "the parcel from Carmody and the Christmas dress are cited (v01:c12:p0042, c25:p0035); the chocolates are in the next paragraph, not cited"],
+ "7": ["P", "that he is now sprucely shaved is cited (v02:c25:p0046); his going unshaved is inferred from the contrast"],
+ "10": ["I", "the cited paragraphs are Queen's Academy and her school at Carmody; no college social life is in them"],
+ "11": ["P", "her being got ready for church is cited (v02:c08:p0030); Sunday School is not in it"],
+ "13": ["P", "the want of bringing up is cited (v02:c01:p0033); East Grafton is not named in the cited paragraphs"],
+ "16": ["I", "none of the five cited paragraphs has Billy, Jane or a proposal"],
+ "29": ["I", "the two cited paragraphs are her answer at the door and the last day of school; neither shows her brisk"],
+ "30": ["I", "Mr. Phillips is in none of the eight cited paragraphs"],
+ "34": ["P", "the atom itself is partial: long golden hair is cited (v01:c28:p0003); thick is not"],
+ "38": ["P", "his joy at his father's coming is cited (v02:c28:p0021, p0026); the reconciliation and the marriage are not in the cited paragraphs"],
+ "39": ["P", "frank-faced and handsome are cited (v02:c19:p0050); fair is not"]
+}

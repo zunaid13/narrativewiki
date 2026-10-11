@@ -1,0 +1,100 @@
+{
+ "series": "spice-and-wolf",
+ "rows": [
+  {
+   "t": 1,
+   "future_only_vocabulary": 65,
+   "cutoff": {
+    "files": 24,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 27,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 2,
+   "future_only_vocabulary": 44,
+   "cutoff": {
+    "files": 49,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 52,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 3,
+   "future_only_vocabulary": 28,
+   "cutoff": {
+    "files": 73,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 76,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 4,
+   "future_only_vocabulary": 10,
+   "cutoff": {
+    "files": 101,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 104,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  },
+  {
+   "t": 5,
+   "future_only_vocabulary": 0,
+   "cutoff": {
+    "files": 116,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "shared": {
+    "files": 2,
+    "strings_hit": 0,
+    "hits": {}
+   },
+   "html": {
+    "files": 119,
+    "strings_hit": 0,
+    "hits": {}
+   }
+  }
+ ]
+}

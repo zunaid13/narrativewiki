@@ -1,0 +1,32 @@
+% F5 (one column, v2): gold recall of each system on the original and on the treated text,
+% means over t=1..5. Dot positions are typed from the results.tex keys M1-anne-avg-<S> and
+% M1-annedecon-avg-<S>; re-type them if those keys change. The printed changes are \res keys.
+\begin{tikzpicture}[x=4.3cm, y=0.36cm, font=\figfont,
+  orig/.style={circle, draw=nwgray, fill=white, line width=0.5pt, minimum size=5.2pt, inner sep=0pt},
+  treat/.style={circle, fill=nwaccent, minimum size=3.2pt, inner sep=0pt},
+  sysn/.style={anchor=west, font=\figfont\bfseries},
+  dif/.style={anchor=east, font=\figfont, text=nwink}]
+\foreach \x/\l in {0/0, 0.25/.25, 0.5/.50, 0.75/.75, 1/1}{
+  \draw[nwgrid] (\x,0.55) -- (\x,-6.65);
+  \node[text=nwgray] at (\x,-7.2) {\l};}
+\node[anchor=west, font=\figfont\itshape, text=nwgray] at (-0.5,1.05) {system};
+\node[font=\figfont\itshape, text=nwgray] at (0.5,1.05) {gold recall};
+\node[anchor=east, font=\figfont\itshape, text=nwgray] at (1.24,1.05) {change};
+% rows: name / y / original / treated / change
+\newcommand{\dumb}[5]{%
+  \node[sysn] at (-0.5,#2) {#1};
+  \draw[nwgray, line width=0.7pt] (#3,#2) -- (#4,#2);
+  \node[orig] at (#3,#2) {}; \node[treat] at (#4,#2) {};
+  \node[dif] at (1.24,#2) {#5};}
+\dumb{B1 long context}{0}{0.848}{0.845}{\res{M1-annedecon-diff-B1}}
+\dumb{B2 prefix retrieval}{-1}{0.834}{0.784}{\res{M1-annedecon-diff-B2}}
+\dumb{B3 LightRAG}{-2}{0.536}{0.470}{\res{M1-annedecon-diff-B3}}
+\dumb{\sys}{-3}{0.802}{0.843}{\res{M1-annedecon-diff-B5}}
+\dumb{B4 graph baseline}{-4}{0.761}{0.704}{\res{M1-annedecon-diff-B4}}
+\draw[nwgrid, densely dotted] (-0.5,-4.55) -- (1.24,-4.55);
+\dumb{X2 full text}{-5.1}{0.814}{0.744}{\res{M1-annedecon-diff-X2}}
+\dumb{X1 closed book}{-6.1}{0.683}{0.003}{\best{\res{M1-annedecon-diff-X1}}}
+% legend
+\node[orig] at (-0.47,-8.25) {}; \node[anchor=west] at (-0.44,-8.25) {original text};
+\node[treat] at (0.2,-8.25) {}; \node[anchor=west] at (0.23,-8.25) {treated (renamed, paraphrased)};
+\end{tikzpicture}

@@ -1,0 +1,45 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean.
+entity_id: norah-arendt
+canonical: Norah Arendt
+source_url: https://spiceandwolf.fandom.com/wiki/Norah_Arendt
+transcribed: "2026-09-08"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Relationships
+  - Trivia
+
+facts:
+  - text: "Norah Arendt is a skilled shepherdess from Ruvinheigen."
+    in_scope: true
+  - text: "Norah dreams of becoming a tailor."
+    in_scope: true
+  - text: "Norah is known to some as Norah the Nymph."
+    in_scope: true
+  - text: "Norah's companion is a well-trained sheepdog named Enek."
+    in_scope: true
+  - text: "Norah is an attractive young maiden with blonde hair and dark brown eyes."
+    in_scope: true
+  - text: "Norah has considerable inner reserves of courage, resiliency, and compassion."
+    in_scope: true
+  - text: "Orphaned and without relatives, Norah lived and worked for most of her childhood in a Church convent annex that also served as an almshouse."
+    in_scope: true
+  - text: "The Church's relationship with Norah soured as they grew suspicious her unusually proficient skills meant she was a sorceress/witch."
+    in_scope: true
+  - text: "While shepherding along the St. Metrogius pilgrimage road, Norah encountered Holo and Kraft Lawrence."
+    in_scope: true
+  - text: "Norah and her sheep became a key part of a gold-smuggling scheme."
+    in_scope: true
+
+# Phase 23 C3. The live graph rendered a RELATIVE_OF between Norah and Kraft Lawrence from
+# evidence that never states any kinship -- "Norah Arendt is not a relative of Kraft Lawrence" is
+# also on the RELATIVE_OF edge whose cited quote ("Her name's Norah Arendt") supports only that
+# they were introduced, not that they are related. See docs/vision/PHASE_23.md.
+negative_facts:
+  - "Norah Arendt is not a relative of Kraft Lawrence."
+  - "Norah Arendt is not a relative of Enek."

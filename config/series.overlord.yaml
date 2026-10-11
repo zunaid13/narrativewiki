@@ -1,0 +1,87 @@
+# Series configuration — Overlord (Yen Press / LuCaZ)
+#
+# Second calibration corpus (2026-09-25, maintainer: "we are getting biased towards spice and
+# wolf. consider overlord v1-2"). Structurally the opposite of Spice and Wolf: a large cast
+# (a guild's worth of NPC guardians, adventurers, villagers), constant point-of-view switches
+# inside a chapter, game-system vocabulary (spells, tiers, classes), and aliases as a plot
+# device -- the protagonist is Momonga, then Ainz Ooal Gown, and in v2 the disguised adventurer
+# Momon. Volumes 1-5 are in scope (AGENTS.md section 3, widened 2026-09-27).
+#
+# Every value below was checked against the real v01/v02 EPUBs before writing
+# (scratchpad inspect_epub.py survey, MEASUREMENTS section 38), not copied from another series.
+
+series:
+  id: "overlord"
+  title: "Overlord"
+  author: "Kugane Maruyama"
+  illustrator: "so-bin"
+  publisher: "Yen On"
+  language: en
+
+source:
+  dir: "corpus/overlord"
+  glob: "*.epub"
+  volume_pattern: 'v(?P<vol>\d{2})'
+  overrides: {}
+
+epub:
+  toc_sources: ["toc.xhtml", "toc.ncx", "nav.xhtml"]
+
+  # Chapters are headed <h1 class="chapter-title">Chapter 1 | The End and the Beginning</h1>
+  # (number and title in ONE heading; no h1.chapter-number exists), prologue/epilogue by
+  # h1.chapter-title-a, the afterword by h1.appendix-title. The numbered sections INSIDE a
+  # chapter are ALSO <h1> (h1.sect1-a "1", h1.sect1 "2"...), and v02's chapter012.xhtml opens
+  # with h1.sect1 "5" -- section 5 of Chapter 4 in its own file. Only these selectors start a
+  # chapter; every other heading is a section (see scene_breaks below).
+  # v04 heads its chapters h1.chapter-number ("Chapter 1 | Departure") and its Intermission
+  # h1.chapter-title1; v01-03 and v05 use h1.chapter-title. Without these v04 parsed as one
+  # 3,217-paragraph "Prologue" (2026-09-27).
+  chapter_heading_selectors: ["h1.chapter-title", "h1.chapter-title-a", "h1.appendix-title",
+                              "h1.chapter-number", "h1.chapter-title1"]
+  chapter_start_selector: "h1.chapter-number"   # absent in this corpus; chapter_number stays null
+  chapter_title_selector: "h1.chapter-title, h1.chapter-number"   # v04 titles its chapters with the latter
+
+  skip_files:
+    - "cover.xhtml"
+    - "titlepage.xhtml"
+    - "copyright.xhtml"
+    - "toc.xhtml"
+    - "nav.xhtml"
+    - "newsletterSignup.xhtml"
+    - "welcome.xhtml"       # v02: a publisher welcome page with NO epub:type, 90 words
+    - "personblurb.xhtml"   # v01: the author profile
+
+  # Prologue is `frontmatter prologue`, epilogue `backmatter epilogue`, the afterword
+  # `backmatter appendix`: all kept by these tokens, as in Spice and Wolf.
+  keep_epub_types:
+    ["bodymatter", "chapter", "prologue", "epilogue", "preface", "epigraph", "appendix"]
+
+  image_page_max_words: 10  # every art-plate / character-sheet page in v01-02 has 0 <p> tags
+
+speech:
+  # No radio/telepathy CSS channel: the "Message" spell is ordinary prose dialogue.
+  para_raid_class_pattern: '^(san|pararaid|para-raid.*|special.*)$'
+  machine_voice_container_pattern: '^ecom_'
+  machine_voice_text_pattern: '^<{1,2}.*>{1,2}$'
+
+scene_breaks:
+  # Hard breaks: the numbered section headings (a new POV nearly every time -- v01 Chapter 1
+  # section 1 is Momonga in YGGDRASIL's last minutes, section 2 the NPCs) and the ornament
+  # paragraph <p class="orn"><img src="Art_sborn.jpg"/></p> (7 in v01, 13 in v02). The ornament
+  # <img> carries no class, so `hard_image_class` alone would miss it.
+  hard_break_selectors: ["h1.sect1", "h1.sect1-a", "h2.sect2", "p.orn"]
+  hard_image_class: "ornament"
+  soft_paragraph_classes: ["space-break", "space-break1", "space-break2", "space1"]
+
+normalize:
+  image_text_substitutions:
+    - { src_contains: "mdash", text: "—" }
+  strip_remaining_images: true
+  preserve_print_page_anchors: true
+  collapse_whitespace: true
+
+site:
+  title: "Overlord Character Wiki"
+  subtitle: "Spoiler-scoped. Set the volume you have read up to."
+  volume_labels_from_epub: true
+  default_upto: 5

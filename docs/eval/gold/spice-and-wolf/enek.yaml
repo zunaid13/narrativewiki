@@ -1,0 +1,34 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Added 2026-09-10 to grow gold-data coverage from 4 to 10
+# characters (Phase 22 C4). Enek is Norah Arendt's sheepdog, not a human -- kept as a gold entry
+# anyway because the gazetteer already carries him as a CHARACTER entity with his own page, and
+# his generated page (data/spice-and-wolf/05_pages/enek/v02.json, inspected before writing this
+# file) currently renders him with RELATIVE_OF Holo and FRIEND_OF Lawrence relationship rows that
+# nothing below actually supports -- exactly the kind of phantom-relationship noise Phase 22 C3's
+# `wiki verify` exists to catch, so this entry is deliberately useful for both harnesses.
+entity_id: enek
+canonical: Enek
+source_url: https://spiceandwolf.fandom.com/wiki/Enek
+transcribed: "2026-09-10"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - History
+
+facts:
+  - text: "Enek is a male sheepdog, the companion of Norah Arendt."
+    in_scope: true
+  - text: "Enek has thick, almost shaggy fur, black with white paws and a white muzzle."
+    in_scope: true
+  - text: "Norah found Enek beside the body of his previous owner, who had died, almost four years before the story begins."
+    in_scope: true
+  - text: "Norah adopting Enek let her start working as a shepherd for the Church."
+    in_scope: true
+
+# Phase 23 C3: promoted from this file's own header comment above (written 2026-09-10) to data --
+# the generated page's RELATIVE_OF Holo and FRIEND_OF Lawrence rows have no textual support at all.
+negative_facts:
+  - "Enek is not a relative of Holo."
+  - "Enek is not a friend of Kraft Lawrence."

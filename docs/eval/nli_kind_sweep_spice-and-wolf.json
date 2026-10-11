@@ -1,0 +1,1884 @@
+{
+  "series": "spice-and-wolf",
+  "volumes": [
+    1,
+    2
+  ],
+  "run_id": "20260921T053518-nli_kind_sweep-v1-2",
+  "method": "MiniCheck FT5, discovery-volume +/-4 context, max chunk support",
+  "scope": "every arbitration-scope claim with a support hypothesis template; a score DISTRIBUTION, not an accuracy benchmark -- these claims carry no correctness labels",
+  "by_kind": [
+    {
+      "label": "attribute",
+      "n": 97,
+      "median": 0.7778860330581665,
+      "p10": 0.0325736403465271,
+      "p90": 0.9721751809120178,
+      "flagged_at_0.5": 0.4020618556701031,
+      "flagged_at_0.1": 0.2268041237113402,
+      "flagged_at_0.02": 0.07216494845360824
+    },
+    {
+      "label": "relation",
+      "n": 109,
+      "median": 0.0969645157456398,
+      "p10": 0.022417837753891945,
+      "p90": 0.9275463819503784,
+      "flagged_at_0.5": 0.7614678899082569,
+      "flagged_at_0.1": 0.5229357798165137,
+      "flagged_at_0.02": 0.07339449541284404
+    }
+  ],
+  "by_predicate": [
+    {
+      "label": "att:OCCUPATION",
+      "n": 49,
+      "median": 0.8052726984024048,
+      "p10": 0.015416935086250305,
+      "p90": 0.9736499786376953,
+      "flagged_at_0.5": 0.3877551020408163,
+      "flagged_at_0.1": 0.24489795918367346,
+      "flagged_at_0.02": 0.10204081632653061
+    },
+    {
+      "label": "rel:AFFILIATED_WITH",
+      "n": 22,
+      "median": 0.8881933689117432,
+      "p10": 0.10066408663988113,
+      "p90": 0.9776095151901245,
+      "flagged_at_0.5": 0.2727272727272727,
+      "flagged_at_0.1": 0.09090909090909091,
+      "flagged_at_0.02": 0.045454545454545456
+    },
+    {
+      "label": "rel:ENEMY_OF",
+      "n": 20,
+      "median": 0.0650915764272213,
+      "p10": 0.04045011103153229,
+      "p90": 0.9169712662696838,
+      "flagged_at_0.5": 0.85,
+      "flagged_at_0.1": 0.7,
+      "flagged_at_0.02": 0.05
+    },
+    {
+      "label": "rel:COMRADE_OF",
+      "n": 18,
+      "median": 0.0866677388548851,
+      "p10": 0.024321500211954117,
+      "p90": 0.34731802344322205,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 0.5555555555555556,
+      "flagged_at_0.02": 0.05555555555555555
+    },
+    {
+      "label": "att:RANK",
+      "n": 18,
+      "median": 0.24934668838977814,
+      "p10": 0.017785120755434036,
+      "p90": 0.9593265056610107,
+      "flagged_at_0.5": 0.5555555555555556,
+      "flagged_at_0.1": 0.3888888888888889,
+      "flagged_at_0.02": 0.1111111111111111
+    },
+    {
+      "label": "rel:FRIEND_OF",
+      "n": 14,
+      "median": 0.0395047627389431,
+      "p10": 0.019382167607545853,
+      "p90": 0.9004855155944824,
+      "flagged_at_0.5": 0.9285714285714286,
+      "flagged_at_0.1": 0.8571428571428571,
+      "flagged_at_0.02": 0.21428571428571427
+    },
+    {
+      "label": "att:STATUS",
+      "n": 13,
+      "median": 0.8791662454605103,
+      "p10": 0.42652106285095215,
+      "p90": 0.9783768653869629,
+      "flagged_at_0.5": 0.23076923076923078,
+      "flagged_at_0.1": 0.07692307692307693,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:SAVED",
+      "n": 9,
+      "median": 0.3133653402328491,
+      "p10": 0.014430874958634377,
+      "p90": 0.9639201760292053,
+      "flagged_at_0.5": 0.6666666666666666,
+      "flagged_at_0.1": 0.2222222222222222,
+      "flagged_at_0.02": 0.1111111111111111
+    },
+    {
+      "label": "att:AGE",
+      "n": 6,
+      "median": 0.5626706853508949,
+      "p10": 0.05796487256884575,
+      "p90": 0.9397156834602356,
+      "flagged_at_0.5": 0.5,
+      "flagged_at_0.1": 0.16666666666666666,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "att:GENDER",
+      "n": 6,
+      "median": 0.9670248627662659,
+      "p10": 0.1674894094467163,
+      "p90": 0.9799872040748596,
+      "flagged_at_0.5": 0.16666666666666666,
+      "flagged_at_0.1": 0.0,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "att:ORIGIN",
+      "n": 5,
+      "median": 0.23166638612747192,
+      "p10": 0.0969645157456398,
+      "p90": 0.9176563024520874,
+      "flagged_at_0.5": 0.6,
+      "flagged_at_0.1": 0.2,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:COMMANDS",
+      "n": 5,
+      "median": 0.07136321067810059,
+      "p10": 0.05356023833155632,
+      "p90": 0.8435930013656616,
+      "flagged_at_0.5": 0.8,
+      "flagged_at_0.1": 0.6,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:KILLED",
+      "n": 4,
+      "median": 0.05547541752457619,
+      "p10": 0.022163329645991325,
+      "p90": 0.9328522682189941,
+      "flagged_at_0.5": 0.75,
+      "flagged_at_0.1": 0.75,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:SERVES_UNDER",
+      "n": 4,
+      "median": 0.024443051777780056,
+      "p10": 0.019830476492643356,
+      "p90": 0.18508665263652802,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 0.75,
+      "flagged_at_0.02": 0.25
+    },
+    {
+      "label": "rel:MENTOR_OF",
+      "n": 3,
+      "median": 0.03897673264145851,
+      "p10": 0.025293825194239616,
+      "p90": 0.5834271907806396,
+      "flagged_at_0.5": 0.6666666666666666,
+      "flagged_at_0.1": 0.6666666666666666,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:ROMANTIC_WITH",
+      "n": 3,
+      "median": 0.17365345358848572,
+      "p10": 0.04790892452001572,
+      "p90": 0.2775213122367859,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 0.3333333333333333,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:ORIGIN_FROM",
+      "n": 3,
+      "median": 0.0969645157456398,
+      "p10": 0.09637536108493805,
+      "p90": 0.20910464227199554,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 0.6666666666666666,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:RIVAL_OF",
+      "n": 2,
+      "median": 0.027296890504658222,
+      "p10": 0.027228234335780144,
+      "p90": 0.0273655466735363,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 1.0,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:SPOUSE_OF",
+      "n": 1,
+      "median": 0.3824831247329712,
+      "p10": 0.3824831247329712,
+      "p90": 0.3824831247329712,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 0.0,
+      "flagged_at_0.02": 0.0
+    },
+    {
+      "label": "rel:STUDENT_OF",
+      "n": 1,
+      "median": 0.05525477975606918,
+      "p10": 0.05525477975606918,
+      "p90": 0.05525477975606918,
+      "flagged_at_0.5": 1.0,
+      "flagged_at_0.1": 1.0,
+      "flagged_at_0.02": 0.0
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "c_0d5f6385",
+      "kind": "relation",
+      "predicate": "MENTOR_OF",
+      "score": 0.025293825194239616,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Kraft Lawrence is a mentor of Holo."
+    },
+    {
+      "claim_id": "c_15e35be2",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.07163804024457932,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a comrade of Holo."
+    },
+    {
+      "claim_id": "c_20779644",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.01677529513835907,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Kraft Lawrence is a member or willing associate of The Church."
+    },
+    {
+      "claim_id": "c_207f213a",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.8052726984024048,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence works as a traveling merchant."
+    },
+    {
+      "claim_id": "c_504a2f13",
+      "kind": "attribute",
+      "predicate": "AGE",
+      "score": 0.19087332487106323,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is 25 years old."
+    },
+    {
+      "claim_id": "c_5a1c7df9",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.212543785572052,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a friend of Yarei."
+    },
+    {
+      "claim_id": "c_61ce746d",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.05314319208264351,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is a friend of Holo."
+    },
+    {
+      "claim_id": "c_6322b276",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.5187724828720093,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence saved Holo."
+    },
+    {
+      "claim_id": "c_70cc4a7c",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.880679726600647,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a member or willing associate of Milone Company."
+    },
+    {
+      "claim_id": "c_c4d6db75",
+      "kind": "relation",
+      "predicate": "ROMANTIC_WITH",
+      "score": 0.17365345358848572,
+      "extracted_confidence": 0.97,
+      "hypothesis": "Kraft Lawrence is romantically involved with Holo."
+    },
+    {
+      "claim_id": "c_f646f7fc",
+      "kind": "attribute",
+      "predicate": "GENDER",
+      "score": 0.1674894094467163,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is male."
+    },
+    {
+      "claim_id": "c_08c99704",
+      "kind": "attribute",
+      "predicate": "ORIGIN",
+      "score": 0.0969645157456398,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is from Yoitsu."
+    },
+    {
+      "claim_id": "c_0d3d7fe2",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.06471972912549973,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Holo is an enemy of The Church."
+    },
+    {
+      "claim_id": "c_167645ef",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.06496160477399826,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo is an enemy of Milone Company."
+    },
+    {
+      "claim_id": "c_23aa9024",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9468743801116943,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo is a member or willing associate of Milone Company."
+    },
+    {
+      "claim_id": "c_30169bb5",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.4509584605693817,
+      "extracted_confidence": 0.7,
+      "hypothesis": "It is believed that Holo is missing in action."
+    },
+    {
+      "claim_id": "c_30b44b4a",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.06500627845525742,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo is an enemy of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_3666a984",
+      "kind": "relation",
+      "predicate": "ROMANTIC_WITH",
+      "score": 0.2775213122367859,
+      "extracted_confidence": 0.93,
+      "hypothesis": "It is not true that Holo is romantically involved with Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_40e9afab",
+      "kind": "attribute",
+      "predicate": "ORIGIN",
+      "score": 0.23166638612747192,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo is from harvest god."
+    },
+    {
+      "claim_id": "c_55a96179",
+      "kind": "relation",
+      "predicate": "ORIGIN_FROM",
+      "score": 0.0969645157456398,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo is from Yoitsu."
+    },
+    {
+      "claim_id": "c_56e90d72",
+      "kind": "relation",
+      "predicate": "MENTOR_OF",
+      "score": 0.03897673264145851,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is a mentor of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_71c04ec4",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.1745743304491043,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo is a comrade of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_8eb4bb2d",
+      "kind": "relation",
+      "predicate": "SPOUSE_OF",
+      "score": 0.3824831247329712,
+      "extracted_confidence": 1.0,
+      "hypothesis": "It is not true that Holo is married to Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_9f760f46",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.05491926893591881,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is an enemy of Medio Company."
+    },
+    {
+      "claim_id": "c_a4d09847",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.04045011103153229,
+      "extracted_confidence": 0.72,
+      "hypothesis": "Holo is an enemy of Weiz."
+    },
+    {
+      "claim_id": "c_d2764827",
+      "kind": "attribute",
+      "predicate": "GENDER",
+      "score": 0.9799872040748596,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo is female."
+    },
+    {
+      "claim_id": "c_d581bae9",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.15171872079372406,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo's rank is centuries-old harvest god."
+    },
+    {
+      "claim_id": "c_d6560f96",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.9734280705451965,
+      "extracted_confidence": 1.0,
+      "hypothesis": "It is believed that Holo is captured."
+    },
+    {
+      "claim_id": "c_da612ddb",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.3784279227256775,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo saved Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_dbee312f",
+      "kind": "relation",
+      "predicate": "KILLED",
+      "score": 0.9328522682189941,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo killed Yarei."
+    },
+    {
+      "claim_id": "c_deaafccb",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.04159672185778618,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is a friend of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_11c18894",
+      "kind": "attribute",
+      "predicate": "GENDER",
+      "score": 0.9618745446205139,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Marheit is male."
+    },
+    {
+      "claim_id": "c_3c53bdfa",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.9454134106636047,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Marheit is alive."
+    },
+    {
+      "claim_id": "c_b07cbdfc",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9314662218093872,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Marheit is a member or willing associate of Milone Company."
+    },
+    {
+      "claim_id": "c_b3fe4796",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.9466491341590881,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Marheit's rank is branch manager."
+    },
+    {
+      "claim_id": "c_c0133109",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.8329885601997375,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Marheit works as a merchant."
+    },
+    {
+      "claim_id": "c_d61519a6",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.9562917947769165,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Marheit's rank is head of the Milone Company\u2019s Pazzio branch."
+    },
+    {
+      "claim_id": "c_e1515a67",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.029029062017798424,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Marheit is a comrade of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_f178144c",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9736499786376953,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Marheit works as a trader."
+    },
+    {
+      "claim_id": "c_1bef3c92",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.012511956505477428,
+      "extracted_confidence": 0.97,
+      "hypothesis": "Zheren is an enemy of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_390beeb9",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.935359001159668,
+      "extracted_confidence": 0.94,
+      "hypothesis": "It is believed that Zheren works as a agent who targets traveling merchants on behalf of the Medio Company."
+    },
+    {
+      "claim_id": "c_42cdd7d6",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.5257263779640198,
+      "extracted_confidence": 0.92,
+      "hypothesis": "It is believed that Zheren is a member or willing associate of Medio Company."
+    },
+    {
+      "claim_id": "c_5f67be17",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9289264678955078,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Zheren works as a merchant."
+    },
+    {
+      "claim_id": "c_69c544fd",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.04829420521855354,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Zheren saved Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_d11b6660",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.09070064127445221,
+      "extracted_confidence": 0.82,
+      "hypothesis": "Zheren is a comrade of Medio Company."
+    },
+    {
+      "claim_id": "c_0d3bae07",
+      "kind": "relation",
+      "predicate": "ORIGIN_FROM",
+      "score": 0.09637536108493805,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Yarei is from Pasloe."
+    },
+    {
+      "claim_id": "c_39f77bc0",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.14983004331588745,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Yarei is an enemy of Holo."
+    },
+    {
+      "claim_id": "c_63fd10fb",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.23972326517105103,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Yarei works as a village wheat negotiator."
+    },
+    {
+      "claim_id": "c_921a57fb",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9002960324287415,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Yarei is a member or willing associate of Medio Company."
+    },
+    {
+      "claim_id": "c_f5bb5d56",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.642865777015686,
+      "extracted_confidence": 0.97,
+      "hypothesis": "Yarei is captured."
+    },
+    {
+      "claim_id": "c_7d73c258",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.013267631642520428,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Weiz works as a money changer."
+    },
+    {
+      "claim_id": "c_ba86db98",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.0279651191085577,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Weiz is a friend of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_144b6db6",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.924469530582428,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Count Ehrendott works as a manager of the land."
+    },
+    {
+      "claim_id": "c_b682e283",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.6415221691131592,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Count Ehrendott is a member or willing associate of Medio Company."
+    },
+    {
+      "claim_id": "c_078774b0",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.9169712662696838,
+      "extracted_confidence": 0.97,
+      "hypothesis": "The Church is an enemy of Milone Company."
+    },
+    {
+      "claim_id": "c_1b3d589d",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.8911591172218323,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Weiz works as a cambist."
+    },
+    {
+      "claim_id": "c_1d67004f",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.062369637191295624,
+      "extracted_confidence": 0.8,
+      "hypothesis": "Kraft Lawrence is free man."
+    },
+    {
+      "claim_id": "c_22543e16",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9747819304466248,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Marheit works as a head of the Milone Company\u2019s Pazzio branch."
+    },
+    {
+      "claim_id": "c_2c6ba49a",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.709660530090332,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Zheren works as a young merchant."
+    },
+    {
+      "claim_id": "c_384b3c70",
+      "kind": "attribute",
+      "predicate": "AGE",
+      "score": 0.23066963255405426,
+      "extracted_confidence": 0.95,
+      "hypothesis": "Holo is barely in her mid-teens in apparent human age years old."
+    },
+    {
+      "claim_id": "c_43ad83bf",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.05114910751581192,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is an enemy of Medio Company."
+    },
+    {
+      "claim_id": "c_4d891a4a",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.02730705961585045,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Medio Company is an enemy of Milone Company."
+    },
+    {
+      "claim_id": "c_57155d72",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.21136486530303955,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Marheit's rank is branch supervisor."
+    },
+    {
+      "claim_id": "c_5a18861e",
+      "kind": "attribute",
+      "predicate": "ORIGIN",
+      "score": 0.9093232750892639,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is from the north country."
+    },
+    {
+      "claim_id": "c_5fe285d7",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.011514030396938324,
+      "extracted_confidence": 0.9,
+      "hypothesis": "It is believed that Holo works as a harvest god."
+    },
+    {
+      "claim_id": "c_70da8935",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.10326610505580902,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is a comrade of Yarei."
+    },
+    {
+      "claim_id": "c_759fbd40",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.6600079536437988,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence works as a prospective town merchant."
+    },
+    {
+      "claim_id": "c_7e342a46",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.9783768653869629,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Yarei is unconscious."
+    },
+    {
+      "claim_id": "c_9efc889d",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.7555097937583923,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is alive."
+    },
+    {
+      "claim_id": "c_d295ee4f",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.16331641376018524,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is a member or willing associate of Medio Company."
+    },
+    {
+      "claim_id": "c_d68f002c",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.10066408663988113,
+      "extracted_confidence": 0.98,
+      "hypothesis": "The Church is a member or willing associate of The Church."
+    },
+    {
+      "claim_id": "c_dfcf51bb",
+      "kind": "attribute",
+      "predicate": "AGE",
+      "score": 0.05796487256884575,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is centuries old years old."
+    },
+    {
+      "claim_id": "c_eb7b6078",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9631466865539551,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo works as a harvest deity."
+    },
+    {
+      "claim_id": "c_ee8f9df7",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9711761474609375,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Marheit works as a trader who opened a branch in a foreign land."
+    },
+    {
+      "claim_id": "c_fbe53102",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9606321454048157,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Marheit works as a branch manager."
+    },
+    {
+      "claim_id": "c_00d70f77",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9755208492279053,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence works as a traveling merchant."
+    },
+    {
+      "claim_id": "c_079449c5",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.7473470568656921,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence's rank is third-rate merchant."
+    },
+    {
+      "claim_id": "c_1a486ebd",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.8859783411026001,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is alive."
+    },
+    {
+      "claim_id": "c_2c6d6f4a",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.10666060447692871,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a comrade of Liebert."
+    },
+    {
+      "claim_id": "c_37bd7183",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.7390516996383667,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence works as a merchant."
+    },
+    {
+      "claim_id": "c_3aa784dc",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.03741280362010002,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Kraft Lawrence is a friend of Jakob."
+    },
+    {
+      "claim_id": "c_3f0f5065",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.082634836435318,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Kraft Lawrence is a comrade of Norah Arendt."
+    },
+    {
+      "claim_id": "c_4a51a746",
+      "kind": "relation",
+      "predicate": "MENTOR_OF",
+      "score": 0.5834271907806396,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a mentor of Holo."
+    },
+    {
+      "claim_id": "c_51a5bbc5",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9566773176193237,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a member or willing associate of Rowen Trade Guild."
+    },
+    {
+      "claim_id": "c_58747421",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.8111482262611389,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is captured."
+    },
+    {
+      "claim_id": "c_75737e51",
+      "kind": "attribute",
+      "predicate": "AGE",
+      "score": 0.9397156834602356,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is around twenty-five years old."
+    },
+    {
+      "claim_id": "c_7b164611",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9187276363372803,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is a member or willing associate of Remelio Company."
+    },
+    {
+      "claim_id": "c_7ebf958c",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.019494682550430298,
+      "extracted_confidence": 0.94,
+      "hypothesis": "Kraft Lawrence is a friend of Norah Arendt."
+    },
+    {
+      "claim_id": "c_9743373c",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.0158402007073164,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Kraft Lawrence's rank is knight of low rank."
+    },
+    {
+      "claim_id": "c_98f42c6f",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.03171635419130325,
+      "extracted_confidence": 0.94,
+      "hypothesis": "Kraft Lawrence is a friend of Liebert."
+    },
+    {
+      "claim_id": "c_99a91b99",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.9106969237327576,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence saved Holo."
+    },
+    {
+      "claim_id": "c_ca7f3c69",
+      "kind": "relation",
+      "predicate": "SERVES_UNDER",
+      "score": 0.026785070076584816,
+      "extracted_confidence": 0.82,
+      "hypothesis": "Kraft Lawrence serves under Holo."
+    },
+    {
+      "claim_id": "c_d2187b6f",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.9004855155944824,
+      "extracted_confidence": 1.0,
+      "hypothesis": "It is believed that Kraft Lawrence is a friend of Holo."
+    },
+    {
+      "claim_id": "c_e4b2ee9c",
+      "kind": "relation",
+      "predicate": "KILLED",
+      "score": 0.037159547209739685,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence killed Liebert."
+    },
+    {
+      "claim_id": "c_ebfa4ec1",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.2088940441608429,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is a comrade of Holo."
+    },
+    {
+      "claim_id": "c_f7c92957",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.8543152809143066,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence is a member or willing associate of Latparron Trading Company."
+    },
+    {
+      "claim_id": "c_075994e9",
+      "kind": "relation",
+      "predicate": "SERVES_UNDER",
+      "score": 0.019830476492643356,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo serves under Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_336c90a2",
+      "kind": "attribute",
+      "predicate": "ORIGIN",
+      "score": 0.9176563024520874,
+      "extracted_confidence": 0.95,
+      "hypothesis": "Holo is from Yoitsu."
+    },
+    {
+      "claim_id": "c_3e6ff778",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.09479518234729767,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Holo works as a aspiring merchant woman."
+    },
+    {
+      "claim_id": "c_434ff244",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.3133653402328491,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo saved Norah Arendt."
+    },
+    {
+      "claim_id": "c_5107a305",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.8791662454605103,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo is alive."
+    },
+    {
+      "claim_id": "c_53a52f5f",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.8665279746055603,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is an enemy of Norah Arendt."
+    },
+    {
+      "claim_id": "c_5689c277",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.9275463819503784,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Holo is an enemy of Remelio Company."
+    },
+    {
+      "claim_id": "c_758a0840",
+      "kind": "attribute",
+      "predicate": "AGE",
+      "score": 0.8999620079994202,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo is hundreds of years old years old."
+    },
+    {
+      "claim_id": "c_785ff8e7",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.06313906610012054,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Holo works as a traveling companion to Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_99329e23",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9809854626655579,
+      "extracted_confidence": 0.99,
+      "hypothesis": "It is believed that Holo is a member or willing associate of Remelio Company."
+    },
+    {
+      "claim_id": "c_9bbdb658",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.3759951889514923,
+      "extracted_confidence": 0.85,
+      "hypothesis": "It is believed that Holo works as a shepherd."
+    },
+    {
+      "claim_id": "c_a04852df",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.060936156660318375,
+      "extracted_confidence": 0.95,
+      "hypothesis": "Holo works as a merchant."
+    },
+    {
+      "claim_id": "c_aee6b94c",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.060710422694683075,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is a friend of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_b49dfd85",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.041418664157390594,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo is a comrade of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_b5e7a877",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.9639201760292053,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo saved Liebert."
+    },
+    {
+      "claim_id": "c_b7797129",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9189608097076416,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo works as a apprentice."
+    },
+    {
+      "claim_id": "c_bf4ab625",
+      "kind": "relation",
+      "predicate": "ROMANTIC_WITH",
+      "score": 0.04790892452001572,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Holo is romantically involved with Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_c4a9a8f8",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.2617834210395813,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo saved Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_cef94e9d",
+      "kind": "relation",
+      "predicate": "KILLED",
+      "score": 0.022163329645991325,
+      "extracted_confidence": 0.91,
+      "hypothesis": "Holo killed Pazzio."
+    },
+    {
+      "claim_id": "c_e5547441",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.03252417594194412,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo's rank is god."
+    },
+    {
+      "claim_id": "c_f9044bb8",
+      "kind": "relation",
+      "predicate": "STUDENT_OF",
+      "score": 0.05525477975606918,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is a student of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_fed8bce9",
+      "kind": "relation",
+      "predicate": "KILLED",
+      "score": 0.07379128783941269,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo killed Liebert."
+    },
+    {
+      "claim_id": "c_0e29ac2e",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.09884772449731827,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Norah Arendt's rank is shepherdess."
+    },
+    {
+      "claim_id": "c_34a6cbfe",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.7778860330581665,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Norah Arendt works as a shepherdess."
+    },
+    {
+      "claim_id": "c_435cdcf4",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.8376089334487915,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Norah Arendt is a member or willing associate of The Church."
+    },
+    {
+      "claim_id": "c_4cec2474",
+      "kind": "relation",
+      "predicate": "ORIGIN_FROM",
+      "score": 0.20910464227199554,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Norah Arendt is from Ruvinheigen."
+    },
+    {
+      "claim_id": "c_527f850d",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.022417837753891945,
+      "extracted_confidence": 0.88,
+      "hypothesis": "It is believed that Norah Arendt is a friend of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_65dbc9de",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.09713367372751236,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Norah Arendt is an enemy of Liebert."
+    },
+    {
+      "claim_id": "c_6dfc7b44",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.2259904146194458,
+      "extracted_confidence": 0.94,
+      "hypothesis": "It is believed that Norah Arendt is a comrade of Liebert."
+    },
+    {
+      "claim_id": "c_705fe36d",
+      "kind": "relation",
+      "predicate": "RIVAL_OF",
+      "score": 0.027228234335780144,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Norah Arendt is a rival of Holo."
+    },
+    {
+      "claim_id": "c_7372edec",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.05649411305785179,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Norah Arendt is an enemy of Remelio Company."
+    },
+    {
+      "claim_id": "c_808c141a",
+      "kind": "relation",
+      "predicate": "COMMANDS",
+      "score": 0.05356023833155632,
+      "extracted_confidence": 0.95,
+      "hypothesis": "Norah Arendt commands Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_81848e1c",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.06517687439918518,
+      "extracted_confidence": 0.82,
+      "hypothesis": "It is believed that Norah Arendt is an enemy of Holo."
+    },
+    {
+      "claim_id": "c_8b4cbbbe",
+      "kind": "attribute",
+      "predicate": "GENDER",
+      "score": 0.6999583840370178,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Norah Arendt is female."
+    },
+    {
+      "claim_id": "c_93501446",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.34731802344322205,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Norah Arendt is a comrade of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_939ae632",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.20085376501083374,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Norah Arendt is a comrade of Holo."
+    },
+    {
+      "claim_id": "c_9a0792aa",
+      "kind": "relation",
+      "predicate": "COMMANDS",
+      "score": 0.0667634904384613,
+      "extracted_confidence": 0.89,
+      "hypothesis": "Norah Arendt commands Liebert."
+    },
+    {
+      "claim_id": "c_a26dd129",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.9436857104301453,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Norah Arendt is alive."
+    },
+    {
+      "claim_id": "c_a97ac1ae",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.1095886081457138,
+      "extracted_confidence": 0.97,
+      "hypothesis": "Norah Arendt works as a escort."
+    },
+    {
+      "claim_id": "c_b39df845",
+      "kind": "relation",
+      "predicate": "COMMANDS",
+      "score": 0.15797385573387146,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Norah Arendt commands Enek."
+    },
+    {
+      "claim_id": "c_c4e21ce7",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.014430874958634377,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Norah Arendt saved Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_d23173e4",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.960500180721283,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Norah Arendt works as a shepherd."
+    },
+    {
+      "claim_id": "c_e41cfc4d",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.046443499624729156,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Norah Arendt is a friend of Enek."
+    },
+    {
+      "claim_id": "c_f5406a17",
+      "kind": "relation",
+      "predicate": "SERVES_UNDER",
+      "score": 0.022101033478975296,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Norah Arendt serves under Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_f57adb3f",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9776095151901245,
+      "extracted_confidence": 0.94,
+      "hypothesis": "It is believed that Norah Arendt is a member or willing associate of Remelio Company."
+    },
+    {
+      "claim_id": "c_f6d4c656",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.8084278702735901,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Norah Arendt's rank is held an indispensable standing in the city."
+    },
+    {
+      "claim_id": "c_0f25cdbf",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.9553999900817871,
+      "extracted_confidence": 0.99,
+      "hypothesis": "It is believed that Liebert is alive."
+    },
+    {
+      "claim_id": "c_11d8918a",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.06030445545911789,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Liebert is a comrade of Norah Arendt."
+    },
+    {
+      "claim_id": "c_1a65770a",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.024321500211954117,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert is a comrade of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_20b5c62e",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.06820447742938995,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert's rank is young employee."
+    },
+    {
+      "claim_id": "c_2568ed8a",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9756423234939575,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert works as a trusted employee of a trading company in a big city."
+    },
+    {
+      "claim_id": "c_5a7a734d",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9341567158699036,
+      "extracted_confidence": 0.97,
+      "hypothesis": "Liebert works as a merchant."
+    },
+    {
+      "claim_id": "c_5b87cedd",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.2873285114765167,
+      "extracted_confidence": 0.78,
+      "hypothesis": "Liebert's rank is superior."
+    },
+    {
+      "claim_id": "c_5e884c29",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.10338140279054642,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert is a comrade of Holo."
+    },
+    {
+      "claim_id": "c_7b3863f1",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.06750509142875671,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert works as a employee."
+    },
+    {
+      "claim_id": "c_91ba7b35",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9719176888465881,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Liebert works as a young employee."
+    },
+    {
+      "claim_id": "c_9f1203ad",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.1287686824798584,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert is an enemy of Norah Arendt."
+    },
+    {
+      "claim_id": "c_a3194897",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.5744678974151611,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert's rank is young manager."
+    },
+    {
+      "claim_id": "c_a80be9c9",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9322509765625,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Liebert is a member or willing associate of Remelio Company."
+    },
+    {
+      "claim_id": "c_a94d8c0f",
+      "kind": "attribute",
+      "predicate": "GENDER",
+      "score": 0.9789942502975464,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert is male."
+    },
+    {
+      "claim_id": "c_f4f0e6fd",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.08077863603830338,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert is an enemy of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_21dcf772",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.8626176118850708,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Jakob works as a master of the Ruvinheigen branch of the Rowen Trade Guild."
+    },
+    {
+      "claim_id": "c_2b8ce51f",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.017785120755434036,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Jakob's rank is chief."
+    },
+    {
+      "claim_id": "c_300f0701",
+      "kind": "relation",
+      "predicate": "COMMANDS",
+      "score": 0.07136321067810059,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Jakob commands Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_3dcab75c",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.0325736403465271,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Jakob's rank is chief of the Rowen Trade Guild."
+    },
+    {
+      "claim_id": "c_53aa5631",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.012527153827250004,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Jakob works as a Rowen Trade Guild official."
+    },
+    {
+      "claim_id": "c_6702ee38",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9015159606933594,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Jakob is a member or willing associate of Rowen Trade Guild."
+    },
+    {
+      "claim_id": "c_f3aa564a",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.018174637109041214,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Jakob is a friend of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_093cc49a",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.07432480156421661,
+      "extracted_confidence": 0.86,
+      "hypothesis": "Enek is a friend of Holo."
+    },
+    {
+      "claim_id": "c_31dcf463",
+      "kind": "attribute",
+      "predicate": "GENDER",
+      "score": 0.9721751809120178,
+      "extracted_confidence": 0.94,
+      "hypothesis": "It is believed that Enek is male."
+    },
+    {
+      "claim_id": "c_537ec1ea",
+      "kind": "relation",
+      "predicate": "SAVED",
+      "score": 0.25107473134994507,
+      "extracted_confidence": 0.88,
+      "hypothesis": "Enek saved Norah Arendt."
+    },
+    {
+      "claim_id": "c_7a0918bc",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.04063041880726814,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Enek is a comrade of Norah Arendt."
+    },
+    {
+      "claim_id": "c_7ce77153",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.04587976634502411,
+      "extracted_confidence": 0.94,
+      "hypothesis": "Enek works as a working sheepdog."
+    },
+    {
+      "claim_id": "c_b8379565",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.03827764093875885,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Enek's rank is shepherd dog."
+    },
+    {
+      "claim_id": "c_bd33aad6",
+      "kind": "relation",
+      "predicate": "FRIEND_OF",
+      "score": 0.019382167607545853,
+      "extracted_confidence": 0.99,
+      "hypothesis": "It is believed that Enek is a friend of Norah Arendt."
+    },
+    {
+      "claim_id": "c_cb0ab676",
+      "kind": "relation",
+      "predicate": "SERVES_UNDER",
+      "score": 0.18508665263652802,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Enek serves under Norah Arendt."
+    },
+    {
+      "claim_id": "c_de3cd49f",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9217779636383057,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Enek works as a sheepdog."
+    },
+    {
+      "claim_id": "c_d60f16f1",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9300955533981323,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Weiz works as a money changer."
+    },
+    {
+      "claim_id": "c_734e3b9b",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.9593265056610107,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Hans Remelio's rank is master."
+    },
+    {
+      "claim_id": "c_a411f9c6",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9675707221031189,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Hans Remelio works as a master of the Remelio Company."
+    },
+    {
+      "claim_id": "c_fba3b75d",
+      "kind": "relation",
+      "predicate": "COMMANDS",
+      "score": 0.8435930013656616,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Hans Remelio commands Liebert."
+    },
+    {
+      "claim_id": "c_00a28f47",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.058155957609415054,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Kraft Lawrence is an enemy of Liebert."
+    },
+    {
+      "claim_id": "c_0176bf61",
+      "kind": "attribute",
+      "predicate": "AGE",
+      "score": 0.8946717381477356,
+      "extracted_confidence": 0.94,
+      "hypothesis": "It is believed that Norah Arendt is at most seventeen or eighteen years old."
+    },
+    {
+      "claim_id": "c_049e3a46",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.15592257678508759,
+      "extracted_confidence": 0.94,
+      "hypothesis": "Holo works as a travel companion and guarantor of safe travels."
+    },
+    {
+      "claim_id": "c_04df3608",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.011352039873600006,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Enek is a comrade of Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_089b49cd",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.026078978553414345,
+      "extracted_confidence": 0.97,
+      "hypothesis": "Holo works as a Kraft Lawrence's travel companion."
+    },
+    {
+      "claim_id": "c_1173354e",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.38687658309936523,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Pazzio is a member or willing associate of Milone Company."
+    },
+    {
+      "claim_id": "c_13609e80",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.5039781928062439,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Jakob works as a member of the Rowen Trade Guild."
+    },
+    {
+      "claim_id": "c_1cbcad91",
+      "kind": "attribute",
+      "predicate": "STATUS",
+      "score": 0.42652106285095215,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is true wolf form accepted by Kraft Lawrence."
+    },
+    {
+      "claim_id": "c_2782c7aa",
+      "kind": "relation",
+      "predicate": "RIVAL_OF",
+      "score": 0.0273655466735363,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is a rival of Norah Arendt."
+    },
+    {
+      "claim_id": "c_2fd92047",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.1638030707836151,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Poroson is a member or willing associate of Latparron Trading Company."
+    },
+    {
+      "claim_id": "c_335af565",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.1250029355287552,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Kraft Lawrence works as a manager of the Latparron Trading Company."
+    },
+    {
+      "claim_id": "c_33bc24c1",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.9493141770362854,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Latparron Trading Company's rank is soon to have its fiftieth master."
+    },
+    {
+      "claim_id": "c_51597cb3",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.16082407534122467,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is an enemy of The Church."
+    },
+    {
+      "claim_id": "c_56ca3f7b",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.9691100716590881,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Latparron Trading Company is a member or willing associate of The Church."
+    },
+    {
+      "claim_id": "c_67cd4f49",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.8957070112228394,
+      "extracted_confidence": 0.8,
+      "hypothesis": "It is believed that Kraft Lawrence is a member or willing associate of The Church."
+    },
+    {
+      "claim_id": "c_716edea4",
+      "kind": "relation",
+      "predicate": "COMRADE_OF",
+      "score": 0.07777876406908035,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Kraft Lawrence is a comrade of Jakob."
+    },
+    {
+      "claim_id": "c_7e64300a",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9067874550819397,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Jakob works as a runs the guild house in this city."
+    },
+    {
+      "claim_id": "c_8bf3bfe2",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.330605149269104,
+      "extracted_confidence": 0.9,
+      "hypothesis": "Jakob works as a trade-guild manager."
+    },
+    {
+      "claim_id": "c_97d6e91e",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9682513475418091,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Liebert works as a employee of the Remelio Company."
+    },
+    {
+      "claim_id": "c_a0992ea3",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.013266182504594326,
+      "extracted_confidence": 0.9,
+      "hypothesis": "It is believed that Liebert works as a company manager involved in the smuggling plan."
+    },
+    {
+      "claim_id": "c_a2be864e",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9610735177993774,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Liebert works as a spirited young employee entrusted with an important job."
+    },
+    {
+      "claim_id": "c_af392d88",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.17248575389385223,
+      "extracted_confidence": 1.0,
+      "hypothesis": "Holo works as a wolf."
+    },
+    {
+      "claim_id": "c_ba28323d",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.08935266733169556,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Holo works as a wolf-god."
+    },
+    {
+      "claim_id": "c_c83176e5",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.015416935086250305,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Jakob works as a guild master tending the Rowen Trade Guild front counter."
+    },
+    {
+      "claim_id": "c_cac7b209",
+      "kind": "relation",
+      "predicate": "ENEMY_OF",
+      "score": 0.09706997871398926,
+      "extracted_confidence": 0.92,
+      "hypothesis": "It is believed that Holo is an enemy of Enek."
+    },
+    {
+      "claim_id": "c_cbf04df9",
+      "kind": "attribute",
+      "predicate": "ORIGIN",
+      "score": 0.15135714411735535,
+      "extracted_confidence": 0.96,
+      "hypothesis": "Holo is from the taiga in the distant north."
+    },
+    {
+      "claim_id": "c_d8542518",
+      "kind": "attribute",
+      "predicate": "RANK",
+      "score": 0.8690198063850403,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Jakob's rank is master of the Ruvinheigen branch of the Rowen Trade Guild."
+    },
+    {
+      "claim_id": "c_e2ea02fb",
+      "kind": "attribute",
+      "predicate": "OCCUPATION",
+      "score": 0.9367047548294067,
+      "extracted_confidence": 0.98,
+      "hypothesis": "Jakob works as a master of merchants."
+    },
+    {
+      "claim_id": "c_fe83bb1d",
+      "kind": "relation",
+      "predicate": "AFFILIATED_WITH",
+      "score": 0.02573303133249283,
+      "extracted_confidence": 0.99,
+      "hypothesis": "Holo is a member or willing associate of The Church."
+    }
+  ]
+}

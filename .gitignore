@@ -1,0 +1,37 @@
+# Source texts — copyrighted, never committed
+corpus/
+
+# Claude Code tooling (worktrees under here can carry their own .env with real secrets)
+.claude/
+
+# Regenerable stage outputs
+data/
+dist/
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Node (web/)
+node_modules/
+web/dist/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# Reference PDFs pulled for citation verification.
+# docs/Sample_Research_Related/
+
+# graphify knowledge graph (regenerate with `graphify update .`)
+graphify-out/
+.venv-b3/

@@ -1,0 +1,90 @@
+# Phase 32 multi-cutoff gold for Spice and Wolf, volumes 1-5 (plan 0011 S6).
+# Hand-written 2026-09-27 from what each volume's text establishes; every `evidence` para_id was
+# found by search and its paragraph read (data/spice-and-wolf/01_parsed/v0N.jsonl). A fact's
+# volume is its evidence id's volume: at cutoff t it is a `control` fact (should be on the page,
+# recall) when first_vol <= t and a `future` fact (must not be, leak) when first_vol > t.
+# Scored by scripts/eval/pipeline_page_leak.py (MiniCheck + lexical markers, then read by hand).
+# `keywords` are lexical markers of a later fact; ones already in the volumes <= t text are
+# dropped at run time. Character keys must equal the gazetteer's canonical names.
+series: spice-and-wolf
+characters:
+  Holo:
+    facts:
+      - {claim: "Holo is a wolf spirit who lives in the wheat of Pasloe's harvest.", evidence: v01:c01:p0321}
+      - {claim: "Holo calls herself Holo the Wisewolf.", evidence: v01:c01:p0315}
+      - {claim: "Holo comes from Yoitsu, a place in the north, and wants to know how it is.", evidence: v01:c01:p0215}
+      - {claim: "Holo takes her true form as a giant wolf to protect Lawrence underground.", evidence: v01:c07:p0037}
+      - {claim: "Holo suggests smuggling gold into Ruvinheigen.", evidence: v02:c03:p0573, keywords: ["smuggling in gold", "smuggle gold"]}
+      - {claim: "Amati proposes marriage to Holo.", evidence: v03:c02:p0045, keywords: ["Amati", "proposal of marriage"]}
+      - {claim: "Holo's homeland Yoitsu is said to have been destroyed by the Moon-Hunting Bear.", evidence: v03:c01:p0508, keywords: ["Moon-Hunting Bear", "bear spirit"]}
+  Kraft Lawrence:
+    facts:
+      - {claim: "Lawrence is a traveling merchant, twenty-five years old.", evidence: v01:c01:p0101}
+      - {claim: "Lawrence apprenticed under a relative at twelve and set out on his own at eighteen.", evidence: v01:c01:p0101}
+      - {claim: "Lawrence's dream is to open his own shop.", evidence: v01:c07:p0056}
+      - {claim: "Lawrence is stabbed in the arm while escaping the Medio Company.", evidence: v01:c07:p0071}
+      - {claim: "Lawrence falls into debt when the price of the armor he bought on credit collapses.", evidence: v02:c03:p0031, keywords: ["armor"]}
+      - {claim: "Lawrence jokingly calls himself the son of the great Jakob Tarantino.", evidence: v02:c02:p0182, keywords: ["Tarantino"]}
+      - {claim: "Lawrence searches for Diendran Abbey to find Father Franz's records.", evidence: v04:c02:p0061, keywords: ["Diendran"]}
+      - {claim: "Arold offers to turn his inn over to Lawrence.", evidence: v05:c03:p0009, keywords: ["inn management", "take over the inn"]}
+  Zheren:
+    facts:
+      - {claim: "Lawrence pays Zheren ten trenni for information.", evidence: v01:c03:p0325}
+      - {claim: "Zheren was hired to buy up silver coins for another party, the Medio Company.", evidence: v01:c03:p0545}
+  Marheit:
+    facts:
+      - {claim: "Marheit runs the Milone Company's branch.", evidence: v01:c06:p0055}
+  Yarei:
+    facts:
+      - {claim: "Yarei is a friend of Lawrence from the village of Pasloe.", evidence: v01:c01:p0329}
+      - {claim: "Yarei is connected with the Medio Company.", evidence: v01:c06:p0178}
+  Norah Arendt:
+    facts:
+      - {claim: "Norah is a shepherd girl in Ruvinheigen.", evidence: v02:c02:p0204}
+      - {claim: "Norah's sheepdog is Enek.", evidence: v02:c01:p0376}
+      - {claim: "Norah joins the scheme to smuggle gold into Ruvinheigen with her flock.", evidence: v02:c04:p0200}
+      - {claim: "Norah planned to join the tailors guild.", evidence: v02:c04:p0164}
+  Liebert:
+    facts:
+      - {claim: "Liebert is Marten Liebert of the Remelio Company.", evidence: v02:c04:p0269}
+      - {claim: "Hans Remelio entrusted Liebert with smuggling in the gold.", evidence: v02:c04:p0281}
+  Jakob:
+    facts:
+      - {claim: "Jakob is the master of the trading house Lawrence belongs to in Ruvinheigen.", evidence: v02:c02:p0184}
+  Amati:
+    facts:
+      - {claim: "Amati, full name Fermi Amati, is a young fish merchant from Kumersun.", evidence: v03:c00:p0173}
+      - {claim: "Amati proposes marriage to Holo.", evidence: v03:c02:p0045}
+      - {claim: "Amati offers Lawrence a contract over Holo's debt.", evidence: v03:c02:p0044}
+  Diana:
+    facts:
+      - {claim: "Diana is a chronicler who loves the old pagan tales.", evidence: v03:c01:p0533}
+      - {claim: "Diana tells of the Moon-Hunting Bear and the village of Yoitsu it destroyed.", evidence: v03:c01:p0508}
+  Mark:
+    facts:
+      - {claim: "Mark is a wheat merchant in Kumersun.", evidence: v03:c01:p0080}
+      - {claim: "Mark is fond of his apprentice Landt.", evidence: v03:c04:p0052}
+  Elsa:
+    facts:
+      - {claim: "Elsa has charge of the church in Tereo after Father Franz.", evidence: v04:c01:p0088}
+      - {claim: "Father Franz took Elsa in more than ten years ago.", evidence: v04:c01:p0093}
+      - {claim: "Elsa's church is Diendran Abbey, which holds Father Franz's collected records.", evidence: v04:c02:p0077}
+  Evan:
+    facts:
+      - {claim: "Evan is the miller of Tereo.", evidence: v04:c00:p0454}
+      - {claim: "Evan explains that Enberch buys all of Tereo's wheat at a fixed price.", evidence: v04:c01:p0387}
+  Father Franz:
+    facts:
+      - {claim: "Father Franz died in the summer.", evidence: v04:c00:p0311}
+      - {claim: "Father Franz was also Louis Lana Schtinghilt, abbot of Diendran Abbey.", evidence: v04:c02:p0072}
+  Eve:
+    facts:
+      - {claim: "Eve's name is Fleur Bolan, but she goes by Eve.", evidence: v05:c02:p0429}
+  Arold:
+    facts:
+      - {claim: "Arold is an innkeeper in Lenos.", evidence: v05:c01:p0235}
+      - {claim: "Arold would turn the inn's management over to Lawrence.", evidence: v05:c03:p0009}
+  Rigolo:
+    facts:
+      - {claim: "Rigolo is the town chronicler and secretary of the Council of Fifty.", evidence: v05:c02:p0296}
+      - {claim: "Rigolo trusts Fleur (Eve).", evidence: v05:c02:p0802}

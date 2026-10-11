@@ -1,0 +1,52 @@
+{
+  "series": "bookworm",
+  "passed": 7,
+  "judged": 9,
+  "rows": [
+    [
+      "PASS",
+      "same_entity",
+      "['Effa', 'Mom'] -> ['effa']"
+    ],
+    [
+      "FAIL",
+      "same_entity",
+      "['Myne', 'Urano Motosu', 'Super Monster Bookworm'] -> ['myne', 'super-monster-bookworm']"
+    ],
+    [
+      "PASS",
+      "same_entity",
+      "['Gunther', 'Dad'] -> ['gunther']"
+    ],
+    [
+      "PASS",
+      "title_at_first_vol",
+      "Urano Motosu: want 'Myne', got ['Myne']"
+    ],
+    [
+      "PASS",
+      "title_at_first_vol",
+      "Dad: want 'Gunther', got ['Gunther']"
+    ],
+    [
+      "PASS",
+      "title_at_first_vol",
+      "Merchant’s Guild: want 'Merchant’s Guild', got ['Merchant’s Guild']"
+    ],
+    [
+      "PASS",
+      "not_an_entity",
+      "Miya Kazuki"
+    ],
+    [
+      "FAIL",
+      "not_an_entity",
+      "Egypt (LOCATION, 6 mentions)"
+    ],
+    [
+      "PASS",
+      "not_an_entity",
+      "TV"
+    ]
+  ]
+}

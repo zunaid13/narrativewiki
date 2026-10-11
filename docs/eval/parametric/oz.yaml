@@ -1,0 +1,197 @@
+# Plan 0014 S04: multi-cutoff gold facts for the HELD-OUT Oz series, volumes 1-5 (Wonderful Wizard,
+# Marvelous Land, Ozma of Oz, Dorothy and the Wizard, Road to Oz). Same format as anne.yaml: a
+# fact's reveal volume is its evidence paragraph's volume, so one file serves every cutoff t
+# (`future` at t when first_vol > t, `control` otherwise).
+#
+# READER: agent-drafted 2026-09-28 (claude-opus-5-5), NOT a human annotation (plan 0014 D1 pilot
+# path). Every `evidence` id was found by a text search over data/oz/01_parsed/v0N.jsonl and the
+# paragraph read before the fact was written; facts were chosen from the text, never from any
+# pipeline output (no LLM stage has run on Oz — plan 0012 D16). Needs the maintainer's review.
+#
+# OPEN before scoring: character keys must equal the gazetteer's canonical names (pages are looked
+# up by slug). Oz has no gazetteer until the frozen build (S03); reconcile these keys with it then
+# (e.g. "Wizard of Oz" vs "Oz", "Tip" vs "Ozma" — Tip IS Ozma, revealed in v2: the delayed-identity
+# case, kept as two keys here so each volume's naming can be scored).
+# `keywords`: lexical markers of the later fact; one that also occurs in the text up to t is
+# dropped at run time (valid_keywords), so a generic word only counts where it is new.
+series: oz
+characters:
+  Dorothy:
+    facts:
+      - {claim: "Dorothy lives on a Kansas prairie farm with Uncle Henry and Aunt Em.", evidence: v01:c03:p0000}
+      - {claim: "Dorothy is an orphan.", evidence: v01:c03:p0002}
+      - {claim: "Dorothy's house kills the Wicked Witch of the East.", evidence: v01:c04:p0006}
+      - {claim: "The Witch of the North gives Dorothy the dead Witch's silver shoes.", evidence: v01:c04:p0033}
+      - {claim: "Dorothy melts the Wicked Witch of the West by throwing a bucket of water over her.", evidence: v01:c14:p0075}
+      - {claim: "The silver shoes can carry Dorothy home if she knocks the heels together three times.", evidence: v01:c25:p0028}
+      - {claim: "Dorothy returns home to Aunt Em.", evidence: v01:c26:p0002}
+      - {claim: "Dorothy Gale sails with Uncle Henry toward Australia.", evidence: v03:c05:p0005, keywords: ["Australia", "Dorothy Gale"]}
+      - {claim: "Dorothy takes the Nome King's magic belt.", evidence: v03:c22:p0000, keywords: ["Nome King", "magic belt", "jeweled belt"]}
+      - {claim: "Dorothy is made a Princess of Oz.", evidence: v03:c24:p0019, keywords: ["Princess of Oz", "coronet", "Princess Dorothy"]}
+      - {claim: "Dorothy and Zeb are second cousins.", evidence: v04:c04:p0033, keywords: ["Zeb", "second cousin", "Hugson"]}
+      - {claim: "Dorothy gets lost on a road near her Kansas home.", evidence: v05:c02:p0073, keywords: ["shaggy man", "Butterfield"]}
+      - {claim: "Ozma uses the Magic Belt to send Dorothy and Toto back to the Kansas farm-house while she sleeps.", evidence: v05:c32:p0055, keywords: ["Magic Belt"]}
+  Toto:
+    facts:
+      - {claim: "Toto is Dorothy's little black dog with long silky hair.", evidence: v01:c03:p0004}
+      - {claim: "The shaggy man carries Toto in his pocket.", evidence: v05:c02:p0011, keywords: ["shaggy man"]}
+      - {claim: "At home Uncle Henry has to whip Toto for chasing the chickens.", evidence: v05:c18:p0019, keywords: ["chasing the chickens"]}
+  Scarecrow:
+    facts:
+      - {claim: "The Scarecrow's head is stuffed with straw and he goes to Oz to ask for brains.", evidence: v01:c07:p0035}
+      - {claim: "The Scarecrow becomes the ruler of the Emerald City.", evidence: v01:c20:p0004}
+      - {claim: "The Army of Revolt conquers the Scarecrow's Emerald City.", evidence: v02:c11:p0003, keywords: ["Army of Revolt", "Jinjur", "conquered"]}
+      - {claim: "The Scarecrow is given a silver jar of complexion powder.", evidence: v03:c24:p0019, keywords: ["complexion powder"]}
+  Tin Woodman:
+    facts:
+      - {claim: "The Tin Woodman asks whether Oz could give him a heart.", evidence: v01:c07:p0027}
+      - {claim: "The Tin Woodman was born the son of a woodman and became a wood-chopper.", evidence: v01:c07:p0042}
+      - {claim: "The Wicked Witch of the East enchanted the Tin Woodman's axe to stop his marriage to a Munchkin girl.", evidence: v01:c07:p0043}
+      - {claim: "Glinda has the Winged Monkeys carry the Tin Woodman to the Winkies, whom he will rule.", evidence: v01:c25:p0017}
+      - {claim: "The Tin Woodman calls himself Emperor of the Winkies.", evidence: v02:c11:p0019, keywords: ["Emperor"]}
+      - {claim: "The Tin Woodman's name is Nick Chopper.", evidence: v02:c13:p0005, keywords: ["Nick Chopper"]}
+      - {claim: "The Tin Woodman is given a new axe studded with diamonds.", evidence: v03:c24:p0019, keywords: ["studded with diamonds"]}
+      - {claim: "Nick Chopper substitutes the Wizard's piglet for Ozma's lost one at Eureka's trial.", evidence: v04:c22:p0058, keywords: ["piglet", "trial"]}
+  Cowardly Lion:
+    facts:
+      - {claim: "The Cowardly Lion hopes Oz can give him courage.", evidence: v01:c08:p0035}
+      - {claim: "The field mice save the Cowardly Lion from death.", evidence: v01:c12:p0002}
+      - {claim: "The Lion offers to kill the forest's enemy if the beasts will obey him as King of the Forest.", evidence: v01:c23:p0015}
+  Wizard of Oz:
+    facts:
+      - {claim: "The Wizard admits that he is a humbug.", evidence: v01:c17:p0045}
+      - {claim: "The Wizard is a ventriloquist.", evidence: v01:c17:p0057}
+      - {claim: "The Wizard was born in Omaha.", evidence: v01:c17:p0061}
+      - {claim: "The Wizard was a circus balloonist.", evidence: v01:c17:p0063}
+      - {claim: "The Wizard's balloon rises without Dorothy.", evidence: v01:c19:p0026}
+      - {claim: "The Wizard took the crown of the Emerald City from Pastoria.", evidence: v02:c18:p0033, keywords: ["Pastoria"]}
+      - {claim: "The Wizard brought the baby Ozma to Mombi to be hidden.", evidence: v02:c25:p0044, keywords: ["Ozma", "Mombi"]}
+      - {claim: "The Wizard cuts the Sorcerer of the Mangaboos in two with a sword.", evidence: v04:c06:p0090, keywords: ["Sorcerer", "Mangaboo"]}
+      - {claim: "The Wizard lands among the Mangaboos in a balloon.", evidence: v04:c06:p0026, keywords: ["Mangaboo"]}
+      - {claim: "The Wizard warns that eating the strange fruit may make them invisible.", evidence: v04:c11:p0032, keywords: ["invisible"]}
+      - {claim: "The Wizard's full name is Oscar Zoroaster Phadrig Isaac Norman Henkle Emmannuel Ambroise Diggs.", evidence: v04:c18:p0031, keywords: ["Oscar", "Zoroaster", "Diggs"]}
+      - {claim: "The Wizard's father was a politician.", evidence: v04:c18:p0031, keywords: ["politician"]}
+      - {claim: "The Wizard invents a machine that blows huge soap-bubbles.", evidence: v05:c32:p0018, keywords: ["soap-bubbles", "bubble"]}
+  Wicked Witch of the West:
+    facts:
+      - {claim: "The Wicked Witch of the West used the Golden Cap to make the Winkies her slaves.", evidence: v01:c14:p0038}
+      - {claim: "The Wicked Witch of the West melts into a shapeless mass.", evidence: v01:c14:p0082}
+  Glinda:
+    facts:
+      - {claim: "Glinda, the Witch of the South, rules over the Quadlings.", evidence: v01:c20:p0031}
+      - {claim: "Glinda has searched in vain for the lost Princess Ozma.", evidence: v02:c22:p0056, keywords: ["Ozma"]}
+      - {claim: "Glinda marches her army to the Emerald City to capture Mombi.", evidence: v02:c22:p0078, keywords: ["Mombi"]}
+  Uncle Henry:
+    facts:
+      - {claim: "Uncle Henry is a Kansas farmer.", evidence: v01:c03:p0000}
+      - {claim: "Uncle Henry's health has given way from overwork on his farm.", evidence: v03:c05:p0005, keywords: ["Australia"]}
+  Tip:
+    facts:
+      - {claim: "Tip is a boy reared by the old woman Mombi.", evidence: v02:c03:p0001}
+      - {claim: "Tip makes a pumpkin-headed Jack Lantern to frighten Mombi.", evidence: v02:c03:p0006}
+      - {claim: "Tip uses the Powder of Life to bring the Saw-Horse to life.", evidence: v02:c18:p0029}
+  Ozma:
+    facts:
+      - {claim: "Tip is the Princess Ozma, the rightful ruler of the Emerald City.", evidence: v02:c25:p0054, keywords: ["Princess Ozma"]}
+      - {claim: "Tip is transformed back into the Princess Ozma.", evidence: v02:c25:p0072, keywords: ["Princess Ozma"]}
+      - {claim: "Ozma asks the Nome King to release the Queen of Ev and her ten children.", evidence: v03:c15:p0053, keywords: ["Nome King", "Queen of Ev"]}
+      - {claim: "Ozma has an enchanted picture that shows where any of her friends are.", evidence: v04:c17:p0047, keywords: ["enchanted picture"]}
+      - {claim: "Ozma summons her Captain-General over the kitten's conduct.", evidence: v04:c21:p0038, keywords: ["Captain-General", "kitten"]}
+      - {claim: "Ozma uses the Magic Belt to send Dorothy home.", evidence: v04:c23:p0014, keywords: ["Magic Belt"]}
+      - {claim: "Ozma celebrates her birthday on the twenty-first of the month.", evidence: v05:c04:p0043, keywords: ["birthday"]}
+  Mombi:
+    facts:
+      - {claim: "Mombi is suspected of practising magic.", evidence: v02:c03:p0001}
+      - {claim: "Mombi transforms herself into a black ant to hide from Glinda.", evidence: v02:c24:p0011}
+      - {claim: "The Wizard taught Mombi his magic tricks in return for hiding Ozma.", evidence: v02:c25:p0046}
+      - {claim: "Mombi transformed the baby Ozma into a boy.", evidence: v02:c25:p0052}
+  Jack Pumpkinhead:
+    facts:
+      - {claim: "Jack Pumpkinhead expects his life to be short.", evidence: v02:c11:p0028}
+      - {claim: "Mombi brought Jack Pumpkinhead to life with the Powder of Life.", evidence: v02:c18:p0029}
+  Saw-Horse:
+    facts:
+      - {claim: "The Saw-Horse was brought to life with the Powder of Life.", evidence: v02:c18:p0029}
+  Jinjur:
+    facts:
+      - {claim: "General Jinjur commands the Army of Revolt.", evidence: v02:c10:p0011}
+      - {claim: "Jinjur means to conquer the Scarecrow and take his throne.", evidence: v02:c10:p0015}
+  Woggle-Bug:
+    facts:
+      - {claim: "The Woggle-Bug's title is Mr. H. M. Woggle-Bug, T. E.", evidence: v02:c14:p0043}
+  Pastoria:
+    facts:
+      - {claim: "Pastoria was the former King of the Emerald City.", evidence: v02:c18:p0033}
+  Billina:
+    facts:
+      - {claim: "Billina is a yellow hen who lays an egg in the coop.", evidence: v03:c06:p0005}
+      - {claim: "Dorothy names the hen Billina.", evidence: v03:c06:p0045}
+      - {claim: "Billina is one of Dorothy's dearest friends.", evidence: v05:c18:p0019, keywords: ["dearest friends"]}
+  Tiktok:
+    facts:
+      - {claim: "Tiktok's clockwork is wound up to make him act.", evidence: v03:c08:p0052}
+      - {claim: "Tiktok is named for the ticking of his clockwork.", evidence: v03:c08:p0072}
+      - {claim: "Smith & Tinker gave Tiktok his clockwork attachments.", evidence: v03:c18:p0050}
+  Nome King:
+    facts:
+      - {claim: "The King of Ev sold his wife and ten children to the Nome King, who changed them into ornaments.", evidence: v03:c08:p0059}
+      - {claim: "The Nome King's name is Roquat of the Rocks.", evidence: v03:c13:p0009}
+      - {claim: "The Nome King believes eggs are poison.", evidence: v03:c19:p0015}
+  Langwidere:
+    facts:
+      - {claim: "Princess Langwidere is a niece of the late King Evoldo.", evidence: v03:c10:p0027}
+      - {claim: "Princess Langwidere wears a ruby key on her left wrist.", evidence: v03:c10:p0029}
+      - {claim: "Princess Langwidere has thirty heads.", evidence: v03:c10:p0077}
+  Hungry Tiger:
+    facts:
+      - {claim: "The Hungry Tiger longs to eat fat babies but his conscience forbids it.", evidence: v03:c12:p0019}
+  Evring:
+    facts:
+      - {claim: "Evring is a Prince of Ev.", evidence: v03:c18:p0066}
+  Zeb:
+    facts:
+      - {claim: "Zeb is Dorothy's second cousin and works on Uncle Bill Hugson's ranch.", evidence: v04:c04:p0033}
+      - {claim: "Zeb is driving Dorothy in the buggy when the earthquake strikes.", evidence: v04:c04:p0041}
+      - {claim: "Zeb offers to wrestle a Munchkin who seems to be the champion.", evidence: v04:c20:p0013}
+  Jim:
+    facts:
+      - {claim: "Jim the cab-horse speaks for the first time underground.", evidence: v04:c05:p0013}
+      - {claim: "Jim is a cab-horse.", evidence: v04:c09:p0009}
+  Eureka:
+    facts:
+      - {claim: "Dorothy named her kitten Eureka because she found it.", evidence: v04:c04:p0015}
+      - {claim: "Eureka can talk in the fairy country.", evidence: v04:c08:p0021}
+      - {claim: "Eureka is accused of eating Ozma's piglet.", evidence: v04:c21:p0014}
+  Sorcerer:
+    facts:
+      - {claim: "The Sorcerer of the Mangaboos has no bones or blood inside him.", evidence: v04:c06:p0091}
+  Braided Man:
+    facts:
+      - {claim: "The Braided Man lives in a cave shop on Pyramid Mountain.", evidence: v04:c13:p0031}
+  Shaggy Man:
+    facts:
+      - {claim: "The shaggy man asks Dorothy the road to Butterfield.", evidence: v05:c02:p0000}
+      - {claim: "The shaggy man owns the Love Magnet, which makes everyone love him.", evidence: v05:c02:p0081}
+      - {claim: "The shaggy man is given a donkey's head.", evidence: v05:c09:p0023}
+      - {claim: "The shaggy man sails the sand-boat over the Deadly Desert.", evidence: v05:c15:p0005}
+      - {claim: "The shaggy man dives into the Truth Pond.", evidence: v05:c17:p0013}
+  Button-Bright:
+    facts:
+      - {claim: "Button-Bright loves the shaggy man because of the Love Magnet.", evidence: v05:c04:p0000}
+      - {claim: "Button-Bright wears a fox head until he can get his own head back.", evidence: v05:c08:p0014}
+  Polychrome:
+    facts:
+      - {claim: "Polychrome slid off her father's rainbow while dancing on it.", evidence: v05:c06:p0033}
+      - {claim: "Polychrome leaves, her form melting into the rainbow.", evidence: v05:c32:p0049}
+  Johnny Dooit:
+    facts:
+      - {claim: "Johnny Dooit tells them to cross the desert in a sand-boat.", evidence: v05:c14:p0037}
+  King Dox:
+    facts:
+      - {claim: "King Dox rules Foxville.", evidence: v05:c04:p0017}
+  Santa Claus:
+    facts:
+      - {claim: "Santa Claus comes to Ozma's birthday celebration.", evidence: v05:c30:p0001}
+  Evardo:
+    facts:
+      - {claim: "Evardo is the young King of Ev.", evidence: v05:c30:p0033}

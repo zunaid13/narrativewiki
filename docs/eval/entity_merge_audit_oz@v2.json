@@ -1,0 +1,94 @@
+[
+ {
+  "entity": "dorothy",
+  "flag": "span",
+  "forms": {
+   "Dorothy": 1,
+   "Dorothy Gale": 3,
+   "Dor-o-thy": 3,
+   "Dorothy Gale of Kansas": 3
+  }
+ },
+ {
+  "entity": "dorothy",
+  "flag": "surname",
+  "surnames": [
+   "Gale",
+   "Kansas"
+  ],
+  "forms": {
+   "Dorothy Gale": 3,
+   "Dorothy Gale of Kansas": 3
+  }
+ },
+ {
+  "entity": "wonderful-wizard-of-oz",
+  "flag": "surname",
+  "surnames": [
+   "Oz",
+   "Wizard"
+  ],
+  "forms": {
+   "Wonderful Wizard": 1,
+   "The Wonderful Wizard": 1,
+   "Wonderful Wizard of Oz": 1,
+   "Wizard of Oz": 2
+  }
+ },
+ {
+  "entity": "guardian-of-the-gates",
+  "flag": "surname",
+  "surnames": [
+   "Gate",
+   "Gates"
+  ],
+  "forms": {
+   "Guardian of the Gates": 1,
+   "Guardian of the Gate": 1
+  }
+ },
+ {
+  "entity": "nick-chopper",
+  "flag": "surname",
+  "surnames": [
+   "Chopper",
+   "Winkies"
+  ],
+  "forms": {
+   "Nick Chopper": 2,
+   "Emperor of the Winkies": 2
+  }
+ },
+ {
+  "entity": "good-witch-of-the-north",
+  "flag": "surname",
+  "surnames": [
+   "North",
+   "Witch"
+  ],
+  "forms": {
+   "Good Witch": 1,
+   "Good Witch of the North": 1
+  }
+ },
+ {
+  "entity": "john-dough",
+  "flag": "span",
+  "forms": {
+   "John Dough": 3,
+   "Candy Man": 5
+  }
+ },
+ {
+  "entity": "john-dough",
+  "flag": "surname",
+  "surnames": [
+   "Dough",
+   "Man"
+  ],
+  "forms": {
+   "John Dough": 3,
+   "Candy Man": 5
+  }
+ }
+]

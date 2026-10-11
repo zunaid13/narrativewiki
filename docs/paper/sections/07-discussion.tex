@@ -1,0 +1,30 @@
+% Discussion (compact): implications for cutoff-bounded reference generation.
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Input boundaries and inference errors.}
+On the original text, withholding later material from page generation avoided stated
+disclosures, whereas full-text cutoff instructions did not. This supports restricting
+later-text access but does not establish safety (Section~\ref{sec:results-main}):
+\sys's implied disclosure arose from
+misreading eligible evidence\ifnwdecon{}, as did its stated marriage on the treated text,
+which a character predicts in book two\fi{}. Input filtering cannot prevent these inference
+errors. These runs motivate access-boundary controls alongside retrieval and graph choices;
+they do not isolate their causal effects. Checks must also cover delivered surfaces, since
+development leaks occurred in page lists, titles and shared navigation
+(Appendix~\ref{app:casebook}).
+
+\paragraph{Benefits and costs of a linked graph.}
+For this familiar five-volume work fitting in one context, graph extraction recovered fewer
+gold facts than direct prompting, while prefix retrieval achieved higher recall with about
+one tenth of the input tokens. The graph provides deterministic structured content, reusable
+cutoff filtering and broader linked coverage, whose value to readers remains unmeasured.
+The costs include misplaced claims on relationship pages, insufficient citations and
+identities shaped by later volumes (Tables~\ref{tab:kinds} and~\ref{tab:identity}).
+For character-page generation in this pilot, the measured tradeoffs favor prefix retrieval.
+
+\paragraph{Design implications.}
+Validating entity groupings, preserving speaker and modality, and checking final assertions
+in page context against their attached citations are repair priorities whose effectiveness
+remains untested. They address distinctions that volume filtering alone cannot verify;
+simply publishing more content does not establish reader utility.

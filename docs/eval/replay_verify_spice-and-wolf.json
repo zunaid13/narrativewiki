@@ -1,0 +1,1009 @@
+{
+  "series": "spice-and-wolf",
+  "verify_run": "20260925T083107",
+  "replay_run": "20260925T084708-replay_verify_prompt-upto2",
+  "candidate_suffix": " For a PERSONALITY fact, the evidence must show a lasting trait of this character: not a passing state (being drunk, tired or angry once), and not another character's tease, accusation or rhetorical question about them. For a relationship, the words in parentheses are part of the claim: if they describe a different relationship from the one named (e.g. \"hired adventurer\" for FRIEND_OF, \"creator\" for MENTOR_OF or CHILD_OF), the fact is not supported.",
+  "rows": [
+    {
+      "fact": "PERSONALITY = \"empathetic\" -- evidence: [v01:c02:p0084] \"Nonetheless, he himself had struck up conversations just like this one when he was starting out, so he held a spark of empathy for the man.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"impatient\" -- evidence: [v01:c04:p0410] \"Lawrence, distressed, couldn’t help bouncing his leg impatiently.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows a passing state of distress and anxiety in a specific high-pressure situation, rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"calculating\" -- evidence: [v01:c01:p0026] \"It was important to deal with such men carefully. They tended to be excitable.\"; [v02:c06:p0045] \"As a merchant, Lawrence was always thinking ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"honorable\" -- evidence: [v01:c06:p0194] \"However, a merchant must always honor his contracts\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"lonely\" -- evidence: [v01:c01:p0108] \"In short, he longed for company more and more frequently.\"; [v01:c02:p0199] \"His life was half over, and Holo’s childish demeanor penetrated his lo",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"serious\" -- evidence: [v01:c03:p0358] \"I’m a very serious person,” said Lawrence.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The quote is a self-proclaimed statement made in the context of banter, which does not constitute evidence of a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"sensitive\" -- evidence: [v01:c04:p0252] \"but he was far from insensitive enough to ask.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cautious\" -- evidence: [v01:c01:p0015] \"His deliberate approach likely meant some hassle, but ignoring him could make matters worse later. Lawrence reluctantly turned his horse toward t",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"inarticulate\" -- evidence: [v01:c04:p0042] \"How inarticulate. You’ll never attract a female that way.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"agitated\" -- evidence: [v01:c04:p0390] \"Still, the old man was used to situations like this, and seeing Lawrence’s agitated state, he offered some consolation.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a passing emotional state caused by a specific situation rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"pragmatic\" -- evidence: [v01:c01:p0016] \"It would hardly be the first time that a Church-associated person demonstrated arrogance. Lawrence was in no mood to take every such insult pers",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"observant\" -- evidence: [v01:c03:p0069] \"There is nothing more fun than knowing the heart of another. Lawrence smiled his best merchant smile.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The quote expresses Lawrence's interest in understanding others' motivations, but it does not demonstrate that he is observant."
+    },
+    {
+      "fact": "PERSONALITY = \"merchant-minded\" -- evidence: [v01:c07:p0044] \"Lawrence forced himself to consider it thus, bringing himself back to the mindset of a merchant.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"reprehensible\" -- evidence: [v02:c03:p0353] \"He knew that, which made his treatment of her all the more reprehensible.\"",
+      "old": true,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence describes a specific action as reprehensible, not Lawrence's personality as a whole."
+    },
+    {
+      "fact": "PERSONALITY = \"softhearted\" -- evidence: [v02:c04:p0096] \"You really are just too softhearted by half.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"self-critical\" -- evidence: [v02:c03:p0050] \"But half of that anger was at himself. He could not undo this error.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"clumsy with people outside of business\" -- evidence: [v02:c04:p0371] \"her awkward manner around other people reminded Lawrence of his own clumsiness when dealing with people outside of ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"affectionate\" -- evidence: [v02:c06:p0117] \"Lawrence loved her ticklish smile even more than the warm late-autumn sunshine.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"curious\" -- evidence: [v02:c01:p0220] \"Even as he remained gentlemanly, Lawrence was filled with curiosity.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"guilt-ridden\" -- evidence: [v02:c04:p0426] \"But in Lawrence’s heart, misgiving mingled with regret.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Lawrence feeling misgiving and regret regarding a specific situation, which does not constitute a lasting personality trait of being 'guilt-ridden'."
+    },
+    {
+      "fact": "PERSONALITY = \"careful with words\" -- evidence: [v02:c02:p0272] \"But Lawrence was a merchant. He was always careful with his words.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"composed\" -- evidence: [v02:c05:p0158] \"It was often the strangely composed ones who were dangerous.\"",
+      "old": false,
+      "new": false,
+      "candidate": false,
+      "rationale": "The quoted text refers to a general observation about dangerous people in the abstract, rather than describing Lawrence's own personality."
+    },
+    {
+      "fact": "PERSONALITY = \"resilient\" -- evidence: [v02:c03:p0034] \"And yet, Lawrence found some strength.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Lawrence finding a momentary surge of resolve in a specific crisis, which is a passing state rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"stubborn\" -- evidence: [v02:c00:p0456] \"Some part of Lawrence was still stubborn. He simply couldn’t let the cheeky wolf girl have everything she wanted.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"greedy\" -- evidence: [v02:c02:p0018] \"“Now that I know such a skilled shepherd, I might be able to turn a surprising profit on wool,” said Lawrence in a purposefully greedy tone.\"; [v02",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The first quote explicitly describes Lawrence using a 'purposefully greedy tone' as a performance, and the second quote describes a specific instance of a poor business decision rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"shrewd\" -- evidence: [v02:c00:p0336] \"It’s a third-rate merchant that doesn’t take advantage of weakness.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"pessimistic\" -- evidence: [v02:c01:p0080] \"Being a merchant, Lawrence was naturally pessimistic, but pessimism would get him nowhere, he knew\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"easily smitten\" -- evidence: [v02:c01:p0496] \"Norah’s face lit up so brilliantly that Lawrence couldn’t help but be a bit smitten.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a momentary reaction to a specific person's expression, which does not establish 'easily smitten' as a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"trusting\" -- evidence: [v02:c01:p0054] \"Lawrence smiled trustingly as he drove the horse down the road.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"witty\" -- evidence: [v02:c00:p0117] \"He grinned to himself, proud of his wit—but Holo’s face went blank with anger, and without a word, there on the driver’s seat of the wagon, she stom",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Lawrence's own subjective belief that he is witty, rather than demonstrating wit as a confirmed personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"sentimental\" -- evidence: [v02:c04:p0097] \"It was true that Lawrence was quite sentimental for a merchant.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"hopeless at anything save business\" -- evidence: [v02:c05:p0077] \"He was a merchant and generally hopeless at anything save business.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"business-minded\" -- evidence: [v02:c05:p0329] \"Lawrence mustered all of his business cunning in response.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"vain\" -- evidence: [v02:c02:p0187] \"And you, lad, are a vain one. Am I wrong?\"",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence provided is a rhetorical question posed by another character as part of a teasing remark, not a definitive statement of the character's personality."
+    },
+    {
+      "fact": "PERSONALITY = \"gentlemanly\" -- evidence: [v02:c01:p0220] \"Even as he remained gentlemanly, Lawrence was filled with curiosity.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"realistic\" -- evidence: [v02:c03:p0187] \"Merchants like him were too realistic to assume they were somehow special.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "STATUS = \"alive\" -- evidence: [v02:c02:p0139] \"It’s too dangerous to leave you alone,” warned Lawrence.\"; [v02:c05:p0185] \"it was plain to see that the men had no intention of letting him live, either",
+      "old": true,
+      "new": false,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "AFFILIATED_WITH (business partner) = \"Kraft Lawrence -> Milone Company\" -- evidence: [v01:c05:p0111] \"Lawrence shook Marheit’s hand, glad to have chosen the right company to deal with.\"; [v01:c04:p000",
+      "old": false,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "COMRADE_OF (business partners in gold smuggling) = \"Hans Remelio -> Kraft Lawrence\" -- evidence: [v02:c04:p0070] \"The two men, both of whom faced bankruptcy, shook.\"",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence only states that the two men shook hands after agreeing to a business arrangement, which does not confirm they are comrades or partners in gold smuggling."
+    },
+    {
+      "fact": "FRIEND_OF (business associates with mutual goodwill) = \"Kraft Lawrence -> Marheit\" -- evidence: [v01:c07:p0111] \"We’ll look forward to that, and to many fruitful dealings in the future, Mr. Lawrence,”",
+      "old": false,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "MENTOR_OF (follower of his path in business) = \"Saint Metrogius -> Kraft Lawrence\" -- evidence: [v02:c00:p0276] \"Mr. Lawrence, as I recall, you follow the path of Saint Metrogius in business, like you",
+      "old": true,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence indicates that Lawrence follows the 'path of Saint Metrogius' as a religious or philosophical tradition for merchants, not that Saint Metrogius is a literal person who mentored Lawrence."
+    },
+    {
+      "fact": "NICKNAME = \"Holo\" -- evidence: [v01:c01:p0183] \"I am called Holo. It has been some time since I’ve taken this form, but, well, it is quite nice.\"",
+      "old": false,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"drunk\" -- evidence: [v01:c04:p0020] \"At first Lawrence thought she must have been pondering something, but soon it was clear that she was merely drunk.\"",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a passing state of being intoxicated rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"dislikes being feared\" -- evidence: [v01:c04:p0033] \"When Lawrence had demanded to see Holo’s wolf form, she’d said she hated being feared.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"lonely\" -- evidence: [v01:c04:p0230] \"I’m tired of being alone,” she blurted out, looking suddenly childish as she swung her legs—which didn’t quite reach the floor—over the edge of the",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"teasing\" -- evidence: [v01:c03:p0480] \"Lawrence’s expression stiffened at Holo’s teasing glance.\"; [v01:c04:p0140] \"Her teasing was by now standard, almost a greeting; so Lawrence simpl",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"stubborn\" -- evidence: [v01:c03:p0041] \"There was no need to press the matter, however—Holo was quite stubborn.\"; [v01:c03:p0074] \"Lawrence thought she’d be stubborn until the end, but ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"uneasy\" -- evidence: [v01:c06:p0051] \"Lawrence ignored them and continued to run, but Holo was uneasy.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows a temporary emotional reaction to a specific, threatening situation, not a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"playful\" -- evidence: [v01:c03:p0429] \"Far from having “had his way with her,” Lawrence found himself being toyed with by Holo, so he answered with an emphatic negative.\"; [v01:c05:p031",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"fickle\" -- evidence: [v01:c05:p0262] \"That they need no longer fear my fickle nature.\"",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The quote shows the character recounting a third party's accusation about her nature, rather than demonstrating that she is actually fickle."
+    },
+    {
+      "fact": "PERSONALITY = \"sullen\" -- evidence: [v01:c07:p0153] \"Lawrence couldn’t help laughing at her sullen tone.\"; [v02:c01:p0170] \"Even when her back was sullenly turned, her way of carrying on the conversat",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a passing state or a specific manner of speaking in certain situations rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"charming\" -- evidence: [v01:c05:p0302] \"Tis what makes me so charming,” said Holo, as if it were the most obvious thing in the world.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Holo making a self-referential claim about her own personality rather than demonstrating a lasting trait through her actions or an objective description."
+    },
+    {
+      "fact": "PERSONALITY = \"energetic\" -- evidence: [v01:c03:p0220] \"Holo, on the other hand, was quite energetic, probably because she’d managed to outwit two merchants at once.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a temporary state of energy resulting from a specific recent event rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"childish\" -- evidence: [v01:c02:p0198] \"It was her childish side that he found difficult.\"; [v02:c00:p0248] \"Despite her frightening intelligence, she could be strangely childish at tim",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"lacks self-restraint\" -- evidence: [v01:c04:p0100] \"Wisewolf or not, one could hardly accuse her of having any self-restraint.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"mischievous\" -- evidence: [v01:c01:p0280] \"Lawrence was still unable to find his tongue at the mischievous Holo’s words.\"; [v01:c05:p0209] \"I’m so lovely that even human males fall for ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"nostalgic\" -- evidence: [v01:c03:p0052] \"The pleasure of nostalgia is never without its companion, loneliness.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"flirtatious\" -- evidence: [v01:c04:p0286] \"Don’t be such a prude,” said Holo in an irritated voice that was nonetheless flirtatious.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"gluttonous\" -- evidence: [v01:c03:p0088] \"Holo nodded and didn’t speak again until her stomach contained no less than eight apples.\"; [v02:c00:p0379] \"Lawrence heaved a long-suffering s",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"sly\" -- evidence: [v01:c02:p0197] \"As long as her attitude was that of a very sly, very old person, Lawrence could cope.\"; [v02:c01:p0433] \"He found himself wishing that the wolf nearby",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"perceptive\" -- evidence: [v01:c04:p0297] \"It’s a bit late. There are three people outside the door. I doubt they are guests.\"; [v02:c04:p0256] \"He didn’t say it, but as Holo let slip a ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"quick-witted\" -- evidence: [v01:c03:p0364] \"The always-quick Holo munched away on her bread.\"; [v02:c03:p0493] \"Despite her quick mind and quicker tongue, she had been angry enough to t",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"dislikes being celebrated as a deity\" -- evidence: [v01:c04:p0034] \"She also despised being celebrated as some kind of deity.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"good-humoured\" -- evidence: [v02:c02:p0045] \"Holo said, giggling. She seemed happy—surprisingly so.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows a temporary emotional state of being happy in a specific moment, not a lasting personality trait of being good-humoured."
+    },
+    {
+      "fact": "PERSONALITY = \"bored\" -- evidence: [v02:c01:p0239] \"Lawrence glanced over his shoulder at Holo, who looked off in a different direction. She seemed quite bored.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a passing state of boredom in a specific moment, not a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"canny\" -- evidence: [v02:c02:p0309] \"She was a canny old wolf, indeed.\"; [v02:c04:p0442] \"Lawrence was shocked for a moment, but Holo—ever the canny Wisewolf—did not alter her expressio",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"indifferent to the attention of others\" -- evidence: [v02:c03:p0145] \"Holo was entirely indifferent to the situation, but Lawrence found it almost painful.\"",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Holo is indifferent to the 'situation' of the crowd's reaction to her presence, which does not necessarily equate to a general personality trait of being indifferent to the attention of others."
+    },
+    {
+      "fact": "PERSONALITY = \"easily amused\" -- evidence: [v02:c01:p0548] \"As soon as she heard it, the wave that hit Holo became a tsunami on its way back, and she exploded with laughter.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows a single instance of intense, prolonged laughter in response to a specific joke, which does not establish a lasting personality trait of being 'easily amused'."
+    },
+    {
+      "fact": "PERSONALITY = \"hostile toward Norah Arendt\" -- evidence: [v02:c04:p0369] \"Holo seemed to harbor an intense hostility toward Norah, and afraid to oppose her, when Holo stood, Lawrence stayed behind her",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"intimidating\" -- evidence: [v02:c02:p0038] \"Holo was intimidating, despite her sweet smile and modestly tilted head.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"proud\" -- evidence: [v01:c01:p0230] \"You can doubtless tell from my ears and tail that I am a proud wolf!\"; [v02:c01:p0032] \"Holo said so proudly that Lawrence didn’t venture to ask wha",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"clever\" -- evidence: [v02:c05:p0084] \"A clever wolf knew how to use that fact.\"; [v02:c06:p0103] \"Lawrence smiled at Holo’s clever, bald-faced actions.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"diligent about her tail\" -- evidence: [v02:c00:p0397] \"“Mm, I ought to tend to my tail,” said Holo—her tail the only thing she was diligent about.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"deceptive\" -- evidence: [v02:c00:p0308] \"Underneath the hood, Holo’s expression was anything but the weak dizziness she feigned.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Holo feigning dizziness in a single instance to manipulate a situation, which does not establish 'deceptive' as a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"considerate\" -- evidence: [v02:c00:p0159] \"You’re considerate at the strangest of times,” said Lawrence.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"fearless\" -- evidence: [v02:c03:p0669] \"Holo gave him a lopsided smirk, exposing one sharp fang. It was a fearless smile.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cunning\" -- evidence: [v02:c05:p0012] \"Wolves were cautious to the end and always conducted themselves with cunning.\"",
+      "old": false,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence describes the general behavior of wolves as a species in the context of a pack hunt, rather than establishing a specific, lasting personality trait of Holo herself."
+    },
+    {
+      "fact": "PERSONALITY = \"clear and agile mind\" -- evidence: [v02:c05:p0282] \"Despite her anger, Holo’s mind was as clear and agile as ever.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"easily irritated\" -- evidence: [v02:c01:p0256] \"Behind him, Holo was probably quite irritated by now, but he put the thought out of his mind.\"",
+      "old": false,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence reflects Lawrence's subjective speculation about Holo's current emotional state rather than demonstrating that she possesses a lasting personality trait of being easily irritated."
+    },
+    {
+      "fact": "PERSONALITY = \"furious\" -- evidence: [v02:c03:p0386] \"When someone is truly angry, Lawrence thought, just getting close to them can almost feel like being burned. Disbelieving, he slowly reached his h",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a passing state of anger rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"gluttonous for sweets\" -- evidence: [v02:c00:p0177] \"Swish, swish—Holo’s tail was switching back and forth beneath her robe so rapidly it almost seemed like a separate animal altogether",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows anticipation for preserves, but does not explicitly characterize the subject as gluttonous for sweets."
+    },
+    {
+      "fact": "PERSONALITY = \"loyal\" -- evidence: [v02:c03:p0111] \"Do I look like the kind of ungrateful wolf that lets her companion face a crisis alone?\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"contrary\" -- evidence: [v02:c01:p0328] \"Once Holo’s contrariness was roused, her opposition would be tireless.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"wry\" -- evidence: [v02:c04:p0222] \"Come, should you not be more happy? Everything has gone well and yet!” said Holo to Lawrence with a wry grin.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"imperious\" -- evidence: [v02:c00:p0361] \"The master could only nod his head at her casual imperiousness.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"jealous\" -- evidence: [v02:c01:p0537] \"But it was nothing like the tears of jealousy he’d hoped to see.\"",
+      "old": false,
+      "new": false,
+      "candidate": false,
+      "rationale": "The quoted evidence explicitly states that the character did not show jealousy, but rather pity."
+    },
+    {
+      "fact": "PERSONALITY = \"discerning\" -- evidence: [v02:c05:p0629] \"the wolf here is far more discerning than I and can see the hidden meaning behind your every word\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"intelligent\" -- evidence: [v02:c00:p0248] \"Despite her frightening intelligence, she could be strangely childish at times.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"softhearted\" -- evidence: [v02:c04:p0098] \"It’s thanks to that softheartedness that I’ve been able to travel so easily\"; [v02:c05:p0275] \"I’ve no idea what to do with such unbelievable ",
+      "old": false,
+      "new": false,
+      "candidate": false,
+      "rationale": "The provided quotes attribute the trait of 'softheartedness' to Lawrence, not Holo."
+    },
+    {
+      "fact": "PERSONALITY = \"cheerful\" -- evidence: [v02:c03:p0639] \"But Holo was entirely cheerful as she hopped off the bed, fastened her robe and skirt snugly around her waist, and put her kerchief on her head.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"understands loneliness\" -- evidence: [v02:c04:p0058] \"She knew better than anyone the meaning of the word loneliness.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"prudent\" -- evidence: [v02:c05:p0510] \"I’ve prudence enough to avoid a pointless fight over something like that.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"anxious\" -- evidence: [v02:c03:p0065] \"Holo asked with an awkward, anxious smile\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Holo displaying a passing state of anxiety in a specific moment, which does not constitute a lasting personality trait."
+    },
+    {
+      "fact": "FRIEND_OF (exchanged smiles and lighthearted banter) = \"Holo -> Weiz\" -- evidence: [v01:c03:p0425] \"Weiz grinned shamelessly; Holo returned it with a not-altogether-displeased smile that Lawrence did ",
+      "old": true,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence shows a brief, flirtatious interaction between two strangers, which does not establish a friendship."
+    },
+    {
+      "fact": "PERSONALITY = \"polite\" -- evidence: [v02:c02:p0027] \"Norah’s face lit up. “Thank you very much!” she said, bowing low as if she was still living in an almshouse.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"composed\" -- evidence: [v02:c01:p0393] \"It wasn’t polite to pry into someone’s past, but Norah answered smoothly, her feelings apparently unhurt.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"defiant\" -- evidence: [v02:c04:p0189] \"Within Norah, the seed of justified defiance would begin to flower.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"humble\" -- evidence: [v02:c01:p0449] \"Norah’s humble manner was very charming\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"guileless\" -- evidence: [v02:c01:p0428] \"After days of enduring Holo’s japes, seeing such a guileless face put Lawrence’s heart at ease.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"resolute\" -- evidence: [v02:c04:p0304] \"If we encounter wolves, do not panic. We will arrive safely,” said Norah with surprising resolve\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence describes a single instance of Norah displaying resolve in a specific situation, which does not necessarily establish 'resolute' as a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"practiced and calm\" -- evidence: [v02:c04:p0371] \"Norah’s movements were practiced and calm, and her awkward manner around other people reminded Lawrence of his own clumsiness when deal",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"not avaricious\" -- evidence: [v02:c04:p0088] \"Also, though Norah had expressed her desire to save up enough money to become a dressmaker, it was not in the girl’s personality to be avar",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"awkward around other people\" -- evidence: [v02:c04:p0371] \"Norah’s movements were practiced and calm, and her awkward manner around other people reminded Lawrence of his own clumsiness ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"meek\" -- evidence: [v02:c01:p0363] \"The face that emerged was soft and meek, not unlike the sheep she tended\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cheerful\" -- evidence: [v02:c04:p0405] \"Hmm, we seem to be out of firewood,” said Norah brightly, perhaps to dispel the still-tense atmosphere.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence shows Norah speaking brightly in a specific instance to ease tension, which constitutes a passing behavior rather than a lasting personality trait."
+    },
+    {
+      "fact": "PERSONALITY = \"serious\" -- evidence: [v02:c01:p0498] \"Part of it was a serious demeanor likely inherited from nuns at the almshouse\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"rational\" -- evidence: [v02:c04:p0488] \"It was clear that she had a firmly rational grasp of the situation and was prepared to act according to that understanding.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "COMMANDS (leading the group together) = \"Norah Arendt -> Liebert\" -- evidence: [v02:c04:p0310] \"Norah headed up the group along with Liebert on horseback\"; [v02:c04:p0370] \"Norah was absorbed in her o",
+      "old": true,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence shows Norah and Liebert traveling together and Norah waking Liebert up, but it does not establish that Liebert commands or leads the group."
+    },
+    {
+      "fact": "GENDER = \"male\" -- evidence: [v01:c04:p0412] \"demanded Lawrence, finally jumping out of his chair, causing Marheit to blink rapidly for a moment before regaining his composure.\"",
+      "old": false,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"reliable\" -- evidence: [v01:c05:p0108] \"Lawrence couldn’t help chuckling bitterly, but Marheit certainly sounded reliable.\"",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence reflects Lawrence's subjective impression of Marheit's tone during a single conversation, rather than a demonstrated, lasting personality trait of Marheit."
+    },
+    {
+      "fact": "PERSONALITY = \"confident\" -- evidence: [v01:c04:p0079] \"Marheit smiled slyly, showing a confidence borne of having the immense resources of the Milone Company to call on\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"pragmatic\" -- evidence: [v01:c04:p0430] \"If we must choose between bearing your grudge or giving up the return, then…” Marheit sighed. “I’m sorry, but I must choose the former,” he said",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"empathetic\" -- evidence: [v01:c04:p0445] \"Not at all—if my wife were in danger, I, too, would likely find it impossible to calm myself,” Marheit said, smiling.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"impassive\" -- evidence: [v01:c04:p0410] \"Marheit’s countenance remained impassive in spite of Lawrence’s heated response.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cool-headed\" -- evidence: [v01:c07:p0063] \"One hundred and twenty pieces—five percent of our profit,” said Marheit coolly.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cunning\" -- evidence: [v02:c05:p0405] \"If the man was cunning and careful enough to carry off this intricate betrayal, he was certainly capable of that much.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"unperturbed\" -- evidence: [v02:c04:p0501] \"true to his position as a trusted employee of a trading company in a big city, Liebert appeared unperturbed.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"timid\" -- evidence: [v02:c04:p0394] \"Liebert was more timid than he looked.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"greedy\" -- evidence: [v02:c05:p0454] \"Immediately upon landing, Holo sprung forward after the fleeing Liebert, whose desire for money had reduced him to a swine.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"careful\" -- evidence: [v02:c05:p0405] \"If the man was cunning and careful enough to carry off this intricate betrayal, he was certainly capable of that much.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"good-natured\" -- evidence: [v02:c04:p0290] \"Lawrence realized Liebert was probably a good-natured man under normal circumstances once he offered a sincere apology.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"habitual liar\" -- evidence: [v02:c05:p0610] \"I-I don’t know what Liebert said. I’m sure it sounded like heaven’s own truth, as if he were confessing before an altar. But it was a lie! H",
+      "old": true,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence is a statement made by another character (Remelio) who is expressing frustration and potentially exaggerating to justify firing Liebert, rather than an objective description of Liebert's personality."
+    },
+    {
+      "fact": "PERSONALITY = \"high-strung\" -- evidence: [v02:c04:p0288] \"He advocated, in a rather high-strung fashion, for making more progress before stopping to camp.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cowardly\" -- evidence: [v02:c04:p0398] \"The wisewolf had exposed his cowardice.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"theatrical\" -- evidence: [v01:c03:p0286] \"Zheren gazed upward, his face a mask of exaggerated tragedy.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"deceptive\" -- evidence: [v01:c03:p0497] \"What was Zheren planning? He was unquestionably planning something.\"",
+      "old": false,
+      "new": false,
+      "candidate": false,
+      "rationale": "The evidence only shows that the character is planning something, which does not inherently confirm the personality trait of being deceptive."
+    },
+    {
+      "fact": "PERSONALITY = \"charming\" -- evidence: [v01:c02:p0206] \"Zheren smiled his charming smile again as he took his leave\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "FRIEND_OF (acquaintance who shared information about Holo) = \"Yarei -> Zheren\" -- evidence: [v01:c05:p0260] \"He said he heard my name from Zheren, and it made him wonder.\"; [v01:c05:p0245] \"He must ha",
+      "old": false,
+      "new": true,
+      "candidate": false,
+      "rationale": "The evidence indicates that Yarei heard Holo's name from Zheren, but it does not establish that Yarei and Zheren are friends or acquaintances."
+    },
+    {
+      "fact": "PERSONALITY = \"caring\" -- evidence: [v02:c06:p0003] \"Jakob had probably been worried sick ever since Lawrence’s debt had been incurred.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"cunning\" -- evidence: [v02:c02:p0233] \"proof the man possessed the cunning to run a trade guild in a foreign land\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"not solely severe\" -- evidence: [v02:c03:p0235] \"A person who was capable only of severity would be unfit to be the master of the merchants’ second home.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"overbearing\" -- evidence: [v02:c02:p0184] \"Jakob’s manner was as overbearing as always\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"understanding\" -- evidence: [v02:c03:p0121] \"Although Jakob, who ran the guild house in this city, was an even more understanding man than himself\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"strict\" -- evidence: [v02:c03:p0206] \"Unfortunately, I’m not in a position where I can show you any compassion—and the reason why I must be so strict is just outside in the lobby.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"patient\" -- evidence: [v02:c03:p0173] \"Were Jakob a less-patient man, he would have given Lawrence the boot as soon as he had shown up with Holo in tow.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"gallant\" -- evidence: [v02:c05:p0445] \"Thus, he saw the instant when the gallant sheepdog and the huge, godlike wolf pounced.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"eager\" -- evidence: [v02:c01:p0374] \"leaping into the air, barely able to wait for his next order. No sooner had the bell on Norah’s staff rung than Enek charged off to the head of the ",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"arrogant\" -- evidence: [v01:c05:p0245] \"That Yarei was wearing clothes far too fine for any village and thought rather highly of himself.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"indelicate\" -- evidence: [v01:c03:p0428] \"Weiz had always had an indelicate manner of speaking.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"womanizing\" -- evidence: [v02:c01:p0497] \"At such times, he was unable to muster his usual disdain for Weiz, the womanizing money changer in the port town of Pazzio.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"easy way with women\" -- evidence: [v02:c01:p0226] \"he thought of Weiz, the money changer in Pazzio, and envied him his easy way with women.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"philanderer\" -- evidence: [v01:c03:p0472] \"For a matchless philanderer, I suppose so.\"",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    },
+    {
+      "fact": "PERSONALITY = \"eccentric\" -- evidence: [v01:c01:p0062] \"Furthermore, the noble who managed the land, one Count Ehrendott, was a famous area eccentric who enjoyed working in the fields himself.\"; [v01:",
+      "old": true,
+      "new": true,
+      "candidate": true,
+      "rationale": ""
+    }
+  ]
+}

@@ -1,0 +1,1244 @@
+{
+ "central_subjects": [
+  "C Anne Shirley",
+  "C Gilbert Blythe",
+  "C Diana Barry"
+ ],
+ "recall": {
+  "anne": {
+   "central": {
+    "B5": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       18,
+       21
+      ],
+      [
+       27,
+       31
+      ],
+      [
+       34,
+       37
+      ],
+      [
+       35,
+       38
+      ]
+     ],
+     "pooled": [
+      126,
+      141
+     ]
+    },
+    "B1": {
+     "per_cutoff": [
+      [
+       11,
+       14
+      ],
+      [
+       19,
+       21
+      ],
+      [
+       25,
+       31
+      ],
+      [
+       30,
+       37
+      ],
+      [
+       33,
+       38
+      ]
+     ],
+     "pooled": [
+      118,
+      141
+     ]
+    },
+    "B2": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       15,
+       21
+      ],
+      [
+       22,
+       31
+      ],
+      [
+       29,
+       37
+      ],
+      [
+       32,
+       38
+      ]
+     ],
+     "pooled": [
+      110,
+      141
+     ]
+    },
+    "B3": {
+     "per_cutoff": [
+      [
+       3,
+       14
+      ],
+      [
+       13,
+       21
+      ],
+      [
+       12,
+       31
+      ],
+      [
+       19,
+       37
+      ],
+      [
+       20,
+       38
+      ]
+     ],
+     "pooled": [
+      67,
+      141
+     ]
+    },
+    "B4": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       15,
+       21
+      ],
+      [
+       22,
+       31
+      ],
+      [
+       29,
+       37
+      ],
+      [
+       28,
+       38
+      ]
+     ],
+     "pooled": [
+      106,
+      141
+     ]
+    },
+    "X2": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       16,
+       21
+      ],
+      [
+       25,
+       31
+      ],
+      [
+       31,
+       37
+      ],
+      [
+       31,
+       38
+      ]
+     ],
+     "pooled": [
+      115,
+      141
+     ]
+    }
+   },
+   "other": {
+    "B5": {
+     "per_cutoff": [
+      [
+       7,
+       9
+      ],
+      [
+       17,
+       25
+      ],
+      [
+       26,
+       35
+      ],
+      [
+       39,
+       52
+      ],
+      [
+       54,
+       73
+      ]
+     ],
+     "pooled": [
+      143,
+      194
+     ]
+    },
+    "B1": {
+     "per_cutoff": [
+      [
+       9,
+       9
+      ],
+      [
+       21,
+       25
+      ],
+      [
+       29,
+       35
+      ],
+      [
+       45,
+       52
+      ],
+      [
+       60,
+       73
+      ]
+     ],
+     "pooled": [
+      164,
+      194
+     ]
+    },
+    "B2": {
+     "per_cutoff": [
+      [
+       9,
+       9
+      ],
+      [
+       21,
+       25
+      ],
+      [
+       28,
+       35
+      ],
+      [
+       47,
+       52
+      ],
+      [
+       64,
+       73
+      ]
+     ],
+     "pooled": [
+      169,
+      194
+     ]
+    },
+    "B3": {
+     "per_cutoff": [
+      [
+       4,
+       9
+      ],
+      [
+       16,
+       25
+      ],
+      [
+       24,
+       35
+      ],
+      [
+       35,
+       52
+      ],
+      [
+       46,
+       73
+      ]
+     ],
+     "pooled": [
+      125,
+      194
+     ]
+    },
+    "B4": {
+     "per_cutoff": [
+      [
+       7,
+       9
+      ],
+      [
+       17,
+       25
+      ],
+      [
+       28,
+       35
+      ],
+      [
+       41,
+       52
+      ],
+      [
+       54,
+       73
+      ]
+     ],
+     "pooled": [
+      147,
+      194
+     ]
+    },
+    "X2": {
+     "per_cutoff": [
+      [
+       8,
+       9
+      ],
+      [
+       19,
+       25
+      ],
+      [
+       28,
+       35
+      ],
+      [
+       44,
+       52
+      ],
+      [
+       57,
+       73
+      ]
+     ],
+     "pooled": [
+      156,
+      194
+     ]
+    }
+   }
+  },
+  "anne-decon": {
+   "central": {
+    "B5": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       19,
+       21
+      ],
+      [
+       29,
+       31
+      ],
+      [
+       35,
+       37
+      ],
+      [
+       36,
+       38
+      ]
+     ],
+     "pooled": [
+      131,
+      141
+     ]
+    },
+    "B1": {
+     "per_cutoff": [
+      [
+       14,
+       14
+      ],
+      [
+       19,
+       21
+      ],
+      [
+       23,
+       31
+      ],
+      [
+       27,
+       37
+      ],
+      [
+       29,
+       38
+      ]
+     ],
+     "pooled": [
+      112,
+      141
+     ]
+    },
+    "B2": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       14,
+       21
+      ],
+      [
+       19,
+       31
+      ],
+      [
+       23,
+       37
+      ],
+      [
+       26,
+       38
+      ]
+     ],
+     "pooled": [
+      94,
+      141
+     ]
+    },
+    "B3": {
+     "per_cutoff": [
+      [
+       5,
+       14
+      ],
+      [
+       9,
+       21
+      ],
+      [
+       12,
+       31
+      ],
+      [
+       16,
+       37
+      ],
+      [
+       14,
+       38
+      ]
+     ],
+     "pooled": [
+      56,
+      141
+     ]
+    },
+    "B4": {
+     "per_cutoff": [
+      [
+       9,
+       14
+      ],
+      [
+       11,
+       21
+      ],
+      [
+       21,
+       31
+      ],
+      [
+       21,
+       37
+      ],
+      [
+       24,
+       38
+      ]
+     ],
+     "pooled": [
+      86,
+      141
+     ]
+    },
+    "X2": {
+     "per_cutoff": [
+      [
+       12,
+       14
+      ],
+      [
+       14,
+       21
+      ],
+      [
+       16,
+       31
+      ],
+      [
+       26,
+       37
+      ],
+      [
+       27,
+       38
+      ]
+     ],
+     "pooled": [
+      95,
+      141
+     ]
+    }
+   },
+   "other": {
+    "B5": {
+     "per_cutoff": [
+      [
+       8,
+       9
+      ],
+      [
+       19,
+       25
+      ],
+      [
+       27,
+       35
+      ],
+      [
+       40,
+       52
+      ],
+      [
+       56,
+       73
+      ]
+     ],
+     "pooled": [
+      150,
+      194
+     ]
+    },
+    "B1": {
+     "per_cutoff": [
+      [
+       8,
+       9
+      ],
+      [
+       22,
+       25
+      ],
+      [
+       31,
+       35
+      ],
+      [
+       41,
+       52
+      ],
+      [
+       59,
+       73
+      ]
+     ],
+     "pooled": [
+      161,
+      194
+     ]
+    },
+    "B2": {
+     "per_cutoff": [
+      [
+       8,
+       9
+      ],
+      [
+       22,
+       25
+      ],
+      [
+       29,
+       35
+      ],
+      [
+       46,
+       52
+      ],
+      [
+       59,
+       73
+      ]
+     ],
+     "pooled": [
+      164,
+      194
+     ]
+    },
+    "B3": {
+     "per_cutoff": [
+      [
+       3,
+       9
+      ],
+      [
+       12,
+       25
+      ],
+      [
+       21,
+       35
+      ],
+      [
+       32,
+       52
+      ],
+      [
+       42,
+       73
+      ]
+     ],
+     "pooled": [
+      110,
+      194
+     ]
+    },
+    "B4": {
+     "per_cutoff": [
+      [
+       6,
+       9
+      ],
+      [
+       20,
+       25
+      ],
+      [
+       29,
+       35
+      ],
+      [
+       38,
+       52
+      ],
+      [
+       62,
+       73
+      ]
+     ],
+     "pooled": [
+      155,
+      194
+     ]
+    },
+    "X2": {
+     "per_cutoff": [
+      [
+       7,
+       9
+      ],
+      [
+       18,
+       25
+      ],
+      [
+       28,
+       35
+      ],
+      [
+       42,
+       52
+      ],
+      [
+       58,
+       73
+      ]
+     ],
+     "pooled": [
+      153,
+      194
+     ]
+    }
+   }
+  }
+ },
+ "per_subject": {
+  "anne": {
+   "C Anne Shirley": {
+    "B5": [
+     78,
+     81
+    ],
+    "B1": [
+     64,
+     81
+    ],
+    "B2": [
+     60,
+     81
+    ],
+    "B3": [
+     41,
+     81
+    ],
+    "B4": [
+     51,
+     81
+    ],
+    "X2": [
+     62,
+     81
+    ]
+   },
+   "C Gilbert Blythe": {
+    "B5": [
+     31,
+     39
+    ],
+    "B1": [
+     33,
+     39
+    ],
+    "B2": [
+     34,
+     39
+    ],
+    "B3": [
+     12,
+     39
+    ],
+    "B4": [
+     37,
+     39
+    ],
+    "X2": [
+     32,
+     39
+    ]
+   },
+   "C Diana Barry": {
+    "B5": [
+     17,
+     21
+    ],
+    "B1": [
+     21,
+     21
+    ],
+    "B2": [
+     16,
+     21
+    ],
+    "B3": [
+     14,
+     21
+    ],
+    "B4": [
+     18,
+     21
+    ],
+    "X2": [
+     21,
+     21
+    ]
+   }
+  },
+  "anne-decon": {
+   "C Anne Shirley": {
+    "B5": [
+     72,
+     81
+    ],
+    "B1": [
+     61,
+     81
+    ],
+    "B2": [
+     53,
+     81
+    ],
+    "B3": [
+     41,
+     81
+    ],
+    "B4": [
+     41,
+     81
+    ],
+    "X2": [
+     62,
+     81
+    ]
+   },
+   "C Gilbert Blythe": {
+    "B5": [
+     38,
+     39
+    ],
+    "B1": [
+     31,
+     39
+    ],
+    "B2": [
+     30,
+     39
+    ],
+    "B3": [
+     8,
+     39
+    ],
+    "B4": [
+     33,
+     39
+    ],
+    "X2": [
+     20,
+     39
+    ]
+   },
+   "C Diana Barry": {
+    "B5": [
+     21,
+     21
+    ],
+    "B1": [
+     20,
+     21
+    ],
+    "B2": [
+     11,
+     21
+    ],
+    "B3": [
+     7,
+     21
+    ],
+    "B4": [
+     12,
+     21
+    ],
+    "X2": [
+     13,
+     21
+    ]
+   }
+  }
+ },
+ "versus_b1_and_b2": {
+  "anne": {
+   "b5_only": {
+    "C Anne Shirley | Anne longs for a dress with puffed sleeves.": [
+     1,
+     3,
+     4
+    ],
+    "C Gilbert Blythe | Gilbert rows up to Anne in a boat when her flat sinks.": [
+     2,
+     4,
+     5
+    ],
+    "C Anne Shirley | Anne writes a story whose heroine is named Averil Lester.": [
+     3,
+     4,
+     5
+    ],
+    "C Anne Shirley | Anne is given old letters that belonged to her mother.": [
+     3,
+     4,
+     5
+    ],
+    "C Rachel Lynde | Rachel Lynde says Anne's hair is as red as carrots.": [
+     3
+    ],
+    "C Anne Shirley | Anne has two braids of very thick red hair and eyes that look green in some lights.": [
+     4
+    ],
+    "C Walter Blythe | Walter hates Dan Reese.": [
+     5
+    ]
+   },
+   "b1_and_b2_only": {
+    "C Gilbert Blythe | Gilbert is going to teach at the White Sands school.": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "C Phillips | Mr. Phillips says Anne's spelling is disgraceful.": [
+     1,
+     4
+    ],
+    "C Phillips | Mr. Phillips makes eyes at Prissy Andrews.": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "C Paul Irving | Paul Irving comes from the States to live with his grandmother.": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "C Paul Irving | Paul Irving loves Miss Lavendar as his new second mother.": [
+     2
+    ],
+    "C Charlotta | Charlotta the Fourth will go to Boston to live with the Irvings.": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "C Gilbert Blythe | Gilbert takes High Honors in Classics and the Cooper Prize.": [
+     4,
+     5
+    ],
+    "C Leslie Moore | Leslie was pressured by her mother into marrying Dick Moore.": [
+     4,
+     5
+    ],
+    "C Cornelia Bryant | Miss Cornelia has a chronic spite against men and Methodists.": [
+     4
+    ],
+    "C Susan Baker | Susan worships Anne as young Mrs. Doctor.": [
+     4,
+     5
+    ],
+    "C Rilla Blythe | Rilla is the youngest of the Blythe children.": [
+     5
+    ],
+    "C Leslie Moore | Leslie and Owen Ford are to be married at Christmas.": [
+     5
+    ],
+    "C John Meredith | Mr. Meredith is moony and absent-minded but a wonderful preacher.": [
+     5
+    ]
+   }
+  },
+  "anne-decon": {
+   "b5_only": {
+    "C Anne Shirley | Anne longs for a dress with puffed sleeves.": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "C Anne Shirley | Anne realises she loves Gilbert when he falls ill with typhoid.": [
+     3
+    ],
+    "C Anne Shirley | Anne dyes her hair.": [
+     3
+    ],
+    "C Anne Shirley | Anne is given old letters that belonged to her mother.": [
+     3,
+     4,
+     5
+    ],
+    "C Anne Shirley | Anne has two braids of very thick red hair and eyes that look green in some lights.": [
+     4,
+     5
+    ],
+    "C Gilbert Blythe | Gilbert gives up the Avonlea school so that Anne can teach there.": [
+     4
+    ],
+    "C Gilbert Blythe | Gilbert rows up to Anne in a boat when her flat sinks.": [
+     4,
+     5
+    ],
+    "C Gilbert Blythe | Gilbert is said to be going about with Christine Stuart.": [
+     4
+    ],
+    "C Anne Shirley | Anne writes a story whose heroine is named Averil Lester.": [
+     5
+    ],
+    "C Gilbert Blythe | Gilbert proposes to Anne and she refuses him.": [
+     5
+    ],
+    "C Diana Barry | Anne accidentally gets Diana drunk on currant wine.": [
+     5
+    ],
+    "C Walter Blythe | Walter hates Dan Reese.": [
+     5
+    ],
+    "C Carl Meredith | Carl gets a sore throat after getting wet in the Rainbow Valley marsh.": [
+     5
+    ]
+   },
+   "b1_and_b2_only": {
+    "C Gilbert Blythe | Gilbert is going to teach at the White Sands school.": [
+     1
+    ],
+    "C Anne Shirley | Anne is secretary of the Avonlea Village Improvement Society.": [
+     2
+    ],
+    "C Rachel Lynde | Rachel Lynde's husband Thomas lies on the lounge more than he used to.": [
+     2
+    ],
+    "C Paul Irving | Paul Irving loves Miss Lavendar as his new second mother.": [
+     2,
+     3
+    ],
+    "C Charlotta | Charlotta the Fourth will go to Boston to live with the Irvings.": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "C Reverend Jo | Jonas Blake is a theological student in charge of the Point Prospect Mission Church.": [
+     3
+    ],
+    "C Leslie Moore | Leslie was pressured by her mother into marrying Dick Moore.": [
+     4,
+     5
+    ],
+    "C Dick Moore | Dick Moore went on a voyage to Havana with his cousin George Moore.": [
+     4
+    ],
+    "C Susan Baker | Susan worships Anne as young Mrs. Doctor.": [
+     5
+    ],
+    "C John Meredith | Mr. Meredith is moony and absent-minded but a wonderful preacher.": [
+     5
+    ]
+   }
+  }
+ },
+ "drops": {
+  "anne": {
+   "B5": 1,
+   "B1": 10,
+   "B2": 4,
+   "B3": 19,
+   "B4": 12,
+   "X2": 7
+  },
+  "anne-decon": {
+   "B5": 1,
+   "B1": 14,
+   "B2": 24,
+   "B3": 13,
+   "B4": 14,
+   "X2": 11
+  }
+ },
+ "artifact": {
+  "B5": [
+   {
+    "cutoff": 1,
+    "pages": 97,
+    "words": 62571,
+    "content_words": 38910,
+    "anne_shirley_page_words": 3259,
+    "anne_shirley_content_words": 1813,
+    "anne_shirley_relationship_blocks": 18
+   },
+   {
+    "cutoff": 2,
+    "pages": 193,
+    "words": 124190,
+    "content_words": 80165,
+    "anne_shirley_page_words": 4361,
+    "anne_shirley_content_words": 2363,
+    "anne_shirley_relationship_blocks": 26
+   },
+   {
+    "cutoff": 3,
+    "pages": 275,
+    "words": 166303,
+    "content_words": 113891,
+    "anne_shirley_page_words": 4963,
+    "anne_shirley_content_words": 2688,
+    "anne_shirley_relationship_blocks": 31
+   },
+   {
+    "cutoff": 4,
+    "pages": 345,
+    "words": 218609,
+    "content_words": 148154,
+    "anne_shirley_page_words": 6605,
+    "anne_shirley_content_words": 3719,
+    "anne_shirley_relationship_blocks": 39
+   },
+   {
+    "cutoff": 5,
+    "pages": 440,
+    "words": 288279,
+    "content_words": 194562,
+    "anne_shirley_page_words": 6598,
+    "anne_shirley_content_words": 3439,
+    "anne_shirley_relationship_blocks": 42
+   }
+  ],
+  "B1": [
+   {
+    "cutoff": 1,
+    "pages": 14,
+    "words": 8612,
+    "content_words": 6058,
+    "anne_shirley_page_words": 1371,
+    "anne_shirley_content_words": 864,
+    "anne_shirley_relationship_blocks": 10
+   },
+   {
+    "cutoff": 2,
+    "pages": 21,
+    "words": 14789,
+    "content_words": 10585,
+    "anne_shirley_page_words": 1191,
+    "anne_shirley_content_words": 852,
+    "anne_shirley_relationship_blocks": 10
+   },
+   {
+    "cutoff": 3,
+    "pages": 25,
+    "words": 19863,
+    "content_words": 14018,
+    "anne_shirley_page_words": 1325,
+    "anne_shirley_content_words": 913,
+    "anne_shirley_relationship_blocks": 13
+   },
+   {
+    "cutoff": 4,
+    "pages": 33,
+    "words": 25547,
+    "content_words": 18170,
+    "anne_shirley_page_words": 1527,
+    "anne_shirley_content_words": 984,
+    "anne_shirley_relationship_blocks": 12
+   },
+   {
+    "cutoff": 5,
+    "pages": 43,
+    "words": 34278,
+    "content_words": 24625,
+    "anne_shirley_page_words": 1749,
+    "anne_shirley_content_words": 1157,
+    "anne_shirley_relationship_blocks": 15
+   }
+  ],
+  "B2": [
+   {
+    "cutoff": 1,
+    "pages": 14,
+    "words": 9261,
+    "content_words": 6627,
+    "anne_shirley_page_words": 1039,
+    "anne_shirley_content_words": 699,
+    "anne_shirley_relationship_blocks": 8
+   },
+   {
+    "cutoff": 2,
+    "pages": 21,
+    "words": 15193,
+    "content_words": 10762,
+    "anne_shirley_page_words": 829,
+    "anne_shirley_content_words": 553,
+    "anne_shirley_relationship_blocks": 5
+   },
+   {
+    "cutoff": 3,
+    "pages": 25,
+    "words": 19224,
+    "content_words": 13217,
+    "anne_shirley_page_words": 1047,
+    "anne_shirley_content_words": 708,
+    "anne_shirley_relationship_blocks": 9
+   },
+   {
+    "cutoff": 4,
+    "pages": 33,
+    "words": 24839,
+    "content_words": 17352,
+    "anne_shirley_page_words": 1106,
+    "anne_shirley_content_words": 711,
+    "anne_shirley_relationship_blocks": 10
+   },
+   {
+    "cutoff": 5,
+    "pages": 43,
+    "words": 33299,
+    "content_words": 22989,
+    "anne_shirley_page_words": 1025,
+    "anne_shirley_content_words": 688,
+    "anne_shirley_relationship_blocks": 10
+   }
+  ],
+  "B3": [
+   {
+    "cutoff": 1,
+    "pages": 14,
+    "words": 6271,
+    "content_words": 4736,
+    "anne_shirley_page_words": 860,
+    "anne_shirley_content_words": 620,
+    "anne_shirley_relationship_blocks": 8
+   },
+   {
+    "cutoff": 2,
+    "pages": 21,
+    "words": 11280,
+    "content_words": 8384,
+    "anne_shirley_page_words": 957,
+    "anne_shirley_content_words": 731,
+    "anne_shirley_relationship_blocks": 8
+   },
+   {
+    "cutoff": 3,
+    "pages": 25,
+    "words": 14307,
+    "content_words": 10386,
+    "anne_shirley_page_words": 956,
+    "anne_shirley_content_words": 653,
+    "anne_shirley_relationship_blocks": 8
+   },
+   {
+    "cutoff": 4,
+    "pages": 33,
+    "words": 19497,
+    "content_words": 14273,
+    "anne_shirley_page_words": 801,
+    "anne_shirley_content_words": 554,
+    "anne_shirley_relationship_blocks": 5
+   },
+   {
+    "cutoff": 5,
+    "pages": 43,
+    "words": 25739,
+    "content_words": 18951,
+    "anne_shirley_page_words": 594,
+    "anne_shirley_content_words": 410,
+    "anne_shirley_relationship_blocks": 5
+   }
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "1": "S", "3": "S", "7": "S", "8": "S", "9": "S", "12": "S", "14": "S", "15": "S", "16": "S", "27": "S", "30": "S",
+ "37": "S", "39": "S",
+ "0": ["P", "Marilla's sending her through the wood after nightfall is cited (v01:c20:p0031); the Barrys' house is not in the cited paragraphs"],
+ "2": ["I", "none of the three cited paragraphs has the marriage"],
+ "6": ["P", "the rug dye taken for the freckle lotion is cited (v02:c20:p0036); that it is her nose is in the paragraph before, not cited"],
+ "10": ["I", "the four cited paragraphs are the talk of Queen's and the days after the concert; the Sloanes and the Bells (v01:c26:p0002) are not cited"],
+ "13": ["P", "Jane's quoting Mrs. Lynde to the group with Anne in it is cited (v02:c09:p0032); Anne speaking of her is not"],
+ "19": ["P", "her carrying Davy up to bed is cited (v02:c25:p0071); talk with Marilla is not in the cited paragraphs"],
+ "20": ["I", "the six cited paragraphs are the hotel concert of volume 1; her school at Newbridge is not in them"],
+ "22": ["P", "the wedding with Anne present is cited (v02:c30:p0029); her helping to prepare is not"],
+ "23": ["I", "the cited paragraph has Mrs. Donnell announcing herself; no description of her is cited"],
+ "24": ["I", "the three cited paragraphs are the lent book and the afternoon at the pond; no concert is in them"],
+ "25": ["P", "Anne's and Marilla's grief is cited (v01:c37:p0017, p0020); the community's is not in the cited paragraphs"],
+ "26": ["P", "their arrival at the stone house and an 'after lunch' are cited (v02:c27:p0022, p0035); the lunch itself is not"],
+ "29": ["P", "the boy from the asylum is cited (v01:c01:p0016); what he is wanted for (p0023) is not"],
+ "32": ["I", "none of the four cited paragraphs has the Birch Path or Diana"],
+ "34": ["I", "the six cited paragraphs are of her first days at Green Gables; the cow is not in them"],
+ "35": ["P", "that he has a wife is cited (v02:c25:p0016, p0043); her name is not in the cited paragraphs"],
+ "36": ["P", "Anne settling Dora after her first school day is cited (v02:c21:p0000, p0008); Marilla is not in the cited paragraphs"]
+}

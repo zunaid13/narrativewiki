@@ -1,0 +1,13 @@
+{
+ "0": "S", "1": "S", "2": "S", "3": "S", "4": "S", "7": "S", "8": "S", "9": "S", "12": "S", "13": "S", "14": "S",
+ "15": "S", "16": "S", "17": "S", "18": "S", "19": "S", "20": "S", "21": "S", "22": "S", "24": "S", "25": "S",
+ "26": "S", "27": "S", "29": "S", "30": "S", "31": "S", "32": "S", "36": "S", "37": "S", "38": "S", "39": "S",
+ "5": ["P", "the Story Club tale and Jane's tears over it are cited (v03:c35:p0043); her own stories (v03:c35:p0039, p0044) are not cited for this line"],
+ "10": ["P", "the newspaper note and Anne's answer are cited (v02:c24:p0002, p0005); that the note means Mr. Harrison is in the paragraphs between, not cited"],
+ "11": ["P", "seven years is cited (v02:c22:p0001), said a year after he came; his age at arrival is not"],
+ "23": ["I", "none of the six cited paragraphs has the fight"],
+ "28": ["I", "none of the nine cited paragraphs has a ring"],
+ "33": ["P", "his taking her part over the concert is cited (v01:c19:p0024, p0031); no gift is among the paragraphs cited for this line"],
+ "34": ["I", "the cited paragraphs have Mr. Irving asking after Miss Lewis (v02:c28:p0030); no marriage is in them"],
+ "35": ["I", "the one cited paragraph is his sullen face at his desk; nothing of an orphan or Mrs. George Pye"]
+}

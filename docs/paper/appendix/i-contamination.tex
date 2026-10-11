@@ -1,0 +1,229 @@
+% Appendix I: contamination diagnostics and the decontaminated condition (plan 0013 §4.3).
+% Method from the implemented code; results from the ledger rows of 2026-10-03 to 2026-10-07 (all seven
+% systems rebuilt at five cutoffs). Keys: results.tex, _build/fill_decon.py; DECON-* typed from the ledger.
+\ifdefined\nwvtwo
+\section{Contamination Diagnostics and the Treated Text}
+\else
+\section{Contamination Diagnostics and the Decontaminated Condition}
+\fi
+\label{app:contamination}
+
+A generator may recognize published novels \citep{chang2023speak}. We compare aligned
+original, names-only and renamed-and-paraphrased text, assessing recognition separately
+from later-fact disclosure and cutoff compliance. Renaming follows prior practice
+\citep{gupta2025whodunit, zhang2024infinitebench}; cross-condition differences motivate
+contamination diagnostics \citep{dekoninck2024constat}. Because a treatment can damage
+the narrative \citep{sun2025emperor}, we examine gold-fact fidelity and document errors.
+The procedure aims to preserve facts, attribution, reveal order and cross-volume
+coreference, but has no independent validation of complete fidelity. Reduced recognition
+does not rule out memorization \citep{cheng2025contamination}.
+
+\ifdefined\nwvtwo % v2 only: moved here from its Section 6.1 for space; v1 does not print it
+\begin{figure}[t]
+\centering
+\input{figures/f5-decon-recall}
+\caption{Gold recall on original and treated text (means over $t=1..5$) and the change,
+treated minus original. Without source text, recall collapses; with it, recall is largely
+retained.}
+\label{fig:deconrecall}
+\end{figure}
+\fi
+
+\paragraph{Treatment.}
+The treatment operates paragraph by paragraph, retaining identifiers, chapter boundaries
+and scene breaks so citations remain aligned.
+
+\emph{Step 1, names.} A reviewed map of \res{DECON-map} entries replaces character,
+family and local place names with invented forms. Longer forms precede shorter ones
+in whole-word replacement, with consistent full names, surnames and nicknames.
+Mechanical checks require stand-ins to be absent from the source names and every part
+of a mapped full name to be mapped. An initial map failed both checks after one volume:
+a main character's stand-in matched two minor characters' first names, and a mapped
+full name left its 148 bare-first-name occurrences unchanged. We rebuilt the map and
+discarded that treated volume. Recurring minor characters and local places are renamed;
+countries and distant cities remain. A surname also used as a compass direction is
+replaced only in person-name contexts.
+
+\emph{Step 2, paraphrase.} The generator rewrites each renamed paragraph under
+instructions to preserve facts, events, numbers, places, ordering, names and dialogue
+speakers, with no additions or summarization. Reapplying the map replaces any restored
+source names. Nonempty rewrites between half and twice the source length are accepted;
+otherwise the renamed paragraph is retained and counted as unparaphrased.
+Residual source names are counted separately. In an initial treated volume,
+approximately one paragraph in 25, containing one word in 12, retained at least four
+fifths of its four-word sequences. We therefore request one retry when at least half
+the source's four-word sequences remain. A second near-copy is retained but counted
+as verbatim. Failed model calls stop the run, preventing silent fallback.
+
+\emph{Step 3, gold.} The same map transforms the original gold facts and cast;
+facts are neither added nor removed, and reveal volumes are unchanged.
+All systems in Section~\ref{sec:setup} are rebuilt with unchanged code, configuration
+and prompts. A names-only variant omits Step~2 and is used for recognition probes,
+rather than complete system rebuilding.
+
+\paragraph{What the condition can and cannot show.}
+If systems mainly use supplied evidence, much of their original-text coverage may survive
+the treatment. Reduced recognition may instead reduce closed-book coverage, where no
+source text is supplied. These are diagnostic expectations, not an identification
+strategy for each system's memory contribution: rewriting also changes wording,
+entity resolution and sometimes meaning.
+
+A prefix-bounded system can disclose later facts through extraction or inference errors,
+generation or residual recognition. A treated-text disclosure by the full-text diagnostic
+still demonstrates a failure to obey the cutoff while later evidence is available.
+A model can recognize a plot without its original names, so the treatment cannot establish
+the absence of memorization.
+
+\paragraph{The treated text.}
+The treated series contains \res{DECON-paras} paragraphs and
+\res{DECON-words} words before and after treatment. Of these paragraphs,
+\res{DECON-paraphrased} were paraphrased, with the remainder renamed only;
+\res{DECON-verbatim} remained near-copies after retrying. Paraphrase lengthens the series
+overall, although each accepted rewrite stays within the length bounds of Step~2.
+Whole-name checks find no
+mapped source name unchanged. A broader search finds
+\res{DECON-residual-forms-n} inflected or derived source-name occurrences in
+\res{DECON-residual-forms} paragraphs: chiefly family-name plurals (``the Gardners''),
+plus a college-derived adjective and a sentence explaining a name's origin.
+Recognition probes include these residual forms.
+
+Some residuals reach generated pages. Across \res{DECON-pages-scanned} character pages
+from seven systems, the name explained in the source sentence appears in
+\res{DECON-jamesina-pages} pages of six systems. A family name retained in a plural
+and a chapter title (``The Gardners' Call'') appears on
+\res{DECON-gardner-pages} pages of four systems. Three other family names and the
+college name, each from a residual form, appear on seven pages. A further
+closed-book match is a common surname in an invented story.
+
+Another source name has no literal residual: \res{DECON-pei-pages} pages from prefix
+retrieval and the full-text diagnostic print ``Prince Edward Island'', absent from
+the treated paragraphs and chapter titles. The renamed island's neighboring provinces
+remain, permitting geographic inference. This output therefore does not distinguish
+inference from residual recognition.
+
+\paragraph{Fidelity.}
+An unblinded LLM annotator checked all 111 gold facts against their treated evidence
+paragraphs. It judged \res{DECON-fidelity} still expressed, one with altered wording:
+a sleeve style is renamed in its evidence paragraph but given its source name in
+the next paragraph. This asks whether the treated passage retains the fact.
+The stricter paragraph-alone audit from Appendix~\ref{app:annotation}, yielding
+\res{HUMR-gold} for the original text, was not repeated.
+
+Errors also occur outside gold evidence. One paraphrase changes two children's ages
+into an interval of minutes, after which prefix retrieval reports twins born six
+minutes apart. The statement counts as supported against the supplied treated text.
+Treatment errors found during analysis are documented here and left in place.
+
+\paragraph{Recognition.}
+On 200 aligned paragraphs spanning five volumes, the generator restores a masked
+character name with accuracy \res{MEM-cloze-orig} on original text and
+\res{MEM-cloze-decon} on treated text. Title identification is
+\res{MEM-title-orig}, \res{MEM-title-remap} and \res{MEM-title-decon}
+for original, names-only and combined treatment, respectively; author identification
+is \res{MEM-author-orig}, \res{MEM-author-remap} and \res{MEM-author-decon}.
+Renaming reduces title recognition more than author recognition. Adding paraphrase
+reduces both further, to approximately one third of their names-only levels, but
+roughly one treated paragraph in nine is still identified as belonging to the series.
+Only recognition was probed for names-only text; complete systems were rebuilt on
+original and combined-treatment text.
+
+\input{tables/t-recognition}
+\input{tables/e-decon-cells}
+
+\paragraph{Systems on the treated text.}
+Table~\ref{tab:decon} compares original and treated systems;
+Table~\ref{tab:decon-cells} reports every cutoff. Gold facts, reveal volumes and
+labeling rules are transferred from the original; inverse name mapping allows
+the same per-fact tests. Claude Opus~5.5 finalized the AI labels for all systems on both
+texts, including precision and citation sufficiency.
+
+Each condition has one build. Differences in entity resolution and paraphrase fidelity
+preclude interpreting small cross-condition changes as isolated memory effects.
+The closed-book diagnostic has a much larger recall reduction, from
+\respt{M1-anne-avg-X1} to \respt{M1-annedecon-avg-X1}, with
+\res{M1-annedecon-count-X1} matching fact--cutoff assessments remaining:
+a death also present in its invented story. This is consistent with recognition
+contributing substantially to original-text closed-book recall.
+
+\paragraph{What the closed-book generator writes.}
+Given stand-in names without text, the generator still writes full pages.
+Of 200 sampled assertions, \res{M3-annedecon-unsup-X1} are unsupported.
+The stand-in for a shy book-one farmer becomes a sea captain founding a cult;
+a heroine's friend becomes a duelist at a magical academy; later cutoffs introduce
+a street gang and a starship. Supported judgments concern generic statements
+about gender, status, siblings or traits. No assertion carries a citation.
+
+\paragraph{The disclosure by \sys.}
+At $t=2$ and $t=3$, \sys lists both leads as spouses, a book-four fact
+(\res{M4-annedecon-total-B5}, counting the marriage for both characters at both cutoffs).
+These are two reciprocal subject facts from one prediction-to-marriage failure mechanism,
+rather than four independent errors (Table~\ref{tab:disclosure-units}).
+Another \res{M4-annedecon-uncertain-B5} verdicts are uncertain, involving the
+same courtship line as in the original. The marriage citations point to a
+book-two neighbor's prediction. Extraction stored a presumed marriage at
+volume two, and rendering turned presumed spouses into spouses.
+B4, using the same graph, prints ``anticipated future marriage'' at $t=2$,
+labeled implied disclosure (\res{M4-annedecon-total-B4}).
+
+The original build did not extract this relation from the corresponding passage.
+The treated passage is cutoff-eligible, but the claim loses the distinction
+between a character's prediction and an established event. Volume filtering
+cannot repair that attribution and modality error.
+
+\paragraph{Long-context prompting on the treated text.}
+Mean recall is \respt{M1-annedecon-avg-B1} on treated text versus
+\respt{M1-anne-avg-B1} on original text; precision is
+\respt{M3-annedecon-avg-B1} versus \respt{M3-anne-avg-B1}.
+Both treated estimates are lowest at $t=4$ (Table~\ref{tab:decon-cells}).
+The close means do not establish equivalence from single builds.
+
+Citation sufficiency is \respt{M8-annedecon-t1-B1} and
+\respt{M8-annedecon-t2-B1} for one and two volumes, then falls to
+\respt{M8-annedecon-t3-B1}, \respt{M8-annedecon-t4-B1} and
+\respt{M8-annedecon-t5-B1}, versus \respt{M8-anne-t3-B1},
+\respt{M8-anne-t4-B1} and \respt{M8-anne-t5-B1} on the original.
+Most insufficient citations accompany supported assertions. Many retain the
+paragraph number but lose the volume or chapter, pointing, for example, from
+a volume-one fact to the corresponding identifier in volume three.
+Such identifiers pass the harness's existence check.
+
+The cause is untested. Familiarity with the original might help locate evidence,
+or paraphrased passages might be harder to distinguish. Neither explanation
+is isolated by this comparison.
+
+\paragraph{The full-text diagnostic on the treated text.}
+Despite the cutoff instruction, X2 discloses \res{M4-annedecon-total-X2}
+assessed later facts on treated text, versus \res{M4-anne-total-X2} on the original.
+Per-cutoff counts at $t=1..4$ are \res{M4-annedecon-t1-X2},
+\res{M4-annedecon-t2-X2}, \res{M4-annedecon-t3-X2} and
+\res{M4-annedecon-t4-X2}; original counts are \res{M4-anne-t1-X2},
+\res{M4-anne-t2-X2}, \res{M4-anne-t3-X2} and \res{M4-anne-t4-X2}.
+At $t=1$, the guardian's page describes the neighbor's widowhood and move,
+the heroine's college attendance and her marriage ``years later''.
+It cites volumes two to four, whose identifiers the harness accepts because
+all volumes are supplied. Reduced recognition therefore does not make the
+instruction reliable; observed disclosure is higher at the first cutoff.
+Familiarity with the original's book boundaries is one untested explanation.
+
+Treated recall is lower at every cutoff (\respt{M1-annedecon-avg-X2} versus
+\respt{M1-anne-avg-X2}); mean precision is also lower
+(\respt{M3-annedecon-avg-X2} versus \respt{M3-anne-avg-X2}).
+Most unsupported statements are misattributed biographies, and citation errors
+also omit volumes. The heroine's $t=1$ page returned malformed JSON three times,
+closing a list with the wrong bracket. We corrected that bracket in the
+recorded first response without another model call
+(Appendix~\ref{app:reproducibility}).
+
+\paragraph{Namesakes made by the name map.}
+Whole-word renaming creates two collisions observed in the systems receiving the most
+text, B1 and X2. First, one stand-in replaces a shared first name across characters,
+making a book-one minor character a namesake of a schoolmate; passages about one
+are then cited for the other. Second, a book-two twin's stand-in is a short form
+of the stand-in for the heroine's romantic name, also borne by her friend's
+daughter in book four. With book four in context, the twin's page describes
+the friend (B1 at $t=4$; X2 at $t=2$, $4$ and $5$) or the heroine
+(X2 at $t=3$), whereas original-text builds describe the twin.
+
+This page contributes unsupported assertions and two stated X2 disclosures
+at $t=3$. Neither mechanical map check detects these collisions. They are
+treatment defects retained in the reported system scores.

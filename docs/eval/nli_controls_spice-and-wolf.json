@@ -1,0 +1,212 @@
+{
+  "series": "spice-and-wolf",
+  "volumes": [
+    1,
+    2
+  ],
+  "run_id": "20260916T202531-nli_controls-v1-2",
+  "method": "MiniCheck FT5, discovery-volume +/-4 context, max chunk support",
+  "scope": "diagnostic cases, not an accuracy benchmark or recall measurement",
+  "cases": [
+    {
+      "claim_id": "c_11819ea3",
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "object": null,
+      "value": "public witness",
+      "polarity": "asserted",
+      "hypothesis": "Zheren works as a public witness.",
+      "score": 0.06501460820436478,
+      "extracted_confidence": 1.0,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "7c9aa64100f504af23772fa19103e8b51d42202386c9c96f143cc3f66ed36975",
+      "evidence_cutoff": 1
+    },
+    {
+      "claim_id": "c_5f67be17",
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "object": null,
+      "value": "merchant",
+      "polarity": "asserted",
+      "hypothesis": "Zheren works as a merchant.",
+      "score": 0.9289264678955078,
+      "extracted_confidence": 1.0,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "9b745d2b32d7941272dd47f9b5571aaa612ea1573ada548b0b5b142fa246808a",
+      "evidence_cutoff": 1
+    },
+    {
+      "claim_id": "c_14c350e3",
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "object": null,
+      "value": "traveling merchant",
+      "polarity": "presumed",
+      "hypothesis": "It is believed that Zheren works as a traveling merchant.",
+      "score": 0.9084449410438538,
+      "extracted_confidence": 0.72,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "2cc31b5f83645c0212b190d458021d1b8340f4db43634817a1cdea3c3e1e3395",
+      "evidence_cutoff": 1
+    },
+    {
+      "claim_id": "c_2c6ba49a",
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "object": null,
+      "value": "young merchant",
+      "polarity": "asserted",
+      "hypothesis": "Zheren works as a young merchant.",
+      "score": 0.709660530090332,
+      "extracted_confidence": 0.95,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "b733b91c37dcfcf9cc0361dea2b8d808e381d5b08572af0e6d130dcca55addce",
+      "evidence_cutoff": 1
+    },
+    {
+      "claim_id": "c_53a52f5f",
+      "subject": "holo",
+      "predicate": "ENEMY_OF",
+      "object": "norah-arendt",
+      "value": null,
+      "polarity": "asserted",
+      "hypothesis": "Holo is an enemy of Norah Arendt.",
+      "score": 0.8665279746055603,
+      "extracted_confidence": 0.96,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "9c999f3a0e30623b006fbbb76ae993ea4b0c4ea8d01d4711775a1e41be42e65b",
+      "evidence_cutoff": 2
+    },
+    {
+      "claim_id": "c_8f4470d7",
+      "subject": "holo",
+      "predicate": "KILLED",
+      "object": "saint-ruvinheigen",
+      "value": null,
+      "polarity": "denied",
+      "hypothesis": "It is not true that Holo killed Saint Ruvinheigen.",
+      "score": 0.9791248440742493,
+      "extracted_confidence": 1.0,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "8fe5203ac73bd0e02c3a7df6d346d4fc64933083dad29ac245093f567b41741f",
+      "evidence_cutoff": 2
+    },
+    {
+      "claim_id": "c_b316c5c1",
+      "subject": "norah-arendt",
+      "predicate": "SAVED",
+      "object": "remelio-company",
+      "value": null,
+      "polarity": "asserted",
+      "hypothesis": "Norah Arendt saved Remelio Company.",
+      "score": 0.07820508629083633,
+      "extracted_confidence": 0.99,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "0ac49fb1530c668cb82637c76eabc0d3563117bb230469362be700813525c3ea",
+      "evidence_cutoff": 2
+    },
+    {
+      "claim_id": "c_0a460baf",
+      "subject": "jakob",
+      "predicate": "SAVED",
+      "object": "kraft-lawrence",
+      "value": null,
+      "polarity": "asserted",
+      "hypothesis": "Jakob saved Kraft Lawrence.",
+      "score": 0.06085937097668648,
+      "extracted_confidence": 0.92,
+      "model": "minicheck:lytang/MiniCheck-Flan-T5-Large",
+      "revision": "96eafd01cee2d16cf81aaa2fb226b14f422a37b3",
+      "context_sha256": "3371038cb4ade1d1aabef6f7c282b87744fa9c1eb0c796199c682932ae320c9b",
+      "evidence_cutoff": 2
+    }
+  ],
+  "occupation_before": [
+    "public witness"
+  ],
+  "occupation_after": [
+    "merchant"
+  ],
+  "arbitration": [
+    {
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "kind": "extraction_error",
+      "resolution": "keep_a",
+      "a": {
+        "value": "merchant",
+        "vol": 1,
+        "confidence": 1.0,
+        "claim_id": "c_5f67be17",
+        "support_score": 0.9289264678955078
+      },
+      "b": {
+        "value": "young merchant",
+        "vol": 1,
+        "confidence": 0.95,
+        "claim_id": "c_2c6ba49a",
+        "support_score": 0.709660530090332
+      },
+      "arbiter": "nli:lower_support_dropped",
+      "rationale": "4 conflicting values in one volume; kept the top two by evidence support."
+    },
+    {
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "kind": "extraction_error",
+      "resolution": "keep_a",
+      "a": {
+        "value": "merchant",
+        "vol": 1,
+        "confidence": 1.0,
+        "claim_id": "c_5f67be17",
+        "support_score": 0.9289264678955078
+      },
+      "b": {
+        "value": "public witness",
+        "vol": 1,
+        "confidence": 1.0,
+        "claim_id": "c_11819ea3",
+        "support_score": 0.06501460820436478
+      },
+      "arbiter": "nli:lower_support_dropped",
+      "rationale": "4 conflicting values in one volume; kept the top two by evidence support."
+    },
+    {
+      "subject": "zheren",
+      "predicate": "OCCUPATION",
+      "kind": "extraction_error",
+      "resolution": "flag",
+      "a": {
+        "value": "merchant",
+        "vol": 1,
+        "confidence": 1.0,
+        "claim_id": "c_5f67be17",
+        "support_score": 0.9289264678955078
+      },
+      "b": {
+        "value": "traveling merchant",
+        "vol": 1,
+        "confidence": 0.72,
+        "claim_id": "c_14c350e3",
+        "support_score": 0.9084449410438538
+      },
+      "arbiter": "nli:ambiguous",
+      "rationale": "Support scores 0.928926/0.908445; no supported winner separated by 0.1. Highest score is provisional."
+    }
+  ],
+  "input_sha256": {
+    "data/spice-and-wolf/03_claims/v01.jsonl": "5789da3ab44752541f6e89f4061ff2890a146eeb55db08aa9e39c218ee064c29",
+    "data/spice-and-wolf/03_claims/scene_v01.jsonl": "b6fde30eff7ef300f2fd4b308895514e17cba8c3905509f73220a5ba93b50756",
+    "data/spice-and-wolf/03_claims/v02.jsonl": "4740e428c0446f69f1bc51038ca3091081eccff258ba7bc4220b566bd33a5100",
+    "data/spice-and-wolf/03_claims/scene_v02.jsonl": "8d3d3ea0b8ac66e39b1e1a2ecd88286dafb69cbd2bf2b948b61b390dc3177c19"
+  }
+}

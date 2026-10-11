@@ -1,0 +1,11 @@
+# The generic-input probe: a public-domain novel any contributor can fetch, configured with
+# nothing but its id and folder, so every default a new series inherits is exercised.
+#   curl -L -o corpus/probe-gutenberg/hound.epub https://www.gutenberg.org/ebooks/2852.epub3.images
+# A first-person Western novel from a non-Yen-Press toolchain (Project Gutenberg's <h2> chapters,
+# no volume number, no honorifics list). Ingest and candidate mining only so far ($0); no LLM stage
+# has been run on it. MEASUREMENTS section 39.
+series:
+  id: "probe-gutenberg"
+  title: "The Hound of the Baskervilles"
+source:
+  dir: "corpus/probe-gutenberg"

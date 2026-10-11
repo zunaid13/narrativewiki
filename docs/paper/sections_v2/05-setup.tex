@@ -1,0 +1,92 @@
+% Experimental setup (v2). Every number is a \res key.
+\section{Experimental Setup}
+\label{sec:setup}
+
+\paragraph{Corpus and gold facts.}
+We evaluate the first five novels in publication order of L.~M.~Montgomery's Anne series,
+from \emph{Anne of Green Gables} to \emph{Rainbow Valley}, using Project Gutenberg editions:
+\res{T1-anne-words} words, \res{T1-anne-paras} paragraphs and \res{T1-anne-chapters} chapters
+(Appendix~\ref{app:corpus}).
+The gold inventory contains \res{T1-anne-gold-t5} facts about \res{T1-anne-cast} characters,
+each with a reveal volume and an evidence paragraph. It was drafted from the source text
+without access to system outputs; eligible counts at each cutoff appear in
+Table~\ref{tab:corpus}.
+\ifnwhuman For 85 of the \res{T1-anne-gold-t5} facts the cited paragraph suffices alone;
+the other 26 (23 established in part, three not) need text beyond that paragraph and
+are retained unchanged (Appendix~\ref{app:annotation}).\fi{}
+Recall measures coverage of this selected inventory rather than all facts in the novels.
+
+\begin{figure}[t]
+\centering
+\input{figures/f3-systems}
+\caption{Information available to each system at cutoff 2 and its cutoff mechanism (left).
+Confirmed disclosures of assessed later facts on the original text, summed over cutoffs
+one to four (right).
+X1 and X2 are diagnostics.}
+\label{fig:systems}
+\end{figure}
+
+\paragraph{Systems.}
+All systems use \res{GEN-model}. Comparison systems share a character-page template,
+requested sentence limits and citation format. A cast character receives a page at $t$ if an eligible
+gold fact concerns them or their full name occurs in $\Dt$
+(\res{PAGES-anne-cast} pages at $t=1..5$; Table~\ref{tab:artifact-size}).
+\textbf{B1} (long context) supplies the complete prefix $\Dt$ to the generator.
+\textbf{B2} (prefix retrieval) combines BM25 and dense retrieval from a prefix-only index.
+\textbf{B3} uses prefix-built LightRAG \citep{guo2024lightrag} as the shared generator's retriever.
+\textbf{B4}, the graph baseline, retrieves from the full five-volume \sys graph, filtering
+facts at retrieval time; it controls for the graph while changing page generation and
+publication scope.
+\textbf{B5} is \sys: it discovers its own entities and also publishes other character,
+relationship, codex and timeline pages. We evaluate its full artifact and separately examine
+the cast character pages shared with the baselines.
+\textbf{X1} receives only the title and character name (closed book).
+\textbf{X2} receives all five volumes with an instruction to reveal nothing after $t$.
+These two diagnostics are excluded from best-system comparisons. Baseline settings were
+fixed on a separate development novel (Appendix~\ref{app:baselines}).
+
+\input{tables/t2b-decon}% declared here so the float lands on the first Results page
+\paragraph{Paired text conditions.}
+Every system is built twice, on the original and on the treated text
+(Appendix~\ref{app:contamination}). A reviewed map of \res{DECON-map} entries renames
+characters, families and local places, and the generator paraphrases each renamed
+paragraph, preserving facts, order and speakers. Paragraph identifiers and the mapped gold
+facts carry over, so rules, code and prompts are unchanged.
+
+\paragraph{Metrics.}
+We report four separate outcomes (Figure~\ref{fig:protocol}; Appendix~\ref{app:annotation}).
+\emph{Recall} is the fraction of eligible gold facts stated of the correct character
+anywhere in $\Wt$.
+\emph{Precision} measures full support in $\Dt$ for 40 uniformly sampled atomic
+assertions per system and cutoff, drawn from an inventory of all delivered surfaces
+\citep{min2023factscore}. Assertions are judged in their page context: a true scene line
+on a relationship page is supported there only if both characters participate in a shared
+episode of that scene (the \emph{scene rule}); we also record whether each assertion is true
+as a statement. \emph{Citation sufficiency} is the fraction of sampled assertions fully established
+by their cited paragraphs alone; uncited assertions count as insufficient.
+\emph{Disclosure} searches every page for every assessed later fact using three
+lexical routes. Retrieved candidates are labeled \emph{stated}, \emph{implied},
+\emph{uncertain} or absent; stated and implied count as disclosure. There are 220
+fact--cutoff assessments per system at $t=1..4$; disclosure is undefined at $t=5$.
+We measure the candidate search's recall on seeded disclosures and add two complementary
+checks that do not use it: later-only support among sampled assertions, and names in $\Wt$ that
+occur in the full entity index but not in $\Dt$.
+
+\paragraph{Annotation.}
+Labels come from LLM coding agents that read the evidence under written rules
+(Appendix~\ref{app:annotation}): OpenAI Codex and Claude Opus~5.5 produced first-pass labels,
+and Claude Opus~5.5 finalized every reported label, including the gold facts. The pair
+verdict is the judgment that moves precision most: first-pass and final verdicts agree on
+\res{ANN-pair-agree} (Cohen's $\kappa=\res{ANN-pair-kappa}$), and the first-pass verdicts
+would give \sys a precision of \res{REV-M3-pair2} instead of \respt{M3-anne-avg-B5}.
+Reported values incorporate consistency audits\ifnwhuman{} and a review-triggered recall
+recheck\fi{} (Appendix~\ref{app:annotation}).
+\ifnwhuman Two human reviewers independently relabeled \res{HREV-total} original-text
+items, all gold facts and 10\% samples of the recall, precision and citation labels,
+without seeing the AI answers ($\kappa$ from \res{HREV-P-kappa-2dp} on precision to
+\res{HREV-R-kappa-2dp} on recall; Table~\ref{tab:human-agreement}).\fi{}
+
+\paragraph{Statistics.}
+We report unweighted means over cutoffs with sample standard deviations; medians, ranges
+and paired differences appear in Tables~\ref{tab:stats} and~\ref{tab:paired}. Each system
+and condition is built once, so standard deviations describe variation across cutoffs.

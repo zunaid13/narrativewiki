@@ -1,0 +1,30 @@
+# Hand-transcribed gold data (2026-09-25). Source https://overlordmaruyama.fandom.com/wiki/Gazef_Stronoff
+# via WebSearch summaries (fandom.com is HTTP 402 here), each fact vetted against the v01-02 text.
+# See albedo.yaml for what `eval_vol`/`in_scope` mean.
+entity_id: gazef-stronoff
+canonical: Gazef Stronoff
+source_url: https://overlordmaruyama.fandom.com/wiki/Gazef_Stronoff
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Abilities
+  - Relationships
+
+facts:
+  - text: "Gazef Stronoff is the captain of the Re-Estize Kingdom's warriors, the Royal Select."
+    in_scope: true
+  - text: "Gazef is known as the strongest warrior in the kingdom."
+    in_scope: true
+  - text: "The Sunlit Scripture of the Slane Theocracy, led by Nigun, set out to assassinate Gazef."
+    in_scope: true
+  - text: "Ainz saved Gazef by defeating the Sunlit Scripture at Carne Village."
+    in_scope: true
+  - text: "Gazef carries the four treasures of the kingdom, including the sword Razor Edge."
+    in_scope: false   # he fights without them in v1; the treasures are a later-volume detail
+
+negative_facts:
+  - "Gazef Stronoff is not a member of the Slane Theocracy."

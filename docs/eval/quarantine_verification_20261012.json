@@ -1,0 +1,16 @@
+{
+  "run_id": "agreement-artifact-quarantine-20261012",
+  "command": "python scripts/eval/verify_agreement_quarantine.py",
+  "access": "elevated read-only filesystem scan",
+  "verified_files": 1247,
+  "integrity_failures": [],
+  "remaining_exact_duplicates": [],
+  "remaining_annotation_packages": [],
+  "unreadable_paths": [],
+  "excluded": [
+    "Git objects/history",
+    "dependencies",
+    "corpus",
+    "Python/pytest caches"
+  ]
+}

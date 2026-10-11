@@ -1,0 +1,4 @@
+# Preserve supplied reviewer evidence and its recorded byte hashes across checkouts.
+docs/eval/agreement/human_review/reviewer_*/answers.csv -text
+docs/eval/agreement/human_review/reviewer_*/responses.jsonl -text
+docs/eval/agreement/human_review/reviewer_*/supplied_original_metadata.json -text

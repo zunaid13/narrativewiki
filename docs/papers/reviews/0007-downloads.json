@@ -1,0 +1,42 @@
+[
+  {
+    "id": "CHIRON",
+    "url": "https://aclanthology.org/2024.findings-emnlp.499.pdf",
+    "path": "pdf/CHIRON - Rich Character Representations in Long-Form Narratives.pdf",
+    "bytes": 757991,
+    "sha256": "65814643da59f393be704471fe3054c7f2615b257cea2fa065866e5c2530256b",
+    "status": "downloaded"
+  },
+  {
+    "id": "STAGE-v9",
+    "url": "https://arxiv.org/pdf/2601.08510v9",
+    "path": "pdf/STAGE - A Full-Screenplay Benchmark for Reasoning over Evolving Stories.pdf",
+    "bytes": 5058575,
+    "sha256": "a6e20cbdef977634cde910774d77f271697163ee0534fccc87a2ae928952482e",
+    "status": "downloaded"
+  },
+  {
+    "id": "EvolvTrip-v1",
+    "url": "https://arxiv.org/pdf/2506.13641v1",
+    "path": "pdf/EvolvTrip - Enhancing Literary Character Understanding with Temporal Theory-of-Mind Graphs.pdf",
+    "bytes": 1113722,
+    "sha256": "47998083993d9aaa9ba9a693c7c5921a877d1da6f93b7a08cd35c763fa095125",
+    "status": "downloaded"
+  },
+  {
+    "id": "E2RAG-v1",
+    "url": "https://arxiv.org/pdf/2506.05939v1",
+    "path": "pdf/Respecting Temporal-Causal Consistency - Entity-Event Knowledge Graphs for Retrieval-Augmented Generation.pdf",
+    "bytes": 1036753,
+    "sha256": "e0215397d7940d3df66ed99ba82c2a805b32f8a673f23636cdd3557a639a05c3",
+    "status": "downloaded"
+  },
+  {
+    "id": "MiniCheck",
+    "url": "https://aclanthology.org/2024.emnlp-main.499.pdf",
+    "path": "pdf/MiniCheck - Efficient Fact-Checking of LLMs on Grounding Documents (EMNLP 2024).pdf",
+    "bytes": 1545010,
+    "sha256": "f63a76e127c1bceaae4bf0f8985bc15c44596b34d746424b37f91e34f0dacc14",
+    "status": "downloaded"
+  }
+]

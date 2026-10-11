@@ -1,0 +1,13 @@
+# Roster ground truth for Spice and Wolf (Phase 32, req. 8). Converted from the hand-written
+# `entities.entity_overrides` in config/series.spice-and-wolf.yaml (until 2026-09-27). Scored by
+# `scripts/eval/roster_gold.py` (docs/eval/roster/); it patches nothing. Keys are surface forms.
+series: spice-and-wolf
+checked_through_vol: 2
+
+not_an_entity:
+  - "Isuna Hasekura"            # the author, self-named in the v01/v02 afterwords
+
+# 2026-09-27, found in the first v1-5 build (the model called "Melta" a contraction of "Miss Elsa").
+# Elsa is Tereo's acting priest (v04:c01:p0088); Melta is the nun in Rigolo's house (v05:c02:p0722).
+different_entities:
+  - ["Elsa", "Melta"]

@@ -1,0 +1,63 @@
+% Limitations (v2). Every caveat of the paper is stated here once; the body states results.
+% No new results: numbers live in the body and appendices (ARR: no results in Limitations).
+\section*{Limitations}
+\label{sec:limitations}
+
+\paragraph{Scale.}
+The evaluation covers one English public-domain series of five volumes and one generator,
+with one build per system and text condition, so run-to-run variance is unknown; cutoffs
+share characters and evidence and are not independent samples. Precision and citation
+sufficiency rest on 40 sampled assertions per cell. All five volumes fit in the generator's
+context window, which favors direct prompting; longer series, other genres, languages and
+generators are untested.
+
+\paragraph{Development on the evaluated series.}
+The Anne series informed development and is not held out. The reported \sys is the second
+of two builds, revised after the first was labeled (Table~\ref{tab:builds}); the baselines,
+configured on another novel, were not retuned. The prefix-index wikis of
+Section~\ref{sec:results-scope} were built on the original text only and labeled in one pass.
+
+\paragraph{Annotation.}
+The finalizing annotator, Claude Opus~5.5, knew which system produced each output and
+assisted in building the system. The human relabeling covers original-text gold, recall,
+precision and citation labels; disclosure and treated-text labels have no human check, and
+human agreement is lowest for precision and citation sufficiency
+(Table~\ref{tab:human-agreement}). Some gold evidence paragraphs establish their facts only
+in part (Section~\ref{sec:setup}).
+
+\paragraph{Disclosure measurement.}
+Disclosure is assessed for a selected inventory of later facts through candidate
+retrieval, which misses some paraphrases and many pronoun references
+(Section~\ref{sec:results-main}); the seeded fixtures were written by the same LLM
+annotator. An implied verdict judges what a reader would infer, so the line between an
+implied disclosure and an eligible prediction rests on the annotator. A zero count
+therefore does not certify spoiler-free output, and \sys's larger output leaves more room
+for missed disclosures.
+
+\paragraph{Scope of the comparisons.}
+The accumulation gains are measured against pages written in one call under a sentence
+budget, while \sys renders every eligible claim; longer, multi-call or append-only pages may
+narrow them, and no length-matched control was run. The central/other split was chosen
+after the results were known, and facts lost across cutoffs also count labeling
+inconsistencies between adjacent cutoffs. Identity-dependence rates compare single builds,
+so they include stochastic model decisions as well as later-volume effects. B4 differs
+from \sys in page scope and generation as well as citation attachment, and neither the
+account of Section~\ref{sec:discussion} nor the proposed repairs have been tested by
+ablation.
+
+\paragraph{The treated text.}
+Renaming and paraphrase reduce recognition without removing it. The treated text was not
+proofread against its source: some paragraphs keep inflected source names, name collisions
+create namesakes, and one paraphrase changes a fact (Appendix~\ref{app:contamination}).
+Its fidelity to the gold facts was checked by an unblinded LLM. A work published after the
+generator's training cutoff would offer a complementary test of recognition
+\citep{karpinska2024nocha}.
+
+\paragraph{Representation and readers.}
+Cutoffs are whole volumes; identity links are not dated; attribute intervals track
+explicit replacements rather than implicit aging; a value that changes within one volume
+is arbitrated as an extraction conflict and one value is published
+(Appendix~\ref{app:prompts}); and cross-claim inference is limited
+(Appendix~\ref{app:observations}). We do not measure readers' ability to find information
+or their experience of spoilers. External search engines and deliberately opened later
+cutoffs are outside the audited artifact.

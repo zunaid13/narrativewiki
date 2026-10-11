@@ -1,0 +1,121 @@
+# Series configuration — Spice and Wolf (Yen Press / LuCaZ)
+#
+# Calibration corpus (VISION.md, Phase 9): a structurally simple control against the 86 corpus,
+# to separate a genuine pipeline bug from a property of 86's specific text (dual timeline,
+# heavy pronoun-only POV, nonstandard radio-dialogue markup, deliberately obscured aliases).
+# Two-person core cast (Lawrence, a traveling merchant; Holo, a wolf deity), strictly linear
+# chronology, ordinary prose dialogue, no equivalent of 86's Para-RAID channel.
+#
+# Everything below was checked against the real v01/v02 EPUBs before writing this file (per
+# CLAUDE.md's own rule for series.86.yaml — inspect first, never guess), not copied blind from
+# series.86.yaml. Where a value below is unchanged from that file, it is because inspection
+# showed the EPUBs need no different value, not because it was left un-checked — see the notes
+# on each section.
+
+series:
+  id: "spice-and-wolf"
+  title: "Spice and Wolf"
+  author: "Isuna Hasekura"
+  illustrator: "Jyuu Ayakura"
+  publisher: "Yen On"
+  language: en
+
+source:
+  dir: "corpus/spice-and-wolf"
+  glob: "*.epub"
+  volume_pattern: 'v(?P<vol>\d{2})'
+  overrides: {}
+
+# ---------------------------------------------------------------------------
+# EPUB parsing quirks. Verified against the real v01/v02 EPUBs (LuCaZ-produced, not Stick like
+# 86) — every default below matched with NO override needed. Do not assume this holds for a
+# volume not yet inspected; re-check per CLAUDE.md's own protocol before trusting it further in
+# (this series numbers to v24; v1-5 are in scope since 2026-09-27, and v03-05 ingest cleanly
+# with these defaults: MEASUREMENTS section 48).
+# ---------------------------------------------------------------------------
+epub:
+  # toc.xhtml exists in both inspected volumes and leads already; no nav.xhtml present at all
+  # (unlike 86 v02/v03, where nav.xhtml is broken) — the default order needs no change.
+  toc_sources: ["toc.xhtml", "toc.ncx", "nav.xhtml"]
+
+  # Confirmed present, byte-identical to 86's convention: every real chapter has exactly one
+  # <h1 class="chapter-number"> ("CHAPTER ONE", ...) and no separate title heading — this book's
+  # chapters are unnamed, so `chapter_title` legitimately comes back null for all of them, which
+  # is expected, not a parsing gap. Chapter "boundary" art-plate pages (chapter001-004.xhtml,
+  # chap01-06.xhtml — note the id/filename numbering do NOT correspond 1:1, same trap CLAUDE.md
+  # §3 already documents for 86: never sort by filename) carry no heading and are correctly
+  # dropped as art plates by `image_page_max_words` below, not by this selector.
+  chapter_start_selector: "h1.chapter-number"
+  chapter_title_selector: "h1.chapter-title"
+
+  # copyright.xhtml here has real body text (29 <p> tags of legal boilerplate) despite being
+  # front matter — same 86 trap #7 (filtered by filename, not epub:type, on purpose).
+  skip_files:
+    - "cover.xhtml"
+    - "titlepage.xhtml"
+    - "copyright.xhtml"
+    - "toc.xhtml"
+    - "nav.xhtml"
+    - "newsletterSignup.xhtml"
+
+  keep_epub_types:
+    ["bodymatter", "chapter", "prologue", "epilogue", "preface", "epigraph", "appendix"]
+  # Note: this volume's afterword.xhtml is mistagged epub:type="frontmatter prologue" (its OWN
+  # publisher inconsistency, distinct from 86's copyright.xhtml mistagging) -- harmless for
+  # content capture (still kept, since "prologue" is in keep_epub_types either way) but its
+  # `chapter_kind` may come back "prologue" instead of "afterword". Cosmetic; not a content-loss
+  # bug, so left as a documented quirk rather than a code change.
+
+  image_page_max_words: 10  # confirmed: every art-plate document in v01/v02 has 0 <p> tags.
+
+# ---------------------------------------------------------------------------
+# Speech-channel detection. See docs/CONTRACTS.md §1.1.
+# ---------------------------------------------------------------------------
+speech:
+  # This genre has no radio/telepathic-comms equivalent to 86's Para-RAID -- confirmed zero
+  # matches in v01/v02 for any of the class patterns 86 uses. `require_para_raid` (absent here,
+  # defaults false — see series.86.yaml) tells `wiki audit ingest` this is EXPECTED, not a
+  # regressed CSS-class pattern, so it does not FAIL a series that genuinely has no such channel.
+  para_raid_class_pattern: '^(san|pararaid|para-raid.*|special.*)$'
+  machine_voice_container_pattern: '^ecom_'
+  machine_voice_text_pattern: '^<{1,2}.*>{1,2}$'
+  monologue_wrapper: "em"
+  # Confirmed: real curly quotes (U+201C/U+201D), not a mojibake or alternate quote style.
+  dialogue_open_quotes: ["“"]
+
+# ---------------------------------------------------------------------------
+# Scene boundaries — never build an evidence window across a hard break.
+# ---------------------------------------------------------------------------
+scene_breaks:
+  # No img.ornament (or any image-based scene marker) anywhere in v01/v02 -- every scene
+  # transition in this text is a SOFT break (`space-break`/`space-break1`, both confirmed
+  # present). This means every scene boundary here is currently unenforced by `extract/
+  # windows.py` (it only enforces `hard`, per CONTRACTS §1.2's own note that `soft` is
+  # "prefer to split here", not required) -- worth watching as a genuine calibration signal if
+  # Phase 11's scene-participant work lands, since this corpus has zero hard breaks to test that
+  # path against. Left as the 86 default rather than invented, since nothing here needs a
+  # different value -- there is simply no hard-break class in this corpus to name.
+  hard_image_class: "ornament"
+  soft_paragraph_classes: ["space-break", "space-break1", "space-break2"]
+
+# ---------------------------------------------------------------------------
+# Text normalisation. No inline-image em dashes or interrupted-speech markers found in v01/v02
+# (unlike 86 v01/v09/v11) — kept for safety since it is a no-op when absent, not because it was
+# needed.
+# ---------------------------------------------------------------------------
+normalize:
+  image_text_substitutions:
+    - { src_contains: "mdash", text: "—" }
+    - { src_contains: "line",  text: "—" }
+  strip_remaining_images: true
+  preserve_print_page_anchors: true
+  collapse_whitespace: true
+
+site:
+  title: "Spice and Wolf Character Wiki"
+  subtitle: "Spoiler-scoped. Set the volume you have read up to."
+  volume_labels_from_epub: true
+  # The whole in-scope corpus is v1-5 (AGENTS.md section 3), so a bare `wiki site build`
+  # renders both cutoffs. At 1 it left the previously built `v02/` tree on disk and
+  # `wiki audit links` failed on its own output. 86 keeps 1 deliberately -- 13 volumes.
+  default_upto: 5

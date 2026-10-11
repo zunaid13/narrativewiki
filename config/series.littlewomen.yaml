@@ -1,0 +1,16 @@
+# Phase 31 second novel: Little Women (Louisa May Alcott), Project Gutenberg #514.
+#   curl -L -o corpus/littlewomen/little-women.epub https://www.gutenberg.org/ebooks/514.epub3.images
+# Published as two books (1868 / 1869 "Good Wives"); the EPUB marks them "PART 1" / "PART 2".
+# Chosen for character-centred Part Two spoilers (Beth's death, Amy and Laurie, Jo and Bhaer)
+# that are among the best known in English fiction. No LLM stage run yet (plan 0009 E5).
+series:
+  id: "littlewomen"
+  title: "Little Women"
+source:
+  dir: "corpus/littlewomen"
+  volume_breaks: ["^PART 2"]
+epub:
+  drop_chapter_titles: ["^The Project Gutenberg eBook"]
+site:
+  # Without this, --upto falls back to 1 and the wiki silently stops at volume 1 (MEASUREMENTS section 44).
+  default_upto: 2

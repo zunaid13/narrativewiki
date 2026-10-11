@@ -1,0 +1,13 @@
+# build outputs; the helper scripts in this directory are tracked
+*
+!.gitignore
+!build.sh
+!ftest.sh
+!emptykeys.py
+!overfull.py
+!sub.py
+!acl_formatting.md
+!make_release.py
+!fill_v2.py
+!qual_shots.py
+!prompts_v2.py

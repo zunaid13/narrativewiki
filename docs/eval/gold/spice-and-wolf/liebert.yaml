@@ -1,0 +1,24 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Added 2026-09-10 to grow gold-data coverage from 4 to 10
+# characters (Phase 22 C4). The Fandom page spells this character "Marten Liebert".
+entity_id: liebert
+canonical: Liebert
+source_url: https://spiceandwolf.fandom.com/wiki/Marten_Liebert
+transcribed: "2026-09-10"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+
+facts:
+  - text: "Liebert is a business worker for Hans Remelio."
+    in_scope: true
+  - text: "Liebert is a middle-aged man around 30 with short blonde hair and a matching goatee."
+    in_scope: true
+  - text: "Liebert assisted Lawrence in the gold-smuggling job arranged for Hans Remelio."
+    in_scope: true
+  - text: "Liebert was extremely tense and nervous during the gold-smuggling job, owing to its high risk."
+    in_scope: true

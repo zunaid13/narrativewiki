@@ -1,0 +1,27 @@
+% Where accumulation helps (v2 Section 6.3). Keys CEN-, OTH-, DROP- in results.tex
+% (MEASUREMENTS 2026-10-11, recall-by-centrality-20261011). Cyan: best B1--B5 value per column.
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{2}{c}{\nwhead{Central three}} & \multicolumn{2}{c}{\nwhead{Other 40}} & \multicolumn{2}{c}{\nwhead{Facts lost}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+\nwhead{System} & \nwhead{orig.} & \nwhead{treat.} & \nwhead{orig.} & \nwhead{treat.} & \nwhead{orig.} & \nwhead{treat.} \\
+\midrule
+B1 & \respt{CEN-anne-B1} & \respt{CEN-annedecon-B1} & \respt{OTH-anne-B1} & \respt{OTH-annedecon-B1} & \res{DROP-anne-B1} & \res{DROP-annedecon-B1} \\
+B2 & \respt{CEN-anne-B2} & \respt{CEN-annedecon-B2} & \cellcolor{nwhighcyan}\best{\respt{OTH-anne-B2}} & \cellcolor{nwhighcyan}\best{\respt{OTH-annedecon-B2}} & \res{DROP-anne-B2} & \res{DROP-annedecon-B2} \\
+B3 & \respt{CEN-anne-B3} & \respt{CEN-annedecon-B3} & \respt{OTH-anne-B3} & \respt{OTH-annedecon-B3} & \res{DROP-anne-B3} & \res{DROP-annedecon-B3} \\
+B4 & \respt{CEN-anne-B4} & \respt{CEN-annedecon-B4} & \respt{OTH-anne-B4} & \respt{OTH-annedecon-B4} & \res{DROP-anne-B4} & \res{DROP-annedecon-B4} \\
+B5 & \cellcolor{nwhighcyan}\best{\respt{CEN-anne-B5}} & \cellcolor{nwhighcyan}\best{\respt{CEN-annedecon-B5}} & \respt{OTH-anne-B5} & \respt{OTH-annedecon-B5} & \cellcolor{nwhighcyan}\best{\res{DROP-anne-B5}} & \cellcolor{nwhighcyan}\best{\res{DROP-annedecon-B5}} \\
+\midrule
+X2 & \respt{CEN-anne-X2} & \respt{CEN-annedecon-X2} & \respt{OTH-anne-X2} & \respt{OTH-annedecon-X2} & \res{DROP-anne-X2} & \res{DROP-annedecon-X2} \\
+\bottomrule
+\end{tabular}
+\caption{Where accumulation helps. Recall pooled over $t=1..5$ on the three characters
+with the most gold assessments (Anne, Gilbert, Diana: 141 of 335) and on the other 40
+(194), on original and treated text. Facts lost: gold facts conveyed at $t$ and not at
+$t+1$, summed over $t=1..4$ (lower is better). B5 is \sys. Cyan: best of B1--B5. Characters
+are split by their number of gold assessments (Appendix~\ref{app:accumulation}).}
+\label{tab:gains}
+\end{table}

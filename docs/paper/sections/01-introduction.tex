@@ -1,0 +1,77 @@
+% Introduction. Every number is a \res key.
+\section{Introduction}
+\label{sec:intro}
+
+A reader consulting a character wiki midway through a series may encounter a later identity,
+marriage or death while seeking a reminder of events already read. For example, a reader who
+has finished \emph{Anne of Avonlea}, the second book of L.~M.~Montgomery's Anne series, may
+learn from Anne Shirley's whole-series page about her marriage to Gilbert Blythe in
+book four (Figure~\ref{fig:overview}).\footnote{Examples in this paper reveal plot points
+of the series.}
+
+A useful reference must therefore respect the reader's progress as well as the story's facts.
+The boundary follows reading order: a flashback in volume four remains unknown to a
+volume-one reader. We call the earliest volume whose text establishes a fact its
+\emph{reveal volume}. At cutoff $t$, every statement should have a reveal volume no later
+than $t$ (Figure~\ref{fig:cutoff}). Because an empty page satisfies this condition, coverage,
+support and citation quality must also be evaluated.
+
+% The overview comes first in the source so that it can take the top of page 2: LaTeX keeps
+% figures in number order, so a figure* after Figure 1 would wait until page 3.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/f0-teaser.pdf}
+\caption{Overview. Left: a whole-series wiki reveals Anne's marriage to Gilbert (volume~4)
+to a reader at volume~2. Later information can enter through a full-series index, generator
+memory or surfaces shared across cutoffs. Right: the intended cutoff mechanism of \sys,
+which filters claims before generation. The illustration depicts the design goal rather
+than an observed guarantee of spoiler-free output.}
+\label{fig:overview}
+\end{figure*}
+
+\begin{figure}[t]
+\centering
+\input{figures/f0-cutoff}
+\caption{Reading cutoffs for one character pair. Relation intervals open at their
+first-evidence volume. The cutoff-2 wiki renders intervals opened by volume~2 and withholds
+the marriage evidenced in volume~4. Citations use \texttt{v<volume>:c<chapter>:p<paragraph>}.}
+\label{fig:cutoff}
+\end{figure}
+
+Filtering retrieved passages alone does not enforce this boundary. Full-series entity
+resolution can expose an identity established only in a later volume; a generator can supply
+memorized plot details; and shared menus, titles or search indexes can disclose later names.
+We encountered all three channels during development. Even with an explicit cutoff
+instruction, a generator given all five books wrote on Priscilla Grant's volume-two page
+that she ``entered Redmond College in Kingsport'' alongside Anne, although their college
+attendance first appears in book three (Appendix~\ref{app:casebook}).
+
+Temporal knowledge boundaries have been studied for role-playing agents
+\citep{ahn2024timechara}, for conversational agents gated to the narrative present
+\citep{huang2025living}, and for character representations extracted from long narratives
+\citep{gurung2024chiron}. We study a linked reference artifact at every cutoff and evaluate
+coverage, support and disclosure across its delivered surfaces. The contribution is the
+task and evaluation framework; \sys serves as a reference implementation. We provide:
+\begin{itemize}[leftmargin=*,itemsep=1pt,topsep=2pt]
+  \item \textbf{A task and threat model} for cutoff-bounded reference generation, covering
+    pages, titles, links, navigation and search; gold facts dated by reveal volume; and three
+    channels of later-information disclosure
+    (Section~\ref{sec:task}).
+  \item \textbf{An artifact-level evaluation protocol} applied to seven systems: assertions
+    are enumerated across surfaces and sampled for precision and citation sufficiency;
+    recall uses \res{T1-anne-gold-t5} gold facts; and disclosure search covers every page,
+    with candidate sentences adjudicated and search recall tested on seeded cases
+    (Section~\ref{sec:setup}). The pilot dataset documents corpus size, annotation units and
+    illustrative records (Appendix~\ref{app:corpus}).
+  \item \textbf{\sys}, a reference implementation that applies the cutoff to stored claims
+    before page generation. One build yields a wiki for every cutoff (Figure~\ref{fig:overview}, right;
+    Section~\ref{sec:method}).
+  \item \textbf{A pilot comparison of cutoff designs.} On the original text, withholding
+    later text from page generation yields no stated assessed later fact and \sys implies one by
+    misreading eligible text (\res{M4-anne-total-cut} assessments;
+    \res{M4-anne-total-cut-incl} including uncertain verdicts). Closed-book and full-text
+    instruction disclose more. \sys has lower gold recall than long-context prompting,
+    citation sufficiency of about one half and early pages shaped by later volumes\ifnwdecon{};
+    on renamed, paraphrased text, it states a later marriage from a character's prediction\fi{}
+    (Section~\ref{sec:results}).
+\end{itemize}

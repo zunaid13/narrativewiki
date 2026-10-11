@@ -1,0 +1,48 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean.
+entity_id: kraft-lawrence
+canonical: Kraft Lawrence
+source_url: https://spiceandwolf.fandom.com/wiki/Kraft_Lawrence
+transcribed: "2026-09-08"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Relationships
+  - Trivia
+
+facts:
+  - text: "Kraft Lawrence is a traveling merchant, twenty-five years old at the start of the series."
+    in_scope: true
+  - text: "Lawrence's dream is to save enough money to become a town merchant with his own store."
+    in_scope: true
+  - text: "While doing business in Pasloe, Lawrence found Holo in the back of his cart and agreed to help her return to Yoitsu."
+    in_scope: true
+  - text: "Lawrence is a fairly tall man of muscular build, with short silver hair, spiky bangs, a scar on his left face, and gray eyes."
+    in_scope: true
+  - text: "Lawrence's constant travel means he doesn't groom much beyond professional necessity, giving him a beard."
+    in_scope: true
+  - text: "Lawrence is clever and sharp-minded, especially in business, and known for a fair, balanced personality."
+    in_scope: true
+  - text: "Lawrence is respected as a merchant by Marheit."
+    in_scope: true
+  - text: "Lawrence is respected as a merchant by Eve and Eringin."
+    in_scope: false  # Eve/Eringin do not appear in the extracted v1-2 roster at all -- later-volume characters
+  - text: "Holo's behavior confuses, frustrates, and bewilders Lawrence early in their journey."
+    in_scope: true
+  - text: "Lawrence has strong feelings for Holo and becomes protective of their relationship."
+    in_scope: true
+
+# Phase 23 C3. Every one of these is a real defect the Phase 23 audit found on the live
+# kraft-lawrence page (see docs/vision/PHASE_23.md for each claim's exact evidence/root cause).
+negative_facts:
+  - "Kraft Lawrence is not the spouse of Marheit."
+  - "Kraft Lawrence is not a relative of Marheit."
+  - "Kraft Lawrence is not the parent of Jakob."
+  - "Kraft Lawrence is not the child of Jakob."
+  - "Kraft Lawrence is not a relative of Saint Metrogius."
+  - "Kraft Lawrence is not a relative of Norah Arendt."
+  - "Kraft Lawrence is not a relative of Holo."

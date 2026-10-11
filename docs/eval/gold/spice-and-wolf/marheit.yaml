@@ -1,0 +1,38 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Added 2026-09-10 to grow gold-data coverage from 4 to 10
+# characters (Phase 22 C4). The Fandom page spells this character "Richten Marlheit" / "Marlheit"
+# (this project's gazetteer entity_id/canonical, transcribed from the novel text itself, spells it
+# "Marheit") -- same person, no separate entity exists for the alternate spelling.
+entity_id: marheit
+canonical: Marheit
+source_url: https://spiceandwolf.fandom.com/wiki/Richten_Marlheit
+transcribed: "2026-09-10"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+
+facts:
+  - text: "Marheit is the manager of the Milone Trading Company's Pazzio branch."
+    in_scope: true
+  - text: "Marheit is a middle-aged man with bespectacled blue-gray eyes and straight, medium-length blonde hair in a modified pageboy cut."
+    in_scope: true
+  - text: "Marheit is generally calm and rational, especially when confronting a crisis."
+    in_scope: true
+  - text: "Marheit is a shrewd and experienced merchant with a cunning insight into business politics."
+    in_scope: true
+  - text: "Marheit is good-natured and fair, but acts for the well-being of his company above all else."
+    in_scope: true
+  - text: "Marheit empathized with Lawrence's concern over Holo's capture and helped concoct a plan to assist him."
+    in_scope: true
+
+# Phase 23 C3. Seeded from the audit that traced the false "Kraft Lawrence, Spouse of Marheit"
+# relation on the live site to claim c_f18a2f55: a SPOUSE_OF claim built from Lawrence's own line
+# asking after Marheit on behalf of his actual travel partner (Holo) -- "partner" misread as
+# marital partner, then attributed to the wrong person entirely. See docs/vision/PHASE_23.md.
+negative_facts:
+  - "Marheit is not the spouse of Kraft Lawrence."
+  - "Marheit is not a relative of Kraft Lawrence."

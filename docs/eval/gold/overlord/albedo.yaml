@@ -1,0 +1,36 @@
+# Hand-transcribed gold data for `wiki audit eval`, second series (2026-09-25).
+#
+# Source: https://overlordmaruyama.fandom.com/wiki/Albedo. Direct WebFetch of fandom.com returns
+# HTTP 402 in this sandbox (as for Spice and Wolf), so facts were transcribed from WebSearch
+# summaries of the page and then VETTED against the v01-02 text (data/overlord/01_parsed/) before
+# being marked in scope. The Fandom page describes the whole series; anything first revealed after
+# volume 2 is `in_scope: false`, because the wiki at cutoff 2 is supposed to omit it (CLAUDE.md 1).
+entity_id: albedo
+canonical: Albedo
+source_url: https://overlordmaruyama.fandom.com/wiki/Albedo
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Abilities
+  - Relationships
+
+facts:
+  - text: "Albedo is the captain of the Floor Guardians of the Great Tomb of Nazarick."
+    in_scope: true
+  - text: "Albedo has lustrous black hair, horns on her temples, black wings, and wears a snow-white dress."
+    in_scope: true
+  - text: "Albedo was created by the guild member Tabula Smaragdina."
+    in_scope: true
+  - text: "Momonga rewrote Albedo's settings so that she is in love with him."
+    in_scope: true
+  - text: "Albedo treats Ainz's orders as absolute."
+    in_scope: true
+  - text: "Albedo has two sisters also created by Tabula Smaragdina."
+    in_scope: false   # her sisters are introduced in later volumes
+
+negative_facts:
+  - "Albedo is not a member of the Slane Theocracy."

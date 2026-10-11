@@ -1,0 +1,28 @@
+# Hand-transcribed gold data (2026-09-25). Source https://ascendance-of-a-bookworm.fandom.com/wiki/Otto
+# (fandom.com is HTTP 402 here: facts from search summaries and the series itself), each fact
+# vetted by grep against the Part 1 v01-02 text; the para_id in each comment is the evidence.
+# eval_vol 2 = Part 1 v02. in_scope: false marks a later-Part fact a v2 page must NOT carry.
+entity_id: otto
+canonical: Otto
+source_url: https://ascendance-of-a-bookworm.fandom.com/wiki/Otto
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Relationships
+
+facts:
+  - text: "Otto is a soldier who used to be a traveling merchant."   # v01:c15:p0040
+    in_scope: true
+  - text: "Otto is married to Corinna."   # v02:c02:p0022
+    in_scope: true
+  - text: "Myne helps Otto with calculations at the gate."   # v01:c13:p0069, "Helping Out Otto"
+    in_scope: true
+  - text: "Otto introduces Myne to Benno."   # v01:c25
+    in_scope: true
+
+negative_facts:
+  - "Otto is not Benno's brother."

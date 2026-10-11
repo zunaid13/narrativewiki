@@ -1,0 +1,17 @@
+{
+ "2": "S", "3": "S", "5": "S", "6": "S", "7": "S", "9": "S", "10": "S", "11": "S", "13": "S", "14": "S", "15": "S",
+ "16": "S", "18": "S", "19": "S", "22": "S", "23": "S", "24": "S", "26": "S", "27": "S", "29": "S", "30": "S",
+ "31": "S", "32": "S", "34": "S", "35": "S", "37": "S", "38": "S", "39": "S",
+ "0": ["I", "the curly brown hair in the cited paragraph is Prissy Andrews's (v01:c15:p0011); Ruby's hair is not in either"],
+ "1": ["P", "the atom itself is partial: fat is cited (v01:c24:p0014); for her age is not"],
+ "4": ["P", "Josie's remark and that Julia heard it are cited (v01:c26:p0002); it was Bessie Wright who told her"],
+ "8": ["P", "her home with Matthew is in the cited paragraphs; a quiet, unmarred life is a summary none of them states"],
+ "12": ["I", "none of the seven cited paragraphs has a teaching licence or study for one"],
+ "17": ["P", "Marilla's words after it are cited (v01:c09:p0028); the outburst itself (v01:c09:p0016) is not cited for this line"],
+ "20": ["P", "the drive to White Sands is cited (v01:c33:p0028); the hotel is not named in the cited paragraphs"],
+ "21": ["P", "her running the Sewing Circle and the rest is cited (v01:c01:p0001); the pride cited is in speaking her mind (p0024)"],
+ "25": ["P", "his recitation at the concert is cited (v01:c19:p0040); the Debating Club is not named in it"],
+ "28": ["I", "Stella Maynard is in none of the five cited paragraphs"],
+ "33": ["I", "the one cited paragraph is the girls in the church porch; Jane is not named and no school is in it"],
+ "36": ["P", "her growing quieter and more thoughtful is cited (v01:c31:p0020); bright is not said in the cited paragraphs"]
+}

@@ -1,0 +1,25 @@
+% Source: supplied reviewer CSVs and accepted_answers.csv; recomputed_agreement_20261010.json.
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\nwhead{Task} & \nwhead{Items} & \multicolumn{2}{c}{\nwhead{Reviewer 1 vs.\ AI}} & \multicolumn{2}{c}{\nwhead{Reviewer 2 vs.\ AI}} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+& & \nwhead{Agreement} & \nwhead{$\kappa$} & \nwhead{Agreement} & \nwhead{$\kappa$} \\
+\midrule
+Gold evidence & \res{HRAI-G-n} & \res{HRAI-r1-G-agreement} & \res{HRAI-r1-G-kappa} & \res{HRAI-r2-G-agreement} & \res{HRAI-r2-G-kappa} \\
+Recall (M1) & \res{HRAI-R-n} & \res{HRAI-r1-R-agreement} & \res{HRAI-r1-R-kappa} & \res{HRAI-r2-R-agreement} & \res{HRAI-r2-R-kappa} \\
+Precision (M3) & \res{HRAI-P-n} & \res{HRAI-r1-P-agreement} & \res{HRAI-r1-P-kappa} & \res{HRAI-r2-P-agreement} & \res{HRAI-r2-P-kappa} \\
+Citation sufficiency (M8) & \res{HRAI-C-n} & \res{HRAI-r1-C-agreement} & \res{HRAI-r1-C-kappa} & \res{HRAI-r2-C-agreement} & \res{HRAI-r2-C-kappa} \\
+\midrule
+Pair placement & \res{HRAI-PAIR-n} & \res{HRAI-r1-PAIR-agreement} & \res{HRAI-r1-PAIR-kappa} & \res{HRAI-r2-PAIR-agreement} & \res{HRAI-r2-PAIR-kappa} \\
+\bottomrule
+\end{tabular}
+\caption{Agreement recomputed for each human reviewer's label set against the accepted
+AI-assisted reference snapshot. Each comparison uses all \res{HRAI-total} reviewed items.
+Pair placement is reported separately for a subset of the precision sample;
+its items are not added to the total. No mixed-task coefficient is pooled.}
+\label{tab:human-ai-agreement}
+\end{table*}

@@ -1,0 +1,193 @@
+{
+  "run_id": "acl-review-2026-10-02-f948ff6fd6bd",
+  "pdf": "dist/NarrativeWiki-paper.pdf",
+  "pdf_sha256": "f948ff6fd6bd9b9dc0952739653e0b73bb9c6645f155e84c2a70382bbf00dfe6",
+  "pdf_pages": 17,
+  "method": "Read-only PDF/source/label inspection; no model calls, new labels, or benchmark reruns.",
+  "citation_intervals": {
+    "B5": {
+      "cells": [
+        {
+          "cutoff": 1,
+          "sufficient": 3,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne_v1_all.jsonl",
+          "sha256": "f75eda34ff860d7f1b6a24824c70bbf6a78510547573ae17e7da831864baef73"
+        },
+        {
+          "cutoff": 2,
+          "sufficient": 5,
+          "denominator": 39,
+          "source": "docs/eval/precision/anne_v2_all.jsonl",
+          "sha256": "82ce6e4af55b8a4a187cf209d167ae42529c799dde2b0740d14a6f1ddc9c927e"
+        },
+        {
+          "cutoff": 3,
+          "sufficient": 3,
+          "denominator": 39,
+          "source": "docs/eval/precision/anne_v3_all.jsonl",
+          "sha256": "bc80c9a790af30c7580b781e8fa2c926f8da397baedfbec9f6d9e05f1d800e08"
+        },
+        {
+          "cutoff": 4,
+          "sufficient": 5,
+          "denominator": 39,
+          "source": "docs/eval/precision/anne_v4_all.jsonl",
+          "sha256": "be811179506d0b8ee431db20dc530ffe61bebffeb25f42141206fde4f9bf3eff"
+        },
+        {
+          "cutoff": 5,
+          "sufficient": 6,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne_v5_all.jsonl",
+          "sha256": "e8682b8ab85d4acccfa83cecfba7e3d0ef31b582ff1c8ba2c46d7e3f4ab84b58"
+        }
+      ],
+      "pooled_counts": [
+        22,
+        197
+      ],
+      "pooled_rate": 0.1116751269035533,
+      "unweighted_cutoff_mean": 0.11166666666666666,
+      "pooled_wilson95": [
+        0.07491408914233949,
+        0.16329100606863337
+      ]
+    },
+    "B1": {
+      "cells": [
+        {
+          "cutoff": 1,
+          "sufficient": 32,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b1_v1_all.jsonl",
+          "sha256": "497bcc4d9e8d0458f0c4612862b3386ec010d27658fbc124f3253bc71ab2ca9f"
+        },
+        {
+          "cutoff": 2,
+          "sufficient": 25,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b1_v2_all.jsonl",
+          "sha256": "121f9da806bfcb5965b1966131dac1a25cb5136d2cd0d602addfe31d57c3ee0f"
+        },
+        {
+          "cutoff": 3,
+          "sufficient": 28,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b1_v3_all.jsonl",
+          "sha256": "e698697a53f3dd2920717b27d27253752e2e4e1fa54d78bc8e8bcd16beacabf3"
+        },
+        {
+          "cutoff": 4,
+          "sufficient": 23,
+          "denominator": 39,
+          "source": "docs/eval/precision/anne@b1_v4_all.jsonl",
+          "sha256": "720fa21ee70499b51669286470354c0644b623245aa623a3d616ad57d3ae6df1"
+        },
+        {
+          "cutoff": 5,
+          "sufficient": 22,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b1_v5_all.jsonl",
+          "sha256": "2bbd6b510378b524a5e221eeeebafd72b28f7c53ad6c592b480a6a1fcf5a4842"
+        }
+      ],
+      "pooled_counts": [
+        130,
+        199
+      ],
+      "pooled_rate": 0.6532663316582915,
+      "unweighted_cutoff_mean": 0.6529487179487179,
+      "pooled_wilson95": [
+        0.5848037392641263,
+        0.7159237370350962
+      ]
+    },
+    "B2": {
+      "cells": [
+        {
+          "cutoff": 2,
+          "sufficient": 26,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b2_v2_all.jsonl",
+          "sha256": "2a627c9955d0025eb6a95d5d80104e08106eaacbb1464e8c08721019f402f6d2"
+        },
+        {
+          "cutoff": 3,
+          "sufficient": 32,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b2_v3_all.jsonl",
+          "sha256": "ed8972e8fcdde0fdaee49b0d77cb34143a4133c6b628d4126787a0d688890e5c"
+        },
+        {
+          "cutoff": 4,
+          "sufficient": 27,
+          "denominator": 39,
+          "source": "docs/eval/precision/anne@b2_v4_all.jsonl",
+          "sha256": "c15c6b038acb727a7657be9ebebb2e877b5f69561bfb1b6a17e1174dd550c4c1"
+        },
+        {
+          "cutoff": 5,
+          "sufficient": 34,
+          "denominator": 40,
+          "source": "docs/eval/precision/anne@b2_v5_all.jsonl",
+          "sha256": "9c8d43c48eace3f5654d932a3e0bff465d8a9ad1ef64bf8734370f9765b7b86f"
+        }
+      ],
+      "pooled_counts": [
+        119,
+        159
+      ],
+      "pooled_rate": 0.7484276729559748,
+      "unweighted_cutoff_mean": 0.7480769230769231,
+      "pooled_wilson95": [
+        0.6756643765240824,
+        0.8094700638826904
+      ]
+    }
+  },
+  "m8_observation_backed_keys": [],
+  "b3_cost": {
+    "source": "docs/eval/cost/anne@b3_final.json",
+    "sha256": "665bd177020117ce50cdab053ee61187d2e14700060156bbcddebb9a89572f37",
+    "stages": [
+      "baseline_embed",
+      "baseline_page",
+      "support",
+      "eval_atomize",
+      "eval_judge"
+    ],
+    "baseline_page_usd": 3.1103497499999997,
+    "baseline_lightrag_stage_present": false,
+    "interpretation": "The displayed cost contains page calls and no index-construction stage; no replacement total was computed."
+  },
+  "figure_font_samples": [
+    {
+      "page": 5,
+      "text": "B1 long context",
+      "font_size_pt": 5.97760009765625
+    },
+    {
+      "page": 5,
+      "text": "atoms",
+      "font_size_pt": 5.97760009765625
+    },
+    {
+      "page": 5,
+      "text": "atoms",
+      "font_size_pt": 6.037079811096191
+    },
+    {
+      "page": 7,
+      "text": "NarrativeWiki",
+      "font_size_pt": 6.499414920806885
+    }
+  ],
+  "reproduction_commands": {
+    "pdf_identity": "python -c \"import fitz,hashlib,pathlib; p=pathlib.Path('dist/NarrativeWiki-paper.pdf'); print(len(fitz.open(p)),hashlib.sha256(p.read_bytes()).hexdigest())\"",
+    "pooled_wilson": "python -c \"from statistics import NormalDist; from math import sqrt; z=NormalDist().inv_cdf(.975); print([(x,n,round((x/n+z*z/(2*n)-z*sqrt((x/n)*(1-x/n)/n+z*z/(4*n*n)))/(1+z*z/n),3),round((x/n+z*z/(2*n)+z*sqrt((x/n)*(1-x/n)/n+z*z/(4*n*n)))/(1+z*z/n),3)) for x,n in [(22,197),(130,199),(119,159)]])\"",
+    "b3_cost_stages": "python -c \"import json,pathlib; d=json.loads(pathlib.Path('docs/eval/cost/anne@b3_final.json').read_text(encoding='utf-8')); print(list(d['by_stage']),d['by_stage']['baseline_page']['cost_usd'])\"",
+    "m8_keys": "python -c \"import json,pathlib; d=json.loads(pathlib.Path('docs/eval/paper_numbers.json').read_text(encoding='utf-8')); print([r['key'] for r in d['results'] if r['key'].startswith('M8')])\"",
+    "figure_fonts": "python -c \"import fitz; d=fitz.open('dist/NarrativeWiki-paper.pdf'); print([(i+1,s['text'],round(s['size'],3)) for i,needle in [(4,'B1 long context'),(4,'atoms'),(6,'NarrativeWiki')] for b in d[i].get_text('dict')['blocks'] for l in b.get('lines',[]) for s in l['spans'] if needle in s['text'] and s['size']<8])\""
+  }
+}

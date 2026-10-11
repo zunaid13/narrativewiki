@@ -1,0 +1,64 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+#
+# Source: https://spiceandwolf.fandom.com/wiki/Holo (Spice & Wolf Wiki, Fandom). Direct WebFetch
+# of fandom.com returned HTTP 402 in this sandbox, so transcription used several targeted
+# WebSearch queries against the same page instead of one full-page fetch -- noted here because
+# it means this is not guaranteed to be a byte-for-byte complete outline/fact list, only a
+# faithful-as-possible one given that constraint (docs/vision/PHASE_21.md's part 4 entry).
+#
+# `eval_vol`: the volume cutoff every `in_scope: true` fact below was vetted against. A real
+# Fandom page describes the WHOLE series; our wiki at cutoff `eval_vol` is correctly SUPPOSED to
+# omit anything revealed later (CLAUDE.md #1) -- scoring recall against those facts would penalize
+# correct spoiler suppression, so `in_scope: false` facts are excluded from fact_recall's
+# denominator entirely (still listed here, for a human reviewer, with a note on why).
+entity_id: holo
+canonical: Holo
+source_url: https://spiceandwolf.fandom.com/wiki/Holo
+transcribed: "2026-09-08"
+eval_vol: 2
+
+# The real page's section outline, in order, as best reconstructed from search results (a Fandom
+# character page's standard skeleton plus what this page's own content confirms it covers).
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Relationships
+  - Trivia
+
+facts:
+  - text: "Holo is a nonhuman wolf spirit who lived in and watched over the wheat harvest at Pasloe for centuries."
+    in_scope: true
+  - text: "Holo is originally from Yoitsu, in the north."
+    in_scope: true
+  - text: "Holo can take two forms: her true form is a giant wolf, and she also appears as a human woman."
+    in_scope: true
+  - text: "Holo's wolf form has wheat-brown fur on the upper half of her body and off-white fur on the rest."
+    in_scope: true
+  - text: "In human form Holo looks like a girl of about fifteen, with long flowing brown hair, wolf ears, and a tail with a white tip."
+    in_scope: true
+  - text: "Holo has fangs for canine teeth."
+    in_scope: true
+  - text: "Holo escaped Pasloe by hiding in the wheat on the traveling merchant Kraft Lawrence's cart and joined him on his travels."
+    in_scope: true
+  - text: "Holo is jovial, loquacious, smart, and confident, especially around Lawrence."
+    in_scope: true
+  - text: "Holo speaks in an old-fashioned, formal register and rarely uses contractions."
+    in_scope: true
+  - text: "Holo is flirtatious and manipulative toward Lawrence, and often mocks his business/negotiating skills."
+    in_scope: true
+  - text: "Holo and Lawrence eventually settle in Nyohhira, open the Spice and Wolf bathhouse, and marry."
+    in_scope: false  # far-future/epilogue-era fact (the sequel series), well beyond Volume 2
+  - text: "Holo harbors a deep fear of solitude, which is part of why she bonds so strongly with Lawrence."
+    in_scope: false  # plausible by v2 but not confidently placeable to a specific volume; excluded conservatively
+  - text: "Holo is willing to reveal her true wolf form to protect Lawrence, despite the risk."
+    in_scope: false  # uncertain which volume this specific act occurs in; excluded conservatively
+  - text: "Holo snores in her sleep but denies it when told."
+    in_scope: false  # trivia, not tied to a specific volume; cannot verify it's established by v2
+
+# Phase 23 C3. The live graph rendered Holo AFFILIATED_WITH Medio Company from evidence that
+# actually describes her being HELD by them -- a captive read as a member. See docs/vision/PHASE_23.md.
+negative_facts:
+  - "Holo is not a member of the Medio Company."
+  - "Holo is not affiliated with the Medio Company."
+  - "Holo is not a relative of Kraft Lawrence."

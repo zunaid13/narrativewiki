@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-10",
+  "run_id": "paper-framing-dataset-20261010",
+  "scope": "Original and renamed/paraphrased Anne, publication-order volumes 1-5; primary seven-system matrix only",
+  "corpus": {
+    "words": 428122,
+    "paragraphs": 8489,
+    "chapters": 184,
+    "count_source": "Existing T1-anne-* declarations and measurement rows of 2026-09-28"
+  },
+  "gold": {
+    "path": "docs/eval/parametric/anne.yaml",
+    "sha256": "ece30c5f91efd5222051bbf3ff1b9f17899a6dc74b814c6f684901ec0d25b7fb",
+    "selected_facts": 111,
+    "characters": 43,
+    "eligible_by_cutoff": [
+      23,
+      46,
+      66,
+      89,
+      111
+    ],
+    "future_by_cutoff": [
+      88,
+      65,
+      45,
+      22
+    ],
+    "selection": "Only evidence volumes 1-5. Later-volume records retained in the historical YAML are excluded."
+  },
+  "conditions": {
+    "original": {
+      "systems": 7,
+      "cutoffs": 5,
+      "artifact_cells": 35,
+      "recall_assessments": 2345,
+      "disclosure_assessments": 1540,
+      "precision_sample_rows": 1400,
+      "precision_frame_errors": 4,
+      "precision_evaluated_atoms": 1396
+    },
+    "treated": {
+      "systems": 7,
+      "cutoffs": 5,
+      "artifact_cells": 35,
+      "recall_assessments": 2345,
+      "disclosure_assessments": 1540,
+      "precision_sample_rows": 1400,
+      "precision_frame_errors": 2,
+      "precision_evaluated_atoms": 1398
+    }
+  },
+  "examples": [
+    {
+      "character": "Matthew Cuthbert",
+      "claim": "Matthew is the shyest man alive.",
+      "evidence": "v01:c01:p0004",
+      "reveal": 1,
+      "illustrative_difficulty": "easier: direct statement"
+    },
+    {
+      "character": "Owen Ford",
+      "claim": "Owen Ford is a newspaper man and a grandson of the schoolmaster who built the house.",
+      "evidence": "v04:c22:p0019",
+      "reveal": 4,
+      "illustrative_difficulty": "harder: conjunction and local coreference"
+    },
+    {
+      "character": "Anne Shirley",
+      "claim": "Anne marries Gilbert Blythe.",
+      "evidence": "v04:c04:p0000",
+      "reveal": 4,
+      "illustrative_difficulty": "evidence boundary: announcement versus completed event"
+    }
+  ],
+  "human_review": {
+    "reviewed_items": 554,
+    "gold": 111,
+    "recall": 235,
+    "precision": 148,
+    "citation": 60,
+    "scope": "Original-text validation subset, not the complete primary matrix; excludes disclosure and treated-text labels",
+    "raw_decisions_available": true,
+    "source": "docs/eval/agreement/human_review/reported_agreement_2026-10-10.json",
+    "recomputed_agreement": "docs/eval/agreement/human_review/recomputed_agreement_20261010.json",
+    "reviewer_provenance": "docs/eval/agreement/human_review/raw_label_provenance_20261010.json",
+    "authorship_basis": "Maintainer identifies these as human final labels; conflicting archival metadata is preserved; authorship/blinding not independently verified"
+  },
+  "limits": "Examples illustrate existing rules; no measured difficulty labels, new annotation or new generation. Conditions reuse the same gold inventory and do not provide independent corpora. Review counts describe the earlier sampled check, whose scope differs from the current primary matrix."
+}

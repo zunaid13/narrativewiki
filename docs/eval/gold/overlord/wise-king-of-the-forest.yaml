@@ -1,0 +1,27 @@
+# Hand-transcribed gold data (2026-09-25). Source https://overlordmaruyama.fandom.com/wiki/Hamsuke
+# via WebSearch summaries (fandom.com is HTTP 402 here), each fact vetted against the v01-02 text.
+# The gazetteer titles her by her v1-visible name (the legend); "Hamusuke" is revealed in v2.
+entity_id: wise-king-of-the-forest
+canonical: Wise King of the Forest
+source_url: https://overlordmaruyama.fandom.com/wiki/Hamsuke
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - History
+  - Abilities
+  - Relationships
+
+facts:
+  - text: "The Wise King of the Forest is a legendary beast said to rule the forest near Carne Village."
+    in_scope: true
+  - text: "The Wise King of the Forest turns out to be a giant hamster."
+    in_scope: true
+  - text: "After Ainz defeats her, she swears loyalty to him and he names her Hamusuke."
+    in_scope: true
+  - text: "Momon rides Hamusuke as his mount."
+    in_scope: true
+
+negative_facts:
+  - "The Wise King of the Forest is not a member of the Swords of Darkness."

@@ -1,0 +1,28 @@
+# Hand-transcribed gold data (2026-09-25). Source https://ascendance-of-a-bookworm.fandom.com/wiki/Gunther
+# (fandom.com is HTTP 402 here: facts from search summaries and the series itself), each fact
+# vetted by grep against the Part 1 v01-02 text; the para_id in each comment is the evidence.
+# eval_vol 2 = Part 1 v02. in_scope: false marks a later-Part fact a v2 page must NOT carry.
+entity_id: gunther
+canonical: Gunther
+source_url: https://ascendance-of-a-bookworm.fandom.com/wiki/Gunther
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Relationships
+
+facts:
+  - text: "Gunther is Myne's father."   # v01:c01:p0041
+    in_scope: true
+  - text: "Gunther is a soldier who guards the southern gate."   # v01:c03:p0044
+    in_scope: true
+  - text: "Gunther has blue hair."   # v01:c01:p0043
+    in_scope: true
+  - text: "Gunther is married to Effa."   # v01:c01:p0041
+    in_scope: true
+
+negative_facts:
+  - "Gunther is not a merchant."

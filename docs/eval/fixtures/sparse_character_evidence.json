@@ -1,0 +1,356 @@
+{
+  "fixture": "sparse_character_evidence",
+  "series": "spice-and-wolf",
+  "frozen_at": "2026-09-23",
+  "purpose": "Hand-reviewed atomic facts for the three shortest character pages at cutoff 2, so that a prompt or extraction change can be judged on supported facts recovered rather than on raw accepted count or page length. docs/vision/plans/0006 work package A.",
+  "method": "Every paragraph the recorded claim_extract requests carried for these three subjects was read (19, 22 and 42 paragraphs respectively), from data/spice-and-wolf/01_parsed only. No fandom page and no model was consulted. Labels are one reviewer's judgement, not adjudicated gold.",
+  "separate_from": "docs/eval/gold -- this fixture has no floors and must not be added to any ratcheted benchmark.",
+  "status_values": {
+    "already_covered": "a claim carrying this fact exists and renders; finding it again is not a gain",
+    "covered_with_defect": "a claim exists and renders, but says something the quote does not support",
+    "missing": "supported by the quote, no claim carries it",
+    "must_not_assert": "the page must NOT state this; `forbidden_value` names the value that constitutes the violation, so a claim that states the OPPOSITE correctly is not scored as one"
+  },
+  "splits": {
+    "dev": "may be used to design a change",
+    "holdout": "judge a change on these only after it is frozen"
+  },
+  "facts": [
+    {
+      "id": "M1",
+      "subject": "saint-metrogius",
+      "predicate_family": "TITLE",
+      "polarity": "asserted",
+      "para_id": "v02:c01:p0242",
+      "quote": "It’s the pilgrimage road of Saint Metrogius.",
+      "cutoff": 2,
+      "status": "already_covered",
+      "split": "dev",
+      "note": "Rendered as Titles: Saint.",
+      "covered_by_claim_id": "c_a61b510d"
+    },
+    {
+      "id": "M2",
+      "subject": "saint-metrogius",
+      "predicate_family": "OCCUPATION",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0276",
+      "quote": "you follow the path of Saint Metrogius in business",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "Rendered as Role: saint of business. Loose predicate fit -- the text gives a way of doing business named for him, not an occupation he held. Lost by the 2026-09-24 re-extraction; the quote still supports it. Needs re-judging.",
+      "covered_by_claim_id": null
+    },
+    {
+      "id": "M3",
+      "subject": "saint-metrogius",
+      "predicate_family": "INFLUENCE",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0276",
+      "quote": "as I recall, you follow the path of Saint Metrogius in business, like your teacher did, correct?",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "Lawrence and his teacher both follow the path -- a fact about Metrogius's reach among merchants. MUST NOT be encoded as MENTOR_OF/STUDENT_OF: the teacher in this sentence is Lawrence's own master. The extractor did produce STUDENT_OF and `wiki verify` withheld interval i_e7bc8913 for exactly this reason."
+    },
+    {
+      "id": "M4",
+      "subject": "saint-metrogius",
+      "predicate_family": "REPUTATION",
+      "polarity": "presumed",
+      "para_id": "v02:c00:p0277",
+      "quote": "Perhaps it’s the protection of Saint Metrogius that’s kept my travels safe and my business sound.",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "Reported belief, spoken by Lawrence and hedged with 'perhaps'. Any encoding must keep it attributed, never asserted as fact."
+    },
+    {
+      "id": "M5",
+      "subject": "saint-metrogius",
+      "predicate_family": "NAMESAKE",
+      "polarity": "asserted",
+      "para_id": "v02:c01:p0242",
+      "quote": "It’s the pilgrimage road of Saint Metrogius.",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "holdout",
+      "note": "A named road exists, travelled from Poroson toward Ruvinheigen. Held out: not used to design any prompt change."
+    },
+    {
+      "id": "M6",
+      "subject": "saint-metrogius",
+      "predicate_family": "STATUS",
+      "polarity": "denied",
+      "para_id": "v02:c00:p0279",
+      "quote": "they trod the paths of the saints of old",
+      "cutoff": 2,
+      "status": "must_not_assert",
+      "split": "dev",
+      "note": "The page ships 'Status: alive (assumed)'. Nothing in v1-2 states that he lives, and 'saints of old' points the other way. This is the open STATUS default conflict in docs/vision/plans/0006, not an extraction gap.",
+      "forbidden_value": "alive"
+    },
+    {
+      "id": "R1",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "APPEARANCE",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0148",
+      "quote": "there were records of Saint Ruvinheigen having red hair",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "Deduplication control, per docs/vision/plans/0006. Already on the page via the window pass; re-finding it through scenes is not a recall gain. 2026-09-27 v1-5 re-extraction: no claim covers the red hair any more (was c_9c8ccf3e); a recall loss."
+    },
+    {
+      "id": "R2",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "APPEARANCE",
+      "polarity": "presumed",
+      "para_id": "v02:c00:p0149",
+      "quote": "Saint Ruvinheigen was said to have lost his left arm",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "Kept `presumed`, and the prose renders 'According to historical records'. Correct: p0151 calls the tale possibly 'pure fabrication'. A change that flattens this into a plain assertion is a regression, not a gain. Lost by the 2026-09-24 re-extraction; the quote still supports it. Needs re-judging.",
+      "covered_by_claim_id": null
+    },
+    {
+      "id": "R3",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "HISTORY",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0149",
+      "quote": "in his battles against the heathen deities",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "His defining action. Nothing on the page says he fought anyone."
+    },
+    {
+      "id": "R4",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "DEPICTION",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0149",
+      "quote": "on the great mural in the city cathedral he was pictured with no left arm, his ragged clothing smeared with blood, resolutely ordering his crusaders forward against the pagans",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "How he is depicted, and that he led crusaders. Reported via the mural, so the evidence is about the depiction."
+    },
+    {
+      "id": "R5",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "NAMESAKE",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0148",
+      "quote": "In the holy city of Ruvinheigen, there were records of Saint Ruvinheigen",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "dev",
+      "note": "A relation to a LOCATION that has its own codex entry. The page's Relationships section names only Holo."
+    },
+    {
+      "id": "R6",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "HISTORY",
+      "polarity": "asserted",
+      "para_id": "v02:c03:p0025",
+      "quote": "The march was timed to coincide with the birthday of Saint Ruvinheigen",
+      "cutoff": 2,
+      "status": "missing",
+      "split": "holdout",
+      "note": "Unhedged, and it drives the volume's plot. Held out: not used to design any prompt change."
+    },
+    {
+      "id": "R7",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "RELATIONSHIP",
+      "polarity": "asserted",
+      "para_id": "v02:c00:p0146",
+      "quote": "sinking my teeth into that Ruvinheigen’s backside",
+      "cutoff": 2,
+      "status": "already_covered",
+      "split": "dev",
+      "note": "Reaches the page as an INBOUND claim whose subject is Holo. A subject-only witness view calls this absent; it is not. 2026-09-27 v1-5 re-extraction: now a BACKGROUND claim on Holo ('bit the rear of Saint Ruvinheigen'), still on the page.",
+      "covered_by_claim_id": "c_1380012a"
+    },
+    {
+      "id": "R8",
+      "subject": "saint-ruvinheigen",
+      "predicate_family": "STATUS",
+      "polarity": "denied",
+      "para_id": "v02:c00:p0145",
+      "quote": "Holo had set out on her travels hundreds of years ago",
+      "cutoff": 2,
+      "status": "must_not_assert",
+      "split": "dev",
+      "note": "The same STATUS conflict as M6: the page ships 'alive (assumed)' for a man Holo bit centuries earlier.",
+      "forbidden_value": "alive"
+    },
+    {
+      "id": "E1",
+      "subject": "count-ehrendott",
+      "predicate_family": "TITLE",
+      "polarity": "asserted",
+      "para_id": "v01:c01:p0062",
+      "quote": "the noble who managed the land, one Count Ehrendott",
+      "cutoff": 1,
+      "status": "already_covered",
+      "split": "dev",
+      "note": "Rendered as Titles: Count.",
+      "covered_by_claim_id": "c_6a1563a8"
+    },
+    {
+      "id": "E2",
+      "subject": "count-ehrendott",
+      "predicate_family": "GOVERNS",
+      "polarity": "asserted",
+      "para_id": "v01:c02:p0069",
+      "quote": "Count Ehrendott, who managed the region surrounding Pasloe",
+      "cutoff": 1,
+      "status": "already_covered",
+      "split": "dev",
+      "note": "Encoded as ORIGIN_FROM pasloe, so the page reads 'Pasloe -- From -- manages the region surrounding the city'. The qualifier is right and the display label contradicts it: nothing says he is FROM Pasloe. No predicate in config/extraction.yaml fits a governance relation. 2026-09-27 v1-5 re-extraction: now OCCUPATION 'manager of the region surrounding Pasloe'; the ORIGIN_FROM defect is gone.",
+      "covered_by_claim_id": "c_f85f69e2"
+    },
+    {
+      "id": "E3",
+      "subject": "count-ehrendott",
+      "predicate_family": "PERSONALITY",
+      "polarity": "asserted",
+      "para_id": "v01:c01:p0062",
+      "quote": "was a famous area eccentric",
+      "cutoff": 1,
+      "status": "already_covered",
+      "split": "dev",
+      "note": "",
+      "covered_by_claim_id": "c_e02d8a87"
+    },
+    {
+      "id": "E4",
+      "subject": "count-ehrendott",
+      "predicate_family": "PERSONALITY",
+      "polarity": "asserted",
+      "para_id": "v01:c01:p0062",
+      "quote": "who enjoyed working in the fields himself",
+      "cutoff": 1,
+      "status": "missing",
+      "split": "dev",
+      "note": "The specific behaviour, distinct from the label 'eccentric'. p0069 supplies why it is eccentric: 'almost none of them took a personal hand in the farming or sale of their product.' The prose states it today, but no claim carries it."
+    },
+    {
+      "id": "E5",
+      "subject": "count-ehrendott",
+      "predicate_family": "PATRONAGE",
+      "polarity": "asserted",
+      "para_id": "v01:c01:p0062",
+      "quote": "Naturally the festival also enjoyed his support",
+      "cutoff": 1,
+      "status": "missing",
+      "split": "dev",
+      "note": "He backs the Pasloe harvest festival, which has its own codex entry."
+    },
+    {
+      "id": "E6",
+      "subject": "count-ehrendott",
+      "predicate_family": "HISTORY",
+      "polarity": "asserted",
+      "para_id": "v01:c01:p0361",
+      "quote": "Pasloe had come under the care of Count Ehrendott, and since then new farming techniques had been imported from the south, increasing yield",
+      "cutoff": 1,
+      "status": "missing",
+      "split": "holdout",
+      "note": "The volume's causal hinge -- it is why Holo believes she is no longer needed. Held out: not used to design any prompt change."
+    },
+    {
+      "id": "E7",
+      "subject": "count-ehrendott",
+      "predicate_family": "AFFILIATION",
+      "polarity": "asserted",
+      "para_id": "v01:c05:p0220",
+      "quote": "The figure backing the Medio Company is Count Ehrendott!",
+      "cutoff": 1,
+      "status": "already_covered",
+      "split": "dev",
+      "note": "",
+      "covered_by_claim_id": "c_0c3ffba0"
+    },
+    {
+      "id": "E8",
+      "subject": "count-ehrendott",
+      "predicate_family": "HISTORY",
+      "polarity": "asserted",
+      "para_id": "v01:c05:p0226",
+      "quote": "The count and the merchants that deal with his wheat are the reason silver is being collected.",
+      "cutoff": 1,
+      "status": "missing",
+      "split": "holdout",
+      "note": "Held out: not used to design any prompt change."
+    },
+    {
+      "id": "E9",
+      "subject": "count-ehrendott",
+      "predicate_family": "OCCUPATION",
+      "polarity": "denied",
+      "para_id": "v01:c02:p0069",
+      "quote": "Most vineyard owners were noble, but almost none of them took a personal hand in the farming or sale of their product.",
+      "cutoff": 1,
+      "status": "must_not_assert",
+      "split": "dev",
+      "note": "The claim OCCUPATION 'vineyard manager' (c_4b8930fd) is a misattribution: the vineyard belongs to the unnamed noble of Perenzzo whom Lawrence is speaking to, and Ehrendott appears only as the contrast case. `wiki verify` already withholds it, so it does not render. A change that restores it to the page is a precision regression.",
+      "forbidden_value": "vineyard"
+    }
+  ],
+  "claim_id_migrations": {
+    "2026-09-24": {
+      "reason": "Commit b4b04c6 put polarity and qualifier into make_claim_id, so every claim_id changed the first time the graph was rebuilt after it. Only the pointers moved: each stale id resolved to exactly one claim with identical subject, predicate, target, first_vol, polarity and qualifier. No reviewed judgement, quote, status or split was touched. tests/test_character_evidence_coverage.py caught the staleness.",
+      "remapped": {
+        "c_857d9e89": "c_5ec2a94f",
+        "c_da7d2294": "c_f5c3f960",
+        "c_534f59ac": "c_9c8ccf3e",
+        "c_ab310b58": "c_34f42fb5",
+        "c_d1fe78bd": "c_26ad860e",
+        "c_7d743c73": "c_6a1563a8",
+        "c_18e7e7d5": "c_93253d71",
+        "c_26dedaf6": "c_e02d8a87",
+        "c_b682e283": "c_0c3ffba0"
+      }
+    },
+    "2026-09-24-re-extraction": {
+      "reason": "Adding `qualifier_disqualifiers` to SPOUSE_OF changed config, and extract/adequacy.py::prompt_rules() injects the gate config INTO the extraction prompt, so every claim_extract call was a cache miss and the claim set was re-rolled, not merely re-filtered. A config edit of this kind is never a surgical change. 2 pointers moved to a uniquely-matching claim (qualifier paraphrased, same paragraph and polarity); 2 facts disappeared from the graph entirely and are recorded as lost rather than re-pointed.",
+      "remapped": {
+        "c_26ad860e": "c_52e64c17",
+        "c_93253d71": "c_25bdf91a"
+      },
+      "lost": {
+        "c_f5c3f960": {
+          "fact_id": "M2",
+          "subject": "saint-metrogius",
+          "predicate_family": "OCCUPATION",
+          "quote": "you follow the path of Saint Metrogius in business",
+          "was_status": "already_covered"
+        },
+        "c_34f42fb5": {
+          "fact_id": "R2",
+          "subject": "saint-ruvinheigen",
+          "predicate_family": "APPEARANCE",
+          "quote": "Saint Ruvinheigen was said to have lost his left arm",
+          "was_status": "already_covered"
+        }
+      }
+    },
+    "2026-09-27-v1-5-run": {
+      "remapped": {
+        "c_5ec2a94f": "c_a61b510d",
+        "c_52e64c17": "c_1380012a",
+        "c_25bdf91a": "c_f85f69e2"
+      },
+      "lost": {
+        "c_9c8ccf3e": "R1 red hair: not re-extracted"
+      }
+    }
+  }
+}

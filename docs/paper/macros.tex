@@ -1,0 +1,79 @@
+% Shared macros. Nothing in here is a result; results live in results.tex.
+
+% ---- Placeholders ---------------------------------------------------------------------------
+% \TBD{ID}{what goes here}: anything not yet known. Draft: a red bracket. Final (\nwdraftfalse):
+% prints nothing, so a \TBD must never stand where a sentence needs words -- check with
+% scripts/papers/paper_status.py before submission.
+\newcommand{\TBD}[2]{\ifnwdraft{\color{red}\textsf{\footnotesize[#1: #2]}}\fi}
+% \TODO{...}: an authoring note for the next editor. Invisible in final.
+\newcommand{\TODO}[1]{\ifnwdraft{\color{orange}\textsf{\footnotesize[TODO: #1]}}\fi}
+\newcommand{\CITE}[1]{\TBD{CITE}{#1}}
+
+% ---- Results registry -----------------------------------------------------------------------
+% results.tex declares every key once:  \declareres{KEY}{description}{VALUE}
+% An empty VALUE means "not measured". \res{KEY} prints the value; for an empty value it prints a
+% red key in draft and an en dash in final (a table cell that was not measured).
+\makeatletter
+\newcommand{\declareres}[3]{%
+  \expandafter\def\csname nwres@desc@#1\endcsname{#2}%
+  \if\relax\detokenize{#3}\relax\else\expandafter\def\csname nwres@val@#1\endcsname{#3}\fi}
+% \best{...}: a table value that carries the table's finding (docs/paper/_build/bold_tables.py).
+\newcommand{\best}[1]{{\bfseries\boldmath #1}}
+\newcommand{\res}[1]{%
+  \ifcsname nwres@val@#1\endcsname\csname nwres@val@#1\endcsname
+  \else\ifcsname nwres@desc@#1\endcsname
+    \ifnwdraft{\color{red}\textsf{\scriptsize[#1]}}\else--\fi
+  \else\errmessage{Undeclared result key #1}\fi\fi}
+% \respt{KEY}: the point estimate only, i.e. the value up to its first space
+% (``0.866 [0.793, 0.918]'' prints as 0.866). For running text and the abstract.
+\def\nwres@first#1 #2\@nil{#1}
+% The delimiter is a real space token after {}: a value with no space (means only, 2026-10-04) still ends.
+\newcommand{\respt}[1]{\expandafter\expandafter\expandafter\nwres@first\csname nwres@val@#1\endcsname{} \@nil}
+\makeatother
+
+% ---- Anonymous repository ---------------------------------------------------------------------
+% Placeholder until the anonymous mirror exists; change this one line.
+\newcommand{\anonrepo}{\url{https://anonymous.4open.science/r/NarrativeWiki-Anon-341E/}}
+% Let long URLs (bibliography) break at hyphens as well as at slashes.
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\-}
+
+% ---- Names and notation ---------------------------------------------------------------------
+\newcommand{\sys}{\textsc{NarrativeWiki}\xspace}
+\newcommand{\Dt}{D_{\le t}}          % text through reading volume t
+\newcommand{\Wt}{W_t}                % everything delivered at cutoff t
+\newcommand{\Gt}{G_t}                % eligible gold facts at t
+\newcommand{\Ft}{F_t}                % assessed future facts at t
+\newcommand{\Ct}{C_t}                % distinct atomic assertions in W_t
+\newcommand{\Et}{E_t}                % cited evidence available through t
+\newcommand{\reveal}{r}              % earliest sufficient disclosure volume of a gold fact
+\newcommand{\firstvol}{\texttt{first\_vol}\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\pid}[1]{\texttt{\small #1}}   % a paragraph identifier, v01:c06:p0003
+
+% ---- Shared figure, table and appendix palette ---------------------------------------------
+\definecolor{nwindigo}{HTML}{8D89D8}
+\definecolor{nwcyan}{HTML}{AADDED}
+\definecolor{nwviolet}{HTML}{B9A3E3}
+\definecolor{nwlavender}{HTML}{CECDF0}
+\definecolor{nwmagenta}{HTML}{EBC2D9}
+\definecolor{nwaccent}{HTML}{665FB0}
+\definecolor{nwhighcyan}{HTML}{DDEFF8}
+\definecolor{nwhighpink}{HTML}{F6E1ED}
+\definecolor{nwhighlavender}{HTML}{E8E4F6}
+\definecolor{nwink}{HTML}{243247}
+\definecolor{nwgrid}{HTML}{D8DEE7}
+\definecolor{nwblue}{HTML}{8D89D8}
+\definecolor{nwbluebg}{HTML}{EFF5FC}
+\definecolor{nwgreen}{HTML}{B9A3E3}
+\definecolor{nwgreenbg}{HTML}{F2EEF9}
+\definecolor{nworange}{HTML}{9B94CB}
+\definecolor{nworangebg}{HTML}{F1EFF8}
+\definecolor{nwred}{HTML}{EBC2D9}
+\definecolor{nwredbg}{HTML}{FCF0F6}
+\definecolor{nwgray}{HTML}{657183}
+\definecolor{nwgraybg}{HTML}{F3F5F8}
+\definecolor{nwpurple}{HTML}{B9A3E3}
+\definecolor{nwpurplebg}{HTML}{F3EFFA}
+% Figure text size: 7pt, the smallest used in the one-column figures (plan 0015 step 8).
+\newcommand{\figfont}{\fontsize{7}{8}\selectfont}

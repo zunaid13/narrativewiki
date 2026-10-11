@@ -1,0 +1,12 @@
+% The held-out series (Oz, books 1-5). Read only under \nwheldouttrue (main.tex); values are
+% results.tex keys *-oz-*. Oz was never used during development (freeze oz-v1 before any model stage).
+\subsection{A held-out series}
+\label{sec:results-heldout}
+We repeated the comparison on a second public-domain series that no stage of development had
+seen: the first five books of L.~Frank Baum's Oz series (\res{T1-oz-gold-t5} gold facts), with
+code, prompts and settings frozen before its first model call. \sys conveys
+\res{M1-oz-avg-B5} of the eligible gold against \res{M1-oz-avg-B1} for long-context prompting and
+\res{M1-oz-avg-X1} for the closed-book generator; sampled precision is \res{M3-oz-avg-B5} against
+\res{M3-oz-avg-B1}. The input-cut systems disclose \res{M4-oz-total-cut} assessed later facts and
+the instructed full-text diagnostic \res{M4-oz-total-X2}; the lexical screen finds
+\res{SCREEN-oz-B5} names on \sys's pages that a reader at the cutoff has not met.

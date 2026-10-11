@@ -1,0 +1,195 @@
+{
+  "run_id": "reviewer-concerns-20261010",
+  "conditions": {
+    "original": {
+      "systems": {
+        "B1": {
+          "source": "docs/eval/leak_audit/anne@b1_tree.jsonl",
+          "sha256": "db10b779e57adf93422f0b4ee7bea671e923c69e1ecf31807d5340e25f0c655c",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 3,
+          "inclusive_assessments": 3,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 3
+        },
+        "B2": {
+          "source": "docs/eval/leak_audit/anne@b2_tree.jsonl",
+          "sha256": "e95c8dceaeb070191f1e253140f91747513f2a16818d16ee66c23bb23c41b292",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 0,
+          "inclusive_assessments": 0,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 0
+        },
+        "B3": {
+          "source": "docs/eval/leak_audit/anne@b3_tree.jsonl",
+          "sha256": "57f54dd90409dad81a21c21247f164e349fcea2f8bd4e9c869c58710d2276d19",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 1,
+          "inclusive_assessments": 1,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 1
+        },
+        "B4": {
+          "source": "docs/eval/leak_audit/anne@b4-v2_tree.jsonl",
+          "sha256": "07fc936455366b4a23ba9e6ba252657a9a2e1bf3dac26bde027dfe9d84fc703e",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 0,
+          "inclusive_assessments": 0,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 0
+        },
+        "B5": {
+          "source": "docs/eval/leak_audit/anne@v2_tree.jsonl",
+          "sha256": "359a8e2907c40365e074f9577c700aa4149e24ca4a69e1b5bde195d9a31b6f1a",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 1,
+          "uncertain_assessments": 4,
+          "inclusive_assessments": 5,
+          "confirmed_unique_subject_facts": 1,
+          "inclusive_unique_subject_facts": 2
+        },
+        "X1": {
+          "source": "docs/eval/leak_audit/anne@x1_tree.jsonl",
+          "sha256": "68c1384fe0187305bc257b9d5919fd429492dd8f2a2298e2d81ea668c7e79613",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 4,
+          "uncertain_assessments": 2,
+          "inclusive_assessments": 6,
+          "confirmed_unique_subject_facts": 3,
+          "inclusive_unique_subject_facts": 5
+        },
+        "X2": {
+          "source": "docs/eval/leak_audit/anne@x2_tree.jsonl",
+          "sha256": "ebec85fbb529210549fc233cb86b3828a3bf5d4c948215aeec80cd04b48fbff9",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 8,
+          "uncertain_assessments": 6,
+          "inclusive_assessments": 14,
+          "confirmed_unique_subject_facts": 8,
+          "inclusive_unique_subject_facts": 12
+        }
+      },
+      "input_bounded": {
+        "systems": [
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5"
+        ],
+        "assessments": 1100,
+        "confirmed_assessments": 1,
+        "uncertain_assessments": 8,
+        "inclusive_assessments": 9
+      }
+    },
+    "treated": {
+      "systems": {
+        "B1": {
+          "source": "docs/eval/leak_audit/anne-decon@b1_tree.jsonl",
+          "sha256": "06c4bffee156338ee7eb02149a6e059ca91131cee237622795fc28df9a812acc",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 1,
+          "inclusive_assessments": 1,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 1
+        },
+        "B2": {
+          "source": "docs/eval/leak_audit/anne-decon@b2_tree.jsonl",
+          "sha256": "b16d0e824b9ef26fdd85665199e2d09075baa4217133f925aee10e9b3845bf3c",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 0,
+          "inclusive_assessments": 0,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 0
+        },
+        "B3": {
+          "source": "docs/eval/leak_audit/anne-decon@b3_tree.jsonl",
+          "sha256": "ea4d1978501c3e72deb6d09cb757d6a42bcce202f48d76e114995d03064af329",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 0,
+          "inclusive_assessments": 0,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 0
+        },
+        "B4": {
+          "source": "docs/eval/leak_audit/anne-decon@b4-v2_tree.jsonl",
+          "sha256": "9a8800491cb71d4138de6e412a66c3264db54a95e54102a2bb57917e1fc51bb6",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 2,
+          "uncertain_assessments": 0,
+          "inclusive_assessments": 2,
+          "confirmed_unique_subject_facts": 2,
+          "inclusive_unique_subject_facts": 2
+        },
+        "B5": {
+          "source": "docs/eval/leak_audit/anne-decon@v2_tree.jsonl",
+          "sha256": "1e36af6a58a036d13e212cceca255c732debd1deb5643d9ebf5170b921fd0ad6",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 4,
+          "uncertain_assessments": 4,
+          "inclusive_assessments": 8,
+          "confirmed_unique_subject_facts": 2,
+          "inclusive_unique_subject_facts": 4
+        },
+        "X1": {
+          "source": "docs/eval/leak_audit/anne-decon@x1_tree.jsonl",
+          "sha256": "2c7b13d7f1531b0bce876c75432f51836c6ef96d31a7d77b2e0e23628770e384",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 0,
+          "uncertain_assessments": 0,
+          "inclusive_assessments": 0,
+          "confirmed_unique_subject_facts": 0,
+          "inclusive_unique_subject_facts": 0
+        },
+        "X2": {
+          "source": "docs/eval/leak_audit/anne-decon@x2_tree.jsonl",
+          "sha256": "f77fdf823c4435fc8b59936855d443d2798fdaa11338b1e6fc02f133a9026656",
+          "assessments": 220,
+          "unique_subject_facts": 88,
+          "confirmed_assessments": 23,
+          "uncertain_assessments": 1,
+          "inclusive_assessments": 24,
+          "confirmed_unique_subject_facts": 17,
+          "inclusive_unique_subject_facts": 18
+        }
+      },
+      "input_bounded": {
+        "systems": [
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5"
+        ],
+        "assessments": 1100,
+        "confirmed_assessments": 6,
+        "uncertain_assessments": 5,
+        "inclusive_assessments": 11
+      }
+    }
+  },
+  "unit": "Unique subject fact = character, claim, reveal; repeated cutoffs collapse, reciprocal facts do not.",
+  "limits": "Counts preserve stored judgments. Unique facts are not independent events or unique extraction errors."
+}

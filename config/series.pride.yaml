@@ -1,0 +1,20 @@
+# Phase 31: Pride and Prejudice (Austen), Project Gutenberg #42671.
+#   curl -L -o corpus/pride/pride-and-prejudice-42671.epub https://www.gutenberg.org/ebooks/42671.epub3.images
+# Unblocked 2026-09-26 by `epub.split_within_documents` (all 61 chapters sit in a handful of XHTML
+# files under <h2>). Published in three volumes (ch. 1-23 / 24-42 / 43-61), used as the reading
+# volumes: this edition numbers chapters per volume (I-XXIII, I-XIX, I-XIX), and each later volume
+# opens with a "PRIDE AND PREJUDICE:" title page, which is the break and is dropped as a chapter.
+# No LLM stage run yet. A short-text control like Leagues, but with two cutoffs.
+series:
+  id: "pride"
+  title: "Pride and Prejudice"
+source:
+  dir: "corpus/pride"
+  # One entry per break (discover_volumes counts entries); the same title page recurs, so twice.
+  volume_breaks: ['^PRIDE AND PREJUDICE:', '^PRIDE AND PREJUDICE:']
+epub:
+  heading_tags: ["h2"]
+  split_within_documents: ["h2"]
+  drop_chapter_titles: ['^The Project Gutenberg eBook', '^THE FULL PROJECT GUTENBERG', '^PRIDE & PREJUDICE\.$', '^PRIDE AND PREJUDICE:']
+site:
+  default_upto: 3

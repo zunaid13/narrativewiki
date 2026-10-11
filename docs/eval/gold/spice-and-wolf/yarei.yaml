@@ -1,0 +1,25 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Added 2026-09-10 to grow gold-data coverage from 4 to 10
+# characters (Phase 22 C4). Yarei is a minor Volume 1 (Pasloe) character; the Fandom wiki itself
+# notes he is underdeveloped in the light novel relative to the anime/manga, so this entry is
+# short -- not a transcription gap.
+entity_id: yarei
+canonical: Yarei
+source_url: https://spiceandwolf.fandom.com/wiki/Yarei
+transcribed: "2026-09-10"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - History
+
+facts:
+  - text: "Yarei has short beige hair and brown eyes."
+    in_scope: true
+  - text: "Yarei was helping cut the last of Pasloe's wheat harvest and let out a wolfish howl, becoming that year's designated harvest figure the farmers chased."
+    in_scope: true
+  - text: "Yarei was held in the barn for a week as that year's harvest figure."
+    in_scope: true
+  - text: "Yarei slipped out to meet an old friend and talked about leaving Pasloe's old ways behind, eventually joining the Medio Trading Company."
+    in_scope: true

@@ -1,0 +1,47 @@
+# Roster ground truth for Overlord (Phase 32, req. 8). Converted from the hand-written
+# `entities.entity_overrides` that lived in config/series.overlord.yaml until 2026-09-27; every
+# entry was checked in context against the v01-02 text (MEASUREMENTS §38). It no longer patches
+# the gazetteer: `scripts/eval/roster_gold.py` (docs/eval/roster/) scores the general pipeline against it.
+# Keys are surface forms, not entity ids, so the file survives a rebuild that renumbers ids.
+series: overlord
+checked_through_vol: 2
+
+# Each group names ONE entity: every surface should land in one cluster.
+same_entity:
+  - ["Ainz Ooal Gown", "Momonga", "Dark Warrior"]   # renamed in v1; adventures as "Momon", "the Dark Warrior" in v2
+  - ["Wise King of the Forest", "Hamusuke"]          # the legend's title; Ainz names her in v2
+  - ["Lizzy Baleare", "Grandma"]                      # Nfirea's "Grandma!" (4 mentions, all hers)
+  - ["Swords of Darkness"]                            # one adventurer team, once mined as "The Swords" + "Darkness"
+
+# The page title a reader at the entity's first volume sees. A later name must not title it.
+title_at_first_vol:
+  "Hamusuke": "Wise King of the Forest"
+  "Albedo": "Albedo"            # "Mistress Albedo" is a form of address
+  "Great Tomb of Nazarick": "Great Tomb of Nazarick"
+
+# Surfaces that must not appear as an alias of the named entity.
+not_an_alias:
+  "Ainz Ooal Gown": ["Mo", "But Momonga", "Even Ainz", "Gown", "the elder lich"]
+  "Swords of Darkness": ["Darkness", "The Swords"]
+  "Narberal Gamma": ["the maid"]
+
+entity_type:
+  "Eight Kings": FACTION        # legendary groups, not people
+  "Thirteen Heroes": FACTION
+  "Six Gods": FACTION
+
+# Surfaces that must not become an entity at all.
+not_an_entity:
+  - "O Supreme One"             # a form of address to Ainz
+  - "Creators"                  # "our Creators" = the Supreme Beings
+  - "NPC"                       # game-system vocabulary
+  - "GM"
+  - "AI"
+  - "DMMO"
+  - "in Yggdrasil"              # a phrase, not a name
+
+# Facts about the text the old overlay encoded (config/extraction.overlord.yaml): Nazarick is a
+# place AND the organisation its denizens serve, and the fandom infobox gives "Affiliation: Great
+# Tomb of Nazarick". An AFFILIATED_WITH edge to it is correct.
+affiliated_with_location:
+  - ["Albedo", "Great Tomb of Nazarick"]

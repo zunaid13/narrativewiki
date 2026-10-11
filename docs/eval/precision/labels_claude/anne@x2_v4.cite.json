@@ -1,0 +1,20 @@
+{
+ "0": "S", "1": "S", "2": "S", "3": "S", "4": "S", "5": "S", "7": "S", "11": "S", "15": "S", "16": "S", "17": "S",
+ "18": "S", "19": "S", "20": "S", "22": "S", "23": "S", "24": "S", "25": "S", "26": "S", "30": "S", "31": "S",
+ "33": "S", "36": "S", "37": "S", "39": "S",
+ "6": ["I", "the one cited paragraph is his talk of Mrs. Lynde and his mother's picture; Sunday School is not in it"],
+ "8": ["P", "the meek husband is cited (v01:c01:p0002); his death is not in the cited paragraphs"],
+ "9": ["I", "the cited paragraph has Mrs. Lynde looking after Anne; the quoted words are in the next one, and they are hers, not his"],
+ "10": ["I", "Susan is in only one of the eight cited paragraphs (v04:c19:p0001), sitting with her apron over her head"],
+ "12": ["I", "the four cited paragraphs are of volume 2 (Davy, Marilla, Mr. Harrison's wife); Jonas Blake is in none"],
+ "13": ["P", "his resolve to tell no more falsehoods is cited (v02:c10:p0060); an improvement over time is not in the cited paragraphs"],
+ "14": ["P", "her delight in Anne's youth is cited (v02:c23:p0007); the quoted words are two paragraphs on (p0009)"],
+ "21": ["I", "none of the eight cited paragraphs has Charlotta and Diana as friends"],
+ "27": ["I", "neither cited paragraph is about him or gives an age"],
+ "28": ["P", "the meeting in a graveyard is cited (v03:c04:p0019); Old St. John's is not named in the cited paragraphs"],
+ "29": ["I", "none of the twelve cited paragraphs has Gilbert urging the operation or Montreal"],
+ "32": ["P", "the old friendship is cited (v01:c01:p0012); her coming to live at Green Gables is not in the cited paragraphs"],
+ "34": ["I", "his leaving college for his mother (v03:c25:p0047) is not cited for this line; the six cited paragraphs show nothing dutiful"],
+ "35": ["P", "the Avonlea school and the Pye girls are cited (v01:c15:p0008, p0026); Josie is not named and the Island is not in them"],
+ "38": ["P", "the evasive charm is cited (v02:c27:p0042); a face lit by her smile is not in the cited paragraphs"]
+}

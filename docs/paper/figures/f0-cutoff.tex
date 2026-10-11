@@ -1,0 +1,41 @@
+% F0 (teaser, one column): what a cutoff means, on real stored data. The four intervals are rows of
+% the frozen graph for Anne and Gilbert Blythe: ENEMY_OF v1-v1, RIVAL_OF v1-, COMRADE_OF v2-,
+% SPOUSE_OF v4- (data/anne@v2/04_graph/graph.db, the reported build; the first build stored the
+% same four); the page lines are from
+% dist/anne@v2/wiki/v02/relationships/anne-shirley--gilbert-blythe.md.
+\begin{tikzpicture}[x=1.0cm, y=0.5cm, font=\scriptsize,
+  vol/.style={draw=nwgray, fill=nwgraybg, rounded corners=1.5pt, minimum width=0.9cm, minimum height=0.4cm, inner sep=0pt},
+  bar/.style={rounded corners=2pt, minimum height=0.28cm, inner sep=0pt, anchor=west},
+  lab/.style={anchor=east, font=\figfont\ttfamily},
+]
+% volumes
+\foreach \i in {1,...,5}{ \node[vol] (v\i) at (\i,0) {\textbf{Vol.~\i}}; }
+\node[anchor=east, font=\figfont, text=nwgray, align=right] at (0.45,0) {volume};
+% reader cutoff
+\fill[nwredbg, opacity=0.6] (2.5,-0.95) rectangle (5.5,-6.05);
+\draw[nwred!70!nwaccent, very thick, line cap=round] (2.5,0.75) -- (2.5,-6.05);
+\node[fill=nwred, text=nwink, rounded corners=2pt, font=\figfont\bfseries, inner sep=2pt] at (2.5,1.3) {reader has finished Volume 2: cutoff $t{=}2$};
+\node[text=nwink, font=\figfont\itshape, anchor=east] at (5.45,-5.65) {later text: withheld};
+% intervals (stored first volume .. end)
+\node[lab] at (0.45,-1.7) {ENEMY\_OF};
+\node[bar, fill=nwgray!50, minimum width=0.9cm] at (0.55,-1.7) {};
+\node[font=\figfont, text=nwgray, anchor=west] at (1.5,-1.7) {Vol.~1 only};
+\node[lab] at (0.45,-2.8) {RIVAL\_OF};
+\node[bar, fill=nwblue!75, minimum width=1.93cm] at (0.55,-2.8) {};
+\node[bar, fill=nwblue!20, minimum width=2.95cm] at (2.52,-2.8) {};
+\node[lab] at (0.45,-3.9) {COMRADE\_OF};
+\node[bar, fill=nwgreen!75, minimum width=0.93cm] at (1.55,-3.9) {};
+\node[bar, fill=nwgreen!20, minimum width=2.95cm] at (2.52,-3.9) {};
+\node[lab] at (0.45,-5.0) {SPOUSE\_OF};
+\node[bar, fill=nworange!28, draw=nworange, dashed, minimum width=1.93cm] at (3.55,-5.0) {};
+\node[font=\figfont, text=nwaccent] at (4.52,-5.0) {evidence in Vol.~4};
+% rendered page at t=2
+\node[draw=nwblue!75!nwaccent, fill=nwbluebg, rounded corners=3pt, anchor=north west, text width=6.75cm, align=left, inner sep=4pt, font=\figfont]
+  (page) at (-1.15,-6.6) {%
+  {\scriptsize\bfseries\color{nwaccent}Cutoff-2 relationship page}\\[2pt]
+  \textbf{Anne Shirley --- Gilbert Blythe}\\[2pt]
+  \emph{Rival of}, since Vol.~1 \hfill{\ttfamily [v01:c17:p0036]}\\[1pt]
+  \emph{Comrade of}, since Vol.~2 \hfill{\ttfamily [v02:c01:p0055]}\\[1pt]
+  \emph{Previously: Enemy of}, until Vol.~1 \hfill{\ttfamily [v01:c15:p0051]}\\[2pt]
+  {\color{nwaccent}\emph{Spouse of} is withheld from pages and links.}};
+\end{tikzpicture}

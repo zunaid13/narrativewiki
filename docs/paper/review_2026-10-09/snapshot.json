@@ -1,0 +1,53 @@
+{
+  "run_id": "paper-review-20261009",
+  "reviewed_pdf": {
+    "file": "docs\\paper\\NarrativeWiki-paper.pdf",
+    "sha256": "6746d15a35b446aea0c18a6ab625213bc113d02728ee15343f31799bbc93ad25",
+    "pages": 47,
+    "page_8_has_conclusion": true,
+    "page_9_starts_limitations": true,
+    "creation_date": "D:20261008220348+06'00'"
+  },
+  "abstract_whitespace_tokens_after_dehyphenation": 199,
+  "abstract": "Readers of a long series need a character reference that stops where their reading does. Filtering retrieval by position is not enough: a whole-series index, the generator’s memory and shared page surfaces can each carry later information onto an early page. NARRATIVEWIKI turns a novel series into a linked character wiki per reading cutoff: each fact carries its first supporting volume and a verbatim quote, and a page for cutoff t is assembled from facts of volumes ≤t before generation. In a pilot on five public-domain books (111 gold facts; LLM-annotated labels, a sample humanreviewed), when only the reader’s volumes reached the generator, systems stated no later fact and implied one (1 of 880 reads), against 4 of 220 from memory and 8 of 220 from the full text under instruction; our search misses three in ten seeded implied disclosures. NARRATIVEWIKI conveys fewer gold facts than longcontext prompting (0.802 against 0.848) and its citations establish fewer assertions (0.512 against 0.658). On a renamed, paraphrased text, closed-book recall falls from 0.683 to 0.003 while reading systems lose at most 0.070, and NARRATIVEWIKI states a later marriage (4 of 220) from a character’s prediction. We release gold facts, labels and tools.",
+  "bibliography_entries": 29,
+  "bibliography_keys": [
+    "gurung2024chiron",
+    "yang2025evolvtrip",
+    "huang2025living",
+    "ahn2024timechara",
+    "lin2026nsst",
+    "shao2024storm",
+    "edge2024graphrag",
+    "guo2024lightrag",
+    "singh2026searchwiki",
+    "rashkin2021ais",
+    "gao2023alce",
+    "tang2024minicheck",
+    "subbiah2024storysumm",
+    "jeong2025narrativefactscore",
+    "chen2024m3",
+    "cheng2025contamination",
+    "chang2023speak",
+    "sun2025emperor",
+    "gupta2025whodunit",
+    "zhang2024infinitebench",
+    "dekoninck2024constat",
+    "min2023factscore",
+    "kim2024fables",
+    "bamman2020litbank",
+    "wan2019spoiler",
+    "jones2018spoilers",
+    "amazon2025kindle",
+    "papoudakis2024bookworm",
+    "karpinska2024nocha"
+  ],
+  "submission_pdf": {
+    "file": "dist\\NarrativeWiki-paper-submission.pdf",
+    "sha256": "cff743f70c7c60d6b25f1ff31067113817cf461724ccf2ef6cd755ab312dde48",
+    "pages": 47,
+    "page_8_has_conclusion": true,
+    "page_9_starts_limitations": true,
+    "creation_date": "D:20261008220356+06'00'"
+  }
+}

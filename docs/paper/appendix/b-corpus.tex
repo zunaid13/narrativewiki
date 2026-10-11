@@ -1,0 +1,93 @@
+% Appendix: corpus documentation.
+\section{Corpus and Evaluation Dataset}
+\label{app:corpus}
+
+\input{tables/t1-corpus}
+
+\paragraph{Editions.} The Anne series is read from Project Gutenberg eBooks 45 (\emph{Anne of
+Green Gables}), 47 (\emph{Anne of Avonlea}), 51 (\emph{Anne of the Island}), 544 (\emph{Anne's
+House of Dreams}) and 5343 (\emph{Rainbow Valley}), in that order (Table~\ref{tab:corpus}).
+The corpus follows the publication order of the first five Anne books (1908--1919), excluding
+two later-written books set between them. Throughout the paper, a volume is one book; word
+counts use whitespace-delimited tokens in the parsed text.
+
+\paragraph{Development history.} The pipeline was developed on other series,
+which contribute no reported results. The Anne books were processed while the pipeline was
+still being revised, so this corpus is not a held-out evaluation. Baseline settings were chosen on George
+Eliot's \emph{Middlemarch} (Gutenberg eBook 145, Books I--V) and not on the Anne series
+(Appendix~\ref{app:baselines}).
+
+\paragraph{Cast.} The evaluated cast contains the \res{T1-anne-cast} characters with at least one
+gold fact. A comparison system generates a character page at cutoff $t$ if a gold fact about
+that character is evidenced by $t$ or their full name occurs in $\Dt$. Characters without a
+page remain in the evaluation denominators. This rule replaces an earlier rule that matched
+any single word of a name and generated baseline pages for characters not yet introduced
+(Appendix~\ref{app:casebook}).
+
+\paragraph{Dataset size and units.}
+The source corpus contains \res{T1-anne-words} whitespace-delimited words in
+\res{T1-anne-paras} paragraphs and \res{T1-anne-chapters} chapters. The evaluated inventory
+contains \res{T1-anne-gold-t5} selected facts about \res{T1-anne-cast} characters.
+Table~\ref{tab:dataset-size} distinguishes these unique records from repeated judgments.
+Each original or treated condition contains the same seven systems at five cutoffs;
+renaming and paraphrasing reuse the inventory and reveal dates rather than adding an
+independent corpus. Recall labels judge eligible fact--cutoff pairs; disclosure labels judge
+later fact--cutoff pairs. Assertions are a separate system-generated population sampled
+for precision and citation sufficiency. Repeated cutoffs share facts and characters.
+
+\input{tables/t-dataset-size}
+
+\paragraph{What a record contains.}
+The gold YAML groups facts by character. Each fact records a claim and a paragraph identifier;
+the identifier encodes its evidence volume, chapter and paragraph. Optional keyword lists
+assist disclosure search, while reader and note fields record provenance. The stored YAML
+retains historical later-volume entries, but this evaluation selects evidence volumes
+one to five only. Below is a minimal excerpt from an existing record, with provenance
+metadata omitted:
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+series: anne
+characters:
+  Matthew Cuthbert:
+    facts:
+      - claim: "Matthew is the shyest man alive."
+        evidence: v01:c01:p0004
+\end{lstlisting}
+
+\paragraph{Easier example: a direct statement.}
+The cited paragraph describes Matthew as ``the shyest man alive'' and says that he
+``hated to have to go among strangers''. The human-accepted gold check
+(Appendix~\ref{app:annotation}) labels this record fully supported. The character and description occur together, so matching
+the proposition requires neither a cross-paragraph identity link nor a conjunction.
+Its evidence volume is one: it is eligible at every evaluated cutoff. This is the
+narrator's characterization of Matthew, rather than a claim about his current life status.
+
+\paragraph{Harder example: conjunction and local coreference.}
+Owen Ford's record reads: ``Owen Ford is a newspaper man and a grandson of the schoolmaster
+who built the house'', with evidence \pid{v04:c22:p0019}. Miss Cornelia's report includes
+``His name is Owen Ford'', ``a newspaper man'' and ``a grandson of the schoolmaster who
+built this house''. The human-accepted gold check labels the record fully supported.
+Interpreting the pronouns requires linking them to Owen; recall requires both the
+occupation and the family/house relation. A generated statement that supplies only his
+occupation does not convey the full record. At cutoff three the fact is a disclosure probe;
+at cutoff four it becomes eligible. The example illustrates the existing conjunction
+rule, not a measured difficulty grade or a newly assigned annotation.
+
+\paragraph{An evidence boundary case.}
+The gold claim ``Anne marries Gilbert Blythe'' points to \pid{v04:c04:p0000}, which begins
+``Anne wakened on the morning of her wedding day''. That paragraph alone neither names
+Gilbert nor establishes the completed marriage. The human-accepted gold check
+therefore marks it partial, even though the fact is assigned to the correct volume.
+This example distinguishes volume-level support from paragraph-level evidence sufficiency;
+the recorded evidence defect remains part of the inventory, as reported in
+Appendix~\ref{app:annotation}. These illustrative cases do not constitute new labels,
+a measured easy/hard split, or a repair of the gold evidence.
+
+\paragraph{Review population and release scope.}
+The two-reviewer check covers \res{ANN-n-total} original-text items:
+\res{ANN-n-gold} gold-evidence, \res{ANN-n-recall-sample} recall,
+\res{ANN-n-precision-sample} precision and \res{ANN-n-m8-sample} citation checks, sampled
+from the labels that existed when the sample was drawn (Appendix~\ref{app:annotation}).
+Original and treated gold, per-system judgments, sampled assertions, candidate witnesses,
+the two reviewers' final label files and recomputed agreement form the evaluation materials. The reviewer files, original response records and input
+hashes are released; the human review is described in Appendix~\ref{app:annotation}.

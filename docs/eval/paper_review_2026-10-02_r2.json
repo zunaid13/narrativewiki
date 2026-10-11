@@ -1,0 +1,1511 @@
+{
+  "run_id": "acl-recheck-2026-10-02-81f589f7bbcc",
+  "pdf": {
+    "path": "dist\\reviewer-2026-10-02-r2\\reviewed-paper.pdf",
+    "sha256": "81f589f7bbccd154e342aa5332417e285a43022ffe34e67fbf7c189e60cfba9a",
+    "pages": 19,
+    "bytes": 508240,
+    "metadata": {
+      "format": "PDF 1.5",
+      "title": "",
+      "author": "",
+      "subject": "",
+      "keywords": "",
+      "creator": "LaTeX with hyperref",
+      "producer": "MiKTeX pdfTeX-1.40.28",
+      "creationDate": "D:20261002145231+06'00'",
+      "modDate": "D:20261002145231+06'00'",
+      "trapped": "",
+      "encryption": null
+    }
+  },
+  "scope": "Independent deterministic checks of stored evidence; no new labels or model runs.",
+  "fonts": {
+    "1": {
+      "sizes_char_counts": {
+        "5.978": 328,
+        "6.974": 53,
+        "7.97": 190,
+        "8.042": 9,
+        "8.049": 24,
+        "8.966": 56,
+        "9.862": 338,
+        "9.868": 95,
+        "9.878": 45,
+        "9.903": 46,
+        "9.918": 48,
+        "9.948": 48,
+        "9.963": 74,
+        "9.992": 45,
+        "10.032": 52,
+        "10.037": 47,
+        "10.052": 42,
+        "10.062": 956,
+        "10.799": 50,
+        "10.838": 50,
+        "10.876": 51,
+        "10.887": 51,
+        "10.909": 50,
+        "10.915": 48,
+        "10.936": 48,
+        "10.953": 48,
+        "10.98": 47,
+        "11.018": 548,
+        "11.955": 45,
+        "14.346": 83
+      },
+      "small_text_examples": [
+        {
+          "text": "reader has finished v2:",
+          "size": 5.97760009765625,
+          "bbox": [
+            373.90899658203125,
+            221.43112182617188,
+            431.7542724609375,
+            227.40872192382812
+          ]
+        },
+        {
+          "text": "later text:",
+          "size": 5.97760009765625,
+          "bbox": [
+            452.0740051269531,
+            319.8513488769531,
+            475.3627624511719,
+            325.8289489746094
+          ]
+        },
+        {
+          "text": "COMRADE_OF",
+          "size": 5.97760009765625,
+          "bbox": [
+            326.18701171875,
+            294.61053466796875,
+            356.07501220703125,
+            300.588134765625
+          ]
+        },
+        {
+          "text": "SPOUSE_OF",
+          "size": 5.97760009765625,
+          "bbox": [
+            329.1759948730469,
+            310.2015380859375,
+            356.0751953125,
+            316.17913818359375
+          ]
+        },
+        {
+          "text": "evidence in v4",
+          "size": 5.97760009765625,
+          "bbox": [
+            457.92498779296875,
+            310.7496643066406,
+            492.6369323730469,
+            316.7272644042969
+          ]
+        },
+        {
+          "text": "What the cutoff-2 wiki prints for this pair",
+          "size": 6.973800182342529,
+          "bbox": [
+            317.8940124511719,
+            339.10247802734375,
+            443.63165283203125,
+            346.0762939453125
+          ]
+        },
+        {
+          "text": "[v01:c17:p0036]",
+          "size": 5.97760009765625,
+          "bbox": [
+            464.7541809082031,
+            348.69354248046875,
+            509.586181640625,
+            354.671142578125
+          ]
+        },
+        {
+          "text": "[v02:c01:p0055]",
+          "size": 5.97760009765625,
+          "bbox": [
+            464.75421142578125,
+            356.6635437011719,
+            509.5862121582031,
+            362.6411437988281
+          ]
+        },
+        {
+          "text": "previously:",
+          "size": 5.97760009765625,
+          "bbox": [
+            318.2430114746094,
+            364.7233581542969,
+            344.8254089355469,
+            370.7009582519531
+          ]
+        },
+        {
+          "text": "[v01:c15:p0051]",
+          "size": 5.97760009765625,
+          "bbox": [
+            464.748046875,
+            364.633544921875,
+            509.5800476074219,
+            370.61114501953125
+          ]
+        },
+        {
+          "text": "rendered,",
+          "size": 5.97760009765625,
+          "bbox": [
+            416.72344970703125,
+            373.794677734375,
+            439.12750244140625,
+            379.77227783203125
+          ]
+        }
+      ]
+    },
+    "2": {
+      "sizes_char_counts": {
+        "7.97": 297,
+        "8.67": 11,
+        "8.679": 11,
+        "10.799": 603,
+        "10.821": 50,
+        "10.827": 52,
+        "10.832": 45,
+        "10.838": 33,
+        "10.843": 92,
+        "10.849": 33,
+        "10.854": 52,
+        "10.86": 49,
+        "10.893": 99,
+        "10.898": 53,
+        "10.909": 284,
+        "10.915": 94,
+        "10.92": 97,
+        "10.925": 52,
+        "10.942": 48,
+        "10.958": 48,
+        "10.964": 96,
+        "10.974": 102,
+        "10.98": 53,
+        "10.985": 47,
+        "10.991": 49,
+        "11.007": 48,
+        "11.018": 2092,
+        "11.955": 13
+      },
+      "small_text_examples": []
+    },
+    "3": {
+      "sizes_char_counts": {
+        "7.97": 306,
+        "8.814": 11,
+        "8.966": 13,
+        "9.564": 11,
+        "10.799": 575,
+        "10.81": 54,
+        "10.816": 35,
+        "10.827": 51,
+        "10.832": 50,
+        "10.854": 202,
+        "10.876": 106,
+        "10.887": 99,
+        "10.904": 144,
+        "10.909": 331,
+        "10.92": 54,
+        "10.925": 48,
+        "10.942": 50,
+        "10.953": 100,
+        "10.958": 51,
+        "10.964": 49,
+        "10.985": 51,
+        "10.991": 98,
+        "11.001": 95,
+        "11.007": 95,
+        "11.018": 1934,
+        "11.955": 25
+      },
+      "small_text_examples": []
+    },
+    "4": {
+      "sizes_char_counts": {
+        "5.924": 614,
+        "5.98": 27,
+        "5.983": 723,
+        "6.911": 179,
+        "7.906": 6,
+        "7.97": 181,
+        "8.022": 15,
+        "9.883": 100,
+        "9.963": 97,
+        "10.027": 88,
+        "10.062": 112,
+        "10.799": 418,
+        "10.821": 47,
+        "10.832": 50,
+        "10.86": 47,
+        "10.865": 50,
+        "10.898": 50,
+        "10.904": 51,
+        "10.909": 163,
+        "10.915": 93,
+        "10.931": 100,
+        "10.936": 47,
+        "10.942": 143,
+        "10.947": 152,
+        "10.964": 49,
+        "10.969": 47,
+        "10.974": 51,
+        "11.018": 1092,
+        "11.955": 19
+      },
+      "small_text_examples": [
+        {
+          "text": "once, from all",
+          "size": 6.911036014556885,
+          "bbox": [
+            102.94314575195312,
+            74.52900695800781,
+            141.52053833007812,
+            81.44004821777344
+          ]
+        },
+        {
+          "text": "for every cutoff",
+          "size": 6.911036014556885,
+          "bbox": [
+            407.03912353515625,
+            191.14002990722656,
+            449.9566345214844,
+            198.0510711669922
+          ]
+        },
+        {
+          "text": ", from the same graph",
+          "size": 6.911036014556885,
+          "bbox": [
+            454.6699523925781,
+            191.14002990722656,
+            515.1276245117188,
+            198.0510711669922
+          ]
+        },
+        {
+          "text": "paragraphs",
+          "size": 5.982746601104736,
+          "bbox": [
+            124.95028686523438,
+            108.8636245727539,
+            151.45774841308594,
+            114.84637451171875
+          ]
+        },
+        {
+          "text": "identifiers,",
+          "size": 5.982746601104736,
+          "bbox": [
+            93.96167755126953,
+            115.7748794555664,
+            119.641357421875,
+            121.75762939453125
+          ]
+        },
+        {
+          "text": "v01:c15:p0051",
+          "size": 5.923801898956299,
+          "bbox": [
+            77.74056243896484,
+            132.4107666015625,
+            116.24526977539062,
+            138.33457946777344
+          ]
+        },
+        {
+          "text": "entities.",
+          "size": 5.982746601104736,
+          "bbox": [
+            232.31500244140625,
+            115.8501968383789,
+            251.28172302246094,
+            121.83294677734375
+          ]
+        },
+        {
+          "text": "gilbert-blythe",
+          "size": 5.923801898956299,
+          "bbox": [
+            190.25473022460938,
+            139.39727783203125,
+            231.72132873535156,
+            145.3210906982422
+          ]
+        },
+        {
+          "text": "first_vol",
+          "size": 5.923801898956299,
+          "bbox": [
+            302.6192626953125,
+            119.91034698486328,
+            329.2763977050781,
+            125.83414459228516
+          ]
+        },
+        {
+          "text": "@v01:c15:p0051",
+          "size": 5.923801898956299,
+          "bbox": [
+            323.0208435058594,
+            133.73175048828125,
+            364.4874572753906,
+            139.6555633544922
+          ]
+        },
+        {
+          "text": "paragraph,",
+          "size": 5.982746601104736,
+          "bbox": [
+            327.37347412109375,
+            150.73045349121094,
+            353.04107666015625,
+            156.71319580078125
+          ]
+        },
+        {
+          "text": "intervals:",
+          "size": 5.923801898956299,
+          "bbox": [
+            473.77264404296875,
+            105.85407257080078,
+            495.67291259765625,
+            111.77787017822266
+          ]
+        }
+      ]
+    },
+    "5": {
+      "sizes_char_counts": {
+        "4.981": 6,
+        "5.579": 11,
+        "6.974": 406,
+        "6.984": 15,
+        "7.043": 371,
+        "7.97": 200,
+        "8.644": 11,
+        "8.71": 11,
+        "8.814": 11,
+        "9.862": 53,
+        "9.888": 53,
+        "9.923": 54,
+        "9.933": 52,
+        "9.943": 56,
+        "9.963": 47,
+        "10.062": 143,
+        "10.799": 200,
+        "10.805": 91,
+        "10.816": 93,
+        "10.827": 54,
+        "10.843": 53,
+        "10.865": 51,
+        "10.871": 103,
+        "10.876": 51,
+        "10.887": 85,
+        "10.893": 51,
+        "10.909": 94,
+        "10.915": 51,
+        "10.92": 50,
+        "10.953": 45,
+        "10.958": 47,
+        "10.964": 51,
+        "10.969": 45,
+        "10.974": 149,
+        "10.98": 53,
+        "10.991": 48,
+        "11.001": 147,
+        "11.012": 41,
+        "11.018": 1269
+      },
+      "small_text_examples": [
+        {
+          "text": "v1 v2 v3 v4 v5",
+          "size": 6.973800182342529,
+          "bbox": [
+            140.35299682617188,
+            83.00215911865234,
+            183.0437774658203,
+            89.97595977783203
+          ]
+        },
+        {
+          "text": "cutoff enforced by",
+          "size": 6.973800182342529,
+          "bbox": [
+            192.32199096679688,
+            82.20246887207031,
+            242.2962646484375,
+            89.17626953125
+          ]
+        },
+        {
+          "text": "disclosed",
+          "size": 6.973800182342529,
+          "bbox": [
+            254.23699951171875,
+            82.87342834472656,
+            280.1935119628906,
+            89.84722900390625
+          ]
+        },
+        {
+          "text": "B1 long context",
+          "size": 6.973800182342529,
+          "bbox": [
+            77.13499450683594,
+            96.47749328613281,
+            123.23878479003906,
+            103.45128631591797
+          ]
+        },
+        {
+          "text": "input (prefix only)",
+          "size": 6.973800182342529,
+          "bbox": [
+            192.32199096679688,
+            96.45516204833984,
+            243.46084594726562,
+            103.42896270751953
+          ]
+        },
+        {
+          "text": "B2 prefix retrieval",
+          "size": 6.973800182342529,
+          "bbox": [
+            77.13499450683594,
+            110.65046691894531,
+            131.32839965820312,
+            117.62425994873047
+          ]
+        },
+        {
+          "text": "input (prefix only)",
+          "size": 6.973800182342529,
+          "bbox": [
+            192.32199096679688,
+            110.62813568115234,
+            243.46084594726562,
+            117.60193634033203
+          ]
+        },
+        {
+          "text": "B3 LightRAG",
+          "size": 6.973800182342529,
+          "bbox": [
+            77.13499450683594,
+            124.82350158691406,
+            118.40594482421875,
+            131.79730224609375
+          ]
+        },
+        {
+          "text": "input (prefix only)",
+          "size": 6.973800182342529,
+          "bbox": [
+            192.32199096679688,
+            124.8021469116211,
+            243.46084594726562,
+            131.7759552001953
+          ]
+        },
+        {
+          "text": "filtered facts",
+          "size": 6.973800182342529,
+          "bbox": [
+            192.3209991455078,
+            139.69515991210938,
+            226.91807556152344,
+            146.66896057128906
+          ]
+        },
+        {
+          "text": "B4 full graph",
+          "size": 6.973800182342529,
+          "bbox": [
+            77.13499450683594,
+            153.1704864501953,
+            116.66249084472656,
+            160.144287109375
+          ]
+        },
+        {
+          "text": "retrieval filter",
+          "size": 6.973800182342529,
+          "bbox": [
+            192.3209991455078,
+            153.86819458007812,
+            230.1260223388672,
+            160.8419952392578
+          ]
+        }
+      ]
+    },
+    "6": {
+      "sizes_char_counts": {
+        "7.97": 304,
+        "8.64": 15,
+        "8.723": 11,
+        "8.766": 11,
+        "8.793": 11,
+        "8.801": 11,
+        "8.814": 62,
+        "10.799": 509,
+        "10.821": 101,
+        "10.838": 48,
+        "10.849": 52,
+        "10.871": 51,
+        "10.882": 48,
+        "10.893": 51,
+        "10.904": 85,
+        "10.909": 320,
+        "10.925": 49,
+        "10.947": 49,
+        "10.953": 49,
+        "10.958": 87,
+        "10.969": 99,
+        "10.974": 96,
+        "10.991": 133,
+        "11.001": 83,
+        "11.012": 48,
+        "11.018": 2283,
+        "11.955": 8
+      },
+      "small_text_examples": []
+    },
+    "7": {
+      "sizes_char_counts": {
+        "5.978": 1,
+        "6.499": 77,
+        "6.974": 2,
+        "6.999": 124,
+        "7.173": 11,
+        "7.499": 89,
+        "7.91": 11,
+        "7.97": 114,
+        "8.679": 11,
+        "8.749": 7,
+        "8.788": 11,
+        "8.81": 11,
+        "8.814": 48,
+        "8.966": 638,
+        "9.862": 208,
+        "9.888": 101,
+        "9.933": 117,
+        "9.963": 124,
+        "9.973": 116,
+        "10.062": 257,
+        "10.799": 152,
+        "10.827": 50,
+        "10.849": 85,
+        "10.86": 49,
+        "10.909": 98,
+        "10.915": 50,
+        "10.936": 41,
+        "10.985": 36,
+        "10.991": 50,
+        "11.012": 35,
+        "11.018": 915
+      },
+      "small_text_examples": [
+        {
+          "text": " (volumes read)",
+          "size": 6.999370098114014,
+          "bbox": [
+            142.67361450195312,
+            395.07061767578125,
+            198.0114288330078,
+            405.2686767578125
+          ]
+        },
+        {
+          "text": " (volumes read)",
+          "size": 6.999370098114014,
+          "bbox": [
+            291.153564453125,
+            395.07061767578125,
+            346.49139404296875,
+            405.2686767578125
+          ]
+        },
+        {
+          "text": " (volumes read)",
+          "size": 6.999370098114014,
+          "bbox": [
+            439.633544921875,
+            395.07061767578125,
+            494.97137451171875,
+            405.2686767578125
+          ]
+        },
+        {
+          "text": "NarrativeWiki",
+          "size": 6.499414920806885,
+          "bbox": [
+            111.6138916015625,
+            410.8617858886719,
+            158.1462860107422,
+            420.3314514160156
+          ]
+        },
+        {
+          "text": "B1 long context",
+          "size": 6.499414920806885,
+          "bbox": [
+            182.83872985839844,
+            410.8617858886719,
+            234.68365478515625,
+            420.3314514160156
+          ]
+        },
+        {
+          "text": "B2 retrieval",
+          "size": 6.499414920806885,
+          "bbox": [
+            259.3756103515625,
+            410.8617858886719,
+            298.580810546875,
+            420.3314514160156
+          ]
+        },
+        {
+          "text": "B3 LightRAG",
+          "size": 6.499414920806885,
+          "bbox": [
+            323.27294921875,
+            410.8617858886719,
+            366.3689270019531,
+            420.3314514160156
+          ]
+        },
+        {
+          "text": "X1 closed book",
+          "size": 6.499414920806885,
+          "bbox": [
+            391.0606384277344,
+            410.8617858886719,
+            440.8065490722656,
+            420.3314514160156
+          ]
+        },
+        {
+          "text": "X2 full text",
+          "size": 6.499414920806885,
+          "bbox": [
+            465.50390625,
+            410.8617858886719,
+            501.88372802734375,
+            420.3314514160156
+          ]
+        }
+      ]
+    },
+    "8": {
+      "sizes_char_counts": {
+        "7.97": 297,
+        "8.727": 11,
+        "8.732": 11,
+        "8.814": 22,
+        "10.799": 933,
+        "10.81": 103,
+        "10.816": 48,
+        "10.827": 53,
+        "10.849": 153,
+        "10.865": 54,
+        "10.871": 146,
+        "10.876": 53,
+        "10.882": 49,
+        "10.904": 101,
+        "10.909": 317,
+        "10.915": 85,
+        "10.936": 207,
+        "10.947": 51,
+        "10.953": 51,
+        "10.958": 50,
+        "10.969": 101,
+        "10.974": 46,
+        "10.985": 49,
+        "10.996": 98,
+        "11.007": 46,
+        "11.012": 98,
+        "11.018": 1483,
+        "11.955": 22
+      },
+      "small_text_examples": []
+    },
+    "9": {
+      "sizes_char_counts": {
+        "7.97": 294,
+        "8.64": 2,
+        "8.814": 31,
+        "9.862": 249,
+        "9.888": 52,
+        "9.908": 53,
+        "9.938": 99,
+        "9.958": 55,
+        "9.963": 96,
+        "10.002": 48,
+        "10.007": 45,
+        "10.037": 47,
+        "10.057": 45,
+        "10.062": 311,
+        "10.799": 460,
+        "10.816": 51,
+        "10.838": 45,
+        "10.843": 49,
+        "10.86": 49,
+        "10.876": 51,
+        "10.882": 100,
+        "10.887": 51,
+        "10.893": 42,
+        "10.909": 168,
+        "10.915": 51,
+        "10.936": 47,
+        "10.964": 47,
+        "10.974": 150,
+        "10.98": 145,
+        "11.007": 50,
+        "11.012": 50,
+        "11.018": 1477,
+        "11.955": 43
+      },
+      "small_text_examples": []
+    },
+    "10": {
+      "sizes_char_counts": {
+        "7.97": 330,
+        "8.64": 11,
+        "9.862": 398,
+        "9.893": 49,
+        "9.898": 99,
+        "9.903": 103,
+        "9.908": 49,
+        "9.933": 51,
+        "9.938": 50,
+        "9.948": 49,
+        "9.953": 53,
+        "9.963": 478,
+        "9.968": 47,
+        "9.983": 49,
+        "9.992": 99,
+        "9.997": 50,
+        "10.002": 47,
+        "10.012": 93,
+        "10.017": 151,
+        "10.032": 47,
+        "10.037": 49,
+        "10.042": 47,
+        "10.057": 48,
+        "10.062": 2240,
+        "10.799": 36,
+        "10.909": 43,
+        "10.964": 48,
+        "11.018": 181,
+        "11.955": 27
+      },
+      "small_text_examples": []
+    },
+    "11": {
+      "sizes_char_counts": {
+        "5.978": 5,
+        "7.173": 11,
+        "7.97": 123,
+        "8.876": 101,
+        "8.912": 20,
+        "8.966": 1400,
+        "8.971": 52,
+        "8.993": 33,
+        "9.056": 210,
+        "9.963": 112,
+        "10.799": 156,
+        "10.821": 50,
+        "10.832": 51,
+        "10.838": 51,
+        "10.882": 53,
+        "10.893": 55,
+        "10.909": 95,
+        "10.915": 102,
+        "10.925": 50,
+        "10.936": 44,
+        "10.953": 48,
+        "10.958": 48,
+        "10.974": 95,
+        "10.985": 48,
+        "11.001": 52,
+        "11.012": 49,
+        "11.018": 744,
+        "11.955": 39
+      },
+      "small_text_examples": []
+    },
+    "12": {
+      "sizes_char_counts": {
+        "5.978": 2,
+        "6.974": 2,
+        "7.97": 263,
+        "8.78": 9,
+        "8.814": 2,
+        "8.966": 223,
+        "9.963": 42,
+        "10.032": 50,
+        "10.062": 78,
+        "10.799": 574,
+        "10.805": 150,
+        "10.821": 146,
+        "10.838": 100,
+        "10.843": 51,
+        "10.849": 54,
+        "10.854": 49,
+        "10.86": 51,
+        "10.871": 51,
+        "10.882": 52,
+        "10.898": 47,
+        "10.909": 308,
+        "10.915": 49,
+        "10.925": 139,
+        "10.931": 54,
+        "10.936": 96,
+        "10.947": 49,
+        "10.964": 48,
+        "10.969": 51,
+        "10.974": 87,
+        "10.985": 91,
+        "11.001": 50,
+        "11.007": 46,
+        "11.018": 1450,
+        "11.955": 30
+      },
+      "small_text_examples": []
+    },
+    "13": {
+      "sizes_char_counts": {
+        "7.173": 30,
+        "7.97": 239,
+        "8.67": 11,
+        "8.758": 7,
+        "8.814": 4,
+        "8.966": 725,
+        "10.799": 619,
+        "10.821": 49,
+        "10.827": 52,
+        "10.838": 84,
+        "10.854": 102,
+        "10.86": 51,
+        "10.871": 50,
+        "10.893": 47,
+        "10.898": 96,
+        "10.904": 53,
+        "10.909": 218,
+        "10.92": 52,
+        "10.936": 49,
+        "10.942": 49,
+        "10.947": 93,
+        "10.958": 49,
+        "10.974": 47,
+        "10.98": 46,
+        "10.985": 52,
+        "10.996": 49,
+        "11.001": 53,
+        "11.018": 1258,
+        "11.955": 19
+      },
+      "small_text_examples": []
+    },
+    "14": {
+      "sizes_char_counts": {
+        "5.978": 1,
+        "7.17": 11,
+        "7.173": 11,
+        "7.97": 276,
+        "8.648": 11,
+        "8.788": 11,
+        "8.814": 33,
+        "8.876": 203,
+        "8.885": 50,
+        "8.939": 97,
+        "8.962": 182,
+        "8.966": 256,
+        "8.98": 52,
+        "8.984": 46,
+        "8.998": 103,
+        "9.011": 48,
+        "9.033": 54,
+        "9.056": 536,
+        "9.963": 46,
+        "10.799": 364,
+        "10.81": 36,
+        "10.816": 47,
+        "10.838": 96,
+        "10.849": 105,
+        "10.854": 44,
+        "10.871": 96,
+        "10.876": 100,
+        "10.887": 93,
+        "10.904": 97,
+        "10.909": 272,
+        "10.92": 99,
+        "10.931": 50,
+        "10.969": 92,
+        "10.985": 33,
+        "10.991": 49,
+        "11.001": 49,
+        "11.018": 1280,
+        "11.955": 43
+      },
+      "small_text_examples": []
+    },
+    "15": {
+      "sizes_char_counts": {
+        "6.974": 1,
+        "7.173": 77,
+        "7.97": 78,
+        "8.71": 11,
+        "8.966": 1728,
+        "9.862": 54,
+        "9.893": 115,
+        "9.948": 107,
+        "9.963": 182,
+        "9.968": 53,
+        "10.007": 47,
+        "10.057": 116,
+        "10.062": 52,
+        "10.799": 52,
+        "10.887": 33,
+        "10.893": 46,
+        "10.909": 55,
+        "10.915": 54,
+        "10.953": 51,
+        "10.958": 51,
+        "10.974": 43,
+        "10.98": 47,
+        "10.985": 45,
+        "11.001": 47,
+        "11.018": 379
+      },
+      "small_text_examples": []
+    },
+    "16": {
+      "sizes_char_counts": {
+        "5.978": 2,
+        "7.173": 11,
+        "7.97": 189,
+        "8.045": 2,
+        "8.049": 11,
+        "8.64": 22,
+        "8.648": 11,
+        "8.675": 11,
+        "8.814": 11,
+        "8.966": 1071,
+        "9.862": 168,
+        "9.893": 58,
+        "9.898": 53,
+        "9.963": 123,
+        "9.987": 55,
+        "10.032": 55,
+        "10.057": 48,
+        "10.062": 225,
+        "10.799": 385,
+        "10.81": 82,
+        "10.827": 49,
+        "10.832": 50,
+        "10.843": 79,
+        "10.849": 43,
+        "10.876": 51,
+        "10.898": 50,
+        "10.904": 52,
+        "10.909": 171,
+        "10.915": 52,
+        "10.931": 53,
+        "10.936": 51,
+        "10.958": 48,
+        "10.98": 48,
+        "11.012": 46,
+        "11.018": 570
+      },
+      "small_text_examples": []
+    },
+    "17": {
+      "sizes_char_counts": {
+        "7.97": 384,
+        "8.814": 11,
+        "10.799": 957,
+        "10.805": 98,
+        "10.81": 52,
+        "10.816": 103,
+        "10.821": 54,
+        "10.832": 46,
+        "10.843": 98,
+        "10.849": 49,
+        "10.854": 100,
+        "10.86": 51,
+        "10.871": 52,
+        "10.876": 51,
+        "10.882": 50,
+        "10.893": 101,
+        "10.898": 154,
+        "10.909": 251,
+        "10.915": 48,
+        "10.931": 50,
+        "10.936": 46,
+        "10.958": 52,
+        "10.964": 51,
+        "10.969": 49,
+        "10.991": 48,
+        "11.007": 97,
+        "11.018": 1492,
+        "11.955": 113
+      },
+      "small_text_examples": []
+    },
+    "18": {
+      "sizes_char_counts": {
+        "7.97": 152,
+        "8.727": 11,
+        "8.814": 11,
+        "8.966": 254,
+        "10.799": 144,
+        "10.865": 53,
+        "10.876": 48,
+        "10.893": 50,
+        "10.909": 301,
+        "10.964": 51,
+        "10.969": 48,
+        "10.974": 98,
+        "10.991": 49,
+        "10.996": 51,
+        "11.018": 260
+      },
+      "small_text_examples": []
+    },
+    "19": {
+      "sizes_char_counts": {
+        "5.978": 2,
+        "7.173": 77,
+        "8.876": 71,
+        "8.881": 17,
+        "8.885": 26,
+        "8.908": 49,
+        "8.926": 32,
+        "8.957": 22,
+        "8.966": 2797,
+        "9.862": 115,
+        "9.963": 21,
+        "10.057": 110,
+        "10.909": 2
+      },
+      "small_text_examples": []
+    }
+  },
+  "m8_recomputed": [
+    {
+      "key": "M8-anne-avg-B1",
+      "value": 0.6529487179487179,
+      "cutoffs": 5,
+      "characters": 38,
+      "ci95": [
+        0.5775411155362044,
+        0.7298488645857067
+      ],
+      "unit": "character (trajectory kept)",
+      "reps": 2000
+    },
+    {
+      "key": "M8-anne-avg-B2",
+      "value": 0.7480769230769231,
+      "cutoffs": 4,
+      "characters": 40,
+      "ci95": [
+        0.662602343308865,
+        0.8308874959870788
+      ],
+      "unit": "character (trajectory kept)",
+      "reps": 2000
+    },
+    {
+      "key": "M8-anne-avg-B5",
+      "value": 0.11166666666666666,
+      "cutoffs": 5,
+      "characters": 129,
+      "ci95": [
+        0.06170502983802216,
+        0.16902867193854051
+      ],
+      "unit": "character (trajectory kept)",
+      "reps": 2000
+    }
+  ],
+  "m8_matches_reported": true,
+  "paired_recall": {
+    "reported": {
+      "key": "M1-anne-avg-B5-minus-B2",
+      "value": 0.051241264358020566,
+      "characters": 43,
+      "ci95": [
+        -0.06416951515211833,
+        0.12865577695396968
+      ],
+      "unit": "character (paired, trajectory kept)",
+      "reps": 2000
+    },
+    "common_entity_cutoff": {
+      "key": "M1-anne-avg-B5-minus-B2",
+      "value": 0.05034664499735331,
+      "characters": 43,
+      "ci95": [
+        -0.0667802453761358,
+        0.1266018260699111
+      ],
+      "unit": "character (paired, trajectory kept)",
+      "reps": 2000
+    },
+    "B5_cutoffs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "B2_cutoffs": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "common_cutoffs": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "B5_rows_excluded": 23
+  },
+  "B3_cost": {
+    "index_unique_calls": 1291,
+    "index_in_tokens": 2362909,
+    "index_out_tokens": 722136,
+    "index_usd_price_0_75_3_75": 4.48019175,
+    "page_cost_usd": 3.1103497499999997,
+    "total_usd": 7.5905415000000005,
+    "excluded_run": "20260928T190130-baseline-b3-v2"
+  },
+  "seed_fixture": {
+    "fact_entries": 88,
+    "unique_claim_strings": 88,
+    "duplicate_claims": {},
+    "examples_needing_semantic_validation": [
+      {
+        "gold": "Diana marries Fred Wright.",
+        "character": "Diana Barry",
+        "c": "Diana marries Fred",
+        "p": "{N} becomes Mrs. Fred Wright.",
+        "o": "{N} leaves Orchard Slope for a home of her own."
+      },
+      {
+        "gold": "Una Meredith is ten years old.",
+        "character": "Una Meredith",
+        "c": "Una Meredith is ten",
+        "p": "{N} is aged ten.",
+        "o": "{N} is a year younger than her sister Faith."
+      },
+      {
+        "gold": "Carl gets a sore throat after getting wet in the Rainbow Valley marsh.",
+        "character": "Carl Meredith",
+        "c": "Carl gets a sore throat",
+        "p": "{N} falls ill with a sore throat after a soaking in the marsh.",
+        "o": "{N} is nearly lost to pneumonia after a night's penance in the graveyard."
+      }
+    ]
+  },
+  "seed_classifier_recomputed": {
+    "direct, name, own page": {
+      "total": 220,
+      "found": 220
+    },
+    "paraphrase, name, own page": {
+      "total": 220,
+      "found": 185
+    },
+    "paraphrase, name, other page": {
+      "total": 220,
+      "found": 185
+    },
+    "paraphrase, pronoun, own page": {
+      "total": 220,
+      "found": 168
+    },
+    "paraphrase, pronoun, other page": {
+      "total": 220,
+      "found": 64
+    },
+    "oblique, name, own page": {
+      "total": 220,
+      "found": 60
+    },
+    "oblique, name, other page": {
+      "total": 220,
+      "found": 60
+    },
+    "oblique, pronoun, own page": {
+      "total": 220,
+      "found": 32
+    },
+    "oblique, pronoun, other page": {
+      "total": 220,
+      "found": 11
+    }
+  },
+  "seed_classifier_matches_stored": true,
+  "human_package": {
+    "part_counts": {
+      "A": 120,
+      "B": 60
+    },
+    "B_agent_verdicts": {
+      "absent": 35,
+      "uncertain": 15,
+      "stated": 9,
+      "implied": 1
+    },
+    "returned_reader_files": [],
+    "older_blind_sheet_items": 200,
+    "citation_lists_above_six": [
+      {
+        "item": "A004",
+        "system": "B2",
+        "raw_citation_count": 12
+      },
+      {
+        "item": "A013",
+        "system": "B2",
+        "raw_citation_count": 16
+      },
+      {
+        "item": "A015",
+        "system": "X2",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A018",
+        "system": "B1",
+        "raw_citation_count": 7
+      },
+      {
+        "item": "A019",
+        "system": "B2",
+        "raw_citation_count": 19
+      },
+      {
+        "item": "A024",
+        "system": "X2",
+        "raw_citation_count": 17
+      },
+      {
+        "item": "A028",
+        "system": "B2",
+        "raw_citation_count": 11
+      },
+      {
+        "item": "A029",
+        "system": "B3",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A030",
+        "system": "B2",
+        "raw_citation_count": 17
+      },
+      {
+        "item": "A044",
+        "system": "X2",
+        "raw_citation_count": 20
+      },
+      {
+        "item": "A064",
+        "system": "B1",
+        "raw_citation_count": 12
+      },
+      {
+        "item": "A065",
+        "system": "X2",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A068",
+        "system": "X2",
+        "raw_citation_count": 7
+      },
+      {
+        "item": "A071",
+        "system": "B2",
+        "raw_citation_count": 14
+      },
+      {
+        "item": "A074",
+        "system": "X2",
+        "raw_citation_count": 11
+      },
+      {
+        "item": "A080",
+        "system": "B1",
+        "raw_citation_count": 18
+      },
+      {
+        "item": "A081",
+        "system": "X2",
+        "raw_citation_count": 7
+      },
+      {
+        "item": "A082",
+        "system": "B2",
+        "raw_citation_count": 7
+      },
+      {
+        "item": "A085",
+        "system": "X2",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A086",
+        "system": "X2",
+        "raw_citation_count": 9
+      },
+      {
+        "item": "A087",
+        "system": "X2",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A092",
+        "system": "B2",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A096",
+        "system": "B1",
+        "raw_citation_count": 12
+      },
+      {
+        "item": "A099",
+        "system": "B1",
+        "raw_citation_count": 13
+      },
+      {
+        "item": "A103",
+        "system": "X2",
+        "raw_citation_count": 10
+      },
+      {
+        "item": "A104",
+        "system": "B2",
+        "raw_citation_count": 15
+      },
+      {
+        "item": "A105",
+        "system": "B1",
+        "raw_citation_count": 9
+      },
+      {
+        "item": "A107",
+        "system": "B3",
+        "raw_citation_count": 8
+      },
+      {
+        "item": "A109",
+        "system": "X2",
+        "raw_citation_count": 11
+      },
+      {
+        "item": "A111",
+        "system": "B2",
+        "raw_citation_count": 16
+      },
+      {
+        "item": "A117",
+        "system": "B3",
+        "raw_citation_count": 7
+      }
+    ],
+    "pair_atom_vs_page_disagreements": [
+      {
+        "item": "A010",
+        "page_label": "partial",
+        "atom_label": "supported"
+      },
+      {
+        "item": "A022",
+        "page_label": "partial",
+        "atom_label": "supported"
+      },
+      {
+        "item": "A039",
+        "page_label": "partial",
+        "atom_label": "supported"
+      },
+      {
+        "item": "A048",
+        "page_label": "partial",
+        "atom_label": "supported"
+      },
+      {
+        "item": "A058",
+        "page_label": "partial",
+        "atom_label": "supported"
+      },
+      {
+        "item": "A066",
+        "page_label": "partial",
+        "atom_label": "supported"
+      }
+    ],
+    "scorer_diagnostic": {
+      "A001": {
+        "support_input": "cannot tell",
+        "kept_by_loader": true,
+        "support_binary_as_in_main": 0
+      },
+      "A002": {
+        "support_input": "",
+        "kept_by_loader": true,
+        "support_binary_as_in_main": 0
+      }
+    }
+  },
+  "release_archive": {
+    "path": "dist\\narrativewiki-anonymous-release.zip",
+    "sha256": "8b2ff24bc528a6e11e370d2d760469b3bd2c8edbcc6c08213927bfb45bffbf52",
+    "bytes": 23940650,
+    "entries": 4815,
+    "pdf_sha256": "81f589f7bbccd154e342aa5332417e285a43022ffe34e67fbf7c189e60cfba9a",
+    "contains_reviewed_pdf": true,
+    "wikifiles": 4168,
+    "has_key_results": true,
+    "has_ledger": true,
+    "contains_raw_call_logs": false
+  },
+  "source_hashes": {
+    "scripts/eval/paper_numbers.py": "f245389f7e32ff82e7a89ec9f6ec9c9dd6001f35a08b8c0516498bb170445021",
+    "scripts/eval/m4_seed_test.py": "d8c5823e1bec8fa82074e1881628449651eeece997459e92ba8050a29fc3f93b",
+    "docs/eval/m4_seeded/anne_seeds.yaml": "1811f3f15ed99dd7d6fc1ab1bd746f2f5d08e7f90689d494d3deecb5299dd3c8",
+    "docs/eval/human/make_package.py": "4e00ae9aa2653011e782a49e84d7f05253e99293c680e2a452d2bf0b77a9b37b",
+    "docs/eval/human/score.py": "dfb88fb3380bc32e7d09a988f551ad1e7a0bca143c045d9cb79af9f5bd99fb2d",
+    "docs/eval/human/INSTRUCTIONS.md": "5fa9fb889c3865ab963e2d318e0859a021130304a9777b445bef5b0ea552f6e7",
+    "docs/eval/human/key.json": "f854f47ec7fc6de80864dd59379ae76908fb7b1bae5e49503cbed0b70c1161a5",
+    "docs/eval/paper_numbers.json": "8da498543a7979e16738f1326d27c278e4ac1f6142d7235bdacf0edbb8816aff"
+  },
+  "reproduction_commands": {
+    "full_audit": "python dist/reviewer-2026-10-02-r2/audit.py",
+    "paired_cell_filter": "Intersect (character, cutoff) keys in M1 B5/B2 observation rows before paper_numbers.compute(..., reps=2000, seed=0, pairs=[('B5','B2')]).",
+    "human_scoring_rule": "Inspect docs/eval/human/score.py load/report/main: blank relevant cells and cannot-tell answers currently map to negative binary values."
+  },
+  "audit_source": "\"\"\"Read-only recheck of the revised paper and its stored evidence; no provider calls.\"\"\"\nfrom pathlib import Path\nimport collections\nimport hashlib\nimport importlib.util\nimport json\nimport random\nimport sys\nimport csv\nimport zipfile\n\nimport fitz\nimport yaml\nfrom PIL import Image, ImageDraw\n\nsys.stdout.reconfigure(encoding=\"utf-8\")\nROOT = Path(__file__).resolve().parents[2]\nOUT = Path(__file__).resolve().parent\n\n\ndef load_module(name, relative):\n    spec = importlib.util.spec_from_file_location(name, ROOT / relative)\n    module = importlib.util.module_from_spec(spec)\n    spec.loader.exec_module(module)\n    return module\n\n\ndef rows(path):\n    return [json.loads(line) for line in path.read_text(encoding=\"utf-8\").splitlines() if line.strip()]\n\n\npaper = OUT / \"reviewed-paper.pdf\"\ndoc = fitz.open(paper)\naudit = {\"run_id\": \"acl-recheck-2026-10-02-81f589f7bbcc\", \"pdf\": {\n    \"path\": str(paper.relative_to(ROOT)), \"sha256\": hashlib.sha256(paper.read_bytes()).hexdigest(),\n    \"pages\": len(doc), \"bytes\": paper.stat().st_size, \"metadata\": doc.metadata},\n    \"scope\": \"Independent deterministic checks of stored evidence; no new labels or model runs.\"}\n\nfonts = {}\nfor page_no, page in enumerate(doc, 1):\n    sizes = collections.Counter()\n    examples = []\n    for block in page.get_text(\"dict\")[\"blocks\"]:\n        for line in block.get(\"lines\", []):\n            for span in line[\"spans\"]:\n                if span[\"text\"].strip():\n                    sizes[round(span[\"size\"], 3)] += len(span[\"text\"])\n                    if span[\"size\"] < 7.1 and len(span[\"text\"].strip()) > 8:\n                        examples.append({\"text\": span[\"text\"], \"size\": span[\"size\"], \"bbox\": span[\"bbox\"]})\n    fonts[str(page_no)] = {\"sizes_char_counts\": dict(sorted(sizes.items())), \"small_text_examples\": examples[:12]}\n    if page_no in (1, 5, 7, 16):\n        page.get_pixmap(matrix=fitz.Matrix(1.6, 1.6)).save(OUT / f\"detail-{page_no:02d}.png\")\naudit[\"fonts\"] = fonts\nfor start in range(1, len(doc) + 1, 6):\n    sheet = Image.new(\"RGB\", (1080, 3 * 785), \"#dddddd\")\n    draw = ImageDraw.Draw(sheet)\n    for idx, no in enumerate(range(start, min(start + 6, len(doc) + 1))):\n        im = Image.open(OUT / f\"page-{no:02d}.png\").convert(\"RGB\")\n        im.thumbnail((530, 755))\n        x, y = (idx % 2) * 540, (idx // 2) * 785\n        sheet.paste(im, (x, y + 22))\n        draw.text((x + 8, y + 4), f\"Page {no}\", fill=\"black\")\n    sheet.save(OUT / f\"contact-{start:02d}.png\")\n\npn = load_module(\"review_paper_numbers\", \"scripts/eval/paper_numbers.py\")\nobs = []\nfor p in sorted((ROOT / \"docs/eval/observations\").glob(\"*.jsonl\")):\n    obs.extend(rows(p))\nm8 = pn.compute([o for o in obs if o[\"metric\"] == \"M8\"], reps=2000, seed=0)\nreported = {r[\"key\"]: r for r in json.loads((ROOT / \"docs/eval/paper_numbers.json\").read_text())[\"results\"]}\naudit[\"m8_recomputed\"] = [r for r in m8 if \"-avg-\" in r[\"key\"]]\naudit[\"m8_matches_reported\"] = all(r[\"value\"] == reported[r[\"key\"]][\"value\"] and r[\"ci95\"] == reported[r[\"key\"]][\"ci95\"] for r in audit[\"m8_recomputed\"])\n\n# Intersect actual entity-cutoff cells before calculating a paired recall comparison.\na = [o for o in obs if o[\"metric\"] == \"M1\" and o[\"system\"] == \"B5\"]\nb = [o for o in obs if o[\"metric\"] == \"M1\" and o[\"system\"] == \"B2\"]\ncells_a = {(o[\"character\"], o[\"cutoff\"]) for o in a}\ncells_b = {(o[\"character\"], o[\"cutoff\"]) for o in b}\nshared = cells_a & cells_b\nmatched = [o for o in a + b if (o[\"character\"], o[\"cutoff\"]) in shared]\ncorrected = pn.compute(matched, reps=2000, seed=0, pairs=[(\"B5\", \"B2\")])\nkey = \"M1-anne-avg-B5-minus-B2\"\naudit[\"paired_recall\"] = {\"reported\": reported[key], \"common_entity_cutoff\": next(r for r in corrected if r[\"key\"] == key),\n    \"B5_cutoffs\": sorted({o[\"cutoff\"] for o in a}), \"B2_cutoffs\": sorted({o[\"cutoff\"] for o in b}),\n    \"common_cutoffs\": sorted({t for _, t in shared}), \"B5_rows_excluded\": len(a) - sum(o[\"system\"] == \"B5\" for o in matched)}\n\ncalls = []\nexcluded = \"20260928T190130-baseline-b3-v2\"\nfor p in sorted((ROOT / \"data/anne@b3/_runs\").glob(\"*baseline-b3*/calls.jsonl\")):\n    if p.parent.name != excluded:\n        calls.extend(r for r in rows(p) if r.get(\"stage\") == \"baseline_lightrag\" and not r.get(\"error\"))\nunique = {r[\"cache_key\"]: r for r in calls}\ntin = sum(r[\"in_tokens\"] for r in unique.values())\ntout = sum(r[\"out_tokens\"] for r in unique.values())\npagecost = json.loads((ROOT / \"docs/eval/cost/anne@b3_final.json\").read_text())[\"by_stage\"][\"baseline_page\"][\"cost_usd\"]\naudit[\"B3_cost\"] = {\"index_unique_calls\": len(unique), \"index_in_tokens\": tin, \"index_out_tokens\": tout,\n    \"index_usd_price_0_75_3_75\": (tin * .75 + tout * 3.75) / 1000000,\n    \"page_cost_usd\": pagecost, \"total_usd\": pagecost + (tin * .75 + tout * 3.75) / 1000000,\n    \"excluded_run\": excluded}\n\ngold = yaml.safe_load((ROOT / \"docs/eval/parametric/anne.yaml\").read_text(encoding=\"utf-8\"))\nlater = [(ch, f) for ch, e in gold[\"characters\"].items() for f in e[\"facts\"] if 1 < int(f[\"evidence\"].split(\":\")[0][1:]) <= 5]\nseeds = yaml.safe_load((ROOT / \"docs/eval/m4_seeded/anne_seeds.yaml\").read_text(encoding=\"utf-8\"))[\"seeds\"]\nby_claim = collections.defaultdict(list)\nfor (ch, f), seed in zip(later, seeds):\n    assert f[\"claim\"].startswith(seed[\"c\"])\n    by_claim[f[\"claim\"]].append({\"character\": ch, \"paraphrase\": seed[\"p\"], \"oblique\": seed[\"o\"]})\naudit[\"seed_fixture\"] = {\"fact_entries\": len(later), \"unique_claim_strings\": len(by_claim),\n    \"duplicate_claims\": {c: entries for c, entries in by_claim.items() if len(entries) > 1},\n    \"examples_needing_semantic_validation\": [{\"gold\": f[\"claim\"], \"character\": ch, **s} for (ch, f), s in zip(later, seeds)\n        if s[\"c\"] in (\"Carl gets a sore throat\", \"Diana marries Fred\", \"Una Meredith is ten\")]}\nseed_mod = load_module(\"review_seed_test\", \"scripts/eval/m4_seed_test.py\")\nseed_mod.paths.set_active_series(\"anne\")\nseed_by_claim = {f[\"claim\"]: s for (ch, f), s in zip(later, seeds)}\ncounts = collections.defaultdict(collections.Counter)\nfor t in range(1, 5):\n    for _, name, names, name_words, _, claim, _, content, kws in seed_mod.m4_tree.frames(\"anne\", t, 5):\n        for label, field, subject, own_page in seed_mod.VARIANTS:\n            s = seed_by_claim[claim]\n            text = claim if field == \"claim\" else s[field].replace(\"{N}\", name if subject == \"name\" else \"They\")\n            kind = seed_mod.m4_tree.classify(text, own_page, names, name_words, content, kws)\n            counts[label][\"total\"] += 1\n            counts[label][\"found\"] += bool(kind)\naudit[\"seed_classifier_recomputed\"] = {k: dict(v) for k, v in counts.items()}\nstored_seeds = json.loads((ROOT / \"docs/eval/m4_seeded/anne_sensitivity.json\").read_text(encoding=\"utf-8\"))\naudit[\"seed_classifier_matches_stored\"] = all(v[\"found\"] == stored_seeds[\"variants\"][k][\"found\"] and v[\"total\"] == stored_seeds[\"variants\"][k][\"total\"] for k, v in counts.items())\n\nhuman = ROOT / \"docs/eval/human\"\nk = json.loads((human / \"key.json\").read_text(encoding=\"utf-8\"))\naudit[\"human_package\"] = {\"part_counts\": dict(collections.Counter(i[0] for i in k)),\n    \"B_agent_verdicts\": dict(collections.Counter(v[\"agent\"] for i, v in k.items() if i.startswith(\"B\"))),\n    \"returned_reader_files\": [str(p.relative_to(ROOT)) for pattern in (\"A_answers_*.csv\", \"B_answers_*.csv\", \"*_adjudicated.csv\") for p in human.glob(pattern)],\n    \"older_blind_sheet_items\": len(json.loads((ROOT / \"docs/eval/annotation/anne_m3_blind_key.json\").read_text(encoding=\"utf-8\")))}\ntruncated, pair_disagreements = [], []\nfor item, v in k.items():\n    if not item.startswith(\"A\"):\n        continue\n    source = ROOT / \"docs/eval/precision\" / f\"{v['series']}_v{v['t']}_all.jsonl\"\n    r = rows(source)[v[\"row\"]]\n    evidence = r.get(\"evidence\") or []\n    if len(evidence) > 6:\n        truncated.append({\"item\": item, \"system\": v[\"system\"], \"raw_citation_count\": len(evidence)})\n    if r[\"page\"].startswith(\"relationships/\") and v[\"agent_atom\"] == \"supported\" and v[\"agent_page\"] != \"supported\":\n        pair_disagreements.append({\"item\": item, \"page_label\": v[\"agent_page\"], \"atom_label\": v[\"agent_atom\"]})\naudit[\"human_package\"][\"citation_lists_above_six\"] = truncated\naudit[\"human_package\"][\"pair_atom_vs_page_disagreements\"] = pair_disagreements\nscorer = load_module(\"review_human_scorer\", \"docs/eval/human/score.py\")\nscorer.HERE = OUT / \"scorer-diagnostic\"\nscorer.HERE.mkdir(exist_ok=True)\nwith (scorer.HERE / \"A_answers_diagnostic.csv\").open(\"w\", encoding=\"utf-8\", newline=\"\") as f:\n    writer = csv.writer(f)\n    writer.writerow([\"item\", \"support\", \"pair\", \"citation\", \"comment\"])\n    writer.writerow([\"A001\", \"cannot tell\", \"n-a\", \"yes\", \"diagnostic fixture, not a human response\"])\n    writer.writerow([\"A002\", \"\", \"n-a\", \"yes\", \"diagnostic fixture, not a human response\"])\nloaded = scorer.load(\"A\")[\"diagnostic\"]\naudit[\"human_package\"][\"scorer_diagnostic\"] = {i: {\"support_input\": r[0], \"kept_by_loader\": True,\n    \"support_binary_as_in_main\": int(r[0] == \"yes\")} for i, r in loaded.items()}\n\nrelease = ROOT / \"dist/narrativewiki-anonymous-release.zip\"\nwith zipfile.ZipFile(release) as z:\n    ns = z.namelist()\n    audit[\"release_archive\"] = {\"path\": str(release.relative_to(ROOT)), \"sha256\": hashlib.sha256(release.read_bytes()).hexdigest(),\n        \"bytes\": release.stat().st_size, \"entries\": len(ns),\n        \"pdf_sha256\": hashlib.sha256(z.read(\"NarrativeWiki-paper.pdf\")).hexdigest(),\n        \"contains_reviewed_pdf\": z.read(\"NarrativeWiki-paper.pdf\") == paper.read_bytes(),\n        \"wikifiles\": sum(n.startswith(\"wikis/\") for n in ns),\n        \"has_key_results\": \"docs/eval/paper_numbers.json\" in ns,\n        \"has_ledger\": \"docs/MEASUREMENTS.md\" in ns,\n        \"contains_raw_call_logs\": any(n.endswith(\"calls.jsonl\") for n in ns)}\n\nsources = [\"scripts/eval/paper_numbers.py\", \"scripts/eval/m4_seed_test.py\", \"docs/eval/m4_seeded/anne_seeds.yaml\",\n    \"docs/eval/human/make_package.py\", \"docs/eval/human/score.py\", \"docs/eval/human/INSTRUCTIONS.md\", \"docs/eval/human/key.json\", \"docs/eval/paper_numbers.json\"]\naudit[\"source_hashes\"] = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources}\naudit[\"reproduction_commands\"] = {\"full_audit\": \"python dist/reviewer-2026-10-02-r2/audit.py\",\n    \"paired_cell_filter\": \"Intersect (character, cutoff) keys in M1 B5/B2 observation rows before paper_numbers.compute(..., reps=2000, seed=0, pairs=[('B5','B2')]).\",\n    \"human_scoring_rule\": \"Inspect docs/eval/human/score.py load/report/main: blank relevant cells and cannot-tell answers currently map to negative binary values.\"}\naudit[\"audit_source\"] = Path(__file__).read_text(encoding=\"utf-8\")\n(ROOT / \"docs/eval/paper_review_2026-10-02_r2.json\").write_text(json.dumps(audit, ensure_ascii=False, indent=2) + \"\\n\", encoding=\"utf-8\")\nprint(json.dumps({k: audit[k] for k in (\"run_id\", \"m8_matches_reported\", \"paired_recall\", \"B3_cost\", \"seed_classifier_recomputed\", \"seed_classifier_matches_stored\", \"human_package\", \"release_archive\")}, ensure_ascii=False, indent=2))\n"
+}

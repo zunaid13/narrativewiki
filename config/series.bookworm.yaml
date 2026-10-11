@@ -1,0 +1,62 @@
+# Series configuration — Ascendance of a Bookworm (J-Novel Club)
+#
+# Third calibration corpus (2026-09-25, maintainer: "ascendance of bookworm is now there"). The
+# first not published by Yen On, so the first test of the EPUB adapter against another house
+# style. Also the first first-person narrator (Myne, who remembers a past life as Urano Motosu),
+# a noble cast with titles and adoptions, and a mid-series name change (Myne -> Rozemyne, Part 3).
+# Global volumes 1-5 are in scope (Part 1 v01-03, Part 2 v01-02; widened 2026-09-27).
+#
+# Every value below was checked against the real Part 1 v01/v02 EPUBs (MEASUREMENTS section 40).
+
+series:
+  id: "bookworm"
+  title: "Ascendance of a Bookworm"
+  author: "Miya Kazuki"
+  illustrator: "You Shiina"
+  publisher: "J-Novel Club"
+  language: en
+
+source:
+  dir: "corpus/Ascendance of a Bookworm [J-Novel Club] [Stick]/Ascendance of a Bookworm Main Series"
+  glob: "*.epub"
+  # Each Part restarts at v01; the `part` group numbers books in (part, volume) reading order, so
+  # Part 1 v01-v03 are volumes 1-3 and Part 2 v01 is volume 4.
+  volume_pattern: 'Part (?P<part>\d+) .* v(?P<vol>\d{2})'
+  overrides: {}
+
+epub:
+  toc_sources: ["toc.xhtml", "toc.ncx"]
+  # Every chapter, the prologue, epilogue, side stories (extraN) and afterword open with a bare
+  # <h1> (no class); continuation files after an illustration (chapter021 after insert1) have
+  # none, the same continuation pattern as Yen Press. Heading tags are detected (h1).
+  chapter_start_selector: "h1.chapter-number"   # absent here; chapter_number stays null
+  chapter_title_selector: "h1"
+  skip_files:
+    - "cover.xhtml"
+    - "toc.xhtml"
+    - "copyright.xhtml"
+    - "signup.xhtml"       # the J-Novel Club mailing-list page, with no epub:type at all
+    - "afterword.xhtml"    # the author's note ("Hi, I'm Miya Kazuki"), tagged bodymatter chapter
+  # Front matter (colour plates) is `frontmatter titlepage`; every story file is
+  # `bodymatter chapter`, including the insertN / bonusN illustration pages.
+  keep_epub_types: ["bodymatter", "chapter", "prologue", "epilogue"]
+  image_page_max_words: 10  # insertN / bonusN pages hold one <img class="insert"> and no <p>
+
+speech:
+  # No radio channel. Dialogue opens with “; Myne's narration is first person.
+  dialogue_open_quotes: ["“"]
+
+scene_breaks:
+  # <p class="centerp section-marking">◆</p>: a scene or point-of-view break (2 in Part 1 v01).
+  hard_break_selectors: ["p.section-marking"]
+
+normalize:
+  strip_remaining_images: true
+  preserve_print_page_anchors: true
+  collapse_whitespace: true
+
+site:
+  title: "Ascendance of a Bookworm Character Wiki"
+  subtitle: "Spoiler-scoped. Set the volume you have read up to."
+  volume_labels_from_epub: true
+  default_upto: 5

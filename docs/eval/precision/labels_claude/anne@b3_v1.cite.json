@@ -1,0 +1,17 @@
+{
+ "0": "S", "1": "S", "2": "S", "5": "S", "6": "S", "9": "S", "10": "S", "11": "S", "13": "S", "15": "S", "16": "S",
+ "17": "S", "18": "S", "19": "S", "20": "S", "28": "S", "31": "S", "32": "S", "33": "S", "35": "S", "36": "S",
+ "38": "S", "39": "S",
+ "3": ["I", "the seven cited paragraphs are his classes of chapters 15 and 17; his leaving (v01:c21) is not among them"],
+ "4": ["P", "a sister is cited (v01:c02:p0009) and Marilla is named in the next paragraph; that they live together at Green Gables is not"],
+ "7": ["P", "the word sent to Mrs. Spencer for a boy and the mistake are cited (v01:c03:p0004, c06:p0014); her age and her name are not"],
+ "8": ["P", "the Avonlea students and Ruby at the Academy are in separate cited paragraphs; neither says where she is from"],
+ "12": ["I", "neither cited paragraph has her dress (the fine dresses in v01:c23:p0041 are Miss Stacy's)"],
+ "23": ["I", "the one cited paragraph is Anne and Diana; Stella is not in it"],
+ "24": ["P", "one order to work first is cited (v01:c26:p0026); the aim of bringing her up is not"],
+ "25": ["I", "the seven cited paragraphs are his classes of chapters 15 and 17; no farewell is in them"],
+ "26": ["P", "her resolve to find out is cited (v01:c01:p0005); Marilla's telling her is not"],
+ "29": ["P", "his decision to take her home and leave the telling to Marilla is cited (v01:c02:p0017); a resolve that she must stay is not"],
+ "30": ["P", "she is with the Avonlea girls at the pond and goes home from the Academy; no cited paragraph says where she grew up"],
+ "34": ["I", "the cited paragraphs are the drive from the station and Marilla on selling the farm; no mourning is in them"]
+}

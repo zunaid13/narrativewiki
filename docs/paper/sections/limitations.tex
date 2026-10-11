@@ -1,0 +1,93 @@
+\section*{Limitations}
+\label{sec:limitations}
+
+\paragraph{Corpus, scale and generalization.}
+The evaluation covers one English public-domain series, five volumes and one generator.
+The series informed development, and all five volumes fit within the generator's context
+window. Cutoffs share characters and evidence, so their estimates do not represent
+independent works. Results may differ for other genres, languages, models or series
+exceeding one context window. Commercial development series contribute no reported
+measurements. A held-out series and repeated generations are needed to assess
+generalization and variability.
+
+\paragraph{Annotation and gold evidence.}
+Gold facts and evaluation labels were finalized by Claude, who knew system identity and
+also assisted in implementation. A common finalizer does not establish independent or
+blinded evaluation. The pair-context verdicts come from Claude; alternative provisional
+pair judgments yield precision \res{REV-M3-pair2} rather than
+\respt{M3-anne-avg-B5}. Thus judgment sensitivity can affect comparisons across systems and
+text conditions even with one finalizing annotator.
+\ifnwhuman In the earlier review, one human accepted renewed LLM answers for all gold facts and 10\%
+samples of recall, precision and citation labels, with those answers visible. This provides
+no independent agreement estimate for that pass. The later check recomputes agreement between
+supplied human final-label sets and with an accepted AI-assisted reference (Tables~\ref{tab:human-agreement}
+and~\ref{tab:human-ai-agreement}), and joint nominal $\alpha$ across those three label sets
+(Table~\ref{tab:human-alpha}). Both human label sets were produced entirely by human
+reviewers working from scratch, without the AI answers (Appendix~\ref{app:annotation}).
+Agreement does not establish annotation accuracy. Both checks exclude disclosure and
+treated-text judgments.\else The planned human review is not part of this version.\fi{}
+The audit also found that some gold evidence paragraphs establish their facts only partially
+or not at all (Section~\ref{sec:setup}). The inventory is retained; resolving these cases
+requires reviewing the underlying annotation data. Precision and citation estimates use
+40 sampled atoms per cell and remain sensitive to sampling and judgment rules.
+
+\paragraph{Incomplete disclosure assessment.}
+M4 examines a selected inventory of later facts through candidate retrieval, rather than
+exhaustively reading every assertion for every possible spoiler. Validated seeded fixtures
+give approximately 85\% retrieval for named paraphrases and 70\% for named implications,
+with substantially lower recall for pronouns on other pages. The fixtures were written
+and validated by the same LLM annotator. Missed disclosures, unassessed plot points,
+identity changes and surfaces outside the published directory can therefore escape the
+evaluation. Different artifact sizes and clustered assertions further limit the
+interpretation of zero counts: a zero or low count does not certify spoiler-free output.
+
+\paragraph{Development feedback and single runs.}
+The reported \sys is a second build revised after first-build labels became available;
+baselines were not retuned in that round. Table~\ref{tab:builds} reports both builds.
+The complete prefix-versus-full graph comparison used first-build code. For the reported
+build, prefix-discovered indexes and wikis were evaluated on the original text only,
+with one-pass LLM labels (Appendix~\ref{app:additional}). Entity-index differences include
+candidate-mining rules and stochastic model decisions. Each system and condition was
+generated once; reported standard deviations reflect cutoff variation, not run-to-run
+or model variation. Some original-text citation labels were added in later sessions.
+B4 differs from \sys in page scope and generation as well as citation attachment, so
+that comparison does not isolate their effects, and the repairs suggested in
+Section~\ref{sec:discussion} are untested.
+\ifdefined\nwvtwo The gains of Section~\ref{sec:results-gains} are measured against
+comparison pages written in one call under a sentence budget and, for the retrieval
+systems, a 20,000-token passage budget; longer or multi-call pages were not tried. The
+split into central and other characters was made after the results existed, and the count
+of facts lost across cutoffs also counts labeling inconsistencies between adjacent
+cutoffs.\fi
+
+\paragraph{Recognition intervention.}
+High closed-book recall shows that the generator recognizes this public-domain work;
+it does not establish how much each text-based system relies on memory.
+\ifnwdecon Renaming and paraphrasing sharply reduce closed-book recall, but neither
+remove recognition completely nor preserve the text perfectly. The treatment was not
+proofread against its source; \res{DECON-residual-forms} paragraphs retain inflected
+source names, and name collisions affect page selection. Some outputs recover the
+island's original name despite its absence from the treated text. Gold fidelity was
+checked by an unblinded LLM, without repeating the stricter paragraph-sufficiency audit.
+The treatment changes wording, entity resolution and potentially meaning, limiting
+cross-condition comparisons even with labels finalized by the same annotator.
+\fi{} A work published after the generator's training cutoff would offer a complementary
+test of recognition, as in NoCha \citep{karpinska2024nocha}.
+
+\paragraph{Temporal and discourse representation.}
+Cutoffs are finished volumes. Two conflicting attribute values within one volume are
+treated as an extraction conflict, although both may describe genuine changes. Identity
+links are not dated, and predictions or beliefs can become factual relations if attribution
+or modality is lost. Attribute intervals track explicit replacements rather than implicit
+aging: an early age can remain displayed after later events (Appendix~\ref{app:qualitative}).
+The system also lacks systematic cross-claim inference and may miss pronoun links across
+extraction windows. These qualitative observations have no measured prevalence
+(Appendix~\ref{app:observations}).
+
+\paragraph{Reader utility and publication scope.}
+We measure factual coverage, support, citation sufficiency and disclosure, but not readers'
+ability to find information or their experience of spoilers. The additional linked pages
+may provide value or impose navigation costs; no reader study establishes either.
+The system omits portraits because development trials could not reliably ground character
+illustrations in textual evidence. External search engines and deliberately opened later
+cutoffs are outside the audited artifact.

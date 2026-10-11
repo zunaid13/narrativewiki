@@ -1,0 +1,110 @@
+% Appendix: qualitative view of the delivered site at two cutoffs. Contains spoilers of the series.
+% Screenshots: docs/paper/_build/qual_shots.py (scripts/papers/wiki_screenshots.py plus one panel)
+% over the reported B5 tree dist/anne@v2/wiki, built with mkdocs into a temporary folder; nothing
+% on them was edited. Rounded frames are applied only during typesetting.
+\section{Qualitative Example: One Page at Two Cutoffs}
+\label{app:qualitative}
+
+Figures~\ref{fig:qual-overview} and~\ref{fig:qual-rel} show the reported \sys site for the
+Anne series. Readers select a cutoff before opening a wiki (Figure~\ref{fig:qual-overview}a),
+whose pages use claims with recorded evidence volumes at or below that cutoff. Gilbert
+Blythe's page is shown at cutoffs 2 and 4; volume~4 first establishes his marriage to Anne.
+The screenshots themselves were not annotated. Precision labels in
+Section~\ref{sec:results} assess sampled atoms in the underlying pages.
+
+\paragraph{The overview.} Structured fields are rendered from graph rows with paragraph
+citations. At cutoff 2 (Figure~\ref{fig:qual-overview}b) Gilbert is listed as a teacher
+and holds the title ``president'' (since v2), and the page has no family line. At cutoff 4
+(Figure~\ref{fig:qual-overview}c) the role is ``country doctor (since v4)'', the earlier roles
+are kept as closed intervals (``previously: teacher (v1--v2)''), the titles of his college
+years and ``doctor'' are added with the volumes that open them, and a family line names Anne
+Shirley as his spouse. These later roles, titles and the spouse field are absent from the
+cutoff-2 overview.
+
+\ifdefined\nwvtwo % v2 prints the cutoff illustration here; v1 has it in the introduction
+\begin{figure}[t]
+\centering
+\input{figures/f0-cutoff}
+\caption{Reading cutoffs for one character pair. Relation intervals open at their
+first-evidence volume. The cutoff-2 wiki renders intervals opened by volume~2 and withholds
+the marriage evidenced in volume~4. Citations use \texttt{v<volume>:c<chapter>:p<paragraph>}.}
+\label{fig:cutoff}
+\end{figure}
+\fi
+\paragraph{The relationship.} The relationship block (Figure~\ref{fig:qual-rel}) contains
+the intervals illustrated in Figure~\ref{fig:cutoff}. At cutoff 2 it lists rivalry, the enmity that ended
+in volume~1, comradeship and friendship, and its short prose ends with the two as close
+friends. At cutoff 4 the same block adds ``Spouse of --- husband and wife (since v4)'', the
+other lines cite more paragraphs, and the prose, written from the cutoff-4 claims only, ends
+with the marriage. Each block's prose was generated independently from its cutoff's
+filtered claim set.
+
+\paragraph{Visible failure modes.} The example contains four defects. (i) The line
+``Romantically involved with --- harbors romantic feelings
+for her'' is open from volume~1 at both cutoffs. Its relation label is stronger than its
+qualifier and evidence, producing \sys's uncertain disclosure verdicts
+(Section~\ref{sec:results-main}). (ii) The cutoff-4 prose prints the keys by which the
+generator names the lines it rests on (``[R3, R4, S1, S4]''). The renderer resolves those
+keys into the \emph{Sources} line but fails to remove them from the prose; this occurs
+on 5 of the 341 non-timeline pages at cutoff 4. (iii) The age ``nearly fourteen'', stated in volume~1, still
+stands at cutoff 4 because an attribute with no later extracted value remains open. (iv) Gilbert's page
+carries a second block, ``Shirley'' (Figure~\ref{fig:qual-rel}c). The reported build merged
+the two entities the first build kept for ``Anne'' and ``Anne Shirley'', so the marriage is
+now on Anne Shirley's block and on her page; a third entity under her surname remains, and
+holds a rivalry line belonging to her. The screenshot shows the duplicate-entity failure
+discussed in Appendix~\ref{app:additional}.
+
+\newcommand{\qualshot}[2]{%
+  \begin{minipage}{#1}%
+  \begin{tcolorbox}[enhanced, width=#1, colback=white, colframe=nwlavender,
+    boxrule=0.65pt, arc=3mm, outer arc=3mm,
+    left=0pt, right=0pt, top=0pt, bottom=0pt, boxsep=0pt,
+    before skip=0pt, after skip=0pt, clip upper]
+    \includegraphics[width=\linewidth]{figures/qual/#2}%
+  \end{tcolorbox}%
+  \end{minipage}}
+
+\begin{figure*}[p]
+\centering
+\begin{minipage}[t]{0.62\textwidth}\centering
+\qualshot{\linewidth}{home.png}\\[2pt]
+{\small (a) Home page: the reader picks a cutoff before seeing anything.}
+\end{minipage}\\[10pt]
+\begin{minipage}[t]{0.485\textwidth}\centering
+{\small\bfseries Cutoff 2}\\[2pt]
+\qualshot{\linewidth}{gilbert-v02-overview.png}\\[2pt]
+{\small (b) Gilbert Blythe, overview, cutoff 2.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\textwidth}\centering
+{\small\bfseries Cutoff 4}\\[2pt]
+\qualshot{\linewidth}{gilbert-v04-overview.png}\\[2pt]
+{\small (c) The same section, cutoff 4.}
+\end{minipage}
+\caption{The delivered site at two cutoffs (screenshots of the \sys wiki, Anne series).
+Fields carry paragraph citations; at cutoff 4 the role, title and family lines
+open intervals evidenced in volumes~3 and~4 and keep the earlier roles as closed intervals.}
+\label{fig:qual-overview}
+\end{figure*}
+
+\begin{figure*}[p]
+\centering
+\begin{minipage}[t]{0.485\textwidth}\centering
+{\small\bfseries Cutoff 2}\\[2pt]
+\qualshot{\linewidth}{gilbert-v02-rel.png}\\[2pt]
+{\small (a) Gilbert Blythe, relationship with Anne Shirley, cutoff 2.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\textwidth}\centering
+{\small\bfseries Cutoff 4}\\[2pt]
+\qualshot{\linewidth}{gilbert-v04-rel.png}\\[2pt]
+{\small (b) The same block, cutoff 4: ``Spouse of'' opens in volume~4.}
+\end{minipage}\\[10pt]
+\begin{minipage}[t]{0.485\textwidth}\centering
+\qualshot{\linewidth}{gilbert-v04-shirley.png}\\[2pt]
+{\small (c) The block ``Shirley'' on the same page at cutoff 4: a second entity for Anne,
+under her surname, holding one of her relations.}
+\end{minipage}
+\caption{One relationship at two cutoffs. Each block's prose is generated from its cutoff's
+eligible claims; the cutoff-2 text therefore contains no marriage statement. The
+bracketed keys in (b) and the block in (c) are defects of the reported build.}
+\label{fig:qual-rel}
+\end{figure*}

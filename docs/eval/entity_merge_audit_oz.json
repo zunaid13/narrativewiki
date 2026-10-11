@@ -1,0 +1,383 @@
+[
+ {
+  "entity": "dorothy",
+  "flag": "span",
+  "forms": {
+   "Dorothy": 1,
+   "Dorothy Gale": 3,
+   "most noble Sorceress": 1,
+   "the little Kansas girl": 3,
+   "the Kansas girl": 3,
+   "Kansas girl": 5,
+   "little Kansas girl": 5
+  }
+ },
+ {
+  "entity": "dorothy",
+  "flag": "surname",
+  "surnames": [
+   "Gale",
+   "Sorceress",
+   "girl"
+  ],
+  "forms": {
+   "Dorothy Gale": 3,
+   "most noble Sorceress": 1,
+   "the little Kansas girl": 3,
+   "the Kansas girl": 3,
+   "Kansas girl": 5,
+   "little Kansas girl": 5
+  }
+ },
+ {
+  "entity": "scarecrow",
+  "flag": "surname",
+  "surnames": [
+   "City",
+   "King"
+  ],
+  "forms": {
+   "the remarkable King of the Emerald City": 2,
+   "the Scarecrow King": 2,
+   "former monarch of the Emerald City": 2
+  }
+ },
+ {
+  "entity": "ozma",
+  "flag": "span",
+  "forms": {
+   "Ozma": 2,
+   "Tip": 2,
+   "Oz-ma of Oz": 3,
+   "girlish Ruler of Oz": 3,
+   "little girl from Oz": 3,
+   "the little maid from Oz": 3,
+   "Princess Ozma": 4,
+   "the youthful Ruler of Oz": 4,
+   "the Princess": 4,
+   "The Princess": 4,
+   "Royal Ozma": 5,
+   "lovely Ruler of Oz": 5,
+   "the girl Ruler": 5,
+   "Ruler": 5,
+   "Ruler of Oz": 5,
+   "Princess": 5
+  }
+ },
+ {
+  "entity": "ozma",
+  "flag": "surname",
+  "surnames": [
+   "Oz",
+   "Ozma",
+   "Ruler"
+  ],
+  "forms": {
+   "Oz-ma of Oz": 3,
+   "girlish Ruler of Oz": 3,
+   "little girl from Oz": 3,
+   "the little maid from Oz": 3,
+   "Princess Ozma": 4,
+   "the youthful Ruler of Oz": 4,
+   "Royal Ozma": 5,
+   "lovely Ruler of Oz": 5,
+   "the girl Ruler": 5,
+   "Ruler of Oz": 5
+  }
+ },
+ {
+  "entity": "tin-woodman",
+  "flag": "span",
+  "forms": {
+   "Tin Woodman": 1,
+   "The Tin Woodman": 1,
+   "the Woodman": 1,
+   "The Woodman": 1,
+   "the happy Woodman": 1,
+   "the kind-hearted Woodman": 1,
+   "the Tin Woodman": 2,
+   "The Emperor’s": 2,
+   "celebrated Emperor of the Winkies": 2,
+   "Nick": 2,
+   "Nick Chopper": 2,
+   "Emp'ror": 5
+  }
+ },
+ {
+  "entity": "tin-woodman",
+  "flag": "surname",
+  "surnames": [
+   "Chopper",
+   "Winkies",
+   "Woodman"
+  ],
+  "forms": {
+   "Tin Woodman": 1,
+   "The Tin Woodman": 1,
+   "the happy Woodman": 1,
+   "the kind-hearted Woodman": 1,
+   "the Tin Woodman": 2,
+   "celebrated Emperor of the Winkies": 2,
+   "Nick Chopper": 2
+  }
+ },
+ {
+  "entity": "cowardly-lion",
+  "flag": "span",
+  "forms": {
+   "Lion": 1,
+   "Cowardly Lion": 1,
+   "The Lion": 1,
+   "The Cowardly Lion": 1,
+   "the Lion": 1,
+   "King of Beasts": 1,
+   "King of the Forest": 1,
+   "the Cowardly Lion": 3
+  }
+ },
+ {
+  "entity": "cowardly-lion",
+  "flag": "surname",
+  "surnames": [
+   "Beasts",
+   "Forest",
+   "Lion"
+  ],
+  "forms": {
+   "Cowardly Lion": 1,
+   "The Cowardly Lion": 1,
+   "King of Beasts": 1,
+   "King of the Forest": 1,
+   "the Cowardly Lion": 3
+  }
+ },
+ {
+  "entity": "horse",
+  "flag": "span",
+  "forms": {
+   "Horse": 2,
+   "The Saw": 2,
+   "Sawhorse": 3,
+   "Saw-Horse": 2,
+   "the Saw-Horse": 2,
+   "The Saw-Horse": 2,
+   "the Sawhorse": 4,
+   "The Sawhorse": 4,
+   "wooden Saw-Horse": 5
+  }
+ },
+ {
+  "entity": "bug",
+  "flag": "surname",
+  "surnames": [
+   "Insect",
+   "Woggle-Bug",
+   "one",
+   "world"
+  ],
+  "forms": {
+   "the Highly Magnified one": 2,
+   "the only Highly Magnified and Thoroughly Educated Woggle-Bug in the wide, wide world": 2,
+   "Educated Woggle-Bug": 2,
+   "the Educated Insect": 2,
+   "the educated Woggle-Bug": 2,
+   "the Highly Magnified Insect": 2
+  }
+ },
+ {
+  "entity": "polly",
+  "flag": "surname",
+  "surnames": [
+   "Daughter",
+   "Rainbow"
+  ],
+  "forms": {
+   "Rainbow's Daughter": 5,
+   "The Rainbow's Daughter": 5,
+   "Daughter of the Rainbow": 5,
+   "the Rainbow's Daughter": 5,
+   "the pretty Rainbow's Daughter": 5
+  }
+ },
+ {
+  "entity": "glinda",
+  "flag": "surname",
+  "surnames": [
+   "Glinda",
+   "Good",
+   "Sorceress",
+   "South",
+   "Southland",
+   "Witch"
+  ],
+  "forms": {
+   "The Witch of the South": 1,
+   "Good Witch": 1,
+   "the Witch Glinda": 1,
+   "Glinda the Good": 1,
+   "the celebrated Sorceress": 2,
+   "the great Sorceress": 2,
+   "the Queen of the Southland": 2,
+   "the gentle Sorceress": 2
+  }
+ },
+ {
+  "entity": "the-king",
+  "flag": "span",
+  "forms": {
+   "The King": 1,
+   "Nome King": 3,
+   "The Nome King": 3,
+   "the Nome King": 3,
+   "the little King": 3
+  }
+ },
+ {
+  "entity": "gump",
+  "flag": "span",
+  "forms": {
+   "Gump": 2,
+   "the Flying Gump": 5,
+   "the Gump": 5
+  }
+ },
+ {
+  "entity": "wicked-witch",
+  "flag": "surname",
+  "surnames": [
+   "West",
+   "Witch"
+  ],
+  "forms": {
+   "Wicked Witch": 1,
+   "The Wicked Witch": 1,
+   "the Wicked Witch": 1,
+   "Wicked Witch of the West": 1
+  }
+ },
+ {
+  "entity": "sorcerer",
+  "flag": "span",
+  "forms": {
+   "Sorcerer": 2,
+   "Gwig": 4,
+   "Old Prickly": 4,
+   "crooked Sorcerer": 5
+  }
+ },
+ {
+  "entity": "guardian",
+  "flag": "surname",
+  "surnames": [
+   "Gate",
+   "Gates",
+   "Guardian"
+  ],
+  "forms": {
+   "Guardian of the Gates": 1,
+   "The Guardian of the Gates": 1,
+   "Guardian of the Gate": 1,
+   "good-natured Guardian": 1
+  }
+ },
+ {
+  "entity": "great-oz",
+  "flag": "surname",
+  "surnames": [
+   "Humbug",
+   "Oz",
+   "Wizard"
+  ],
+  "forms": {
+   "Great Oz": 1,
+   "false Wizard": 1,
+   "The Great and Terrible Humbug": 1
+  }
+ },
+ {
+  "entity": "jellia-jamb",
+  "flag": "span",
+  "forms": {
+   "Jellia Jamb": 2,
+   "the High Chamberlain": 5
+  }
+ },
+ {
+  "entity": "jellia-jamb",
+  "flag": "surname",
+  "surnames": [
+   "Chamberlain",
+   "Jamb"
+  ],
+  "forms": {
+   "Jellia Jamb": 2,
+   "the High Chamberlain": 5
+  }
+ },
+ {
+  "entity": "green-whiskers",
+  "flag": "surname",
+  "surnames": [
+   "Army",
+   "Oz",
+   "Whiskers"
+  ],
+  "forms": {
+   "Green Whiskers": 2,
+   "The Soldier with the Green Whiskers": 2,
+   "the Soldier with the Green Whiskers": 2,
+   "Royal Army": 2,
+   "Royal Army of Oz": 2,
+   "the Royal Army of Oz": 2,
+   "the Royal Army": 2,
+   "Standing Army": 2
+  }
+ },
+ {
+  "entity": "john-dough",
+  "flag": "span",
+  "forms": {
+   "John Dough": 3,
+   "Candy Man": 5
+  }
+ },
+ {
+  "entity": "john-dough",
+  "flag": "surname",
+  "surnames": [
+   "Dough",
+   "Man"
+  ],
+  "forms": {
+   "John Dough": 3,
+   "Candy Man": 5
+  }
+ },
+ {
+  "entity": "the-queen",
+  "flag": "surname",
+  "surnames": [
+   "Mice",
+   "Mouse"
+  ],
+  "forms": {
+   "the Queen of all the Field Mice": 1,
+   "Queen of the Mice": 1,
+   "dignified little Mouse": 1,
+   "the Queen of the Mice": 2,
+   "Queen of the Field Mice": 2
+  }
+ },
+ {
+  "entity": "kik",
+  "flag": "surname",
+  "surnames": [
+   "Dunkiton",
+   "Kik-a-bray"
+  ],
+  "forms": {
+   "King Kik-a-bray": 5,
+   "King Kik-a-bray of Dunkiton": 5
+  }
+ }
+]

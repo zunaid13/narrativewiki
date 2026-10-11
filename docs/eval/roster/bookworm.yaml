@@ -1,0 +1,21 @@
+# Roster ground truth for Ascendance of a Bookworm (Phase 32, req. 8). Converted from the
+# hand-written `entities.entity_overrides` in config/series.bookworm.yaml (until 2026-09-27),
+# checked against Part 1 v01-02 (MEASUREMENTS §40). Scored by `scripts/eval/roster_gold.py` (docs/eval/roster/);
+# it patches nothing. Keys are surface forms.
+series: bookworm
+checked_through_vol: 2
+
+same_entity:
+  - ["Effa", "Mom"]             # Myne narrates: "Mom" is Effa in ~98% of 342 mentions
+  - ["Myne", "Urano Motosu", "Super Monster Bookworm"]   # past life; Freida's jibe
+  - ["Gunther", "Dad"]          # "Dad" is Myne's word for Gunther
+
+title_at_first_vol:
+  "Urano Motosu": "Myne"        # the reader knows her as Myne from chapter 1
+  "Dad": "Gunther"
+  "Merchant’s Guild": "Merchant’s Guild"
+
+not_an_entity:
+  - "Miya Kazuki"               # the author, in the afterword
+  - "Egypt"                     # Urano's past-life references, not this world's setting
+  - "TV"

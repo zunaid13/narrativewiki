@@ -1,0 +1,122 @@
+\section{Results}
+\label{sec:results}
+
+\input{tables/t2-main}
+
+\paragraph{Interpreting the comparisons.}
+These are single-run, LLM-labeled pilot results. Claude finalized all AI labels and
+also assisted in implementation; the AI judgments were not blinded to system identity.
+\ifnwhuman{} Human checks covered selected original-text items, excluding
+disclosure and treated conditions; review disagreements did not uniformly correct system
+scores.\fi{} Judgment rules, review coverage and sampling can still affect comparisons
+(Section~\ref{sec:setup}; Appendix~\ref{app:annotation}).
+
+\subsection{Disclosure of later facts}
+\label{sec:results-main}
+B1, B2 and B3 each have no stated or implied disclosures in 220 fact--cutoff assessments;
+\sys has one implied disclosure (Table~\ref{tab:main}). At $t=3$, a relationship summary
+says a friend \emph{later serves as a bridesmaid for Anne}, implying Anne's wedding. The
+eligible passage instead describes Anne as the friend's bridesmaid: the generator inverted
+the relation. Withholding later text therefore reduces an exposure channel without
+preventing disclosure through incorrect inference. B4 also has no confirmed disclosure.
+The diagnostics disclose more: X1 states \res{M4-anne-total-X1} later facts without source text,
+and X2 states or implies \res{M4-anne-total-X2} despite its cutoff instruction.
+
+\paragraph{Detection limits and uncertain cases.}
+Including uncertain verdicts raises the count for the five input-bounded systems to
+\res{M4-anne-total-cut-incl}: \sys has five of 220, while X2 has 14. \sys's four uncertain
+verdicts arise from a relation labeled \emph{romantically involved with} from volume one
+(Appendix~\ref{app:casebook}). The candidate search retrieves \res{SEED-para} of seeded
+paraphrases naming the character and \res{SEED-oblique} of seeded implications; with
+pronouns on another character's page, retrieval falls to roughly one third
+(Table~\ref{tab:seeds}). These are detection-limited counts on a finite probe set.
+At $t=2$, \sys contains \res{N-anne-t2-B5} assertions versus B1's
+\res{N-anne-t2-B1}; unequal artifact sizes further complicate comparisons of missed
+disclosures. Facts also cluster within characters and cutoffs. M4 excludes identity
+effects, which we examine separately in Section~\ref{sec:results-scope}.
+
+\paragraph{Checks independent of candidate retrieval.}
+Among sampled assertions at $t\le4$, none in \sys, B1, B2 or B3 is established only by later
+volumes (\sys: \res{M5-anne-B5}; B3: \res{M5-anne-B3}), versus \res{M5-anne-X2} for X2
+and \res{M5-anne-X1} for X1. A lexical screen finds one name absent from $\Dt$ on each
+input-bounded system's pages, including \sys, versus \res{SCREEN-anne-X1} for X1 and
+\res{SCREEN-anne-X2} for X2. The input-bounded hits are a plural or an expanded title,
+rather than confirmed later-character disclosures. Both checks have limited coverage:
+the assertion samples are small, and the screen detects only new names.
+
+\subsection{Coverage, support and citations}
+\label{sec:results-quality}
+\paragraph{Coverage.}
+Closed-book recall of \respt{M1-anne-avg-X1} identifies recognition as a substantial
+confound; exceeding this diagnostic does not isolate the contribution of reading.
+\sys has lower recall than long-context prompting at every cutoff
+(\respt{M1-anne-avg-B5} versus \respt{M1-anne-avg-B1}; Figure~\ref{fig:cutoffplot}).
+Its mean paired difference relative to prefix retrieval is
+\respt{M1-anne-avg-B5-minus-B2}. Table~\ref{tab:paired} gives the other comparisons.
+\ifnwdecon Section~\ref{sec:results-decon} tests the pattern after reducing recognition.\fi{}
+
+\paragraph{Support and publication scope.}
+Whole-artifact precision is \respt{M3-anne-avg-B5} for \sys, versus
+\respt{M3-anne-avg-B1}, \respt{M3-anne-avg-B2} and \respt{M3-anne-avg-B3} for B1--B3.
+On cast character pages, the matched population, \sys reaches \res{M3K-anne-B5-cast},
+versus B1's \res{M3K-anne-B1}; the \sys estimate rests on only 35 atoms.
+The largest gap occurs on relationship pages (\res{M3K-anne-B5-rel-share} of its
+assertions): \res{M3K-anne-B5-rel} are supported in page context, whereas
+\res{M3K-anne-B5-rel-atom} are supported as statements alone. Relationship pages include
+lines from chapter-level scene records naming both characters, even when the two do
+not share an episode. Under the \emph{line rule}, precision is \res{REV-M3L}
+(Table~\ref{tab:builds}). \sys also publishes \res{ND-anne-avg-B5} distinct assertions per
+cutoff, nearly four times B1's \res{ND-anne-avg-B1}; recall on a fixed gold inventory
+does not measure this additional content.
+
+\paragraph{Citation sufficiency.}
+Paragraph-citation coverage, measured over each full assertion inventory and averaged
+across cutoffs, is \res{CITE-anne-B5} for \sys (B1: \res{CITE-anne-B1}). This differs from
+sampled citation sufficiency, whose cutoff mean is \respt{M8-anne-avg-B5}, versus
+\respt{M8-anne-avg-B1} for B1 and \respt{M8-anne-avg-B2} for B2.
+After excluding one enumeration error, \sys has 199 evaluated sampled atoms: 191 carry
+citations and 102 are fully established
+by them. Restricting the pooled sample denominator to cited atoms yields
+\res{M8C-anne-B5}; the corresponding values are \res{M8C-anne-B1} for B1 and
+\res{M8C-anne-B2} for B2. Citation omission alone therefore does not explain the gap:
+evidence selection or attachment also falls short.
+
+\paragraph{Control using the same graph.}
+B4 uses \sys's graph but generates only cast character pages from retrieved facts.
+It has slightly lower recall (\respt{M1-anne-avg-B4} versus \respt{M1-anne-avg-B5}),
+but higher precision (\respt{M3-anne-avg-B4}) and citation sufficiency
+(\respt{M8-anne-avg-B4}). Together with the page-type breakdown, this control implicates
+publication context and citation attachment in the quality gap; it does not isolate
+their separate effects (Appendix~\ref{app:additional}). The reported \sys is its second
+build, revised after first-build labeling; Table~\ref{tab:builds} reports both.
+
+\subsection{Does construction from later volumes matter?}
+\label{sec:results-scope}
+Using the first build's code, we constructed graphs from volumes $1..2$ and $1..3$
+and compared their wikis with the corresponding cutoffs of the full-series build.
+Neither disclosed an assessed later fact (0 of 65 at $t=2$, 0 of 45 at $t=3$), and
+recall and sampled precision were close (Table~\ref{tab:scope}).
+
+The first build's entity inventories nevertheless differ. Of the \res{A1-t2-onesided} character pages
+present in only one build at $t=2$, \res{A1-t2-anchored} are anchored to later characters
+(\res{A1-t3-anchored} at $t=3$) but display an earlier namesake. For example, the
+first full-series build's \texttt{walter} entity is dominated by Walter Blythe from volume five,
+with 127 of its 130 mentions; its cutoff-2 page instead describes Anne's father.
+The page's existence and identity depend on unavailable text even without a later-fact
+disclosure.
+
+For the reported build, comparing full-series entities with prefix-discovered indexes
+gives identity dependence of \res{ID-anne-t1-rate} at $t=1$ and
+\res{ID-anne-t4-rate} at $t=4$. Here dependence means that no prefix-built character
+has exactly the page entity's set of names observed by $t$; it includes changed alias
+links, regrouping and absent counterparts (Table~\ref{tab:identity}). Wikis built on
+those prefix indexes match the full build's pooled recall
+(\res{PX-anne-M1-pooled} each, $t=1..4$) and state no later fact
+(Table~\ref{tab:prefixv2}). Thus content filtering alone does not make entity
+construction independent of later volumes.
+Archived early-volume prompts also expose later aliases such as ``Mistress Blythe'' and
+``Mrs. Doctor'' (Appendix~\ref{app:prompts}). The index and wiki comparisons do not isolate
+the influence of this prompt-metadata channel.
+
+\ifnwdecon\input{sections/06b-decon}\fi{}
+\ifnwheldout\input{sections/06c-heldout}\fi{}

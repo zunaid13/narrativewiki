@@ -1,0 +1,27 @@
+\subsection{Recognition and memory}
+\label{sec:results-decon}
+\input{tables/t2b-decon}
+All seven systems were rebuilt on renamed, paraphrased text, retaining paragraph identifiers
+to align gold facts and citations (Appendix~\ref{app:contamination}). In 200 aligned probes,
+title identification falls from \res{MEM-title-orig} to \res{MEM-title-decon}; a names-only
+control gives \res{MEM-title-remap} (Table~\ref{tab:recognition}). Residual recognition
+and imperfect fidelity limit interpretation.
+
+Closed-book recall falls from \respt{M1-anne-avg-X1} to
+\respt{M1-annedecon-avg-X1} (rounded). One gold fact--cutoff match remains: a death in an
+invented story (\res{M1-annedecon-count-X1} assessments). Of 200 sampled closed-book assertions,
+\res{M3-annedecon-unsup-X1} are unsupported. Text-based systems retain much of their recall,
+with a maximum mean loss of \res{M1-annedecon-maxloss} (Table~\ref{tab:decon}).
+The contrast is consistent with using supplied evidence, but does not isolate each system's
+memory contribution. Long-context citation sufficiency declines from
+\respt{M8-annedecon-t1-B1} at $t=1$ to \respt{M8-annedecon-t5-B1} at $t=5$, often because
+citations retain a paragraph number but omit its volume.
+
+B1, B2, B3 and X1 disclose no assessed later fact on the treated text. \sys states the
+leads' marriage at $t=2$ and $t=3$ (\res{M4-annedecon-total-B5}): a neighbor's prediction
+was extracted as a presumed marriage and rendered as a spouse relation. B4, using the
+same graph, implies it (\res{M4-annedecon-total-B4}). The failure concerns attribution
+and modality in eligible evidence, which a volume filter cannot repair. X2 discloses
+\res{M4-annedecon-total-X2} later facts, versus \res{M4-anne-total-X2} on the original;
+\res{M4-annedecon-t1-X2} occur at $t=1$, where the original run had none. The full-text
+instruction remains unreliable after recognition is reduced.

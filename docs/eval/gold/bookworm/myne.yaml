@@ -1,0 +1,36 @@
+# Hand-transcribed gold data (2026-09-25). Source https://ascendance-of-a-bookworm.fandom.com/wiki/Rozemyne
+# (fandom.com is HTTP 402 here: facts from search summaries and the series itself), each fact
+# vetted by grep against the Part 1 v01-02 text; the para_id in each comment is the evidence.
+# eval_vol 2 = Part 1 v02. in_scope: false marks a later-Part fact a v2 page must NOT carry.
+entity_id: myne
+canonical: Myne
+source_url: https://ascendance-of-a-bookworm.fandom.com/wiki/Rozemyne
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Relationships
+
+facts:
+  - text: "Myne is the reincarnation of Urano Motosu, a Japanese woman who loved books."   # v01:c00, c01
+    in_scope: true
+  - text: "Myne's family is her mother Effa, her older sister Tuuli and her father Gunther."   # v01:c01:p0041
+    in_scope: true
+  - text: "Myne has dark blue hair."   # v01:c01:p0043
+    in_scope: true
+  - text: "Myne tries to make paper, attempting clay tablets and mokkan before washi."   # v01:c11, c18, c22
+    in_scope: true
+  - text: "Myne suffers from the devouring."   # v02:c13:p0024
+    in_scope: true
+  - text: "Myne makes hairpins, one of which is sold to Freida."   # v02:c12:p0113, c13:p0036
+    in_scope: true
+  - text: "Myne becomes an apprentice blue shrine maiden."
+    in_scope: false   # Part 2
+  - text: "Myne is adopted by the archduke and renamed Rozemyne."
+    in_scope: false   # Part 3
+
+negative_facts:
+  - "Myne is not Lutz's sister."   # not Tuuli's-older-sister: a lexical check cannot read direction

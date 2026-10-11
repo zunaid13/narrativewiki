@@ -1,0 +1,66 @@
+# Phase 32 multi-cutoff gold for Ascendance of a Bookworm, global volumes 1-5 (Part 1 v01-03,
+# Part 2 v01-02) (plan 0011 S6). Same conventions as spice-and-wolf.yaml: hand-written
+# 2026-09-27, every evidence para_id found by search and read in data/bookworm/01_parsed/.
+# The High Priest is first a title (v3) and named Ferdinand from v4 (v04:c00:p0002); his facts are
+# keyed by whatever the gazetteer's canonical name for him is after the final build.
+series: bookworm
+characters:
+  Myne:
+    facts:
+      - {claim: "Myne remembers a past life as Urano Motosu, who loved books.", evidence: v01:c00:p0000}
+      - {claim: "Myne's family is her mother Effa, her older sister Tuuli and her father Gunther.", evidence: v01:c01:p0041}
+      - {claim: "Otto teaches Myne letters and gives her his old slate.", evidence: v01:c07:p0058}
+      - {claim: "Myne may have the devouring, a disease.", evidence: v01:c25:p0086}
+      - {claim: "Freida tells Myne the name of her illness, the devouring.", evidence: v02:c14:p0049}
+      - {claim: "Myne wants to become an apprentice shrine maiden at the temple.", evidence: v03:c19:p0047, keywords: ["shrine maiden"]}
+      - {claim: "Fran, Gil and Delia are assigned as Myne's attendants.", evidence: v04:c00:p0050, keywords: ["attendant", "Fran", "Delia"]}
+      - {claim: "Knights Damuel and Shikza guard Myne.", evidence: v05:c21:p0085, keywords: ["Damuel", "Shikza"]}
+  Gunther:
+    facts:
+      - {claim: "Gunther, Myne's father, works as a soldier.", evidence: v01:c01:p0041}
+      - {claim: "Gunther guards one of the city gates.", evidence: v01:c03:p0045}
+  Effa:
+    facts:
+      - {claim: "Effa is Myne's mother.", evidence: v01:c01:p0041}
+  Tuuli:
+    facts:
+      - {claim: "Tuuli is Myne's older sister.", evidence: v01:c01:p0041}
+      - {claim: "Tuuli is an apprentice seamstress.", evidence: v02:c14:p0067, keywords: ["seamstress"]}
+  Otto:
+    facts:
+      - {claim: "Otto is a former traveling merchant.", evidence: v01:c23:p0030}
+      - {claim: "Otto introduces Myne to his associate Benno.", evidence: v01:c24:p0006}
+  Lutz:
+    facts:
+      - {claim: "Lutz wants to become an apprentice merchant.", evidence: v01:c23:p0030}
+  Benno:
+    facts:
+      - {claim: "Benno was Otto's associate from his traveling-merchant days.", evidence: v01:c24:p0006}
+      - {claim: "Benno's store is the Gilberta Company.", evidence: v02:c03:p0030, keywords: ["Gilberta"]}
+      - {claim: "Benno names Myne's shampoo rinsham and keeps who made it secret.", evidence: v02:c18:p0028, keywords: ["rinsham"]}
+  Freida:
+    facts:
+      - {claim: "Freida once suffered from the devouring.", evidence: v02:c15:p0137}
+  High Priest:
+    facts:
+      - {claim: "The High Priest or the High Bishop can admit an apprentice shrine maiden.", evidence: v03:c19:p0048}
+      - {claim: "The High Priest's name is Ferdinand.", evidence: v04:c00:p0002, keywords: ["Ferdinand"]}
+      - {claim: "The High Priest assigns Fran to Myne and has Fran report on her.", evidence: v04:c00:p0045}
+  Fran:
+    facts:
+      - {claim: "Fran is the High Priest's attendant, assigned to Myne.", evidence: v04:c00:p0045}
+  Delia:
+    facts:
+      - {claim: "Delia aims to become the High Bishop's mistress and spies on Myne.", evidence: v04:c02:p0100}
+  Gil:
+    facts:
+      - {claim: "Gil is Myne's attendant and looks down on her at first.", evidence: v04:c02:p0100}
+  Rosina:
+    facts:
+      - {claim: "Rosina is skilled in music.", evidence: v04:c19:p0047}
+  Wilma:
+    facts:
+      - {claim: "Wilma received art lessons and draws the art for Myne's karuta.", evidence: v04:c17:p0075}
+  Damuel:
+    facts:
+      - {claim: "Damuel is a knight who guards Myne.", evidence: v05:c21:p0085}

@@ -1,0 +1,27 @@
+{
+  "_comment": "Phase 22 C4 / Phase 23 C4 regression floor for `wiki audit eval` (eval/gold.py::load_baseline/load_precision_baseline). Hand-maintained, never written by the pipeline. RE-RECORDED 2026-09-21 (Phase 27). The previous values were measured before Phase 26 parts B/C and before the Phase 27 local-entailment recall pass, i.e. against a pipeline that no longer exists -- exactly the staleness docs/vision/plans/0008-pre-full-scale-audit.md B6 flags ('the regression gate is calibrated against a superseded pipeline'). Re-recorded from one real `wiki audit eval --series spice-and-wolf` run against the current graph, with semantic recall ON. WHAT CHANGED, per entity, so this is auditable rather than a reset: precision is now 1.0 for EVERY gold character -- jakob 0.667->1.0 and kraft-lawrence 0.75->1.0 are genuine gains from Phase 26's gates, and raising these floors is strictly safe because precision still hard-gates. Recall ROSE on four and those gains are now locked in: enek 0.25->0.50, hans-remelio 0.286->0.43, kraft-lawrence 0.333->0.556, marheit 0.167->0.333. holo (0.70) and norah-arendt (0.40) are unchanged. yarei (0.25) and zheren (0.20) had no recorded floor at all and are recorded now so they stop being ungated. Recall FELL on two and they are recorded LOWER deliberately, not to make the report green -- as of Phase 27 recall only WARNs, so these do not gate anything: jakob 0.222->0.111 -- its extraction was IMPROVED this phase (three grounded PERSONALITY traits where the graph had none); the facts still missing are appearance details (hair/mustache/clothing) for which no claim exists in the graph at all, which the report now marks per fact as 'no lexical match in graph'. liebert 0.75->0.50 -- the two missing facts are one appearance detail the novel contradicts (gold says 'middle-aged ~30 with a goatee', v2 P288 says 'spirited young employee, smooth blond hair') and one compound sentence whose content IS on the page, reworded. RULE for the next editor: raise a floor whenever a run beats it and you have read why; lower one only with a per-entity reason written here, and never to turn a red report green. RAISED 2026-09-23 (Phase 28, the Vertex/gemini-3.1-flash-lite routing flip plus three prompt/gate fixes): recall rose on four and those gains are locked in -- hans-remelio 0.43->0.571 (4/7), holo 0.70->0.80 (8/10), liebert 0.50->0.75 (3/4), marheit 0.333->0.50 (3/6). enek, jakob, kraft-lawrence, norah-arendt and zheren are unchanged. yarei is LEFT AT 0.25 although this run scores 0.0, deliberately: the one fact it used to recall is 'held in the barn for a week', and the corpus sentence behind it is conditional -- 'Now Yarei WOULD BE locked in a granary ... close to a week' (v01 c05). The extractor declining to assert a hypothetical is correct behaviour and gold states it as fact, so the floor stays where it is and the WARN stays visible rather than being tuned away. Whoever fixes gold's side of this may then re-record it. NOT RAISED FURTHER, 2026-09-23 (same day, after the clean protocol re-run with extraction temperature pinned to 0.1): that run scores a higher MEAN (45.9% vs 43.9%) but moves individual entities in both directions -- marheit 0.50->0.667, norah-arendt 0.40->0.60, zheren 0.20->0.40 up; enek 0.50->0.25 and kraft-lawrence 0.556->0.44 down. The cause is identified and written up in docs/vision/PHASE_28.md: the scene pass's per-span fact yield swings run to run, and `gazetteer --merge-epithets` legitimately changes the scene prompts between runs, so a single entity's recall is worth +-1 fact of noise. Floors were therefore left where the earlier run put them rather than ratcheted onto a noisy measurement, and the three WARNs (enek, kraft-lawrence, yarei) are left visible. Raise them from a run you can reproduce twice.",
+  "precision": {
+    "enek": 1.0,
+    "hans-remelio": 1.0,
+    "holo": 1.0,
+    "jakob": 1.0,
+    "kraft-lawrence": 1.0,
+    "liebert": 1.0,
+    "marheit": 1.0,
+    "norah-arendt": 1.0,
+    "yarei": 1.0,
+    "zheren": 1.0
+  },
+  "fact_recall": {
+    "enek": 0.5,
+    "hans-remelio": 0.5714285714285714,
+    "holo": 0.8,
+    "jakob": 0.1111111111111111,
+    "kraft-lawrence": 0.5555555555555556,
+    "liebert": 0.75,
+    "marheit": 0.5,
+    "norah-arendt": 0.4,
+    "yarei": 0.25,
+    "zheren": 0.2
+  }
+}

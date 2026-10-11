@@ -1,0 +1,40 @@
+% F3 (one column): what each compared system can see when it writes the cutoff-2 wiki of a
+% five-volume series, how the cutoff is enforced, and how many assessed later facts its wikis
+% disclosed over all cutoffs (stated or implied; Table 1). Counts are \res keys.
+\begin{tikzpicture}[x=0.315cm, y=0.5cm, font=\figfont,
+  cell/.style={minimum width=0.27cm, minimum height=0.27cm, inner sep=0pt, rounded corners=1pt},
+  seen/.style={cell, fill=nwblue!80, draw=nwblue!70!nwaccent},
+  later/.style={cell, fill=nwred!75, draw=nwred!55!nwink},
+  built/.style={cell, fill=nwcyan!55, draw=nwblue!70!nwaccent, densely dashed},
+  none/.style={cell, draw=nwgrid, fill=nwgraybg},
+  sysn/.style={anchor=west, font=\figfont\bfseries},
+  how/.style={anchor=west, font=\figfont, text=nwink},
+  cnt/.style={anchor=east, font=\figfont\bfseries},
+]
+% header
+\node[anchor=west, font=\figfont\itshape, text=nwgray] at (-6.9,1.0) {system};
+\foreach \i in {1,...,5}{ \node[font=\figfont, text=nwgray] at (\i,1.0) {v\i}; }
+\node[anchor=west, font=\figfont\itshape, text=nwgray] at (6.0,1.0) {cutoff enforced by};
+\node[anchor=east, font=\figfont\itshape, text=nwgray, align=right] at (16.7,1.0) {disclosed};
+\draw[nwgrid] (-6.9,0.55) -- (16.7,0.55);
+\draw[nwred!55!nwink, thick] (2.5,1.35) -- (2.5,-6.65);
+\node[font=\figfont\bfseries, text=nwink] at (2.5,1.65) {$t{=}2$};
+% rows: name / y / cells v1..v5 / how / count
+\newcommand{\sysrow}[9]{%
+  \node[sysn] at (-6.9,#2) {#1};
+  \node[#3] at (1,#2) {}; \node[#4] at (2,#2) {}; \node[#5] at (3,#2) {}; \node[#6] at (4,#2) {}; \node[#7] at (5,#2) {};
+  \node[how] at (6.0,#2) {#8};
+  \node[cnt] at (16.7,#2) {#9};}
+\sysrow{B1 long context}{0}{seen}{seen}{none}{none}{none}{input (prefix only)}{\res{M4-anne-total-B1}}
+\sysrow{B2 prefix retrieval}{-1}{seen}{seen}{none}{none}{none}{input (prefix only)}{\res{M4-anne-total-B2}}
+\sysrow{B3 LightRAG}{-2}{seen}{seen}{none}{none}{none}{input (prefix only)}{\res{M4-anne-total-B3}}
+\sysrow{\sys}{-3}{seen}{seen}{built}{built}{built}{filtered facts}{\res{M4-anne-total-B5}}
+\sysrow{B4 graph baseline}{-4}{seen}{seen}{built}{built}{built}{retrieval filter}{\res{M4-anne-total-B4}}
+\draw[nwgrid, densely dotted] (-6.9,-4.55) -- (16.7,-4.55);
+\sysrow{X2 full text}{-5.1}{seen}{seen}{later}{later}{later}{prompt instruction}{\color{nwaccent}\res{M4-anne-total-X2}}
+\sysrow{X1 closed book}{-6.1}{none}{none}{none}{none}{none}{title + name}{\color{nwaccent}\res{M4-anne-total-X1}}
+% legend
+\node[seen] at (-6.5,-7.3) {}; \node[anchor=west] at (-6.0,-7.3) {text given};
+\node[built] at (-0.2,-7.3) {}; \node[anchor=west] at (0.3,-7.3) {in graph, filtered out};
+\node[later] at (9.9,-7.3) {}; \node[anchor=west] at (10.4,-7.3) {later text given};
+\end{tikzpicture}

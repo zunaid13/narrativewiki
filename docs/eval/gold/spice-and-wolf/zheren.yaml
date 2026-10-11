@@ -1,0 +1,25 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Added 2026-09-10 to grow gold-data coverage from 4 to 10
+# characters (Phase 22 C4).
+entity_id: zheren
+canonical: Zheren
+source_url: https://spiceandwolf.fandom.com/wiki/Zheren
+transcribed: "2026-09-10"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - History
+
+facts:
+  - text: "Zheren is a traveling merchant, similar in trade to Kraft Lawrence."
+    in_scope: true
+  - text: "Zheren is a young man with brown hair and eyes and a distinctive missing upper tooth."
+    in_scope: true
+  - text: "Zheren is usually depicted with his eyes closed and a nervous, shy smile."
+    in_scope: true
+  - text: "Zheren approached Lawrence and Holo while they were sheltering at a monastery, claiming to be a rookie peddler with inside knowledge of an imminent currency-market change."
+    in_scope: true
+  - text: "Zheren is in reality one of several agents hired by the Medio Trading Company to trick other merchants into buying devaluing Trenni silver."
+    in_scope: true

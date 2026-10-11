@@ -1,0 +1,262 @@
+% Appendix: annotation rules and metric definitions.
+\section{Annotation Rules and Metric Definitions}
+\label{app:annotation}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lp{6.3cm}@{}}
+\toprule
+\nwhead{ID} & \nwhead{Definition} \\
+\midrule
+M1 & Recall: eligible gold facts conveyed about the correct character anywhere in $\Wt$, divided by $|\Gt|$. \\
+M3 & Precision: fully supported sampled atoms divided by sampled atoms across all surfaces, cited or uncited; enumeration frame errors are excluded. \\
+M4 & Disclosure: assessed later facts stated or implied anywhere in $\Wt$, divided by $|\Ft|$; undefined when $\Ft=\varnothing$. \\
+M5 & Later-volume content: sampled atoms not established through the cutoff but established by the full five-volume text, divided by sampled atoms at $t=1,\ldots,4$. \\
+M8 & Citation sufficiency: sampled atoms established by their cited, eligible paragraphs, divided by all sampled atoms; uncited atoms are insufficient. \\
+M12 & Verifier errors: unsupported candidates admitted and supported candidates rejected on a challenge set. \\
+M13 & Cost: model calls, input tokens, and output tokens of the reported build. \\
+\bottomrule
+\end{tabular}
+\caption{Metrics reported in this paper. IDs retain the historical measurement-ledger
+numbering to match archived results and labels; measures outside the reported set leave gaps.}
+\label{tab:metrics}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\input{figures/f4-evaluation}
+\caption{The evaluation protocol, applied identically to every system's wiki at every cutoff.
+Cyan: support for the wiki's assertions. Lavender: coverage of information available to the
+reader. Pink: checks for later information reaching the reader.}
+\label{fig:protocol}
+\end{figure*}
+
+\paragraph{Annotators and workflow.} Labels were produced by LLM coding agents working
+interactively in the project repository under the written rules of this appendix, not by
+a fixed prompt: for each item the agent read the fact or assertion with the eligible source
+paragraphs and recorded a label in a released label file. First-pass labels came from two
+agents, OpenAI Codex and Claude Opus~5.5; Claude Opus~5.5 finalized every reported label.
+The model version behind the Codex agent was not recorded.
+The prefix-index builds of Table~\ref{tab:prefixv2} received a single pass.
+
+\paragraph{How each metric is computed.} Let $A_t$ be the atomic assertions of $\Wt$, $S_t
+\subset A_t$ the sampled atoms (40 drawn uniformly, with enumeration frame errors removed),
+$c(a)$ the set of paragraphs cited for atom
+$a$, $c_t(a)=c(a)\cap\Dt$ its eligible part, and $\mathbf{1}[\cdot]$ the indicator. For an assessed later fact $g\in\Ft$, $d_t(g)$ is
+the verdict of reading every candidate sentence of $\Wt$ for it.
+\begin{align*}
+\text{M4}_t &= |P_t|\,/\,|\Ft| \qquad (t\le 4),\\
+P_t &= \{g\in\Ft : d_t(g)\in\{\text{stated},\text{implied}\}\},\\
+\text{M8}_t &= \frac{1}{|S_t|}\sum_{a\in S_t}\mathbf{1}\big[\sigma_t(a)\big],\\
+\sigma_t(a) &\equiv c_t(a)\neq\varnothing \wedge c_t(a)\models a,\\
+\text{CITE}_t &= \frac{|\{a\in A_t : c(a)\neq\varnothing\}|}{|A_t|},\\
+\text{M5} &= \frac{|L|}{\sum_{t\le 4}|S_t|},\\
+L &= \{(t,a) : 1\le t\le 4,\; a\in S_t,\\
+  &\qquad \Dt\not\models a,\; D_{\le 5}\models a\},
+\end{align*}
+where $c_t(a)\models a$ means the eligible cited paragraphs, read alone and jointly, establish every element
+of $a$ (\emph{sufficient} below); cited paragraphs after the cutoff are ignored, so an atom
+citing only later paragraphs is insufficient. The disclosure count of Table~\ref{tab:main} is
+$\sum_{t=1}^{4}|P_t|$; the inclusive count adds the facts whose verdict is \emph{uncertain}. A system's value is the unweighted mean over the cutoffs measured,
+$\bar{M}=\frac{1}{|T|}\sum_{t\in T}M_t$. A paired difference between systems $A$ and $B$ is
+$\Delta=\frac{1}{|T|}\sum_{t\in T}\big(M_t^{A}(E_t)-M_t^{B}(E_t)\big)$, with $E_t$ the page
+entities both have at $t$; its standard deviation, median, lowest and highest value are those of
+the per-cutoff differences. The recall gap relative to the closed-book diagnostic is
+$\bar{\text{M1}}-\bar{\text{M1}}{}^{X1}$; it does not isolate the contribution of reading
+from memory. The seeded search recall is the share of seeded
+disclosure sentences returned as candidates. M5 assesses a uniform assertion sample,
+whereas M4 uses fact-directed searches across the delivered artifact; their denominators
+and detection coverage differ.
+
+\paragraph{Unit.} An atomic assertion states one predicate about one subject, and an object
+for relations. Its interpretation includes polarity, modality, and attribution to the
+speaker or believer when the narrative does not establish it as true.
+
+\paragraph{Support labels (M3).} \emph{Supported}: the text through the cutoff establishes the
+assertion with the stated attribution and modality. \emph{Partial}: part of it is established,
+or a transient state is presented as a lasting trait. \emph{Unsupported}: nothing through the
+cutoff establishes it. \emph{Uncertain}: the annotator cannot decide from the eligible text.
+The annotator may read surrounding eligible context but never text after the cutoff. Only
+\emph{supported} counts. Each atom is judged in the context of the page on which it appears;
+its factuality in isolation is also recorded (\emph{true as a statement}). An error
+introduced by the enumeration tool, such as assigning a quotation to the wrong speaker, is a
+frame error and is excluded from the denominator (\res{M3-anne-frame}).
+
+\paragraph{The pair rule.} Relationship pages display lines from scene summaries as shared
+scenes. A factually true line is supported \emph{on that page} only if both characters are
+present and participate in at least one episode of the scene summarized.
+Being mentioned, quoted, written to, remembered, dead, or watching from a distance does not
+count. This \emph{scene rule} is the standing one. Under the stricter \emph{line rule},
+reported as a sensitivity value, the pair must take part in the episode that the sampled
+line itself describes. An earlier rule that accepted a pair present anywhere in the chapter
+was retired because it conflated shared scenes with shared chapters. The first-pass labels
+of the first and the reported build had used different pair rules, so Claude Opus~5.5
+re-read every sampled relationship line from the first build, reported build, and two
+prefix builds against the chapter text. The annotator recorded verdicts under both the scene rule and the line rule. These contextual
+verdicts are combined with each build's factuality labels to compute the page-context
+precision reported here.
+
+\paragraph{Reveal volume.} The earliest $t$ whose prefix $\Dt$ establishes the fact without
+later text; foreshadowing that a first-time reader could not resolve is not sufficient. Each
+later fact's reveal volume was checked against the earliest statement in the text by a keyword
+scan of every earlier volume followed by a read; the check moved \res{OBS-gold-late} drafted
+facts to an earlier volume.
+
+\paragraph{Conveyed (M1).} A gold fact is conveyed at cutoff $t$ when any page of that
+cutoff's wiki (a character, relationship, codex or timeline page) states its core proposition
+of the right character (the same subject, the same event, relation or attribute, and the same
+object) in any wording. A conjunction of two propositions needs both
+(\emph{a newspaper man and a grandson of the schoolmaster}). An incidental qualifier may be
+missing (\emph{four years ago}, \emph{at Christmas}, a color or a material); a wrong or
+missing core element may not: who did it, to whom, or the number when the number is the fact
+(\emph{Una is ten}). The same proposition asserted of a different character does not count (where the statement
+stands does not matter, whom it is about does), and an engagement does not convey a marriage.
+We formalized this rule across all systems after the recall audit in Section~\ref{sec:setup}
+found inconsistent application in the first pass. Labels had been carried forward across
+cutoffs when similar wording persisted; a fact marked absent early was therefore not
+reassessed when a later wiki paraphrased it. The audit rechecked every gold fact in every
+system using one search pattern per fact and changed
+\res{M1-anne-audit-changes} labels; the reported build of \sys and the graph baseline on it
+were labeled afterward with the same patterns.
+
+\paragraph{Disclosed (M4).} \emph{Stated}: a page asserts the later fact. \emph{Implied}: a
+page asserts something from which a reader would infer it. \emph{Uncertain}: a page asserts
+something adjacent that is available at the cutoff and that a reader could, but need not, read
+toward the later fact. \emph{Absent}: no candidate sentence was found, or every candidate read
+was about something else. Stated and implied count as disclosure. Candidates are found by
+three lexical routes: vocabulary that first occurs after $t$, overlap with the content words
+of the fact, and marriage, death and birth words near the character's name.
+
+\paragraph{Citation sufficiency (M8).} For a sampled atom that the page cites, the annotator
+opens every paragraph in the citation list of that line or section (only paragraphs at or
+before the cutoff count) and asks whether they establish the atom without any other text.
+\emph{Sufficient}: every element of the atom is in the cited paragraphs, jointly if need be; a
+relation is sufficient when the paragraph states it of a person the reader can identify, even
+if the page's canonical surname is given elsewhere. \emph{Partial}: the core is there and a
+stated element is not (an added qualifier, a trait inferred from behavior).
+\emph{Insufficient}: the supporting paragraph is not in the list, the list points to another
+volume or person, or the atom is itself unsupported. An assertion with no paragraph citation is
+insufficient; a link to a whole chapter is not a paragraph citation. Only \emph{sufficient}
+counts. One correction was made after labeling. The tool that enumerates assertions did not
+attach to a timeline line of the reported build the \emph{Sources} line printed under it, so
+the 22 sampled timeline atoms had been labeled as uncited. Their citations were read from
+the delivered pages and judged by the rule above: 11 are sufficient. Counting them as uncited
+would give \sys a citation sufficiency of 0.457 instead of \respt{M8-anne-avg-B5}, and a share
+of assertions with a paragraph citation of 0.840 instead of \res{CITE-anne-B5}.
+
+\paragraph{The precision audit.} Citation assessment for M8 revealed comparison-system
+atoms previously labeled unsupported or uncertain that were established by the text,
+sometimes by the page's own citations. The first pass searched for a character's name near
+the fact, missing pronoun references, and examined only the first six cited passages.
+All \res{M3-anne-audit-read} comparison-system atoms not labeled supported were re-read
+against the best-matching paragraphs of the complete eligible text, and
+\res{M3-anne-audit-changes} were corrected to supported. The atom-level negatives of \sys's
+first build were re-read the same way and none changed. Labels already marked supported were not re-audited for
+any system.
+
+\ifnwhuman
+\paragraph{Two-reviewer agreement.}
+Two human reviewers each labeled the complete review packet (\res{HREV-total}
+original-text items: every gold fact and the samples of recall, precision and citation
+labels listed below), giving two separate sets of final labels. Table~\ref{tab:human-agreement} recomputes their agreement on the original-text
+validation tasks. Cohen's $\kappa$ is reported separately for gold evidence, recall,
+precision and citation sufficiency, since these tasks have different questions and label
+spaces. Across the \res{HREV-total} reviewed items, all assessed decisions agree on
+\res{HREV-all-agree}; at least one decision differs on \res{HREV-any-disagreement}.
+These values describe concordance between the reviewers' final judgments, rather than
+agreement with the AI annotations or correctness of the annotations. Each reviewer labeled
+every item from scratch, without seeing the AI answers, so these judgments are not anchored
+on them.
+
+\input{tables/t-human-agreement}
+
+Table~\ref{tab:human-ai-agreement} compares each reviewer's label set with the accepted
+AI-assisted review snapshot finalized by Claude. Its mapping to the accepted source sheet
+is verified; it is not independently verified as unchanged blind first-pass AI labels.
+Each comparison uses all \res{HRAI-total} reviewed items. Pair placement is evaluated separately on
+\res{HRAI-PAIR-n} relationship-page items within the precision sample.
+All applicable decisions agree on \res{HRAI-r1-all-agree} items for reviewer~1, with at least
+one disagreement on \res{HRAI-r1-any-disagreement}; for reviewer~2, the corresponding counts
+are \res{HRAI-r2-all-agree} and \res{HRAI-r2-any-disagreement}.
+These comparisons measure reviewer--AI concordance, not annotation accuracy.
+
+\paragraph{Reviewer provenance.}
+Both final label sets were produced entirely by human reviewers; no model generated or
+proposed these decisions. Both CSVs cover the complete review
+packet, and their labels match the accompanying response records. A released aligned audit
+maps each decision to its original item and marks remaining disagreements as unadjudicated.
+
+\input{tables/t-human-ai-agreement}
+
+\paragraph{Joint agreement across the three label sets.}
+Table~\ref{tab:human-alpha} recomputes nominal Krippendorff's $\alpha$ for the same accepted
+AI-assisted reference and the two reviewers' final-label sets. All \res{HRAL-total}
+items have complete labels from all three. For each task, $\alpha=1-D_o/D_e$ uses nominal
+distance (zero for identical labels, one otherwise), observed within-item coincidences,
+and expected disagreement from pooled category counts with the $n(n-1)$ finite-sample
+correction, where $n$ is the number of pairable label values
+\citep[pp.~1--5]{krippendorff2011alpha}. It is calculated jointly, rather than by averaging
+pairwise kappas. Pair placement is again assessed separately within the precision sample.
+The coefficient measures concordance among the AI labels and two human label sets;
+it is not an all-human reliability estimate or an accuracy measure. The recomputed
+coefficients match the summary distributed with the label files. This calculation
+reproduces decisions; it does not adjudicate disagreements or change system scores.
+
+\input{tables/t-human-alpha}
+\fi
+
+\paragraph{Earlier human review.} Claude Opus~5.5 finalized all reported AI labels.
+\ifnwhuman Before the two-reviewer check, one human reviewer examined and accepted an
+AI-checked sheet with answers and reasons visible; this pass yields no agreement estimate.
+It assessed the labels \else The planned human check is not included
+in this version; every reported value is an LLM label. It assesses the labels \fi against
+the source text and the rules above. Sets of at most 500 items are checked in full; larger
+sets use a uniform random 10\% sample. Each set is checked separately:
+\begin{itemize}[nosep,leftmargin=*]
+\item gold facts, \res{ANN-n-gold} items (at most 500): every fact and its evidence paragraph;
+\item recall labels, \res{ANN-n-recall} items (over 500): a sample of \res{ANN-n-recall-sample};
+\item precision atoms, \res{ANN-n-precision} items (over 500): a sample of \res{ANN-n-precision-sample};
+\item citation-sufficiency labels, \res{ANN-n-m8} items (over 500): a sample of \res{ANN-n-m8-sample};
+\item disclosure verdicts, \res{ANN-n-m4} items, and the \res{M4-cand-anne-all} candidate
+  sentences behind them: not checked by a human; these are LLM labels only.
+\end{itemize}
+In all, \res{ANN-n-total} labels \ifnwhuman were reviewed\else are checked by a human\fi.
+The sampling frame was fixed before the last labels were added: its precision atoms are
+those of every original-text cell then labeled, including prefix-build cells, and its
+citation labels are those of B1, B2 and \sys; the citation labels of B3, B4 and X2 were
+added later and are outside it.
+\ifnwdecon All of them are labels of the original text: the labels of the treated text
+(Appendix~\ref{app:contamination}) were finalized afterward by Claude and
+are not part of the check.
+\fi
+\ifnwhuman The accepted answers agree with the paper's original labels on
+\res{HUMR-recall-same} recall items, \res{HUMR-precision-same} precision atoms and
+\res{HUMR-m8-same} citation labels. Of the gold facts, \res{HUMR-gold} are established by
+their evidence paragraph in full, in part and not at all; \res{HUMR-gold-announce} of those
+established in part are dated by a paragraph that announces the event, which is completed
+within the same volume, so no reveal volume moves. For the three not established, the fact
+holds in the volume it is dated to, but the paragraph recorded as its evidence does not carry
+it alone (a greeting for a household arrangement, a plan for a residence, an introduction
+that does not yet tie a surname to the man). In recall and precision the accepted
+answers are stricter; citation-sufficiency differences occur in both directions.
+
+The recall differences had one cause: in some cells a page sentence weaker than the gold fact
+had been credited (``fascinated by insects'' for a boy who collects toads, bugs and frogs; a
+fight for a hatred). The written rule already asked for the same event, relation or
+attribute. We therefore re-read six gold facts in every cell of every system, on both texts,
+with one test per fact, and changed \res{HUMR-strict-changes} recall labels. The re-read
+moved no system's mean recall by more than 0.021 and is in every value reported here; after
+it the accepted answers match \res{HUMR-recall-same-after} recall items. It covers the six
+facts the check surfaced, not all \res{ANN-n-gold}. Precision and citation labels were not
+changed on the sampled items alone, since that would correct a tenth of the labels under a
+reading the other nine tenths did not get.\fi
+
+\paragraph{Zero counts.} A zero disclosure count is printed as $0/n$. Under an idealized
+model of $k$ independent, representative character-level Bernoulli trials with zero events,
+where $k$ is the number of characters with an assessed later fact at $t$ (40 at $t=1$, 12
+at $t=4$), the exact one-sided 95\% upper bound is $1-0.05^{1/k}$:
+\res{M4-anne-bound-t1} at $t=1$ and \res{M4-anne-bound-t4} at $t=4$.
+Grouping by character avoids treating correlated assertions as independent. However,
+characters also interact, the cast is purposively selected, and candidate retrieval is
+incomplete. These values illustrate the effect of the sampling unit; they are not
+calibrated population bounds on this system's spoiler risk.

@@ -1,0 +1,147 @@
+{
+  "series": "overlord",
+  "passed": 17,
+  "judged": 25,
+  "rows": [
+    [
+      "FAIL",
+      "same_entity",
+      "['Ainz Ooal Gown', 'Momonga', 'Dark Warrior'] -> ['ainz', 'ainz-ooal-gown', 'ainz-ooal-gown-2', 'dark-warrior']"
+    ],
+    [
+      "ABSENT",
+      "same_entity",
+      "['Wise King of the Forest', 'Hamusuke'] (found ['Hamusuke'])"
+    ],
+    [
+      "FAIL",
+      "same_entity",
+      "['Lizzy Baleare', 'Grandma'] -> ['grandma', 'lizzy-baleare']"
+    ],
+    [
+      "ABSENT",
+      "same_entity",
+      "['Swords of Darkness'] (found [])"
+    ],
+    [
+      "FAIL",
+      "title_at_first_vol",
+      "Hamusuke: want 'Wise King of the Forest', got ['Hamusuke']"
+    ],
+    [
+      "PASS",
+      "title_at_first_vol",
+      "Albedo: want 'Albedo', got ['Is Albedo', 'Albedo']"
+    ],
+    [
+      "ABSENT",
+      "title_at_first_vol",
+      "Great Tomb of Nazarick"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / Mo"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / But Momonga"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / Even Ainz"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / Gown"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / the elder lich"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / Mo"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / But Momonga"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / Even Ainz"
+    ],
+    [
+      "FAIL",
+      "not_an_alias",
+      "Ainz Ooal Gown / Gown"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Ainz Ooal Gown / the elder lich"
+    ],
+    [
+      "PASS",
+      "not_an_alias",
+      "Narberal Gamma / the maid"
+    ],
+    [
+      "PASS",
+      "entity_type",
+      "Eight Kings: want FACTION, got ['FACTION']"
+    ],
+    [
+      "PASS",
+      "entity_type",
+      "Thirteen Heroes: want FACTION, got ['FACTION']"
+    ],
+    [
+      "PASS",
+      "entity_type",
+      "Six Gods: want FACTION, got ['FACTION']"
+    ],
+    [
+      "PASS",
+      "not_an_entity",
+      "O Supreme One"
+    ],
+    [
+      "PASS",
+      "not_an_entity",
+      "Creators"
+    ],
+    [
+      "FAIL",
+      "not_an_entity",
+      "NPC (TECH, 37 mentions)"
+    ],
+    [
+      "FAIL",
+      "not_an_entity",
+      "GM (TECH, 8 mentions)"
+    ],
+    [
+      "FAIL",
+      "not_an_entity",
+      "AI (TECH, 7 mentions)"
+    ],
+    [
+      "FAIL",
+      "not_an_entity",
+      "DMMO (TECH, 8 mentions)"
+    ],
+    [
+      "PASS",
+      "not_an_entity",
+      "in Yggdrasil"
+    ]
+  ]
+}

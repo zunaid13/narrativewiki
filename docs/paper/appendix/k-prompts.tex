@@ -1,0 +1,1346 @@
+% Logged exchanges from scripts/papers/prompt_appendix.py; layout polished for submission.
+% Preserve the content of every listing when regenerating this appendix.
+% Two-column like every other appendix (ACL formatting guidelines); the listing boxes break
+% across columns and pages.
+\begingroup
+\definecolor{NWPromptIndigo}{HTML}{C9C7EB}
+\definecolor{NWPromptCyan}{HTML}{C8EAF5}
+\definecolor{NWPromptViolet}{HTML}{DDCEEE}
+\definecolor{NWPromptInk}{HTML}{243247}
+\newtcblisting{nwprompt}[3][]{
+  enhanced, breakable, listing only,
+  colback=#2!12!white, colframe=#2!85!white,
+  colbacktitle=#2, coltitle=NWPromptInk,
+  title={#3}, title after break={#3 (continued)},
+  fonttitle=\sffamily\bfseries\small,
+  boxrule=0.45pt, arc=1.5mm,
+  left=2mm, right=2mm, top=1.5mm, bottom=1.5mm,
+  before skip=7pt, after skip=9pt,
+  pad at break*=1.5mm,
+  listing options={
+    basicstyle=\ttfamily\footnotesize,
+    columns=fullflexible, keepspaces=true,
+    breaklines=true, breakatwhitespace=false, breakindent=1em,
+    showstringspaces=false, showspaces=false, showtabs=false,
+    frame=none, aboveskip=0pt, belowskip=0pt, tabsize=2
+  },
+  #1
+}
+\section{Prompts and Model Exchanges}
+\label{app:prompts}
+Every generative stage uses a shared client that records the system prompt, user prompt, and raw response. For each stage, we show the first successful call from the latest run underlying the reported results that sent calls to the provider. The exhibits cover each \sys stage (prose by its appearance section), the B1, B2, B3, X1 and X2 pages, the treatment and the recognition probe; B4's page prompt, the other prose sections and the shared-page summary check are in the release only. The exchanges retain the logged wording, with middle elisions that state the number of omitted characters and typographic characters folded to ASCII for typesetting. All calls shown used \res{GEN-model}. The release contains the complete prompts and call logs (Appendix~\ref{app:reproducibility}). Evaluation labels were not produced by these stages; the annotation workflow is described in Appendix~\ref{app:annotation}.
+
+The excerpts retain defects in the prompts and responses used for the reported runs.
+The notes below identify these defects without rewriting the logged exchanges or claiming
+that the pipeline has been repaired (Appendix~\ref{app:implementation}).
+
+\Needspace{12\baselineskip}
+\subsection*{Entity typing}
+Types each mined name candidate (\sys, gazetteer). Model \texttt{gemini-3.6-flash}; 518 input and 39 output tokens; run \nolinkurl{anne@v2/20261004T193719-gazetteer-v1-5}.
+
+\paragraph{Note on this log.} One prompt serves every series the pipeline processes, so the
+type list includes types unused here (\texttt{TECH}). The example sentences are logged as
+sent: one sentence appears three times.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are typing candidate names mined from a novel. Each candidate is a capitalised phrase that occurs in the text; most are real entities but some are sentence fragments, honorific-only phrases, or common words that happened to be capitalised.
+
+Classify the candidate into exactly one of these types, or say it is not an entity at all:
+- CHARACTER
+- FACTION
+- LOCATION
+- EVENT
+- TECH
+
+If the candidate is not a named entity -- a stray common word, part of a longer name cut short, a rank or honorific with no name attached -- respond with entity_type "NOT_ENTITY". This is a correct and expected answer for a large share of candidates; do not force a fit.
+
+Respond with JSON only: {"entity_type": "...", "confidence": 0.0-1.0, "notes": "short reason"}
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Candidate surface: "Anne"
+Seen 3904 time(s), first in volume 1.
+Mining signals: capitalised_token, honorific, vocative
+Example sentences it appears in:
+- ""Anne Shirley," reluctantly faltered forth the owner of that name, "but, oh, please do call me Cordelia. It can't matter much to you what you call me if I'm only going to be here a little while, can it? And Anne is such "
+- ""Unromantic fiddlesticks!" said the unsympathetic Marilla. "Anne is a real good plain sensible name. You've no need to be ashamed of it.""
+- ""Oh, I'm not ashamed of it," explained Anne, "only I like Cordelia better. I've always imagined that my name was Cordelia--at least, I always have of late years. When I was young I used to imagine it was Geraldine, but I "
+- ""Oh, I'm not ashamed of it," explained Anne, "only I like Cordelia better. I've always imagined that my name was Cordelia--at least, I always have of late years. When I was young I used to imagine it was Geraldine, but I "
+- ""Oh, I'm not ashamed of it," explained Anne, "only I like Cordelia better. I've always imagined that my name was Cordelia--at least, I always have of late years. When I was young I used to imagine it was Geraldine, but I "
+
+What is this?
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"entity_type": "CHARACTER", "confidence": 1.0, "notes": "Anne (Anne Shirley) is the main character of the novel Anne of Green Gables."}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Alias adjudication}
+Decides whether two surface forms are one entity (\sys, gazetteer). Model \texttt{gemini-3.6-flash}; 548 input and 50 output tokens; run \nolinkurl{anne@v2/20261004T193719-gazetteer-v1-5}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are deciding whether two surface forms mined from a novel refer to the SAME entity (e.g. a full name and a nickname, a call sign and a real name, a title and a bare surname) or to two DIFFERENT entities that merely look similar.
+
+Leaving two different surface forms unmerged is the SAFE error -- a human reviewer can merge them in five seconds. Merging two different people is the COSTLY error -- it silently mixes their facts on one page and is hard to catch later. When genuinely unsure, say they are different.
+
+Decide from the quoted passages alone. Anything you may know about this book or its series from elsewhere is not evidence: the reader of this page knows only the text so far, and a merge the passages do not show can reveal a later twist or join two different people.
+
+Respond with JSON only: {"same_entity": true/false, "confidence": 0.0-1.0, "notes": "short reason"}
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Form A: "Charlie Sloane" (CHARACTER, seen 38 time(s), first vol 1):
+  - "in half a dozen take-notices. "It's only meant as a joke. And don't you be too sure your name won't ever be written up. Charlie Sloane is dead gone on you. He told his mother--his mother, mind you--that you were the smartest girl in school. That's better than being good-looking.""
+  - ""No, it isn't," said Anne, feminine to the core. "I'd rather be pretty than clever. And I hate Charlie Sloane, I can't bear a boy with goggle eyes. If anyone wrote my name up with his I'd never get over it, Diana Barry. But it is nice to keep head of your class.""
+
+Form B: "Carrie Sloane" (CHARACTER, seen 10 time(s), first vol 1):
+  - "der brothers and sisters who were going to take part. Everybody in school over nine years of age expected to go, except Carrie Sloane, whose father shared Marilla's opinions about small girls going out to night concerts. Carrie Sloane cried into her grammar all the afternoon and felt that life was n"
+  - "a model pupil like Minnie Andrews. She hadn't anything on her conscience. The girls cried all the way home from school. Carrie Sloane kept saying every few minutes, 'The time has come for us to part,' and that would start us off again whenever we were in any danger of cheering up. I do feel dreadful"
+
+Are these the same entity?
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"same_entity": false, "confidence": 1.0, "notes": "Charlie Sloane (a male classmate described as a boy) and Carrie Sloane (a female classmate) are two distinct individuals/siblings within the same family."}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Claim extraction}
+Extracts dated, quoted claims about one character from one evidence window (\sys). Model \texttt{gemini-3.6-flash}; 8,884 input and 734 output tokens; run \nolinkurl{anne@v2/20261005T070204-extract-v5-5}.
+
+\paragraph{Note on this log.} STATUS and APPEARANCE include internal revision labels,
+code paths, and implementation notes in the prompt's field descriptions. These entries
+are preserved as run evidence. Implementation metadata should be separated from semantic
+definitions in the prompt builder before future runs.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are extracting facts about ONE named character from passages of a novel. You will be told the character's name; extract facts ONLY about that character, never about anyone else named alongside them.
+
+Three kinds of fact exist:
+
+ATTRIBUTE (a scalar fact about the character):
+- AGE
+- GENDER
+- STATUS -- alive / deceased / missing in action / captured. Use polarity=presumed when the text only reports a belief. `default` (Phase 22 A5, U6): materialized by synth/assemble.py when zero STATUS claims exist -- 'alive' is the reader's safe default at any cutoff (a later death is itself a claim that only appears once the reader reaches it), marked inferred: true so it never masquerades as evidence.
+- RANK -- A formal grade inside a named organisation or hierarchy: a military rank, a guild or adventurer grade, a noble or church rank. Always a category, never a number. NOT a power level, a game level or any other statistic, NOT a job (OCCUPATION), NOT an honorific or epithet (TITLE).
+- TITLE -- An honorific, epithet or office the text calls the character by (Supreme Being, the Wisewolf of Yoitsu, head of the branch). A grade in a hierarchy is RANK; a job is OCCUPATION.
+- NICKNAME -- Includes call signs and code names. first_vol matters: an alias revealed in V3 must not appear on a V1 page.
+- ORIGIN -- Where the character comes from: a birthplace, homeland, village or people. Never a job or a past occupation (that is OCCUPATION or BACKGROUND).
+- OCCUPATION -- What the character does in the world: their job, trade or standing role (merchant, maid, village chief, floor guardian). NOT a combat class or skill, NOT a species, NOT a rank.
+- APPEARANCE -- subsume (Phase 22 A2): drop a value that is redundant next to a longer sibling ('hair' next to 'long brown hair') or a bare single-word noun standing alone -- see graph/canonicalize.py::subsume_values. Deterministic, no embed call.
+
+RELATION (a link to another character or entity actually named in the passage; "object" must be copied verbatim from a name that appears in the passage, not paraphrased or described):
+- PARENT_OF -- An actual stated parent/child relationship -- never inferred from a shared surname, a title like 'son of', or 
+[... 9,813 characters elided ...]
+BLING_OF, SPOUSE_OF, STUDENT_OF), not just the subject.
+
+Respond with JSON only, shaped exactly like this worked example (a RELATION fact about a
+character named "Shin", using null for the fields a TRAIT or ATTRIBUTE fact would instead need):
+
+{"facts": [
+  {"predicate": "AFFILIATED_WITH", "kind": "relation", "object": "Spearhead Squadron", "value": null, "qualifier": "captain", "para_id": "v01:c00:p0031", "quote": "the Spearhead Squadron's captain, code name Undertaker", "confidence": 0.92, "polarity": "asserted"}
+]}
+
+Return {"facts": []} if this passage says nothing new about this character.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Character: "Anne Shirley" (aliases: Anne, Anne-girl, Mistress Blythe, Mrs. Blythe, Mrs. Doctor, Mrs. Doctor, dear, Mrs. Dr. dear, Queen Anne, the Anne-girl, young Mrs. Doctor)
+Volume 5.
+Other people/things named in these passages: Aunt Martha (also: old Martha), Avonlea (also: The Avonlea), Blythe, Carl, Cornelia Bryant (also: Bryant, Cornelia, Cornelia Elliott, Miss Bryant, Miss Cornelia, Mrs. Elliott, Mrs. Marshall Elliott, fair Cornelia), Europe, Faith (also: Faith Meredith, Red Rose), Four Winds, Four Winds Harbor (also: Four Winds Harbour), Glen, Green Gables, Harbour Head, Harrison, Ingleside, James A (also: James), Jem (also: Jem Blythe, Little Jem), Jerry Corcoran (also: Jerry), London, Maria, Marilla Cuthbert (also: Aunt Marilla, Cuthbert, Marilla, Miss Cuthbert), Mary Vance (also: Mary, Mary-creature), Methodist (also: Methodists, The Methodists), Paul Irving (also: Paul), Presbyterian (also: Presbyterians), Priscilla Grant (also: Grant, Pris, Priscilla, Prissy, Prissy Andrews), Rachel Lynde (also: Lynde, Mrs. Rachel, Rachel), Rainbow Valley, Rilla Blythe (also: Rilla), Shirley, Susan (also: Susan Baker, old Susan, old Susan Baker), Taylor, Thomas Lynde (also: Rachel Lynde's husband, Thomas), Una Meredith (also: Una), Walter Blythe (also: Walter)
+
+Passages (each paragraph labeled with its id; a passage break means the text on either side comes from a different part of the volume and does not continue):
+[v05:c01:p0000] It was a clear, apple-green evening in May, and Four Winds Harbour was mirroring back the clouds of the golden west between its softly dark shores. The sea moaned eerily on the sand-bar, sorrowful even in spring, but a sly, jovial wind came piping down the red harbour road along which Miss Cornelia's comfortable, matronly figure was making its wa
+[... 18,642 characters elided ...]
+ained untinged of charity. Susan smiled slyly.
+[v05:c02:p0042] "They do say, Mrs. Marshall Elliott, that the Methodists and Presbyterians are talking of uniting," she said.
+[v05:c02:p0043] "Well, all I hope is that I'll be under the sod if that ever comes to pass," retorted Miss Cornelia. "I shall never have truck or trade with Methodists, and Mr. Meredith will find that he'd better steer clear of them, too. He is entirely too sociable with them, believe me. Why, he went to the Jacob Drews' silver-wedding supper and got into a nice scrape as a result."
+
+Extract facts about "Anne Shirley" only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"facts": [
+  {"predicate": "SPOUSE_OF", "kind": "relation", "object": "Blythe", "value": null, "qualifier": "husband", "para_id": "v05:c01:p0001", "quote": "Miss Cornelia was going up to Ingleside to see Dr. and Mrs. Blythe, who were just home from Europe.", "confidence": 0.95, "polarity": "asserted"},
+  {"predicate": "PARENT_OF", "kind": "relation", "object": "Rilla Blythe", "value": null, "qualifier": "mother", "para_id": "v05:c01:p0003", "quote": "Behind her, in the hammock, Rilla Blythe was curled up, a fat, roly-poly little creature of six years, the youngest of the Ingleside children.", "confidence": 0.95, "polarity": "asserted"},
+  {"predicate": "PARENT_OF", "kind": "relation", "object": "Shirley", "value": null, "qualifier": "mother", "para_id": "v05:c01:p0004", "quote": "After his birth Anne had been very ill for a long time, and Susan "mothered" the baby with a passionate tenderness which none of the other children, dear as they were to her, had ever called out.", "confidence": 0.95, "polarity": "asserted"},
+  {"predicate": "PARENT_OF", "kind": "relation", "object": "Jem", "value": null, "qualifier": "mother", "para_id": "v05:c02:p0001", "quote": ""Shirley is in bed and Jem and Walter and the twins are down in their beloved Rainbow Valley," said Anne.", "confidence": 0.95, "polarity": "asserted"},
+  {"predicate": "PARENT_OF", "kind": "relation", "object": "Walter Blythe", "value": null, "qualifier": "mother", "para_id": "v05:c02:p0001", "quote": ""Shirley is in bed and Jem and Walter and the twins are down in their beloved Rainbow Valley," said Anne.", "confidence": 0.95, "polarity": "asserted"},
+  {"predicate": "APPEARANCE", "kind": "attribute", "object": null, "value": "beautiful gray-green eyes", "qualifier": null, "para_id": "v05:c01:p0003", "quote": "and the beautiful gray-green eyes, gazing down the harbour road, were as full of unquenchable sparkle and dream as ever.", "confidence": 0.95, "polarity": "asserted"},
+  {"predicate": "PERSONALITY", "kind": "trait", "object": null, "value": "loves gossip", "qualifier": null, "para_id": "v05:c01:p0009", "quote": "Do you know, Susan, I have a dreadful suspicion that I love gossip.", "confidence": 0.9, "polarity": "asserted"}
+]}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Scene extraction}
+Records scenes, participants and events over a chapter span (\sys). Model \texttt{gemini-3.6-flash}; 5,729 input and 202 output tokens; run \nolinkurl{anne@v2/20261004T195945-scenes-v5-5}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are reading one FULL CHAPTER of a novel, span by span, to build a scene-level summary -- not fact-by-fact extraction. You are given a whole passage in reading order, possibly spanning multiple scenes or POV shifts (marked inline with a line reading "[SCENE BREAK]").
+
+For this passage, report:
+
+PARTICIPANTS: every character who takes part in this passage -- present in the scene, speaking, acting, or acted upon -- copy each name EXACTLY as it appears in "Known entities in this chapter" below, never invent a new name. A character who is only talked about, remembered, written to, or named in passing is NOT a participant: the wiki lists this scene on every participant's page.
+
+LOCATION: where this passage takes place, if stated or clearly implied -- copy it EXACTLY from "Known entities in this chapter", or leave it null if not stated or not in that list.
+
+BEAT_SUMMARY: 2-4 sentences paraphrasing what actually happens in this passage -- this is the one field in the whole scene-extraction pass that does NOT need a verbatim quote; summarize freely, but only describe what this passage itself shows.
+
+SUMMARY_PARA_IDS: the ids of the 1-4 paragraphs that most directly show what your beat_summary says, copied exactly from their labels in the passage (e.g. "v01:c03:p0082"). A reader follows them to check the summary.
+
+Rules:
+- Only name a participant/location that is in "Known entities in this chapter" -- never a name invented or paraphrased from elsewhere.
+- Omitting something this passage does not support is correct -- do not force a fit.
+
+Respond with JSON only, shaped exactly like this worked example:
+
+{{"participants": ["Shin", "Spearhead Squadron"], "location": null,
+"beat_summary": "Shin briefs the squadron before the next sortie, reminding them of the plan.",
+"summary_para_ids": ["v01:c03:p0082", "v01:c03:p0084"], "confidence": 0.85}}
+
+Return {{"participants": [], "location": null, "beat_summary": "...", "summary_para_ids": [], "confidence": 0.5}} (with a short beat_summary even if nothing else was found) if this passage supports nothing more specific.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Volume 5, chapter 2.
+Known entities in this chapter: Alec Davis (also: Kitty Alec), Anne Shirley (also: Anne, Anne-girl), Aunt Martha, Avonlea (also: The Avonlea), Canada, Carl, Cornelia Bryant (also: Bryant, Cornelia), Ellen West (also: Ellen), Episcopalians, Europe, Faith (also: Faith Meredith), Four Winds, Four Winds Harbor (also: Four Winds Harbour), Glen, Harbour Head, James A (also: James), Japan, Jem (also: Jem Blythe, Little Jem), Jerry Corcoran (also: Jerry), Joseph, Kenneth, Leslie Moore (also: Leslie), Lowbridge, Maria, Marilla Cuthbert (also: Aunt Marilla, Cuthbert, Marilla), Marshall Elliott (also: Marshall), Martin Crawford (also: Martin), Mary Vance (also: Mary), Merediths (also: The Meredith), Methodist (also: Methodists, The Methodists), Moses, Owen Ford, Paul Irving (also: Paul), Presbyterian (also: Presbyterians), Priscilla Grant (also: Grant, Pris, Priscilla, Prissy, Prissy Andrews), Rainbow Valley, Rilla Blythe (also: Rilla), Rosemary West (also: Rosemary), Shirley, Susan (also: Susan Baker), Thomas Lynde (also: Thomas), Una Meredith (also: Una), Uncle Jim (also: Boyd, Jim, Jim Boyd), Walter Blythe (also: Walter)
+
+Passage (each paragraph labeled with its id):
+[v05:c02:p0000] "Where are the other children?" asked Miss Cornelia, when the first greetings--cordial on her side, rapturous on Anne's, and dignified on Susan's--were over.
+[v05:c02:p0001] "Shirley is in bed and Jem and Walter and the twins are down in their beloved Rainbow Valley," said Anne. "They just came home this afternoon, you know, and they could hardly wait until supper was over before rushing down to the valley. They love it above every spot on earth. Even the maple grove doesn't rival it in their affections."
+[v05:c02:p0002] "I am afraid they love it too well," said Susan gloomily. "L
+[... 15,858 characters elided ...]
+d see me soon. Tell them the doughnut jar is always full."
+[v05:c02:p0061] "Oh, at supper they were planning a descent on you. They'll go soon; but they must settle down to school again now. And the twins are going to take music lessons."
+[v05:c02:p0062] "Not from the Methodist minister's wife, I hope?" said Miss Cornelia anxiously.
+[v05:c02:p0063] "No--from Rosemary West. I was up last evening to arrange it with her. What a pretty girl she is!"
+[v05:c02:p0064] "Rosemary holds her own well. She isn't as young as she once was."
+
+Report participants, location, and a beat summary for this passage.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "participants": [
+    "Anne Shirley",
+    "Cornelia Bryant",
+    "Susan"
+  ],
+  "location": null,
+  "beat_summary": "Cornelia Bryant and Susan visit Anne to welcome her back and catch her up on the local news, particularly regarding the new minister, Mr. Meredith, and his motherless children. They discuss the minister's well-meaning but absent-minded nature, his unruly family, and various church gossip before Miss Cornelia takes her leave.",
+  "summary_para_ids": [
+    "v05:c02:p0007",
+    "v05:c02:p0011",
+    "v05:c02:p0023",
+    "v05:c02:p0054"
+  ],
+  "confidence": 0.95
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Infobox pass}
+Long-context pass for gender, age and origin (\sys). Model \texttt{gemini-3.6-flash}; 93,403 input and 490 output tokens; run \nolinkurl{anne@v2/20261005T070216-infobox-v1-5}.
+
+\paragraph{Note on this log.} The response departs from two rules of its prompt: the
+\texttt{GENDER} quote does not contain Anne's name, and the \texttt{AGE} entries give two
+values (11 and 13). The code does not enforce these two prompt rules; it applies the
+evidence gates of Section~\ref{sec:method}. Two values of one attribute from one volume go
+to arbitration, shown next.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are filling in the infobox of ONE named character's wiki page, from passages of a novel. The passages are every part of one volume where this character appears, in reading order. Extract ONLY these fields, and only about the named character:
+
+- GENDER
+- AGE
+- ORIGIN -- Where the character comes from: a birthplace, homeland, village or people. Never a job or a past occupation (that is OCCUPATION or BACKGROUND).
+
+Rules:
+- Each field needs a "para_id" copied EXACTLY from a bracketed label, and a "quote" copied VERBATIM from that single paragraph (no added quotation marks) that shows the value.
+- GENDER: "female" or "male". The quote MUST contain both the character's name (or a listed alias) AND a gendered word referring to them -- e.g. "Lena shook her head", "Shin said, and he laughed". Pick such a sentence even if a vaguer one ("said the girl") appears earlier; a quote without the name is discarded, and a quote without a gendered word does not show gender. Never infer gender from a name alone.
+- AGE: a number or range only when the text states it or states something that fixes it.
+- ORIGIN: where the character was born or comes from (homeland, hometown). NOT where they currently live, work, trade or are visiting.
+- If the passages do not support a field, leave it out. Omitting is correct; guessing is not.
+- polarity is "asserted", or "presumed" when the text only reports a belief or a claim the passage marks as untrue or uncertain. confidence is 0.0-1.0.
+- You may give up to 3 entries per field, each with a different quote, so that at least one meets the evidence requirements below. Every entry for a field must give the same value.
+
+EVIDENCE REQUIREMENTS -- a fact that fails any of these is discarded:
+- "quote" must be at least 6 words long. A shorter quote cannot support a fact on its own and is thrown away -- quote the whole clause, not two words of it.
+- The character's own name or a known alias MUST occur in the cited paragraph or within 1 paragraph(s) before or after it in the supplied passage. Cite and quote the paragraph that actually states the fact, even when it uses a pronoun; do not substitute a nearby paragraph merely because it names them. The antec
+[... 402 characters elided ...]
+of" is a label, not a fact.
+- For these relations the cited paragraph must name BOTH people (CHILD_OF, COMMANDS, KILLED, MENTOR_OF, PARENT_OF, RELATIVE_OF, ROMANTIC_WITH, SAVED, SERVES_UNDER, SIBLING_OF, SPOUSE_OF, STUDENT_OF), not just the subject.
+
+Respond with JSON only, shaped exactly like this:
+{"facts": [
+  {"predicate": "GENDER", "kind": "attribute", "object": null, "value": "female", "qualifier": null, "para_id": "v01:c02:p0040", "quote": "She pulled her hood lower over her ears", "confidence": 0.95, "polarity": "asserted"}
+]}
+
+Return {"facts": []} if none of these fields is supported.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Character: "Anne Shirley" (aliases: Anne, Anne-girl, Mistress Blythe, Mrs. Blythe, Mrs. Doctor, Mrs. Doctor, dear, Mrs. Dr. dear, Queen Anne, the Anne-girl, young Mrs. Doctor)
+Volume 1.
+Other people/things named in these passages: Adella, Aid Society (also: Aid, Aids), Allan, American (also: Americans), Anne of Green Gables, Avenue (also: White Way, White Way of Delight), Avonlea (also: The Avonlea), Barry, Beechwood, Ben Hur, Bentley, Bertha Shirley, Billy Andrews (also: Billy, Billy Booth), Bingen, Birch Path, Blewett, Blythe, Bolingbroke, Bonny, Boston, Bright River, Camelot, Canada, Carmody, Carrie Sloane, Charlie Sloane (also: Goggle-eyes), Charlottetown, Chester Ross, Conservative (also: Conservatives, Tory), Cuthberts, Debating Club, Diana Barry (also: Di, Diana, Diana Wright), Dryad's Bubble (also: Bubble, Dryad), Edward Island, Elaine, Emily (also: the Fair Unknown), Entrance, Evans, Exhibition, Faith (also: Faith Meredith, Red Rose), Flora Jane, Frank Stockley, Geraldine, Gertie Pye (also: Gertie), Gilbert Blythe (also: Gil, Gilbert), God, Green Gables, Grit (also: Grits), Guinevere, Hammond, Harmon Andrews (also: Harmon), Haunted Wood (also: The Haunted Wood), Idlewild, Island, Jane Andrews (also: Jane), Jerry, Josephine Barry (also: Aunt Josephine, Miss Barry, Old Miss Barry), Josie Pye (also: Josie), Julia Bell, Lake of Shining Waters (also: Shining Waters), Lancelot, Lavendar Lewis (also: Lavendar, Lewis), Liberal, Lover (also: Lover's Lane), Marilla Cuthbert (also: Aunt Marilla, Cuthbert, Marilla, Miss Cuthbert), Martin, Mary Joe (also: Aunt Mary, Mary, Young Mary Joe), Marysville, Matthew Cuthbert (also: Matthew), Merry Christmas (also: Christmas), Minnie, Minnie Andrews, Minnie May, Moody Spurgeon MacPherson (also: Moody Spurgeon), New Brunswick, Newbri
+[... 351,617 characters elided ...]
+he," answered Anne, vexed to find herself blushing. "I met him on Barry's hill."
+
+--- new passage, not continuous with the text above ---
+
+[v01:c38:p0061] Anne sat long at her window that night companioned by a glad content. The wind purred softly in the cherry boughs, and the mint breaths came up to her. The stars twinkled over the pointed firs in the hollow and Diana's light gleamed through the old gap.
+
+--- new passage, not continuous with the text above ---
+
+[v01:c38:p0063] "'God's in his heaven, all's right with the world,'" whispered Anne softly.
+
+Extract facts about "Anne Shirley" only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"facts": [
+  {"predicate": "GENDER", "kind": "attribute", "object": null, "value": "female", "qualifier": null, "para_id": "v01:c03:p0045", "quote": "With a sob she hastily discarded her garments, put on the skimpy nightgown and sprang into bed where she burrowed face downward into the pillow and pulled the clothes over her head.", "confidence": 1.0, "polarity": "asserted"},
+  {"predicate": "AGE", "kind": "attribute", "object": null, "value": 11, "qualifier": null, "para_id": "v01:c05:p0011", "quote": ""I was eleven last March," said Anne, resigning herself to bald facts with a little sigh.", "confidence": 1.0, "polarity": "asserted"},
+  {"predicate": "AGE", "kind": "attribute", "object": null, "value": 11, "qualifier": null, "para_id": "v01:c06:p0017", "quote": ""Anne Shirley," faltered the shrinking child, not daring to make any stipulations regarding the spelling thereof, "and I'm eleven years old."", "confidence": 1.0, "polarity": "asserted"},
+  {"predicate": "AGE", "kind": "attribute", "object": null, "value": 13, "qualifier": null, "para_id": "v01:c26:p0004", "quote": ""Just think, Diana, I'm thirteen years old today," remarked Anne in an awed voice.", "confidence": 1.0, "polarity": "asserted"},
+  {"predicate": "ORIGIN", "kind": "attribute", "object": null, "value": "Bolingbroke, Nova Scotia", "qualifier": null, "para_id": "v01:c05:p0011", "quote": ""And I was born in Bolingbroke, Nova Scotia.", "confidence": 1.0, "polarity": "asserted"}
+]}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Backstory pass}
+Long-context pass for background facts (\sys). Model \texttt{gemini-3.6-flash}; 135,267 input and 309 output tokens; run \nolinkurl{anne@v2/20261005T070229-backstory-v1-5}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are writing the background of ONE named character's wiki page, from passages of a novel. The passages are every part of one volume where this character appears, with nearby context, in reading order. Extract ONLY this kind of fact, and only about the named character:
+
+- BACKGROUND -- A biographical fact, not a narrative. 'Orphaned in the First Offensive' -- the prose stage joins these.
+
+What counts: the character's life BEFORE the story's present, or lasting facts about their past that the text reveals -- upbringing, family, where they lived or grew up, earlier work, how they came to be where they are, a formative event. What does NOT count: things they do during the story's present, personality, appearance, or their current job.
+
+Rules:
+- "value" is a short phrase of at most 20 words, not a sentence, in the PAST tense, describing something that happened or was true before the story's present: "raised in an almshouse attached to an abbey", "apprenticed to a relative at twelve". If it cannot be phrased that way, it is not backstory -- leave it out.
+- Never return: an age; a current job, title, employer or backer; who they work with now; health complaints; where they are from, as a bare place name (a separate field covers that).
+- The character's own first-person account of their past counts; so does another character or the narrator stating it as fact. A rumour, a boast or a guess is "presumed", not "asserted".
+- Each fact needs a "para_id" copied EXACTLY from a bracketed label and a "quote" copied VERBATIM from that single paragraph (no added quotation marks).
+- Give each distinct fact once, at most 8 facts. Omitting is correct; guessing is not.
+
+EVIDENCE REQUIREMENTS -- a fact that fails any of these is discarded:
+- "quote" must be at least 6 words long. A shorter quote cannot support a fact on its own and is thrown away -- quote the whole clause, not two words of it.
+- The character's own name or a known alias MUST occur in the cited paragraph or within 1 paragraph(s) before or after it in the supplied passage. Cite and quote the paragraph that actually states the fact, even when it uses a pronoun; do not substitute a nearby paragraph merely because it names 
+[... 482 characters elided ...]
+raph must name BOTH people (CHILD_OF, COMMANDS, KILLED, MENTOR_OF, PARENT_OF, RELATIVE_OF, ROMANTIC_WITH, SAVED, SERVES_UNDER, SIBLING_OF, SPOUSE_OF, STUDENT_OF), not just the subject.
+
+Respond with JSON only, shaped exactly like this:
+{"facts": [
+  {"predicate": "BACKGROUND", "kind": "trait", "object": null, "value": "set out on his own at eighteen", "qualifier": null, "para_id": "v01:c01:p0006", "quote": "This year made the seventh since he'd struck out on his own", "confidence": 0.9, "polarity": "asserted"}
+]}
+
+Return {"facts": []} if the passages reveal nothing about this character's past.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Character: "Marilla Cuthbert" (aliases: Aunt Marilla, Cuthbert, Marilla, Miss Cuthbert)
+Volume 1.
+Other people/things named in these passages: Adam, Adella, Aid Society (also: Aid, Aids), Alexander Spencer, Allan, Almighty, American (also: Americans), Anne Shirley (also: Anne, Anne-girl, Mistress Blythe, Mrs. Blythe, Mrs. Doctor, Mrs. Doctor, dear, Mrs. Dr. dear, Queen Anne, the Anne-girl, young Mrs. Doctor), Anne of Green Gables, Avenue (also: White Way, White Way of Delight), Avonlea (also: The Avonlea), Barry, Beechwood, Ben Hur, Bentley, Bertha Shirley, Bertram, Billy Andrews (also: Billy, Billy Booth), Bingen, Birch Path, Blewett, Blythe, Blythes (also: The Blythe), Bolingbroke, Bonny, Bright River, Camelot, Canada, Carmody, Carrie Sloane, Charlie Sloane (also: Goggle-eyes), Charlottetown, Chester Ross, Conservative (also: Conservatives, Tory), Cuthberts, Daniel, Debating Club, Diana Barry (also: Di, Diana, Diana Wright), Dryad's Bubble (also: Bubble, Dryad), Edward Island, Elaine, Emily (also: the Fair Unknown), England, Entrance, Europe, Evans, Exhibition, Faith (also: Faith Meredith, Red Rose), Flora Jane, Fourth, Frank Stockley, Geraldine, German, Germany, Gertie Pye (also: Gertie), Gilbert Blythe (also: Gil, Gilbert), God, Green Gables, Grit (also: Grits), Hammond, Harmon Andrews (also: Harmon), Harris, Haunted Wood (also: The Haunted Wood), Hopeton (also: Hopetown), Idlewild, Island, James A (also: James), Jane Andrews (also: Jane), Jerry, Josephine Barry (also: Aunt Josephine, Miss Barry, Old Miss Barry), Josie Pye (also: Josie), Julia Bell, Katie Maurice, Lake of Shining Waters (also: Shining Waters), Lauretta, Liberal, London, Lover (also: Lover's Lane), Lynde's Hollow, Marshall, Martin, Mary Joe (also: Aunt Mary, Mary, Young Mary Joe), Marysville, Matthew
+[... 488,087 characters elided ...]
+med through the old gap.
+[v01:c38:p0062] Anne's horizons had closed in since the night she had sat there after coming home from Queen's; but if the path set before her feet was to be narrow she knew that flowers of quiet happiness would bloom along it. The joy of sincere work and worthy aspiration and congenial friendship were to be hers; nothing could rob her of her birthright of fancy or her ideal world of dreams. And there was always the bend in the road!
+[v01:c38:p0063] "'God's in his heaven, all's right with the world,'" whispered Anne softly.
+
+Extract facts about "Marilla Cuthbert" only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"facts": [
+  {"predicate": "BACKGROUND", "kind": "trait", "object": null, "value": "grown up when the new house was built", "qualifier": null, "para_id": "v01:c01:p0031", "quote": "Matthew and Marilla were grown up when the new house was built", "confidence": 0.9, "polarity": "asserted"},
+  {"predicate": "BACKGROUND", "kind": "trait", "object": null, "value": "heard an aunt call her a dark, homely little thing", "qualifier": null, "para_id": "v01:c09:p0044", "quote": "She had been a very small child when she had heard one aunt say of her to another, "What a pity she is such a dark, homely little thing."", "confidence": 0.9, "polarity": "asserted"},
+  {"predicate": "BACKGROUND", "kind": "trait", "object": null, "value": "quarreled with John Blythe and refused to forgive him", "qualifier": null, "para_id": "v01:c37:p0040", "quote": "We had a quarrel. I wouldn't forgive him when he asked me to.", "confidence": 0.9, "polarity": "asserted"}
+]}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Arbitration}
+Resolves a same-volume conflict between two values (\sys). Model \texttt{gemini-3.6-flash}; 258 input and 55 output tokens; run \nolinkurl{anne@v2/20261005T070243-graph_build-v1-5}.
+
+\paragraph{Handling of flagged conflicts.} A \texttt{flag} resolution keeps the
+higher-confidence value provisionally (here 11), so the interval sequence has no gap, and
+records the conflict in the build's conflict report; the page is rendered from the
+provisional value.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are arbitrating a contradiction found in facts extracted about a character from a novel. Two facts were extracted from the SAME volume and disagree, which means one is an extraction error -- the source text does not actually contradict itself within one volume. You will be shown both facts and the exact passage each was drawn from. Decide which is correct, or whether both are legitimately true at once (e.g. two compatible phrasings of the same fact), or whether neither passage clearly supports a value (flag for human review). Base your decision only on the quoted evidence, never on outside knowledge of the series.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Character: anne-shirley
+Attribute: AGE
+Volume: 1
+
+Fact A: value="11", confidence=1.00, evidence: "I was eleven last March," said Anne"
+Fact B: value="13", confidence=0.99, evidence: "It's such a solemn thing to be almost fourteen, Marilla."; ""Just think, Diana, I'm thirteen years old today," remarked Anne in an awed voice."
+
+Which fact is correct? resolution must be one of keep_a, keep_b, keep_both, flag, plus a one-sentence rationale citing the evidence.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "resolution": "flag",
+  "rationale": "Fact A states Anne was eleven based on an earlier passage, while Fact B shows her turning thirteen later in the same volume, indicating a progression of time rather than a single static age."
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Verification}
+Checks stored facts against their own cited evidence (\sys). Model \texttt{gemini-3.6-flash}; 2,833 input and 5 output tokens; run \nolinkurl{anne@v2/20261005T053635-verify-upto5}. This run precedes the extraction runs shown above because those later runs replayed the call cache, producing the same claims, and the final verification run (\nolinkurl{20261005T070323}) made no call: every fact of the final graph had a stored verdict, which is reused only while the fact's identity and cited evidence are unchanged.
+
+\paragraph{Note on this log.} The supplied definition of APPEARANCE is a
+canonicalization instruction, rather than a semantic definition of a character's physical
+features. Because the verifier is explicitly told to judge by that definition, this is
+a defect in the verification input, even though the exhibited claim is accepted. The
+example alone does not quantify the defect's impact.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are fact-checking one entry on a character's page on a wiki generated from a novel series. You will be shown a single fact extracted about this character, together with the exact quoted evidence it was extracted from. Three known failure patterns to watch for: (1) a fact that actually belongs to a DIFFERENT character whose name is similar or who appears in the same passage (two people conflated as one); (2) a relationship or membership claim the quoted evidence does not actually support (for example, evidence describing an enemy or a captor does not support "member of" or "friend of"); (3) a family relationship (parent/child/sibling/spouse/relative) whose "evidence" is really a boast, a joke, a false identity given to a stranger, or someone invoking a respected name for effect (e.g. "I'm X, son of the great Y" as bravado or name-dropping, not a literal claim of parentage) -- treat this the same as pattern (2): the quoted line does not actually support the relationship. Judge the fact ONLY against its OWN quoted evidence: never reject it because it is surprising, or because you know the story from outside sources. Judge only the fact shown. The character may appear under any of the names listed after "also called": evidence about any of those names is evidence about this character, not about someone else. For a GENDER fact, a gendered pronoun or noun that clearly refers to the character ("she", "his", "the girl") is sufficient evidence. Nearby paragraphs, when supplied, are context for the quote, not additional cited evidence. Use them to distinguish literal statements from banter, figurative kinship, and false identities. Base your judgement solely on the supplied quote and context. When the fact comes with a definition of its label, judge it by that definition: the evidence must show that specific relationship or quality (a friendship, a mentorship, a membership), not merely a meeting, a business dealing, a single helpful act, being in the same scene, or being paid by someone. The description in parentheses must be supported too; if the label holds but the description does not, the fact is not supported.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Character: Anne Shirley (also called: Anne, Anne-girl, the Anne-girl, Queen Anne, Mistress Blythe, young Mrs. Doctor, Mrs. Doctor, dear, Mrs. Doctor)
+
+Fact: APPEARANCE = "little pale face with seven freckles on the nose" -- evidence: [v02:c27:p0041] "When she looked in the glass all she saw was a little pale face with seven freckles on the nose thereof."; [v02:c20:p0017] "There were those seven freckles on her nose, more rampant than ever, or so it seemed in the glare of light from the unshaded window."
+Definition of APPEARANCE: subsume (Phase 22 A2): drop a value that is redundant next to a longer sibling ('hair' next to 'long brown hair') or a bare single-word noun standing alone -- see graph/canonicalize.py::subsume_values. Deterministic, no embed call.
+
+Nearby paragraph context (interpretation only, not additional citations):
+[v02:c27:p0037] Anne and Charlotta the Fourth accordingly betook themselves back to Mr. Kimball's pasture, a green remote place where the air was as soft as velvet and fragrant as a bed of violets and golden as amber.
+[v02:c27:p0038] "Oh, isn't it sweet and fresh back here?" breathed Anne. "I just feel as if I were drinking in the sunshine."
+[v02:c27:p0039] "Yes, ma'am, so do I. That's just exactly how I feel too, ma'am," agreed Charlotta the Fourth, who would have said precisely the same thing if Anne had remarked that she felt like a pelican of the wilderness. Always after Anne had visited Echo Lodge Charlotta the Fourth mounted to her little room over the kitchen and tried before her looking glass to speak and look and move like Anne. Charlotta could never flatter herself that she quite succeeded; but practice makes perfect, as Charlotta had learned at school, and she fondly hoped that in time she might catch the trick of that dainty uplift 
+[... 6,974 characters elided ...]
+d with a veritable halo of feathers. At this auspicious moment a knock sounded at the kitchen door.
+[v02:c20:p0021] "That must be Mr. Shearer," thought Anne. "I'm in a dreadful mess but I'll have to run down as I am, for he's always in a hurry."
+
+Does the quoted evidence actually support this fact? If it does not, give a one-sentence rationale citing what the evidence actually shows.
+
+Respond with JSON only, shaped exactly like this:
+{"supported": false, "rationale": "The quote shows Shin hiring the man, not being related to him."}
+
+Return {"supported": true} if the evidence supports the fact.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"supported": true}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Page prose: physical appearance}
+Writes a physical description from the cutoff-filtered claims (\sys). Model \texttt{gemini-3.6-flash}; 1,045 input and 174 output tokens; run \nolinkurl{anne@v2/20261005T070347-synthesize-upto5}.
+
+This logged prompt requests 3--4 sentences, while the intended character-page template
+specifies 2--4. The four-sentence response satisfies both; the prompts express different
+minimum lengths.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are writing a physical description of a character from a novel, for a wiki page a reader is viewing at one specific point in the story. You are given ONLY the attributes extracted so far, each with the exact passage it came from. Write 3-4 sentences, third person, encyclopedic tone, no meta-commentary. Do not mention any name, number, place, relationship or event that is not stated in the facts you were given -- the reader has not read past this point in the story, and a detail you add or infer from outside knowledge of the series would spoil it. If the facts describe a change over time, you may mention that in passing, but never state or imply what happens after the given facts.
+
+Every line you are given starts with a key such as [F1] or [S2]. In "cited", list the keys of the lines your text actually rests on, and no others.
+
+Respond with JSON only: {"text": "...", "cited": ["F1"]}
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Character: Anne Shirley
+As known through Volume 1.
+
+[F1] Appearance: solemn gray eyes (since v1) -- "Her pointed freckled face and solemn gray eyes peered back at her."
+[F2] Appearance: long red braids (since v1) -- "now Anne, with a toss of her long red braids, spelled him down"; "Gilbert reached across the aisle, picked up the end of Anne's long red braid, held it out at arm's length and said in a piercing whisper"; "Gilbert reached across the aisle, picked up the end of Anne's long red braid"
+[F3] Appearance: auburn hair (since v1) -- "people are nice enough to tell me my hair is auburn now--all but Josie Pye."
+[F4] Appearance: red hair (since v1) -- "Redheaded people can't wear pink, not even in imagination."; ""You'd find it easier to be bad than good if you had red hair," said Anne reproachfully."; "It's bad enough to have red hair myself, but I positively couldn't endure it in a bosom friend."; "My hair is red and I'm freckled and skinny and ugly."; "She should look at him, that red-haired Shirley girl with the little pointed chin and the big eyes that weren't like the eyes of any other girl in Avonlea school."; "I'm perfectly happy--yes, in spite of my red hair."; "A minister mightn't mind my red hair because he wouldn't be thinking of such worldly things."; "Josie says she thinks a red-haired fairy is just as ridiculous as a fat one"; "I thought nothing could be as bad as red hair."; "You'd find it easier to be bad than good if you had red hair," said Anne reproachfully. "People who haven't red hair don't know what trouble is. Mrs. Thomas told me that God made my hair red on purpose"; "Who is that girl on the platform with the splendid Titian hair?"
+[F5] Appearance: thin legs (since v1) -- "below which her thin legs seemed ungracefully long."
+[F6] Appearance: sho
+[... 776 characters elided ...]
+oroughly and it had been necessary to shingle the hair as closely as possible."
+[F11] Appearance: cheeks faintly flushed with pink (since v1) -- "A series of staccato taps on the west window brought Anne flying in from the yard, eyes shining, cheeks faintly flushed with pink, unbraided hair streaming behind her in a torrent of brightness."
+[F12] Appearance: pale, big-eyed style (since v1) -- "She's a real pretty girl got to be, though I can't say I'm overly partial to that pale, big-eyed style myself."
+[F13] Appearance: taller than Miss Barry (since v1) -- "You're taller than I am, I declare."
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"text": "Anne is a skinny girl with a pointed freckled face, a little pointed chin, and solemn, big gray eyes. She has red hair that she wears in long braids, which Streams behind her in a bright torrent when unbraided, though some consider it auburn or Titian. At various points, her hair is dyed green, closely shingled, and eventually grows back into short, silky curls. She has ungracefully long, thin legs, stands taller than Miss Barry, and displays a pale style with cheeks that flush faintly pink.", "cited": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13"]}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Codex summary}
+Writes the one-sentence summary of a shared codex entry (\sys). Model \texttt{gemini-3.6-flash}; 1,974 input and 69 output tokens; run \nolinkurl{anne@v2/20261005T070527-site_build-upto5}.
+
+\paragraph{Paragraph-ID normalization.} The prompt requests input-line keys such as
+\texttt{W1}, but the response returns \texttt{v01:c27:p0000}, a paragraph ID. The parser
+normalizes returned paragraph IDs during citation resolution, handling this departure from
+the requested format. The excerpt elides the input lines; the complete call is in the
+released log. Normalization maps an identifier to a paragraph; it does not check that the
+paragraph supports the sentence.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You are writing a short encyclopedia definition of a faction or organization from a novel, for a wiki page a reader is viewing at one specific point in the story. You are given ONLY the passages that mention it so far. Write exactly 1 sentence, third person, encyclopedic tone, no meta-commentary. Do not mention any name, number, place or event that is not stated in the passages you were given -- the reader has not read past this point in the story.
+
+Every line you are given starts with a key such as [F1] or [S2]. In "cited", list the keys of the lines your text actually rests on, and no others.
+
+Respond with JSON only: {"text": "...", "cited": ["W1"]}
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Faction: Aid Society
+As known through Volume 1.
+
+[W1] [v01:c26:p0023] "But we're so careful to put a moral into them all, Marilla," explained Anne. "I insist upon that. All the good people are rewarded and all the bad ones are suitably punished. I'm sure that must have a wholesome effect. The moral is the great thing. Mr. Allan says so. I read one of my stories to him and Mrs. Allan and they both agreed that the moral was excellent. Only they laughed in the wrong places. I like it better when people cry. Jane and Ruby almost always cry when I come to the pathetic parts. Diana wrote her Aunt Josephine about our club and her Aunt Josephine wrote back that we were to send her some of our stories. So we copied out four of our very best and sent them. Miss Josephine Barry wrote back that she had never read anything so amusing in her life. That kind of puzzled us because the stories were all very pathetic and almost everybody died. But I'm glad Miss Barry liked them. It shows our club is doing some good in the world. Mrs. Allan says that ought to be our object in everything. I do really try to make it my object but I forget so often when I'm having fun. I hope I shall be a little like Mrs. Allan when I grow up. Do you think there is any prospect of it, Marilla?"
+[v01:c26:p0024] "I shouldn't say there was a great deal" was Marilla's encouraging answer. "I'm sure Mrs. Allan was never such a silly, forgetful little girl as you are."
+[v01:c26:p0025] "No; but she wasn't always so good as she is now either," said Anne seriously. "She told me so herself--that is, she said she was a dreadful mischief when she was a girl and was always getting into scrapes. I felt so encouraged when I heard that. Is it very wicked of me, Marilla, to feel encouraged when I hear that other people have be
+[... 4,833 characters elided ...]
+But I'm bringing her up, not you."
+[v01:c27:p0006] It was dark when supper was ready, and still no sign of Anne, coming hurriedly over the log bridge or up Lover's Lane, breathless and repentant with a sense of neglected duties. Marilla washed and put away the dishes grimly. Then, wanting a candle to light her way down the cellar, she went up to the east gable for the one that generally stood on Anne's table. Lighting it, she turned around to see Anne herself lying on the bed, face downward among the pillows.
+[v01:c27:p0007] "Mercy on us," said astonished Marilla, "have you been asleep, Anne?"
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{"text": "The Aid Society, also known as the Aids, is a community organization whose members assemble at regular meetings to attend to church affairs, such as providing a new carpet for the vestry room, and manage charitable initiatives like their missionary box.", "cited": ["v01:c27:p0000"]}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{B1 page}
+Long-context baseline: one character page from the whole prefix. Model \texttt{gemini-3.6-flash}; 559,824 input and 5,688 output tokens; run \nolinkurl{anne@b1/20261001T043209-baseline-b1-v4}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You write one character's page for a spoiler-safe wiki of a novel series. The reader has
+read up to a stated volume and nothing later.
+
+Return JSON with these keys (omit or leave empty what the passages do not support):
+- age, gender, status, rank, origin, occupation: {"text": short value, "evidence": [paragraph ids]}
+- titles, nicknames: lists of {"text", "evidence"}
+- appearance: {"text": 2-4 sentences, "evidence": [...]}
+- personality: {"text": 2-6 sentences, "evidence": [...]}
+- traits (personality traits and fears), abilities (skills), goals (motivations),
+  background (facts about the character's past): lists of {"text": one short phrase, "evidence": [...]}
+- history: {"text": 3-12 sentences, a biography of what the character did and experienced, "evidence": [...]}
+- quotes: up to 5 of {"text": the character's own words copied exactly, "para_id": id}
+- affiliations: list of {"name": group, "role": short, "evidence": [...]}
+- relationships: list of {"name": another character, "predicate": one of PARENT_OF, CHILD_OF, SIBLING_OF, RELATIVE_OF, SPOUSE_OF, ROMANTIC_WITH, FRIEND_OF, RIVAL_OF, ENEMY_OF, MENTOR_OF, STUDENT_OF, COMMANDS, SERVES_UNDER, COMRADE_OF, "note": short, "evidence": [...]}
+
+Rules:
+- Use only the passages given. Every item cites the ids of the paragraphs that support it, copied
+  exactly as they appear in brackets, e.g. v01:c06:p0003.
+- State nothing a reader of the stated volumes could not know.
+- Write in the third person, in plain encyclopaedic English. JSON only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Passages from a novel series, volumes 1-4 (the reader has read exactly these volumes):
+
+[v01:c01:p0000] MRS. Rachel Lynde lived just where the Avonlea main road dipped down into a little hollow, fringed with alders and ladies' eardrops and traversed by a brook that had its source away back in the woods of the old Cuthbert place; it was reputed to be an intricate, headlong brook in its earlier course through those woods, with dark secrets of pool and cascade; but by the time it reached Lynde's Hollow it was a quiet, well-conducted little stream, for not even a brook could run past Mrs. Rachel Lynde's door without due regard for decency and decorum; it probably was conscious that Mrs. Rachel was sitting at her window, keeping a sharp eye on everything that passed, from brooks and children up, and that if she noticed anything odd or out of place she would never rest until she had ferreted out the whys and wherefores thereof.
+[v01:c01:p0001] There are plenty of people, in Avonlea and out of it, who can attend closely to their neighbors' business by dint of neglecting their own; but Mrs. Rachel Lynde was one of those capable creatures who can manage their own concerns and those of other folks into the bargain. She was a notable housewife; her work was always done and well done; she "ran" the Sewing Circle, helped run the Sunday-school, and was the strongest prop of the Church Aid Society and Foreign Missions Auxiliary. Yet with all this Mrs. Rachel found abundant time to sit for hours at her kitchen window, knitting "cotton warp" quilts--she had knitted sixteen of them, as Avonlea housekeepers were wont to tell in awed voices--and keeping a sharp eye on the main road that crossed the hollow and wound up the steep red hill beyond. Since Avonlea occupied a little triangular peni
+[... 1,993,961 characters elided ...]
+ves would still call from the red rock-coves.
+[v04:c40:p0062] "But we will be gone," said Anne through her tears.
+[v04:c40:p0063] She went out, closing and locking the door behind her. Gilbert was waiting for her with a smile. The lighthouse star was gleaming northward. The little garden, where only marigolds still bloomed, was already hooding itself in shadows.
+[v04:c40:p0064] Anne knelt down and kissed the worn old step which she had crossed as a bride.
+[v04:c40:p0065] "Good-bye, dear little house of dreams," she said.
+
+Write the page for the character "Anne Shirley" as known after volume 4.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "age": {
+    "text": "21 years old (turned 20 in March before starting her final year at Redmond, and turned 21 during her final year)",
+    "evidence": [
+      "v03:c01:p0000",
+      "v03:c01:p0016",
+      "v03:c19:p0000",
+      "v03:c30:p0006"
+    ]
+  },
+  "gender": {
+    "text": "Female",
+    "evidence": [
+      "v01:c01:p0029",
+      "v01:c03:p0019"
+    ]
+  },
+  "status": {
+    "text": "Married",
+    "evidence": [
+      "v04:c04:p0015",
+      "v04:c05:p0008"
+    ]
+  },
+  "rank": null,
+  "origin": {
+    "text": "Bolingbroke, Nova Scotia",
+    "evidence": [
+      "v01:c05:p0011",
+      "v02:c04:p0034"
+    ]
+  },
+  "occupation": {
+    "text": "Housewife, former schoolteacher, and writer",
+    "evidence": [
+      "v02:c01:p0002",
+      "v02:c06:p0003",
+      "v03:c36:p0003",
+      "v04:c05:p0008"
+    ]
+  },
+  "titles": [
+    {
+      "text": "B.A. (Bachelor of Arts)",
+      "evidence": [
+        "v03:c34:p0027",
+        "v03:c37:p0031"
+      ]
+    },
+    {
+      "text": "Teacher",
+      "evidence": [
+        "v02:c05:p0020",
+        "v02:c15:p0004"
+      ]
+    }
+  ],
+  "nicknames": [
+    {
+      "text": "Cordelia",
+      "evidence": [
+        "v01:c03:p0015",
+        "v01:c08:p0054"
+      ]
+    },
+    {
+      "text": "Anne of Green Gables",
+      "evidence": [
+        "v01:c08:p0056",
+        "v01:c19:p0079"
+      ]
+    },
+    {
+      "text": "Carrots",
+      "evidence": [
+        "v01:c15:p0034",
+        "v01:c15:p0041"
+      ]
+    },
+    {
+      "text": "Queen Anne",
+      "evidence": [
+        "v03:c05:p0006",
+        "v03:c06:p0006"
+      ]
+    }
+  ],
+  "appearance": {
+    "text": "Anne is a tall, slender woman with a milk-white, freckled complexion, luminous gray eyes that appear green in some lights, and thick hair that darkened from plain red in her youth to a
+[... 11,273 characters elided ...]
+ed spirit",
+      "evidence": [
+        "v02:c05:p0008",
+        "v02:c11:p0038",
+        "v04:c03:p0032"
+      ]
+    },
+    {
+      "name": "James Matthew Blythe",
+      "predicate": "PARENT_OF",
+      "note": "Son",
+      "evidence": [
+        "v04:c34:p0006",
+        "v04:c34:p0021"
+      ]
+    },
+    {
+      "name": "Joyce Blythe",
+      "predicate": "PARENT_OF",
+      "note": "Deceased infant daughter",
+      "evidence": [
+        "v04:c19:p0010",
+        "v04:c19:p0021"
+      ]
+    }
+  ]
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{B2 page}
+Prefix-retrieval baseline: one character page from retrieved passages. Model \texttt{gemini-3.6-flash}; 24,083 input and 2,477 output tokens; run \nolinkurl{anne@b2/20261002T095544-baseline-b2-v1}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You write one character's page for a spoiler-safe wiki of a novel series. The reader has
+read up to a stated volume and nothing later.
+
+Return JSON with these keys (omit or leave empty what the passages do not support):
+- age, gender, status, rank, origin, occupation: {"text": short value, "evidence": [paragraph ids]}
+- titles, nicknames: lists of {"text", "evidence"}
+- appearance: {"text": 2-4 sentences, "evidence": [...]}
+- personality: {"text": 2-6 sentences, "evidence": [...]}
+- traits (personality traits and fears), abilities (skills), goals (motivations),
+  background (facts about the character's past): lists of {"text": one short phrase, "evidence": [...]}
+- history: {"text": 3-12 sentences, a biography of what the character did and experienced, "evidence": [...]}
+- quotes: up to 5 of {"text": the character's own words copied exactly, "para_id": id}
+- affiliations: list of {"name": group, "role": short, "evidence": [...]}
+- relationships: list of {"name": another character, "predicate": one of PARENT_OF, CHILD_OF, SIBLING_OF, RELATIVE_OF, SPOUSE_OF, ROMANTIC_WITH, FRIEND_OF, RIVAL_OF, ENEMY_OF, MENTOR_OF, STUDENT_OF, COMMANDS, SERVES_UNDER, COMRADE_OF, "note": short, "evidence": [...]}
+
+Rules:
+- Use only the passages given. Every item cites the ids of the paragraphs that support it, copied
+  exactly as they appear in brackets, e.g. v01:c06:p0003.
+- State nothing a reader of the stated volumes could not know.
+- Write in the third person, in plain encyclopaedic English. JSON only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Passages from a novel series, volumes 1-1 (the reader has read exactly these volumes):
+
+[v01:c01:p0002] She was sitting there one afternoon in early June. The sun was coming in at the window warm and bright; the orchard on the slope below the house was in a bridal flush of pinky-white bloom, hummed over by a myriad of bees. Thomas Lynde--a meek little man whom Avonlea people called "Rachel Lynde's husband"--was sowing his late turnip seed on the hill field beyond the barn; and Matthew Cuthbert ought to have been sowing his on the big red brook field away over by Green Gables. Mrs. Rachel knew that he ought because she had heard him tell Peter Morrison the evening before in William J. Blair's store over at Carmody that he meant to sow his turnip seed the next afternoon. Peter had asked him, of course, for Matthew Cuthbert had never been known to volunteer information about anything in his whole life.
+[v01:c01:p0003] And yet here was Matthew Cuthbert, at half-past three on the afternoon of a busy day, placidly driving over the hollow and up the hill; moreover, he wore a white collar and his best suit of clothes, which was plain proof that he was going out of Avonlea; and he had the buggy and the sorrel mare, which betokened that he was going a considerable distance. Now, where was Matthew Cuthbert going and why was he going there?
+[v01:c01:p0005] "I'll just step over to Green Gables after tea and find out from Marilla where he's gone and why," the worthy woman finally concluded. "He doesn't generally go to town this time of year and he never visits; if he'd run out of turnip seed he wouldn't dress up and take the buggy to go for more; he wasn't driving fast enough to be going for a doctor. Yet something must have happened since last night to start him off. I'm clean puzzled
+[... 82,377 characters elided ...]
+like a deer, and disappeared in the firry shadows of the Haunted Wood. Mrs. Lynde looked after her indulgently.
+[v01:c38:p0043] "There's a good deal of the child about her yet in some ways."
+[v01:c38:p0044] "There's a good deal more of the woman about her in others," retorted Marilla, with a momentary return of her old crispness.
+[v01:c38:p0045] But crispness was no longer Marilla's distinguishing characteristic. As Mrs. Lynde told her Thomas that night.
+[v01:c38:p0046] "Marilla Cuthbert has got mellow. That's what."
+
+Write the page for the character "Marilla Cuthbert" as known after volume 1.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "age": null,
+  "gender": {
+    "text": "Female",
+    "evidence": [
+      "v01:c01:p0013"
+    ]
+  },
+  "status": null,
+  "rank": null,
+  "origin": null,
+  "occupation": {
+    "text": "Homemaker and farmer",
+    "evidence": [
+      "v01:c01:p0009",
+      "v01:c06:p0036",
+      "v01:c14:p0018"
+    ]
+  },
+  "titles": [
+    {
+      "text": "Miss Cuthbert",
+      "evidence": [
+        "v01:c06:p0004",
+        "v01:c08:p0011"
+      ]
+    }
+  ],
+  "nicknames": [],
+  "appearance": {
+    "text": "Marilla is a tall, thin woman with angular lines and no soft curves. Her dark hair, which exhibits some gray streaks, is twisted up in a tight knot secured aggressively by two wire hairpins. She possesses a mouth that suggests a hidden sense of humor, though it remains largely undeveloped. As she ages, her hair grows grayer, but she retains a gaunt frame and angular stature, with her face softening in expression over time.",
+    "evidence": [
+      "v01:c01:p0013",
+      "v01:c33:p0015"
+    ]
+  },
+  "personality": {
+    "text": "Marilla is a woman of narrow experience, rigid conscience, and firm, unsentimental principles who prefers practical duty over imagination. She is neat, precise, and highly disciplined, maintaining an exceptionally clean home and yard. Though initially strict, stern, and undemonstrative, she possesses a deep capacity for love and grows deeply attached to Anne. Over time, her hard exterior mellows, revealing a soft and compassionate heart despite her struggle to express affection openly.",
+    "evidence": [
+      "v01:c01:p0008",
+      "v01:c01:p0009",
+      "v01:c01:p0013",
+      "v01:c05:p0021",
+      "v01:c06:p0019",
+      "v01:c08:p0013",
+      "v01:c08:p0017",
+      "v01:c30:p0003",
+      "v01:c33:p0015",
+      "v01:c38:p0046"
+    ]
+  },
+  "traits": [
+    
+[... 4,359 characters elided ...]
+01:c01:p0006"
+      ]
+    },
+    {
+      "name": "Anne Shirley",
+      "predicate": "PARENT_OF",
+      "note": "Adoptive guardian who raises her at Green Gables",
+      "evidence": [
+        "v01:c06:p0031",
+        "v01:c06:p0037",
+        "v01:c08:p0007",
+        "v01:c19:p0089"
+      ]
+    },
+    {
+      "name": "Rachel Lynde",
+      "predicate": "FRIEND_OF",
+      "note": "Longtime neighbor and friend despite their differences",
+      "evidence": [
+        "v01:c01:p0012"
+      ]
+    }
+  ]
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{B3 index (LightRAG)}
+LightRAG's own entity and relation extraction while building its index. Model \texttt{gemini-3.6-flash}; 3,243 input and 1,022 output tokens; run \nolinkurl{anne@b3/20260929T225346-baseline-b3-v5}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+---Role---
+You are a Knowledge Graph Specialist responsible for extracting entities and relationships from the `---Input Text---` section of user prompt.
+
+---Instructions---
+1. **Entity Extraction:**
+  - Identify clearly defined and meaningful entities only in the current user prompt's fenced `---Input Text---` section.
+  - For each entity, extract:
+    - `entity_name`: The name of the entity. If the entity name is case-insensitive, capitalize the first letter of each significant word (title case). Ensure **consistent naming** across the entire extraction process.
+    - `entity_type`: Categorize the entity using the type guidance provided in the `---Entity Types---` section below. If none of the provided entity types apply, classify it as `Other`.
+    - `entity_description`: Provide a concise yet comprehensive description of the entity's attributes and activities, based *solely* on the information present in the input text.
+
+2. **Relationship Extraction:**
+  - Identify direct, clearly stated, and meaningful relationships between previously extracted entities.
+  - If a single statement describes a relationship involving more than two entities, decompose it into multiple binary relationships.
+  - For each binary relationship, extract:
+    - `source_entity`: The name of the source entity. Ensure **consistent naming** with entity extraction. Capitalize the first letter of each significant word (title case) if the name is case-insensitive.
+    - `target_entity`: The name of the target entity. Ensure **consistent naming** with entity extraction. Capitalize the first letter of each significant word (title case) if the name is case-insensitive.
+    - `relationship_keywords`: One or more high-level keywords summarizing the relationship. Multiple keywords within this field must be separated by a comma `,`. **DO NOT use `<|#|>` for separating multiple keywords within this field.**
+    - `relationship_description`: A concise explanation of the nature of the relationship between the source and target entities.
+
+3. **Record Types:**
+  - `entity` is used only for entity rows and those rows always contain exactly 4 tuple parts total.
+  - `relation` is used only for relationship
+[... 4,217 characters elided ...]
+: Quantitative or structured information (statistics, datasets, measurements)
+- Artifact: Physical or digital objects created by humans (tools, software, devices)
+- NaturalObject: Natural non-living objects (minerals, celestial bodies, chemical compounds)
+
+---Output Format Template---
+The following content is an output format template only. It is not source text and must never be used as extraction content.
+
+entity<|#|><entity_name><|#|><entity_type><|#|><entity_description>
+relation<|#|><source_entity><|#|><target_entity><|#|><relationship_keywords><|#|><relationship_description>
+<|COMPLETE|>
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+---Task---
+Extract entities and relationships from the `---Input Text---` section below.
+
+---Instructions---
+1. **Strict Adherence to Format:** Strictly adhere to all format requirements for entity and relationship lists, including output order, field delimiters, and proper noun handling, as specified in the system prompt.
+2. **Quantity Limits:** In this response, output at most 100 total rows and at most 40 entity rows. Output fewer rows if fewer high-value items are present. Only output relationship rows whose source and target entities are both included in this response.
+3. **Output Content Only:** Output *only* the extracted list of entities and relationships. Do not include any introductory or concluding remarks, explanations, or additional text before or after the list.
+4. **Completion Signal:** Output `<|COMPLETE|>` as the final line after all relevant entities and relationships have been extracted and presented. If the row limit is reached, output `<|COMPLETE|>` immediately after the last allowed row.
+5. **Output Language:** Ensure the output language is English. Proper nouns (e.g., personal names, place names, organization names) must be kept in their original language and not translated.
+
+---Input Text---
+```
+[v05:c02:p0000] "Where are the other children?" asked Miss Cornelia, when the first greetings--cordial on her side, rapturous on Anne's, and dignified on Susan's--were over.
+[v05:c02:p0001] "Shirley is in bed and Jem and Walter and the twins are down in their beloved Rainbow Valley," said Anne. "They just came home this afternoon, you know, and they could hardly wait until supper was over before rushing down to the valley. They love it above every spot on earth. Even the maple grove doesn't rival it in their affections."
+[v05:c02:p0002] "I am afraid they lo
+[... 3,392 characters elided ...]
+d about the worst candidating text there is in the Bible--'Curse ye Meroz.'"
+[v05:c02:p0020] "Whenever he got stuck for an idea, he would bang the Bible and shout very bitterly, 'Curse ye Meroz.' Poor Meroz got thoroughly cursed that day, whoever he was, Mrs. Dr. dear," said Susan.
+[v05:c02:p0021] "The minister who is candidating can't be too careful what text he chooses," said Miss Cornelia solemnly. "I believe Mr. Pierson would have got the call if he had picked a different text. But when he announced 'I will lift my eyes to the hills' he was done for. Every one grinned, for
+```
+
+---Output---
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+entity<|#|>Miss Cornelia<|#|>Person<|#|>A resident of Glen St. Mary who visits Anne and provides news about the local church and new minister candidates.
+entity<|#|>Anne<|#|>Person<|#|>Also referred to as Mrs. Dr. dear, she is the mother of Shirley, Jem, Walter, and the twins, and has recently returned home.
+entity<|#|>Susan<|#|>Person<|#|>A member of Anne's household who frequently speaks in tandem with Miss Cornelia, addressing Anne as "Mrs. Dr. dear."
+entity<|#|>Shirley<|#|>Person<|#|>One of Anne's children, who is in bed after returning home.
+entity<|#|>Jem<|#|>Person<|#|>Also known as Little Jem, one of Anne's children who loves Rainbow Valley and is doted on by Marilla.
+entity<|#|>Walter<|#|>Person<|#|>One of Anne's children who enjoys spending time in Rainbow Valley.
+entity<|#|>Rainbow Valley<|#|>Location<|#|>A beloved valley near the home of Anne's family that the children adore visiting.
+entity<|#|>Avonlea<|#|>Location<|#|>The place where the children recently visited Marilla.
+entity<|#|>Marilla Cuthbert<|#|>Person<|#|>An eighty-five-year-old lady, also called Miss Cuthbert, living in Avonlea who spoils Anne's children, especially Jem.
+entity<|#|>Glen St. Mary<|#|>Location<|#|>The village where Miss Cornelia and Susan live, home to the local church.
+entity<|#|>Glen St. Mary Church<|#|>Organization<|#|>The local church in Glen St. Mary that recently called a new minister.
+entity<|#|>John Knox Meredith<|#|>Person<|#|>The newly settled minister at Glen St. Mary church, described as learned, spiritual, comely, and absent-minded.
+entity<|#|>Mr. Folsom<|#|>Person<|#|>A minister candidate for Glen St. Mary church who was rejected for being too dark and sleek.
+entity<|#|>Mr. Rogers<|#|>Person<|#|>A minister candidate whose sermon was disrupted by a stray sheep entering
+[... 1,112 characters elided ...]
+illa lives in Avonlea where the children visited her.
+relation<|#|>John Knox Meredith<|#|>Glen St. Mary Church<|#|>employment, leadership<|#|>John Knox Meredith was called as the new minister for the Glen St. Mary church.
+relation<|#|>Miss Cornelia<|#|>Glen St. Mary<|#|>residence<|#|>Miss Cornelia resides in Glen St. Mary and attends its church.
+relation<|#|>Caleb Ramsay<|#|>Mr. Rogers<|#|>disruption<|#|>Caleb Ramsay's stray sheep interrupted Mr. Rogers's candidate sermon at church.
+<|COMPLETE|>
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{B3 page}
+LightRAG baseline: one character page from LightRAG context. Model \texttt{gemini-3.6-flash}; 17,438 input and 2,191 output tokens; run \nolinkurl{anne@b3/20261001T142328-baseline-b3-v5}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You write one character's page for a spoiler-safe wiki of a novel series. The reader has
+read up to a stated volume and nothing later.
+
+Return JSON with these keys (omit or leave empty what the passages do not support):
+- age, gender, status, rank, origin, occupation: {"text": short value, "evidence": [paragraph ids]}
+- titles, nicknames: lists of {"text", "evidence"}
+- appearance: {"text": 2-4 sentences, "evidence": [...]}
+- personality: {"text": 2-6 sentences, "evidence": [...]}
+- traits (personality traits and fears), abilities (skills), goals (motivations),
+  background (facts about the character's past): lists of {"text": one short phrase, "evidence": [...]}
+- history: {"text": 3-12 sentences, a biography of what the character did and experienced, "evidence": [...]}
+- quotes: up to 5 of {"text": the character's own words copied exactly, "para_id": id}
+- affiliations: list of {"name": group, "role": short, "evidence": [...]}
+- relationships: list of {"name": another character, "predicate": one of PARENT_OF, CHILD_OF, SIBLING_OF, RELATIVE_OF, SPOUSE_OF, ROMANTIC_WITH, FRIEND_OF, RIVAL_OF, ENEMY_OF, MENTOR_OF, STUDENT_OF, COMMANDS, SERVES_UNDER, COMRADE_OF, "note": short, "evidence": [...]}
+
+Rules:
+- Use only the passages given. Every item cites the ids of the paragraphs that support it, copied
+  exactly as they appear in brackets, e.g. v01:c06:p0003.
+- State nothing a reader of the stated volumes could not know.
+- Write in the third person, in plain encyclopaedic English. JSON only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Passages from a novel series, volumes 1-5 (the reader has read exactly these volumes):
+
+LightRAG graph context:
+- Land Of The Maple: The country or region where Jem and thousands of young people like him live.
+- Marilla: Marilla Cuthbert, frequently referred to simply as Marilla or Miss Cuthbert, is a central character, maternal figure, and the mistress of the Green Gables estate in Avonlea, Prince Edward Island, where she has resided for sixty years. A gaunt woman with graying hair, Marilla is defined by her practical outlook, firm adherence to traditional decorum, and strong moral principles. Though stern, strict, and prone to headaches, she possesses profound resilience, a dry sense of humor, and a deep emotional warmth. Over the nine years following Anne Shirley's arrival at Green Gables, Marilla grows noticeably softer, gentler, and more expressive. She takes immense pride in her immaculate household, her fine china, her culinary crafts--such as yellow plum preserves and Christmas delicacies--and domestic activities like making round, braided mats.
+
+Originally living with her brother, Matthew Cuthbert, Marilla intended to adopt an orphan boy to help with farm work, but instead took in the imaginative Anne Shirley. Marilla serves as a steady, sensible foil to Anne, guiding her through domestic duties, funding her education, and ultimately forming an indelible bond with her. Throughout Anne's upbringing, Marilla offers practical guidance and manages household dynamics, including inquiring about local news, discussing neighborhood events like Miss Josephine Barry's passing alongside Mrs. Rachel Lynde, expressing concern when Anne returns tired from visiting friends like Ruby, and leaving Anne alone with Gilbert Blythe during his visits. When Marilla later faces failing 
+[... 68,594 characters elided ...]
+ms. She really looks upon boys as good comrades, and she is pleased when she has dozens of them tagging round, simply because she likes to be popular and to be thought popular. Even Alex and Alonzo--I'll never be able to think of those two names separately after this--are to her just two playfellows who want her to play with them all their lives. I'm glad we met her, and I'm glad we went to Old St. John's. I believe I've put forth a tiny soul-root into Kingsport soil this afternoon. I hope so. I hate to feel transplanted."
+
+Write the page for the character "Anne Shirley" as known after volume 5.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "age": null,
+  "gender": {
+    "text": "Female",
+    "evidence": [
+      "v01:c35:p0001",
+      "v01:c35:p0004",
+      "v04:c01:p0000"
+    ]
+  },
+  "status": null,
+  "rank": null,
+  "origin": null,
+  "occupation": {
+    "text": "Schoolteacher and student",
+    "evidence": [
+      "v03:c31:p0001",
+      "v04:c01:p0000",
+      "v04:c01:p0004"
+    ]
+  },
+  "titles": [
+    {
+      "text": "Miss Shirley",
+      "evidence": [
+        "v03:c04:p0056"
+      ]
+    }
+  ],
+  "nicknames": [],
+  "appearance": {
+    "text": "Anne has gray eyes that are compared to a morning sky and bold red hair, which she considers auburn. She possesses a very nice nose.",
+    "evidence": [
+      "v03:c31:p0003",
+      "v03:c31:p0004",
+      "v03:c04:p0056",
+      "v04:c01:p0000"
+    ]
+  },
+  "personality": {
+    "text": "Anne is a thoughtful, imaginative, and ambitious individual with a blithe, irresistible laugh. Possessing a natural genius for friendship, she values comradeship and views intellectual discussions with deep appreciation. Though prone to romanticism, she maintains a sense of humor and warmth that endears her to others.",
+    "evidence": [
+      "v01:c35:p0002",
+      "v01:c35:p0003",
+      "v01:c35:p0004",
+      "v03:c04:p0060",
+      "v04:c01:p0005",
+      "v04:c01:p0008"
+    ]
+  },
+  "traits": [
+    {
+      "text": "Thoughtful and imaginative",
+      "evidence": [
+        "v01:c35:p0004"
+      ]
+    },
+    {
+      "text": "Ambitious",
+      "evidence": [
+        "v01:c35:p0004"
+      ]
+    },
+    {
+      "text": "Genius for friendship",
+      "evidence": [
+        "v01:c35:p0003"
+      ]
+    },
+    {
+      "text": "Dislikes geometry",
+      "evidence": [
+        "v04:c01:p0000",
+        "v04:c01:p0003"
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "text": "Teaching",
+      "
+[... 3,313 characters elided ...]
+ Green Gables.",
+      "evidence": [
+        "v04:c01:p0005"
+      ]
+    },
+    {
+      "name": "Philippa Gordon",
+      "predicate": "FRIEND_OF",
+      "note": "Intimate college friend and correspondent.",
+      "evidence": [
+        "v03:c04:p0060",
+        "v03:c31:p0000"
+      ]
+    },
+    {
+      "name": "Priscilla Grant",
+      "predicate": "FRIEND_OF",
+      "note": "Close friend and fellow student.",
+      "evidence": [
+        "v01:c35:p0004",
+        "v03:c04:p0068"
+      ]
+    }
+  ]
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{X1 page}
+Closed-book diagnostic: title and character name only. Model \texttt{gemini-3.6-flash}; 451 input and 1,087 output tokens; run \nolinkurl{anne@x1/20260930T214444-baseline-x1-v5}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You write one character's page for a spoiler-safe wiki of a novel series. The reader has
+read up to a stated volume and nothing later.
+
+Return JSON with these keys (omit or leave empty what the passages do not support):
+- age, gender, status, rank, origin, occupation: {"text": short value, "evidence": [paragraph ids]}
+- titles, nicknames: lists of {"text", "evidence"}
+- appearance: {"text": 2-4 sentences, "evidence": [...]}
+- personality: {"text": 2-6 sentences, "evidence": [...]}
+- traits (personality traits and fears), abilities (skills), goals (motivations),
+  background (facts about the character's past): lists of {"text": one short phrase, "evidence": [...]}
+- history: {"text": 3-12 sentences, a biography of what the character did and experienced, "evidence": [...]}
+- quotes: up to 5 of {"text": the character's own words copied exactly, "para_id": id}
+- affiliations: list of {"name": group, "role": short, "evidence": [...]}
+- relationships: list of {"name": another character, "predicate": one of PARENT_OF, CHILD_OF, SIBLING_OF, RELATIVE_OF, SPOUSE_OF, ROMANTIC_WITH, FRIEND_OF, RIVAL_OF, ENEMY_OF, MENTOR_OF, STUDENT_OF, COMMANDS, SERVES_UNDER, COMRADE_OF, "note": short, "evidence": [...]}
+
+Rules:
+- No passages are given: write what you know of this character from the novels up to the stated
+  volume. Leave every evidence list empty.
+- State nothing a reader of the stated volumes could not know.
+- Write in the third person, in plain encyclopaedic English. JSON only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+The novels: Anne of Green Gables series, volumes 1-5 (the reader has read exactly these volumes).
+
+Write the page for the character "Matthew Cuthbert" as known after volume 5.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "age": {
+    "text": "Sixty years old at the beginning of the series; died at sixty-eight.",
+    "evidence": []
+  },
+  "gender": {
+    "text": "Male",
+    "evidence": []
+  },
+  "status": {
+    "text": "Deceased",
+    "evidence": []
+  },
+  "rank": null,
+  "origin": {
+    "text": "Avonlea, Prince Edward Island, Canada",
+    "evidence": []
+  },
+  "occupation": {
+    "text": "Farmer",
+    "evidence": []
+  },
+  "titles": [],
+  "nicknames": [],
+  "appearance": {
+    "text": "Matthew was an awkwardly shaped man with stooped shoulders and dark hair turning gray. He wore a full, soft brown beard that he had kept since his twenties. He dressed plainly in farm clothes and was known for his shy, diffident posture, especially in the presence of women.",
+    "evidence": []
+  },
+  "personality": {
+    "text": "Matthew was extraordinarily shy, quiet, and reclusive, famously terrified of women and young girls other than his sister and Anne. Beneath his silent demeanor lay a gentle, deeply affectionate heart and an intuitive understanding of Anne's imaginative nature. He was generous, quiet in his devotion, and almost incapable of refusing Anne anything she set her heart on.",
+    "evidence": []
+  },
+  "traits": [
+    "Extremely shy",
+    "Gentle and soft-hearted",
+    "Fear of women and girls",
+    "Quietly supportive",
+    "Industrious"
+  ],
+  "abilities": [
+    "Farming and livestock care",
+    "Quiet listening and unspoken empathy"
+  ],
+  "goals": [
+    "To provide a loving home for Anne and ensure her happiness",
+    "To keep Green Gables running smoothly alongside his sister Marilla"
+  ],
+  "background": [
+    "Lived his entire life at Green Gables in Avonlea with his family.",
+    "Never married due to his intense shyness around women.",
+    "Took over the farm duties alongsid
+[... 1,820 characters elided ...]
+ co-owner of Green Gables; she managed the household while he ran the farm.",
+      "evidence": []
+    },
+    {
+      "name": "Anne Shirley",
+      "predicate": "PARENT_OF",
+      "note": "Adoptive father figure who loved her unconditionally from their first meeting.",
+      "evidence": []
+    },
+    {
+      "name": "Rachel Lynde",
+      "predicate": "FRIEND_OF",
+      "note": "Neighbor and long-time family friend, though her blunt manner often intimidated him.",
+      "evidence": []
+    }
+  ]
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{X2 page}
+Instructed full-text diagnostic: all five volumes and the cutoff instruction. Model \texttt{gemini-3.6-flash}; 689,967 input and 2,449 output tokens; run \nolinkurl{anne@x2/20260930T222548-baseline-x2-v1}.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You write one character's page for a spoiler-safe wiki of a novel series. The reader has
+read up to a stated volume and nothing later.
+
+Return JSON with these keys (omit or leave empty what the passages do not support):
+- age, gender, status, rank, origin, occupation: {"text": short value, "evidence": [paragraph ids]}
+- titles, nicknames: lists of {"text", "evidence"}
+- appearance: {"text": 2-4 sentences, "evidence": [...]}
+- personality: {"text": 2-6 sentences, "evidence": [...]}
+- traits (personality traits and fears), abilities (skills), goals (motivations),
+  background (facts about the character's past): lists of {"text": one short phrase, "evidence": [...]}
+- history: {"text": 3-12 sentences, a biography of what the character did and experienced, "evidence": [...]}
+- quotes: up to 5 of {"text": the character's own words copied exactly, "para_id": id}
+- affiliations: list of {"name": group, "role": short, "evidence": [...]}
+- relationships: list of {"name": another character, "predicate": one of PARENT_OF, CHILD_OF, SIBLING_OF, RELATIVE_OF, SPOUSE_OF, ROMANTIC_WITH, FRIEND_OF, RIVAL_OF, ENEMY_OF, MENTOR_OF, STUDENT_OF, COMMANDS, SERVES_UNDER, COMRADE_OF, "note": short, "evidence": [...]}
+
+Rules:
+- Use only the passages given. Every item cites the ids of the paragraphs that support it, copied
+  exactly as they appear in brackets, e.g. v01:c06:p0003.
+- State nothing a reader of the stated volumes could not know.
+- Write in the third person, in plain encyclopaedic English. JSON only.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Passages from a novel series, volumes 1-5. The reader has read ONLY volumes 1-1: write for that reader and do not reveal anything that happens after volume 1.
+
+[v01:c01:p0000] MRS. Rachel Lynde lived just where the Avonlea main road dipped down into a little hollow, fringed with alders and ladies' eardrops and traversed by a brook that had its source away back in the woods of the old Cuthbert place; it was reputed to be an intricate, headlong brook in its earlier course through those woods, with dark secrets of pool and cascade; but by the time it reached Lynde's Hollow it was a quiet, well-conducted little stream, for not even a brook could run past Mrs. Rachel Lynde's door without due regard for decency and decorum; it probably was conscious that Mrs. Rachel was sitting at her window, keeping a sharp eye on everything that passed, from brooks and children up, and that if she noticed anything odd or out of place she would never rest until she had ferreted out the whys and wherefores thereof.
+[v01:c01:p0001] There are plenty of people, in Avonlea and out of it, who can attend closely to their neighbors' business by dint of neglecting their own; but Mrs. Rachel Lynde was one of those capable creatures who can manage their own concerns and those of other folks into the bargain. She was a notable housewife; her work was always done and well done; she "ran" the Sewing Circle, helped run the Sunday-school, and was the strongest prop of the Church Aid Society and Foreign Missions Auxiliary. Yet with all this Mrs. Rachel found abundant time to sit for hours at her kitchen window, knitting "cotton warp" quilts--she had knitted sixteen of them, as Avonlea housekeepers were wont to tell in awed voices--and keeping a sharp eye on the main road that crossed the hollow and wound up th
+[... 2,458,388 characters elided ...]
+05:c35:p0017] The girls shivered.
+[v05:c35:p0018] "You know you're only pretending," protested Mary Vance, "and I wish you wouldn't. You make it too real. I hate that old Piper of yours."
+[v05:c35:p0019] But Jem sprang up with a gay laugh. He stood up on a little hillock, tall and splendid, with his open brow and his fearless eyes. There were thousands like him all over the land of the maple.
+[v05:c35:p0020] "Let the Piper come and welcome," he cried, waving his hand. "I'll follow him gladly round and round the world."
+
+Write the page for the character "Gilbert Blythe" as known after volume 1.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+{
+  "age": {
+    "text": "Nearly fourteen (in autumn of Volume 1) / Around fifteen to sixteen",
+    "evidence": [
+      "v01:c15:p0024"
+    ]
+  },
+  "gender": {
+    "text": "Male",
+    "evidence": [
+      "v01:c15:p0016"
+    ]
+  },
+  "status": {
+    "text": "Single",
+    "evidence": [
+      "v01:c15:p0028"
+    ]
+  },
+  "rank": null,
+  "origin": {
+    "text": "Avonlea, Prince Edward Island",
+    "evidence": [
+      "v01:c15:p0016"
+    ]
+  },
+  "occupation": {
+    "text": "Student",
+    "evidence": [
+      "v01:c15:p0024",
+      "v01:c17:p0037"
+    ]
+  },
+  "titles": [],
+  "nicknames": [
+    {
+      "text": "Gil",
+      "evidence": [
+        "v01:c15:p0024"
+      ]
+    }
+  ],
+  "appearance": {
+    "text": "Gilbert is a tall boy with an ungainly, athletic build and hazel eyes. He has curly brown hair and a teasing, roguish smile. He is widely considered very handsome by his peers.",
+    "evidence": [
+      "v01:c15:p0016",
+      "v01:c15:p0028"
+    ]
+  },
+  "personality": {
+    "text": "Gilbert is confident, mischievous, and fond of teasing girls. Despite his mischievous streak, he is stout-hearted, honorable, and quick to admit his mistakes when he realizes he has offended someone. He is academically ambitious, competitive, and good-natured in rivalry.",
+    "evidence": [
+      "v01:c15:p0016",
+      "v01:c15:p0028",
+      "v01:c15:p0042",
+      "v01:c15:p0049",
+      "v01:c17:p0036"
+    ]
+  },
+  "traits": [
+    {
+      "text": "Handsome",
+      "evidence": [
+        "v01:c15:p0016"
+      ]
+    },
+    {
+      "text": "Mischievous and teasing",
+      "evidence": [
+        "v01:c15:p0016",
+        "v01:c15:p0028"
+      ]
+    },
+    {
+      "text": "Contrite and honorable when wrong",
+      "evidence": [
+        "v01:c15:p0042",
+        "v01:c15:p0049"
+      ]
+    },
+    {
+ 
+[... 4,248 characters elided ...]
+. Phillips",
+      "predicate": "SERVES_UNDER",
+      "note": "Schoolmaster at Avonlea.",
+      "evidence": [
+        "v01:c15:p0027"
+      ]
+    },
+    {
+      "name": "Ruby Gillis",
+      "predicate": "FRIEND_OF",
+      "note": "Classmate at Avonlea School.",
+      "evidence": [
+        "v01:c15:p0028"
+      ]
+    },
+    {
+      "name": "Charlie Sloane",
+      "predicate": "RIVAL_OF",
+      "note": "Classmate and fellow student.",
+      "evidence": [
+        "v01:c17:p0036"
+      ]
+    }
+  ]
+}
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\ifdefined\nwvtwo\subsection*{Paraphrase for the treated text}\else\subsection*{Decontamination paraphrase}\fi
+Paraphrases one renamed paragraph. Model \texttt{gemini-3.6-flash}; 385 input and 209 output tokens; run \nolinkurl{anne-decon/20261003T165238-decontaminate-v5}.
+
+\paragraph{Note on this log.} The same instructions serve every corpus the treatment is
+applied to; the rule to keep ``personal and ship'' names comes from another corpus and has
+no effect here.
+
+\begin{nwprompt}{NWPromptIndigo}{System prompt}
+You rewrite passages of fiction in new words for a research corpus. You never add, remove or explain anything.
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+Rewrite the paragraph below in different words and different sentence structure.
+
+Rules:
+- Keep every fact, event, number, date and place, and keep them in the same order.
+- Keep every personal and ship name exactly as written. Do not introduce any name that is not in the paragraph.
+- Dialogue stays dialogue, spoken by the same person. Use the same quotation marks as the original (" " stay " "). Only spoken words go inside them; a speech tag such as "said I" stays outside.
+- Keep the narrator's person (first person stays first person).
+- Do not summarise, shorten substantially, or add commentary.
+
+Return only the rewritten paragraph, nothing else.
+
+Paragraph:
+It was a clear, apple-green evening in May, and Seven Gulls Harbour was mirroring back the clouds of the golden west between its softly dark shores. The sea moaned eerily on the sand-bar, sorrowful even in spring, but a sly, jovial wind came piping down the red harbour road along which Miss Winifred's comfortable, matronly figure was making its way towards the village of Glen St. Agnes. Miss Winifred was rightfully Mrs. Ambrose Kerr, and had been Mrs. Ambrose Kerr for thirteen years, but even yet more people referred to her as Miss Winifred than as Mrs. Kerr. The old name was dear to her old friends, only one of them contemptuously dropped it. Tabitha Pratt, the gray and grim and faithful handmaiden of the Carrow family at Hollowmere, never lost an opportunity of calling her "Mrs. Ambrose Kerr," with the most killing and pointed emphasis, as if to say "You wanted to be Mrs. and Mrs. you shall be with a vengeance as far as I am concerned."
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+The May evening was transparent and apple-green, as Seven Gulls Harbour reflected the clouds from the golden west amidst its gently darkened banks. On the sand-bar, the ocean uttered an uncanny mournfulness, melancholic despite the spring, yet a cunning, merry breeze whistled down the crimson harbour road where the cozy, motherly form of Miss Winifred traveled toward the village of Glen St. Agnes. Legally, Miss Winifred was Mrs. Ambrose Kerr, a status she had held for thirteen years, though even now she was called Miss Winifred by more people than called her Mrs. Kerr. Her former name remained cherished by her longtime companions, with a single contemptuous exception. Tabitha Pratt, who served as the gray, austere, and loyal servant to the Carrow household at Hollowmere, seized every chance to address her as "Mrs. Ambrose Kerr," using the most devastating and deliberate stress, as though implying "You desired to be a Mrs., so a Mrs. you will certainly be to the absolute extreme where I am concerned."
+\end{nwprompt}
+
+\Needspace{12\baselineskip}
+\subsection*{Memorization probe}
+Name cloze / title identification on one paragraph. Model \texttt{gemini-3.6-flash}; 227 input and 9 output tokens; run \nolinkurl{anne-decon/20261003T165318-probe-memorization-v1-5}.
+
+\begin{nwprompt}{NWPromptViolet}{User prompt (input)}
+You have seen the following passage in your training data. What is the proper name that fills in the [MASK] token in it? This name is exactly one word long, and is a proper name (not a pronoun or any other word). You must make a guess, even if you are uncertain.
+
+Example:
+
+Input: Stay gold, [MASK], stay gold.
+Output: <name>Ponyboy</name>
+
+Input: The door opened, and [MASK], dressed and hatted, entered with a cup of tea.
+Output: <name>Gerty</name>
+
+Input: "Pretty? Oh, pretty doesn't seem the right word to use. Nor beautiful, either. They don't go far enough. Oh, it was wonderful--wonderful. It's the first thing I ever saw that couldn't be improved upon by imagination. It just satisfied me here"--she put one hand on her breast--"it made a queer funny ache and yet it was a pleasant ache. Did you ever have an ache like that, Mr. [MASK]?"
+Output:
+\end{nwprompt}
+
+\begin{nwprompt}{NWPromptCyan}{Model output}
+<name>Cuthbert</name>
+\end{nwprompt}
+
+
+\endgroup

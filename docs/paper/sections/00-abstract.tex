@@ -1,0 +1,20 @@
+% Abstract. Every claim is recoverable from Table 1 (tab:main) or Section 6.
+% At most 200 words (ACL formatting guidelines): count the rendered text after any change.
+\begin{abstract}
+Character wikis should reflect what a reader knows at a chosen narrative cutoff.
+We define cutoff-bounded reference generation and an artifact-level protocol for measuring
+coverage, factual support, citation sufficiency and later-information disclosure.
+We provide a pilot dataset and compare seven systems, including \sys, a reference
+implementation that filters stored graph claims before generation. In one five-volume public-domain series
+(\res{T1-anne-gold-t5} gold facts; LLM labels\ifnwhuman{} with limited human review\fi{}),
+systems withholding later text stated no assessed later fact; \sys implied one by misreading
+eligible evidence. Closed-book generation and full-text cutoff instructions produced more
+disclosures. \sys recovered fewer gold facts and had lower citation sufficiency than prefix
+long-context prompting.\ifnwdecon{} Renaming and paraphrasing sharply reduced closed-book
+recall while text-based systems largely retained coverage; however, \sys converted a
+character's prediction into a later marriage.\fi{} The findings motivate controls on
+construction scope, attribution and evidence attachment. Disclosure assessment uses a
+finite probe set and imperfect candidate search,
+so low observed counts do not certify spoiler-free outputs. Code, gold facts and evaluation
+materials accompany the submission; the repository address is \anonrepo.
+\end{abstract}

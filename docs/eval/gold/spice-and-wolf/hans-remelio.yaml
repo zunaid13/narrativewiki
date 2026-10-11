@@ -1,0 +1,31 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Added 2026-09-10 to grow gold-data coverage from 4 to 10
+# characters (Phase 22 C4). The Fandom page spells this character "Hans Remerio"; this project's
+# gazetteer (transcribed from the novel text itself) spells it "Hans Remelio" -- same person.
+entity_id: hans-remelio
+canonical: Hans Remelio
+source_url: https://spiceandwolf.fandom.com/wiki/Hans_Remerio
+transcribed: "2026-09-10"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+
+facts:
+  - text: "Hans Remelio is the head of the Remelio Trading Company."
+    in_scope: true
+  - text: "Hans Remelio is a middle-aged man with slightly tan skin, about the same height as Lawrence, with purple eyes and hair."
+    in_scope: true
+  - text: "Hans Remelio wears a black jacket with a red ascot."
+    in_scope: true
+  - text: "Hans Remelio's company was heading towards bankruptcy when Lawrence and Holo first met him."
+    in_scope: true
+  - text: "Hans Remelio is nervous and somewhat incompetent, and goes out of his way to get rid of any risk to his business."
+    in_scope: true
+  - text: "Hans Remelio became an accomplice in a gold-smuggling scheme after Lawrence suggested using Norah Arendt to move the gold."
+    in_scope: true
+  - text: "Hans Remelio intended to betray Lawrence's group and take the smuggling profits for himself."
+    in_scope: true

@@ -1,0 +1,22 @@
+# Phase 33 candidate HELD-OUT corpus (plan 0012 D16): L. Frank Baum's fourteen Oz books, all public
+# domain, in publication order, which is the reading order. Chosen for many cutoffs, a large
+# recurring cast, and a detailed reference wiki (oz.fandom.com; Wikipedia's "List of Oz
+# characters (created by Baum)"). Never used to shape a pipeline rule: no LLM stage is run until
+# the system is frozen (plan 0012 D1).
+#   55 Wonderful Wizard · 54 Marvelous Land · 33361 Ozma · 22566 Dorothy and the Wizard ·
+#   485 Road (26624, the illustrated edition, draws chapter titles as images) · 517 Emerald City · 955 Patchwork Girl · 52176 Tik-Tok · 957 Scarecrow ·
+#   958 Rinkitink · 959 Lost Princess · 960 Tin Woodman · 419 Magic · 961 Glinda
+#   curl -L -o corpus/oz/oz-vNN.epub https://www.gutenberg.org/ebooks/<id>.epub3.images
+series:
+  id: "oz"
+  title: "The Oz books"
+  author: "L. Frank Baum"
+source:
+  dir: "corpus/oz"
+epub:
+  # Books mix one-file-per-chapter <h2> with many chapters per file under <h3> (as Anne #544).
+  heading_tags: ["h2", "h3"]
+  split_within_documents: ["h2", "h3"]
+  drop_chapter_titles: ["^The Project Gutenberg eBook", "^THE FULL PROJECT GUTENBERG", "^Contents$", "^CONTENTS$"]
+site:
+  default_upto: 14

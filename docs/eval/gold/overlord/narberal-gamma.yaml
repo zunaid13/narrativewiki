@@ -1,0 +1,27 @@
+# Hand-transcribed gold data (2026-09-25). Source https://overlordmaruyama.fandom.com/wiki/Narberal_Gamma
+# via WebSearch summaries (fandom.com is HTTP 402 here), each fact vetted against the v01-02 text.
+entity_id: narberal-gamma
+canonical: Narberal Gamma
+source_url: https://overlordmaruyama.fandom.com/wiki/Narberal_Gamma
+transcribed: "2026-09-25"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - History
+  - Abilities
+  - Relationships
+
+facts:
+  - text: "Narberal Gamma is one of the Pleiades, the battle maids of Nazarick."
+    in_scope: true
+  - text: "Narberal travels with Ainz disguised as the adventurer Nabe, Momon's companion."
+    in_scope: true
+  - text: "Narberal is a doppelganger."
+    in_scope: true
+  - text: "Narberal looks down on humans and calls them lower lifeforms."
+    in_scope: true
+
+negative_facts:
+  - "Narberal Gamma is not a member of the Swords of Darkness."

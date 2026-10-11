@@ -1,0 +1,133 @@
+{
+  "review_id": "20260924-structured-wiki-review",
+  "series": "spice-and-wolf",
+  "volumes": [
+    1,
+    2
+  ],
+  "model_calls": 0,
+  "commit": "0a9794e1ea8c4c43b64fd0b801a9281e16106b19",
+  "synthetic": {
+    "invalid_polarity_hypothetical_becomes": "asserted",
+    "same_claim_id_opposite_polarity_merge": {
+      "polarity_retained": "asserted",
+      "qualifier_retained": "report A",
+      "evidence_items": 2
+    },
+    "expired_relation_returned_by_relations_at": 1,
+    "expired_relation_returned_by_relations_between": 0,
+    "denied_relation_pair_projection": [
+      {
+        "subject": "a",
+        "predicate": "AFFILIATED_WITH",
+        "display": "Affiliated with",
+        "object": "f",
+        "qualifier": "member",
+        "since_vol": 1,
+        "until_vol": 1
+      }
+    ],
+    "denied_expired_relation_codex_members": [
+      "a"
+    ],
+    "no_verdict_renderable": true,
+    "future_cutoff_unsupported_verdict_hides_earlier_row": true,
+    "future_endpoint_at_cutoff_1": 2,
+    "selected_gold_precision_with_unjudged_extra_assertion": {
+      "precision": 1.0,
+      "supported": 1,
+      "contradicted": 0,
+      "negative_facts": []
+    },
+    "structured_trait_only_recall": {
+      "recall": 0.0,
+      "facts": [
+        {
+          "text": "Alice can see in darkness",
+          "found": false,
+          "matched_keywords": [
+            "alice"
+          ]
+        }
+      ]
+    }
+  },
+  "live": {
+    "claims": 446,
+    "intervals": 351,
+    "verdicts": 349,
+    "claim_polarities": {
+      "asserted": 433,
+      "presumed": 13
+    },
+    "verdicts_by_cutoff": [
+      [
+        null,
+        "supported",
+        335
+      ],
+      [
+        null,
+        "unsupported",
+        14
+      ]
+    ],
+    "nonasserted_relations": [
+      {
+        "claim_id": "c_1bef3c92",
+        "subject": "zheren",
+        "predicate": "ENEMY_OF",
+        "object": "kraft-lawrence",
+        "polarity": "presumed",
+        "first_vol": 1
+      },
+      {
+        "claim_id": "c_921a57fb",
+        "subject": "yarei",
+        "predicate": "AFFILIATED_WITH",
+        "object": "medio-company",
+        "polarity": "presumed",
+        "first_vol": 1
+      },
+      {
+        "claim_id": "c_9f1203ad",
+        "subject": "liebert",
+        "predicate": "ENEMY_OF",
+        "object": "norah-arendt",
+        "polarity": "presumed",
+        "first_vol": 2
+      }
+    ],
+    "zheren_pair_cutoff_1_relations": [
+      {
+        "subject": "kraft-lawrence",
+        "predicate": "COMRADE_OF",
+        "display": "Comrade of",
+        "object": "zheren",
+        "qualifier": "business partners planning to sign a contract",
+        "since_vol": 1
+      },
+      {
+        "subject": "kraft-lawrence",
+        "predicate": "ENEMY_OF",
+        "display": "Enemy of",
+        "object": "zheren",
+        "qualifier": "suspected of swindling",
+        "since_vol": 1
+      }
+    ]
+  },
+  "input_sha256": {
+    "src/narrativewiki/extract/schema.py": "dd633a09675e046ffd3f7d3f1a7bbfb4cfc44848a491ae105bfdea727ef25d27",
+    "src/narrativewiki/extract/claims.py": "6c8402115f6b42042c27053650dfb28d6c37a594fd0fa36d496c1b1c5b18a287",
+    "src/narrativewiki/graph/temporal.py": "d024c4ce058b5b12d8c29647c98ba264d72fb33b628a9abbf762ea0b20462038",
+    "src/narrativewiki/graph/store.py": "d96b8d139a451e9a0d4b08afd09e1b4eb721356e7e35ba8cdc6051a4b769a560",
+    "src/narrativewiki/site/bundle.py": "3ec86e201b57709d271ea503a9353e27728e2310d368edc8758ceb7ec9b26429",
+    "src/narrativewiki/synth/assemble.py": "63de25ce237c1aa9fce3bceeb95d681370a806182ab33ff936dfa08dc0f97bd9",
+    "src/narrativewiki/eval/gold.py": "3be65fda140b7b5d07a2c6949a60168f94543d0c498b46e1debac1e8558ce90d",
+    "config/extraction.yaml": "8a41a5154ae25f9c730a304fb3a50af1c22ab28f6211b0a04bbfec0763d4d380",
+    "data/spice-and-wolf/04_graph/graph.db": "42f79ebc2b16ec7dc93c2d03f267d9b6dd72360084a99fc8b59bebb3d79cba2c",
+    "data/spice-and-wolf/06_bundle/relationships/kraft-lawrence--zheren.json": "f6c20ca532eaacab18f48e000a05dd8c1ed5e6332527e8a22bfede5cb8c70c7d",
+    "docs/eval/character_evidence_coverage_spice-and-wolf_v02.json": "b684bda0f8791010012998fd84616043957efd116de166a9e62048336c6808cd"
+  }
+}

@@ -1,0 +1,22 @@
+% Source: supplied reviewer CSVs; recomputed_agreement_20261010.json.
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\nwhead{Task} & \nwhead{Items} & \nwhead{Agreement} & \nwhead{$\kappa$} \\
+\midrule
+Gold evidence & \res{HREV-G-n} & \res{HREV-G-agreement} & \res{HREV-G-kappa} \\
+Recall (M1) & \res{HREV-R-n} & \res{HREV-R-agreement} & \res{HREV-R-kappa} \\
+Precision (M3) & \res{HREV-P-n} & \res{HREV-P-agreement} & \res{HREV-P-kappa} \\
+Citation (M8) & \res{HREV-C-n} & \res{HREV-C-agreement} & \res{HREV-C-kappa} \\
+\midrule
+Pair placement & \res{HREV-PAIR-n} & \res{HREV-PAIR-agreement} & \res{HREV-PAIR-kappa} \\
+\bottomrule
+\end{tabular}
+\caption{Agreement between the two human reviewers' final labels.
+Cohen's $\kappa$ is reported per task; no mixed-task coefficient is pooled.
+Pair placement is a precision subset, not additional items.}
+\label{tab:human-agreement}
+\end{table}

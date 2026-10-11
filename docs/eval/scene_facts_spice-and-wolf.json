@@ -1,0 +1,2386 @@
+{
+  "run_id": "20260922T211717-scenes-v1-2",
+  "series": "spice-and-wolf",
+  "volumes": [
+    1,
+    2
+  ],
+  "model_calls": 0,
+  "measurement": "recorded fact observations through current gates, not recall; no deduplication",
+  "totals": {
+    "detail_responses": 56,
+    "raw_facts": 118,
+    "schema_dropped": 0,
+    "accepted": 86,
+    "unresolved_object": 3,
+    "subject_not_named_in_paragraph": 15,
+    "quote_too_short": 3,
+    "participant_fact_subject_unresolved": 4,
+    "endpoint_not_named_in_paragraph": 1,
+    "quote_not_verbatim": 6,
+    "unique_accepted_claims": 40
+  },
+  "by_subject": {
+    "count-ehrendott": {
+      "unique_accepted_claims": 0,
+      "indexed_mention_paragraphs": 5
+    },
+    "enek": {
+      "subject_not_named_in_paragraph": 1,
+      "accepted": 1,
+      "unresolved_object": 1,
+      "unique_accepted_claims": 1,
+      "indexed_mention_paragraphs": 53
+    },
+    "hans-remelio": {
+      "accepted": 1,
+      "unique_accepted_claims": 1,
+      "indexed_mention_paragraphs": 4
+    },
+    "holo": {
+      "accepted": 33,
+      "subject_not_named_in_paragraph": 4,
+      "unresolved_object": 1,
+      "quote_too_short": 1,
+      "quote_not_verbatim": 2,
+      "unique_accepted_claims": 11,
+      "indexed_mention_paragraphs": 1188
+    },
+    "jakob": {
+      "subject_not_named_in_paragraph": 1,
+      "accepted": 2,
+      "unique_accepted_claims": 2,
+      "indexed_mention_paragraphs": 50
+    },
+    "kraft-lawrence": {
+      "accepted": 39,
+      "quote_too_short": 2,
+      "subject_not_named_in_paragraph": 5,
+      "endpoint_not_named_in_paragraph": 1,
+      "quote_not_verbatim": 2,
+      "unique_accepted_claims": 15,
+      "indexed_mention_paragraphs": 1796
+    },
+    "liebert": {
+      "accepted": 2,
+      "unique_accepted_claims": 2,
+      "indexed_mention_paragraphs": 76
+    },
+    "marheit": {
+      "accepted": 2,
+      "subject_not_named_in_paragraph": 1,
+      "unique_accepted_claims": 2,
+      "indexed_mention_paragraphs": 69
+    },
+    "norah-arendt": {
+      "accepted": 3,
+      "subject_not_named_in_paragraph": 3,
+      "quote_not_verbatim": 2,
+      "unique_accepted_claims": 3,
+      "indexed_mention_paragraphs": 213
+    },
+    "saint-metrogius": {
+      "unique_accepted_claims": 0,
+      "indexed_mention_paragraphs": 3
+    },
+    "saint-ruvinheigen": {
+      "unique_accepted_claims": 0,
+      "indexed_mention_paragraphs": 6
+    },
+    "unresolved:Hans Remelio": {
+      "participant_fact_subject_unresolved": 1
+    },
+    "unresolved:Isuna Hasekura": {
+      "participant_fact_subject_unresolved": 2
+    },
+    "unresolved:Norah Arendt": {
+      "participant_fact_subject_unresolved": 1
+    },
+    "weiz": {
+      "accepted": 1,
+      "unique_accepted_claims": 1,
+      "indexed_mention_paragraphs": 27
+    },
+    "wisewolf": {
+      "unique_accepted_claims": 0,
+      "indexed_mention_paragraphs": 0
+    },
+    "yarei": {
+      "unresolved_object": 1,
+      "accepted": 1,
+      "unique_accepted_claims": 1,
+      "indexed_mention_paragraphs": 34
+    },
+    "zheren": {
+      "accepted": 1,
+      "unique_accepted_claims": 1,
+      "indexed_mention_paragraphs": 60
+    }
+  },
+  "witnesses": [
+    {
+      "cache_key": "38fa792be0c80487978a929aa640f5b8cdb0d8e44c0bdcb711358dfb5a8a7fef",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "traveling merchant",
+        "qualifier": null,
+        "para_id": "v01:c01:p0006",
+        "quote": "This was Lawrence’s seventh year as a traveling merchant, and his twenty-fifth since birth.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_207f213a"
+    },
+    {
+      "cache_key": "38fa792be0c80487978a929aa640f5b8cdb0d8e44c0bdcb711358dfb5a8a7fef",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "AGE",
+        "kind": "attribute",
+        "object": null,
+        "value": "25",
+        "qualifier": null,
+        "para_id": "v01:c01:p0006",
+        "quote": "This was Lawrence’s seventh year as a traveling merchant, and his twenty-fifth since birth.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_504a2f13"
+    },
+    {
+      "cache_key": "38fa792be0c80487978a929aa640f5b8cdb0d8e44c0bdcb711358dfb5a8a7fef",
+      "subject": "yarei",
+      "surface": "Yarei",
+      "vol": 1,
+      "fact": {
+        "predicate": "PARTICIPATED_IN",
+        "kind": "relation",
+        "object": "harvest festival",
+        "value": null,
+        "qualifier": "participant as the Holo",
+        "para_id": "v01:c01:p0081",
+        "quote": "Lawrence got off his wagon and peered at the crowd just as Yarei caught the last bundle of wheat.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "unresolved_object",
+      "claim_id": null
+    },
+    {
+      "cache_key": "b21f9b86085d559807b476aa57de85c0269944ad478c31ac3d0ef3913f25962d",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c02:p0000",
+        "quote": "The threatening storm finally caught up with Lawrence and Holo, but fortunately they caught sight of a church through their rain-blurred vision and hurried into it.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "b21f9b86085d559807b476aa57de85c0269944ad478c31ac3d0ef3913f25962d",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c02:p0000",
+        "quote": "The threatening storm finally caught up with Lawrence and Holo, but fortunately they caught sight of a church through their rain-blurred vision and hurried into it.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "8a9659a54a63f5d6cd30c5a0bd4a3e4840440fed2f0174079bc0168690956c1b",
+      "subject": "marheit",
+      "surface": "Richten Marheit",
+      "vol": 1,
+      "fact": {
+        "predicate": "TITLE",
+        "kind": "attribute",
+        "object": null,
+        "value": "head of the Milone Company’s Pazzio branch",
+        "qualifier": null,
+        "para_id": "v01:c04:p0072",
+        "quote": "said the head of the Milone Company’s Pazzio branch, Richten Marheit, in an even tone.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_2b32ed92"
+    },
+    {
+      "cache_key": "ea014481b8a8b9a1870077cb92223135a97c113cc3cac110e85a5071859a0847",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions who share profits",
+        "para_id": "v01:c03:p0098",
+        "quote": "I’ve no money and no immediate means to earn money, so as you do business I’ll just put a few words in to help you bring in more profit. Agreed?",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "ea014481b8a8b9a1870077cb92223135a97c113cc3cac110e85a5071859a0847",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions who share profits",
+        "para_id": "v01:c03:p0105",
+        "quote": "Yet his curiosity at exactly how she would attempt this farce overpowered his doubt that it would actually happen, so in the end he said, “Agreed.”",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "cdd8d94b8034be2770d96850aa33ecb15ab58ff0aed37878f01cf2bfd4492a95",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "AGE",
+        "kind": "attribute",
+        "object": null,
+        "value": "25",
+        "qualifier": null,
+        "para_id": "v01:c01:p0101",
+        "quote": "Lawrence was a traveling merchant and twenty-five years old.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_504a2f13"
+    },
+    {
+      "cache_key": "cdd8d94b8034be2770d96850aa33ecb15ab58ff0aed37878f01cf2bfd4492a95",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "traveling merchant",
+        "qualifier": null,
+        "para_id": "v01:c01:p0101",
+        "quote": "Lawrence was a traveling merchant and twenty-five years old.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_207f213a"
+    },
+    {
+      "cache_key": "cdd8d94b8034be2770d96850aa33ecb15ab58ff0aed37878f01cf2bfd4492a95",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "ORIGIN_FROM",
+        "kind": "attribute",
+        "object": null,
+        "value": "Yoitsu",
+        "qualifier": null,
+        "para_id": "v01:c01:p0215",
+        "quote": "I was. How is Yoitsu doing these days? Is everyone well?",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "unresolved_object",
+      "claim_id": null
+    },
+    {
+      "cache_key": "d9c739fc7497bffd2f132f40a5898857a728a5aa2af193ff52740463d8686c15",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "AGE",
+        "kind": "attribute",
+        "object": null,
+        "value": "25",
+        "qualifier": null,
+        "para_id": "v01:c02:p0199",
+        "quote": "Lawrence was twenty-five.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_too_short",
+      "claim_id": null
+    },
+    {
+      "cache_key": "d9c739fc7497bffd2f132f40a5898857a728a5aa2af193ff52740463d8686c15",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c02:p0201",
+        "quote": "It had been a mere two days since Lawrence met Holo, but it felt like much longer.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "727851377114c909d43872742f5e6e10721ab30e79886ae3b8e13a2fb6f6b57f",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c03:p0138",
+        "quote": "He was followed by Holo, who jumped down from the wagon a moment later.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "727851377114c909d43872742f5e6e10721ab30e79886ae3b8e13a2fb6f6b57f",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "traveling merchant",
+        "qualifier": null,
+        "para_id": "v01:c03:p0121",
+        "quote": "a fact that would impress any traveling merchant.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_207f213a"
+    },
+    {
+      "cache_key": "6e7243c883f1891c3f571054781ca9929a101a89851fb9a463e5fb922e0bfc67",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "PERSONALITY",
+        "kind": "trait",
+        "object": null,
+        "value": "lonely",
+        "qualifier": null,
+        "para_id": "v01:c04:p0232",
+        "quote": "Dwelling so nostalgically on the past proved she was lonely. He remembered how she looked then, curled up as if to protect herself from a storm of isolation.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_6299b8eb"
+    },
+    {
+      "cache_key": "a01822fb591b60de83a10638ad9b9c9062e13667d533bc3c41bf8a0be6fc6dcb",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "TITLE",
+        "kind": "attribute",
+        "object": null,
+        "value": "god of the harvest",
+        "qualifier": null,
+        "para_id": "v01:c01:p0233",
+        "quote": "Was this then truly Holo, wolf-god of the harvest?",
+        "confidence": 0.9,
+        "polarity": "presumed"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_f4e9d99c"
+    },
+    {
+      "cache_key": "a01822fb591b60de83a10638ad9b9c9062e13667d533bc3c41bf8a0be6fc6dcb",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "NICKNAME",
+        "kind": "attribute",
+        "object": null,
+        "value": "Holo the Wisewolf",
+        "qualifier": null,
+        "para_id": "v01:c01:p0315",
+        "quote": "I am Holo the Wisewolf!",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_too_short",
+      "claim_id": null
+    },
+    {
+      "cache_key": "a01822fb591b60de83a10638ad9b9c9062e13667d533bc3c41bf8a0be6fc6dcb",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "ORIGIN",
+        "kind": "attribute",
+        "object": null,
+        "value": "Yoitsu",
+        "qualifier": null,
+        "para_id": "v01:c01:p0378",
+        "quote": "My birthplace. The forest of Yoitsu.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_08c99704"
+    },
+    {
+      "cache_key": "a01822fb591b60de83a10638ad9b9c9062e13667d533bc3c41bf8a0be6fc6dcb",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "wheat trader",
+        "qualifier": null,
+        "para_id": "v01:c01:p0237",
+        "quote": "if she was the Holo, god of the harvest, a wheat trader could ask for no finer companion.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_db267b98"
+    },
+    {
+      "cache_key": "a01822fb591b60de83a10638ad9b9c9062e13667d533bc3c41bf8a0be6fc6dcb",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "wandering merchant",
+        "qualifier": null,
+        "para_id": "v01:c01:p0379",
+        "quote": "He himself had not visited his hometown once since embarking on the life of a wandering merchant.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_770f5d00"
+    },
+    {
+      "cache_key": "fb43a975afa0581dec6342f271d102a868cbc0182fc5d859984de672b6bc498d",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "AGE",
+        "kind": "attribute",
+        "object": null,
+        "value": "25",
+        "qualifier": null,
+        "para_id": "v01:c02:p0276",
+        "quote": "A twenty-five-year-old was not, it seemed, a match for a Wisewolf.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "0663431bb9ac02962aa6349665561b3a80bd5b4caaf3f940d5051c0887df0880",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c01:p0434",
+        "quote": "It was the proof that he’d truly acknowledged her presence as a companion.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "0663431bb9ac02962aa6349665561b3a80bd5b4caaf3f940d5051c0887df0880",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c01:p0434",
+        "quote": "It was the proof that he’d truly acknowledged her presence as a companion.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "fc47576d20c1f9bfd26d4b9381e93086b31cbe28992fea8e7d845401541b9e0e",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "trusted companions",
+        "para_id": "v01:c04:p0316",
+        "quote": "Holo smiled as though speaking with a trusted friend.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "fc47576d20c1f9bfd26d4b9381e93086b31cbe28992fea8e7d845401541b9e0e",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "trusted companions",
+        "para_id": "v01:c04:p0316",
+        "quote": "Holo smiled as though speaking with a trusted friend. Lawrence was about to reply but simply nodded his head and dashed with her toward the town in the night.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "953c383199dfc91aa88155ba932db7fcde2f9d1a5228f2233a7b14a3ff0ff4a7",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c03:p0325",
+        "quote": "Lawrence and Holo then parted ways with Zheren and headed into the town marketplace.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "953c383199dfc91aa88155ba932db7fcde2f9d1a5228f2233a7b14a3ff0ff4a7",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c03:p0325",
+        "quote": "Lawrence and Holo then parted ways with Zheren and headed into the town marketplace.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "953c383199dfc91aa88155ba932db7fcde2f9d1a5228f2233a7b14a3ff0ff4a7",
+      "subject": "zheren",
+      "surface": "Zheren",
+      "vol": 1,
+      "fact": {
+        "predicate": "COMRADE_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "business partner",
+        "para_id": "v01:c03:p0325",
+        "quote": "It was before such a public witness that Lawrence signed the contract, paid Zheren the ten trenni, and received the information without incident.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_7bda1bc1"
+    },
+    {
+      "cache_key": "ff7479df1d99790e4ae8b8c8ec805b0ba97854cf31cfdc2b8795bb607d90f38f",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "romantic partner and companion",
+        "para_id": "v01:c05:p0020",
+        "quote": "He simply couldn’t cut Holo loose, but if he did, unquestionably that would solve the problem.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "ff7479df1d99790e4ae8b8c8ec805b0ba97854cf31cfdc2b8795bb607d90f38f",
+      "subject": "marheit",
+      "surface": "Marheit",
+      "vol": 1,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Milone Company",
+        "value": null,
+        "qualifier": "branch manager",
+        "para_id": "v01:c05:p0000",
+        "quote": "Marheit was everything one would expect from a trader who’d opened a branch in a foreign land.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_b07cbdfc"
+    },
+    {
+      "cache_key": "1b081fc40f9fe44e3009769874635d30bb1f14ca8ab55532c7d14e4d898eedfe",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c06:p0073",
+        "quote": "The companions’ anxiety made them imagine a great swarm of men pursuing them, more numerous than ants.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "1b081fc40f9fe44e3009769874635d30bb1f14ca8ab55532c7d14e4d898eedfe",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c06:p0073",
+        "quote": "The companions’ anxiety made them imagine a great swarm of men pursuing them, more numerous than ants.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "fa5423a6c8ace89b79d687002340830c239eb447c973a46fd2e98309a6f80b5c",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companion and romantic interest",
+        "para_id": "v01:c04:p0446",
+        "quote": "He realized that if Holo were a mere traveling companion, he would not be so upset, and Holo herself would not have sacrificed herself to help him escape.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "fa5423a6c8ace89b79d687002340830c239eb447c973a46fd2e98309a6f80b5c",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "TITLE",
+        "kind": "attribute",
+        "object": null,
+        "value": "wolf-god of the harvest",
+        "qualifier": null,
+        "para_id": "v01:c04:p0484",
+        "quote": "My companion, Holo, is the wolf-god of the harvest",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_b0e69047"
+    },
+    {
+      "cache_key": "9c2e9b13f594e0b49f02f4d591db4ae6c1db6d965b8e2d990abcff72eae79a7b",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Marheit",
+        "value": null,
+        "qualifier": "business partners in the Milone Company",
+        "para_id": "v01:c05:p0111",
+        "quote": "Lawrence shook Marheit’s hand, glad to have chosen the right company to deal with.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_cb138687"
+    },
+    {
+      "cache_key": "9c2e9b13f594e0b49f02f4d591db4ae6c1db6d965b8e2d990abcff72eae79a7b",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "ENEMY_OF",
+        "kind": "relation",
+        "object": "Yarei",
+        "value": null,
+        "qualifier": "captor",
+        "para_id": "v01:c05:p0217",
+        "quote": "It was Yarei. You remember him, no doubt.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_bc703f6f"
+    },
+    {
+      "cache_key": "fb7a8955678aaa43dd47b7cea7c101a9552580e701943f8d6a15e4ae5752823e",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Weiz",
+        "value": null,
+        "qualifier": "long-time business associates",
+        "para_id": "v01:c03:p0408",
+        "quote": "The association between the two professionals had been long. It was like a friendship, formed not out of kindness but necessity.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_39dafaa0"
+    },
+    {
+      "cache_key": "fb7a8955678aaa43dd47b7cea7c101a9552580e701943f8d6a15e4ae5752823e",
+      "subject": "weiz",
+      "surface": "Weiz",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "cambist",
+        "qualifier": null,
+        "para_id": "v01:c03:p0406",
+        "quote": "said Lawrence to the fair-haired cambist, who was just finishing business with another customer.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_1b3d589d"
+    },
+    {
+      "cache_key": "e70197bc1f0a7ca5d7c3cdab5ad0dbb1443de3b393c5ed68742d08ac7cc81265",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Yarei",
+        "value": null,
+        "qualifier": "former friends from Pasloe",
+        "para_id": "v01:c06:p0186",
+        "quote": "And we’re friends, nay? Surely as a merchant you can figure gain and loss.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_5a1c7df9"
+    },
+    {
+      "cache_key": "e70197bc1f0a7ca5d7c3cdab5ad0dbb1443de3b393c5ed68742d08ac7cc81265",
+      "subject": "yarei",
+      "surface": "Yarei",
+      "vol": 1,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Medio Company",
+        "value": null,
+        "qualifier": "high-ranking associate",
+        "para_id": "v01:c06:p0178",
+        "quote": "The depth of his connection with the Medio Company was self-evident in its color and texture.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_921a57fb"
+    },
+    {
+      "cache_key": "b016dd9235b2cd7bab564740f1d9f6aa3308cc3f587f8c81f244de2f483e9582",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Marheit",
+        "value": null,
+        "qualifier": "business associates with mutual respect",
+        "para_id": "v01:c07:p0094",
+        "quote": "They clearly thought of him as a person with whom a good relationship was important.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_cb138687"
+    },
+    {
+      "cache_key": "b016dd9235b2cd7bab564740f1d9f6aa3308cc3f587f8c81f244de2f483e9582",
+      "subject": "marheit",
+      "surface": "Marheit",
+      "vol": 1,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Milone Company",
+        "value": null,
+        "qualifier": "branch supervisor",
+        "para_id": "v01:c07:p0069",
+        "quote": "the signer on the Milone side was a wealthy merchant of noble descent from the south who operated his own branch of a large company",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "8791d1ea34417425df043c7a6dbbf0a1f9ea31d233b0b2e3af3e8d4800863d83",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "MENTOR_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "guiding him to a new perspective on his business problem",
+        "para_id": "v01:c03:p0535",
+        "quote": "from her tone it seemed that she was not testing him but rather was genuinely trying to help.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_56e90d72"
+    },
+    {
+      "cache_key": "c126709c9a66beff059dd5c25efd67ba6b04f9023a5ed9d53e597e360f1b014d",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c05:p0273",
+        "quote": "I—no, we—are merchants. As long as we profit, we triumph. We laugh when money comes in, and cry only in bankruptcy. And we will laugh,",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "c126709c9a66beff059dd5c25efd67ba6b04f9023a5ed9d53e597e360f1b014d",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c05:p0273",
+        "quote": "I—no, we—are merchants. As long as we profit, we triumph. We laugh when money comes in, and cry only in bankruptcy. And we will laugh,",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "f5f06d1bb8eb20109cff8d8a382160323133dadc95bdb5edaa8583bb8654521a",
+      "subject": null,
+      "surface": "Isuna Hasekura",
+      "vol": 1,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "author",
+        "qualifier": null,
+        "para_id": "v01:c08:p0000",
+        "quote": "Since I began entering writing contests with prize money involved, I’ve never been able to stop thinking about winning the grand prize.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "participant_fact_subject_unresolved",
+      "claim_id": null
+    },
+    {
+      "cache_key": "f5f06d1bb8eb20109cff8d8a382160323133dadc95bdb5edaa8583bb8654521a",
+      "subject": null,
+      "surface": "Isuna Hasekura",
+      "vol": 1,
+      "fact": {
+        "predicate": "PARTICIPATED_IN",
+        "kind": "relation",
+        "object": "12th Dengeki Shosetsu Prize",
+        "value": null,
+        "qualifier": "winner of the silver medal",
+        "para_id": "v01:c08:p0004",
+        "quote": "Recently winning the silver medal of the 12th Dengeki Shosetsu Prize is an honor roughly equivalent to winning the moon in the sky.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "participant_fact_subject_unresolved",
+      "claim_id": null
+    },
+    {
+      "cache_key": "7ca77d205953c8c07a964132adf19ea90e8a7e7c08cd834a2018ef4a22ff3482",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c07:p0160",
+        "quote": "It seemed as though the travels of this strange pair would last a bit longer.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_61ce746d"
+    },
+    {
+      "cache_key": "7ca77d205953c8c07a964132adf19ea90e8a7e7c08cd834a2018ef4a22ff3482",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 1,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v01:c07:p0160",
+        "quote": "It seemed as though the travels of this strange pair would last a bit longer.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_deaafccb"
+    },
+    {
+      "cache_key": "4a3bbf951852c5087d025a0e4452981b77f45dd24f5112deb4e65e429b4ab933",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "traveling merchant",
+        "qualifier": null,
+        "para_id": "v02:c00:p0006",
+        "quote": "The man, Kraft Lawrence, was instantly recognizable as a traveling merchant.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_00d70f77"
+    },
+    {
+      "cache_key": "4a3bbf951852c5087d025a0e4452981b77f45dd24f5112deb4e65e429b4ab933",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions and friends",
+        "para_id": "v02:c00:p0025",
+        "quote": "Yet Lawrence believed his relationship with Holo the Wisewolf to be one of money, of partners in lending and borrowing, of companions in travel, and of friends.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "4a3bbf951852c5087d025a0e4452981b77f45dd24f5112deb4e65e429b4ab933",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions and friends",
+        "para_id": "v02:c00:p0025",
+        "quote": "Yet Lawrence believed his relationship with Holo the Wisewolf to be one of money, of partners in lending and borrowing, of companions in travel, and of friends.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "c5ad24ef73201b8ca5e6a601b80a63ba511ce0e867c35da924e7865e25d76b3a",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c01:p0002",
+        "quote": "With a companion to partake of the fine wine and food, he had overindulged.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "c5ad24ef73201b8ca5e6a601b80a63ba511ce0e867c35da924e7865e25d76b3a",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "traveling merchant",
+        "qualifier": null,
+        "para_id": "v02:c01:p0010",
+        "quote": "Arriving in a foreign land, where the language, food, and dress were all different, could lead even a constantly traveling merchant to homesickness.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_00d70f77"
+    },
+    {
+      "cache_key": "1a949cc75c57491aa31a09044010281a223f8a1c5518fc3f201889eec85a7dcc",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Norah",
+        "value": null,
+        "qualifier": "traveling companions who share mutual goodwill",
+        "para_id": "v02:c02:p0014",
+        "quote": "He had paid Norah extra because he felt indebted to her. He and Holo had been fortunate not to encounter any wolves, but Lawrence was still impressed by the girl’s skill.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_7ebf958c"
+    },
+    {
+      "cache_key": "1a949cc75c57491aa31a09044010281a223f8a1c5518fc3f201889eec85a7dcc",
+      "subject": "norah-arendt",
+      "surface": "Norah",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions who share mutual goodwill",
+        "para_id": "v02:c02:p0032",
+        "quote": "As they parted, Lawrence looked back over his shoulder at the girl and saw that Norah was still watching him and Holo. When she saw Lawrence turn, Norah waved wistfully to them.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_527f850d"
+    },
+    {
+      "cache_key": "4005918ec7f885311a91113f32fbaf07a08dcad9d313958a2b971403a3688253",
+      "subject": "hans-remelio",
+      "surface": "Hans Remelio",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "master of the Remelio Company",
+        "qualifier": null,
+        "para_id": "v02:c03:p0008",
+        "quote": "Hans Remelio, the master of the Remelio Company, unconsciously ran his hand through his slightly graying hair as he continued to press Lawrence.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_a411f9c6"
+    },
+    {
+      "cache_key": "4005918ec7f885311a91113f32fbaf07a08dcad9d313958a2b971403a3688253",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c03:p0111",
+        "quote": "Do I look like the kind of ungrateful wolf that lets her companion face a crisis alone?",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "4005918ec7f885311a91113f32fbaf07a08dcad9d313958a2b971403a3688253",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c03:p0111",
+        "quote": "Do I look like the kind of ungrateful wolf that lets her companion face a crisis alone?",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "3e89dc6e645381c5ab3187a607a9fa251c1ee434fe9689142e18873e457454bb",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "APPEARANCE",
+        "kind": "attribute",
+        "object": null,
+        "value": "nonhuman",
+        "qualifier": null,
+        "para_id": "v02:c01:p0119",
+        "quote": "Her fangs occasionally showed as she chewed the meat, revealing her nonhuman nature.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_ae630ddb"
+    },
+    {
+      "cache_key": "3e89dc6e645381c5ab3187a607a9fa251c1ee434fe9689142e18873e457454bb",
+      "subject": null,
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "shepherdess",
+        "qualifier": null,
+        "para_id": "v02:c01:p0219",
+        "quote": "My apologies for doubting you. You surely are a shepherdess",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "participant_fact_subject_unresolved",
+      "claim_id": null
+    },
+    {
+      "cache_key": "4f072a689be942cf9d77ebcb8649e75fee37b90b2974b7b737a24ce42265498b",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c02:p0117",
+        "quote": "nothing was fishier than a person of faith traveling with a merchant, after all.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "4f072a689be942cf9d77ebcb8649e75fee37b90b2974b7b737a24ce42265498b",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Rowen Trade Guild",
+        "value": null,
+        "qualifier": "member",
+        "para_id": "v02:c02:p0179",
+        "quote": "All in the Rowen Trade Guild are my sons and daughters.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "4f072a689be942cf9d77ebcb8649e75fee37b90b2974b7b737a24ce42265498b",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "STUDENT_OF",
+        "kind": "relation",
+        "object": "Jakob",
+        "value": null,
+        "qualifier": "former apprentice",
+        "para_id": "v02:c02:p0175",
+        "quote": "Lawrence used to get angry recalling the master’s inexplicable habit of jesting at him when he was a young apprentice.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "endpoint_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "4f072a689be942cf9d77ebcb8649e75fee37b90b2974b7b737a24ce42265498b",
+      "subject": "jakob",
+      "surface": "Jakob",
+      "vol": 2,
+      "fact": {
+        "predicate": "MENTOR_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "guild master and mentor",
+        "para_id": "v02:c02:p0177",
+        "quote": "You’ve gotten clever, boy. Welcome home, my son!",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "721c0bb5f463122a3aa84fcd183b7a1baee9afe2b9b52a88ccf095dd94cbddb8",
+      "subject": "jakob",
+      "surface": "Jakob",
+      "vol": 2,
+      "fact": {
+        "predicate": "TITLE",
+        "kind": "attribute",
+        "object": null,
+        "value": "Chief Tarantino",
+        "qualifier": null,
+        "para_id": "v02:c03:p0152",
+        "quote": "I didn’t catch her—I was caught by her, Chief Tarantino.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_a8949c09"
+    },
+    {
+      "cache_key": "721c0bb5f463122a3aa84fcd183b7a1baee9afe2b9b52a88ccf095dd94cbddb8",
+      "subject": "jakob",
+      "surface": "Jakob",
+      "vol": 2,
+      "fact": {
+        "predicate": "TITLE",
+        "kind": "attribute",
+        "object": null,
+        "value": "master of the Ruvinheigen branch of the Rowen Trade Guild",
+        "qualifier": null,
+        "para_id": "v02:c03:p0235",
+        "quote": "As the master of the Ruvinheigen branch of the Rowen Trade Guild, Jakob had to confront Lawrence with harsh reality",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d70bcee8"
+    },
+    {
+      "cache_key": "721c0bb5f463122a3aa84fcd183b7a1baee9afe2b9b52a88ccf095dd94cbddb8",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling business partners",
+        "para_id": "v02:c03:p0174",
+        "quote": "She’s a business partner. We’re traveling together.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "ed978e5e29218218d07b5331eec1b779e372f395703fac298865f480f96a8d27",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companion",
+        "para_id": "v02:c00:p0106",
+        "quote": "It was true that some good mutton was a bargain if it meant Holo would guarantee safe travels.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "ed978e5e29218218d07b5331eec1b779e372f395703fac298865f480f96a8d27",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companion",
+        "para_id": "v02:c00:p0106",
+        "quote": "It was true that some good mutton was a bargain if it meant Holo would guarantee safe travels.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "439a664323ec4a61cb5aa1f351ddd0dd621614f4cb46a210b1870c407204ed28",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "traveling merchant",
+        "qualifier": null,
+        "para_id": "v02:c03:p0325",
+        "quote": "his skill as a traveling merchant would be acknowledged to a degree.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_00d70f77"
+    },
+    {
+      "cache_key": "439a664323ec4a61cb5aa1f351ddd0dd621614f4cb46a210b1870c407204ed28",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companion",
+        "para_id": "v02:c03:p0352",
+        "quote": "she had been worried enough about him to accompany him, after all.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "d9eca793d6280bf60582c56e3dd7f927bce60a80260f6ad0d0bc9396f0a4ccb7",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Rowen Trade Guild",
+        "value": null,
+        "qualifier": "member",
+        "para_id": "v02:c02:p0222",
+        "quote": "Lawrence took the certificate that proved his affiliation with the Rowen Trade Guild",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_51a5bbc5"
+    },
+    {
+      "cache_key": "d9eca793d6280bf60582c56e3dd7f927bce60a80260f6ad0d0bc9396f0a4ccb7",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c02:p0239",
+        "quote": "Oh, there he is. That’s my companion",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "d9eca793d6280bf60582c56e3dd7f927bce60a80260f6ad0d0bc9396f0a4ccb7",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c02:p0239",
+        "quote": "Oh, there he is. That’s my companion",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "fc5f7f78c1c9a7d1db0a2e4c27f9d08a99dfff767f8b2062e5b21c343043c4e2",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c01:p0316",
+        "quote": "If you’re going to hire her, that means she will be traveling with us for a time. I’m asking you if you have no problem with that.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "fc5f7f78c1c9a7d1db0a2e4c27f9d08a99dfff767f8b2062e5b21c343043c4e2",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "shepherd",
+        "qualifier": null,
+        "para_id": "v02:c01:p0272",
+        "quote": "I’m a shepherd. Um, I tend my flock, but I can also drive off wolves.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "fc5f7f78c1c9a7d1db0a2e4c27f9d08a99dfff767f8b2062e5b21c343043c4e2",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "RELATIVE_OF",
+        "kind": "relation",
+        "object": "Enek",
+        "value": null,
+        "qualifier": "owner and companion",
+        "para_id": "v02:c01:p0374",
+        "quote": "Enek! Norah called out, and like a bolt of black flame, the dark-furred dog came streaking back to his master",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_not_verbatim",
+      "claim_id": null
+    },
+    {
+      "cache_key": "fc5f7f78c1c9a7d1db0a2e4c27f9d08a99dfff767f8b2062e5b21c343043c4e2",
+      "subject": "enek",
+      "surface": "Enek",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "sheepdog",
+        "qualifier": null,
+        "para_id": "v02:c01:p0271",
+        "quote": "What the shepherd girl was looking for sat alertly beside her, a four-legged portrait of a faithful knight executed in black fur—her sheepdog.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "8d8ddbb22dd9a06a23e2aa4e531afbf7a5073baf7758055ff0664fa5f9243fc3",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c00:p0326",
+        "quote": "It seems I’m drunk on the same wine as my companion.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "8d8ddbb22dd9a06a23e2aa4e531afbf7a5073baf7758055ff0664fa5f9243fc3",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c00:p0326",
+        "quote": "It seems I’m drunk on the same wine as my companion.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "6df2889e57ca8ac53075ea77106832be1c5c6dfa655654406d7720bdc1117501",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companion",
+        "para_id": "v02:c02:p0379",
+        "quote": "Holo, surprised, caught Lawrence as he toppled.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "7284da8be11efc0837383cd1a6e54b132842382ad7179aad16decb0039f9a1dd",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Jakob",
+        "value": null,
+        "qualifier": "merchant acquaintance",
+        "para_id": "v02:c03:p0411",
+        "quote": "Having no particular place to go, Lawrence thought of going to see Jakob, who was quite involved with his problems at the moment.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_3aa784dc"
+    },
+    {
+      "cache_key": "7284da8be11efc0837383cd1a6e54b132842382ad7179aad16decb0039f9a1dd",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companion",
+        "para_id": "v02:c03:p0533",
+        "quote": "But I suppose ’tis that same quality that lets me travel with you so easily.",
+        "confidence": 0.95,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "d057a5a50c7120af36ffc5de08cc40e61b8cefdd8a7e24066fb9f7988a8b8e6d",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c00:p0440",
+        "quote": "Some days earlier, during a disturbance in Pazzio, Lawrence had seen Holo’s wolf form and retreated in fear. Deeply hurt, Holo tried to leave Lawrence, but Lawrence stopped her by saying he would follow her all the way to the north country to collect the money she owed him for destroying his clothes.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_not_verbatim",
+      "claim_id": null
+    },
+    {
+      "cache_key": "d057a5a50c7120af36ffc5de08cc40e61b8cefdd8a7e24066fb9f7988a8b8e6d",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c00:p0440",
+        "quote": "Some days earlier, during a disturbance in Pazzio, Lawrence had seen Holo’s wolf form and retreated in fear. Deeply hurt, Holo tried to leave Lawrence, but Lawrence stopped her by saying he would follow her all the way to the north country to collect the money she owed him for destroying his clothes.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_not_verbatim",
+      "claim_id": null
+    },
+    {
+      "cache_key": "fdb9e6d0ee3fe333d6a0bf70ece71e8652a2e417d1ae1c4773a12e456902e5e2",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "shepherdess",
+        "qualifier": null,
+        "para_id": "v02:c01:p0425",
+        "quote": "Such a life was difficult even for an adult man, so the shepherdess must have felt the hardship still more keenly.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "fdb9e6d0ee3fe333d6a0bf70ece71e8652a2e417d1ae1c4773a12e456902e5e2",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "The Church",
+        "value": null,
+        "qualifier": "employee",
+        "para_id": "v02:c01:p0472",
+        "quote": "Er, well…yes. I receive my flock from a priest of the Church, but…",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "fdb9e6d0ee3fe333d6a0bf70ece71e8652a2e417d1ae1c4773a12e456902e5e2",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "merchant",
+        "qualifier": null,
+        "para_id": "v02:c01:p0457",
+        "quote": "My apologies. I am sorry. As a merchant, I am always thinking of gains and losses.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "bea05f47b6cb895f8b0468b1d0c5cb0c14e24dfcdf11d1dc2d592d445043af76",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "COMRADE_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c04:p0072",
+        "quote": "After settling the arrangements regarding roles and compensation with the Remelio Company, Lawrence and Holo found themselves in front of a smallish church in the eastern part of Ruvinheigen.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_ebfa4ec1"
+    },
+    {
+      "cache_key": "bea05f47b6cb895f8b0468b1d0c5cb0c14e24dfcdf11d1dc2d592d445043af76",
+      "subject": null,
+      "surface": "Hans Remelio",
+      "vol": 2,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Remelio Company",
+        "value": null,
+        "qualifier": "master of the company",
+        "para_id": "v02:c04:p0002",
+        "quote": "Lawrence, but soon the common sense he would expect from a merchant running a trading company in Ruvinheigen showed on Remelio’s face. It turned scornful as the master sat in a chair.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "participant_fact_subject_unresolved",
+      "claim_id": null
+    },
+    {
+      "cache_key": "bea05f47b6cb895f8b0468b1d0c5cb0c14e24dfcdf11d1dc2d592d445043af76",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "shepherdess",
+        "qualifier": null,
+        "para_id": "v02:c04:p0079",
+        "quote": "They had come to ask her to play a crucial role in the gold-smuggling operation—the carrier. However, Norah was not facing financial ruin the way that Lawrence and the Remelio Company were. Still, proposing the gold-smuggling plan would certainly involve deception because they would need to make the profit that would come in with the plan’s success seem equal to the danger. Any who smuggled gold bet their life on it—and nothing could compensate for loss of life. Yes, some fudging of the details would be necessary. Yet both Norah’s skill as a shepherdess and her standing in the city were indispensable to their scheme.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_not_verbatim",
+      "claim_id": null
+    },
+    {
+      "cache_key": "03f738aec6b9d550b052c0a8a9fb902c49e74054610e67c1d1bc79892e2bf1e4",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions who share a close, trusting bond",
+        "para_id": "v02:c03:p0598",
+        "quote": "Lawrence took a deep breath, smiling at this, the sort of pleasant exchange that never happened when one traveled alone.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "03f738aec6b9d550b052c0a8a9fb902c49e74054610e67c1d1bc79892e2bf1e4",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions who share a close, trusting bond",
+        "para_id": "v02:c03:p0671",
+        "quote": "Lawrence’s reply was short. His brevity was proportional to his trust in her. The closer a relationship, the less the need for lengthy contracts; the more a simple handshake suffices.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "a86b2e1f1f7b48819cbfdc412ba9e4a23af8d06a77faedfd2ca0343f2be0ce17",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions who share meals and conversation",
+        "para_id": "v02:c00:p0526",
+        "quote": "I forgot to say it earlier, but the wine we got from the master—I’ve no intention of drinking it all myself. This evening we must drink together—and enjoy that mutton, too.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "a86b2e1f1f7b48819cbfdc412ba9e4a23af8d06a77faedfd2ca0343f2be0ce17",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions who share meals and conversation",
+        "para_id": "v02:c00:p0526",
+        "quote": "I forgot to say it earlier, but the wine we got from the master—I’ve no intention of drinking it all myself. This evening we must drink together—and enjoy that mutton, too.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "0073325411a4babc517281ede84dc91133940e86e8cca1081449a5392c06eb02",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companions who share banter and meals",
+        "para_id": "v02:c01:p0579",
+        "quote": "Oh, you don’t want it? taunted Holo, amused. Despite his embarrassment, Lawrence decided to accept the offering.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_not_verbatim",
+      "claim_id": null
+    },
+    {
+      "cache_key": "0073325411a4babc517281ede84dc91133940e86e8cca1081449a5392c06eb02",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions who share banter and meals",
+        "para_id": "v02:c01:p0579",
+        "quote": "Oh, you don’t want it? taunted Holo, amused. Despite his embarrassment, Lawrence decided to accept the offering.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_not_verbatim",
+      "claim_id": null
+    },
+    {
+      "cache_key": "9f81f6d57ba1e92dd939d4a7807ffc9cb98b00e888f9c2b98e093db5bcc333e2",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Jakob",
+        "value": null,
+        "qualifier": "business associate and acquaintance",
+        "para_id": "v02:c06:p0002",
+        "quote": "Lawrence was greeted heartily by the members of the trade guild, who had gathered there to drink after the end of the business day. He endured many vulgar questions about the wound on his face before finally reaching Jakob.",
+        "confidence": 0.8,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_3aa784dc"
+    },
+    {
+      "cache_key": "9f81f6d57ba1e92dd939d4a7807ffc9cb98b00e888f9c2b98e093db5bcc333e2",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Kraft Lawrence",
+        "value": null,
+        "qualifier": "traveling companion",
+        "para_id": "v02:c06:p0027",
+        "quote": "Lawrence had actually wanted to sit and rest for a moment, but Holo took his hand and would not be argued with.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "f0de5d6611a6b61586edc7eba19d9c14b50d2ab224ccd0174ad4fd20c7cd367c",
+      "subject": "enek",
+      "surface": "Enek",
+      "vol": 2,
+      "fact": {
+        "predicate": "COMRADE_OF",
+        "kind": "relation",
+        "object": "Norah",
+        "value": null,
+        "qualifier": "sheepdog and shepherdess",
+        "para_id": "v02:c05:p0008",
+        "quote": "Norah’s voice echoed, and Enek sprinted to the rear of the flock in a blur of black fur and white breath, driving on a lagging lamb.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_7a0918bc"
+    },
+    {
+      "cache_key": "f0de5d6611a6b61586edc7eba19d9c14b50d2ab224ccd0174ad4fd20c7cd367c",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling partners",
+        "para_id": "v02:c05:p0075",
+        "quote": "You’re my partner—and partners cooperate, do they not?",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "5fbdf0ad1a7841ef91bd083cc2844f332c31b4a129cf700218db0918139faa69",
+      "subject": "kraft-lawrence",
+      "surface": "Kraft Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "merchant",
+        "qualifier": null,
+        "para_id": "v02:c04:p0115",
+        "quote": "Anyway, merchants are like sabers—they’re no good if they’re not straight.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_37bd7183"
+    },
+    {
+      "cache_key": "5fbdf0ad1a7841ef91bd083cc2844f332c31b4a129cf700218db0918139faa69",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "shepherdess",
+        "qualifier": null,
+        "para_id": "v02:c04:p0123",
+        "quote": "As shepherds were counted among those suspicious professions, the shepherdess was last to leave.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_34a6cbfe"
+    },
+    {
+      "cache_key": "a1ae7f7652db2f6e31bb8e485f186e8bb2b588e44510985e5e91dc01be00a72c",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c05:p0158",
+        "quote": "If they felt pity for this poor man whose beloved companion had been killed by wolves, the point for broaching the subject had passed.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "a1ae7f7652db2f6e31bb8e485f186e8bb2b588e44510985e5e91dc01be00a72c",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c05:p0158",
+        "quote": "If they felt pity for this poor man whose beloved companion had been killed by wolves, the point for broaching the subject had passed.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "subject_not_named_in_paragraph",
+      "claim_id": null
+    },
+    {
+      "cache_key": "c606f23faaed6cb7ce980269d41bd9ee63c0db6a70f6ad254530d3976240f94a",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c05:p0330",
+        "quote": "Exactly what sort of troublesome fellow am I traveling with?",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "c606f23faaed6cb7ce980269d41bd9ee63c0db6a70f6ad254530d3976240f94a",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "traveling companions",
+        "para_id": "v02:c05:p0329",
+        "quote": "Very well. I trust you.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "quote_too_short",
+      "claim_id": null
+    },
+    {
+      "cache_key": "8e7e5f91396c602e71014b332b8b8f4b8e35d9ad78918667f71aaa5cbaea6153",
+      "subject": "liebert",
+      "surface": "Liebert",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "employee of the Remelio Company",
+        "qualifier": null,
+        "para_id": "v02:c04:p0394",
+        "quote": "The young employee of the Remelio Company paled at Norah’s words",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_97d6e91e"
+    },
+    {
+      "cache_key": "8e7e5f91396c602e71014b332b8b8f4b8e35d9ad78918667f71aaa5cbaea6153",
+      "subject": "liebert",
+      "surface": "Liebert",
+      "vol": 2,
+      "fact": {
+        "predicate": "PERSONALITY",
+        "kind": "trait",
+        "object": null,
+        "value": "timid",
+        "qualifier": null,
+        "para_id": "v02:c04:p0394",
+        "quote": "Liebert was more timid than he looked.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_f0ffa7c9"
+    },
+    {
+      "cache_key": "8e7e5f91396c602e71014b332b8b8f4b8e35d9ad78918667f71aaa5cbaea6153",
+      "subject": "norah-arendt",
+      "surface": "Norah Arendt",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "shepherd",
+        "qualifier": null,
+        "para_id": "v02:c04:p0386",
+        "quote": "shepherds announced their presence with the blow of a horn.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d23173e4"
+    },
+    {
+      "cache_key": "45fb8d2e5ef32a5ca7b2fa0336482c28d4b7ab528124c794600adaab808db37e",
+      "subject": "enek",
+      "surface": "Enek",
+      "vol": 2,
+      "fact": {
+        "predicate": "RELATIVE_OF",
+        "kind": "relation",
+        "object": "Norah Arendt",
+        "value": null,
+        "qualifier": "pet",
+        "para_id": "v02:c04:p0515",
+        "quote": "The sheep were all huddled together from the cold, and with no work to do, Enek slept stretched out by the cinders—nestled up to his beloved mistress, of course.",
+        "confidence": 0.9,
+        "polarity": "asserted"
+      },
+      "outcome": "unresolved_object",
+      "claim_id": null
+    },
+    {
+      "cache_key": "45fb8d2e5ef32a5ca7b2fa0336482c28d4b7ab528124c794600adaab808db37e",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "OCCUPATION",
+        "kind": "attribute",
+        "object": null,
+        "value": "harvest god",
+        "qualifier": null,
+        "para_id": "v02:c04:p0540",
+        "quote": "When he had met Holo, she’d been the harvest god of a bountiful area.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_306ef970"
+    },
+    {
+      "cache_key": "353afab19aa14588464fe7660aacf925ff2fa932cc2d0db4dd8c1789ed13fe00",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Lawrence",
+        "value": null,
+        "qualifier": "travel companion",
+        "para_id": "v02:c05:p0533",
+        "quote": "Ah, my travel companion is tiresome beyond words!",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aee6b94c"
+    },
+    {
+      "cache_key": "353afab19aa14588464fe7660aacf925ff2fa932cc2d0db4dd8c1789ed13fe00",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "FRIEND_OF",
+        "kind": "relation",
+        "object": "Holo",
+        "value": null,
+        "qualifier": "travel companion",
+        "para_id": "v02:c05:p0533",
+        "quote": "Ah, my travel companion is tiresome beyond words!",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_d2187b6f"
+    },
+    {
+      "cache_key": "f284a633802e0e7e11b53908701560c3737a3572b425a8e3eaf37d541f3c58b8",
+      "subject": "kraft-lawrence",
+      "surface": "Lawrence",
+      "vol": 2,
+      "fact": {
+        "predicate": "AFFILIATED_WITH",
+        "kind": "relation",
+        "object": "Rowen Trade Guild",
+        "value": null,
+        "qualifier": "member",
+        "para_id": "v02:c05:p0663",
+        "quote": "But all those problems were solved by having the trade guild to which Lawrence was attached hold the loan.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_51a5bbc5"
+    },
+    {
+      "cache_key": "f284a633802e0e7e11b53908701560c3737a3572b425a8e3eaf37d541f3c58b8",
+      "subject": "holo",
+      "surface": "Holo",
+      "vol": 2,
+      "fact": {
+        "predicate": "APPEARANCE",
+        "kind": "attribute",
+        "object": null,
+        "value": "wolf form",
+        "qualifier": null,
+        "para_id": "v02:c05:p0593",
+        "quote": "though his fear at Holo’s wolf form was by now entirely gone.",
+        "confidence": 1.0,
+        "polarity": "asserted"
+      },
+      "outcome": "accepted",
+      "claim_id": "c_aa25ff71"
+    }
+  ],
+  "current_scene_claim_id_comparison": {
+    "only_replayed": [],
+    "only_persisted": []
+  },
+  "input_sha256": {
+    "data/spice-and-wolf/_runs/20260922T211717-scenes-v1-2/manifest.json": "fea2dba3c729c743a1a6cef63a1ffb76c8a634a71e8d61a82cc2f7755978c204",
+    "data/spice-and-wolf/_runs/20260922T211717-scenes-v1-2/calls.jsonl": "085fd101bdb2a5d8b2c8a7dc51420f00041b28345182039e9d14569ba82d4c38",
+    "data/spice-and-wolf/02_entities/gazetteer.json": "9ad1c8c82c3344efea1b3b3d04666543c4ed0424fb19db4886939dcb0fb22762",
+    "data/spice-and-wolf/02_entities/mentions.jsonl": "5bbd75d27232bc6efee7cc1559ddee5c39173a01925dd1a5c5d873a848a2bbf6",
+    "config/extraction.yaml": "c787c83f15cf799503c2bef57bd8efcbffb9b13f374512687f1b37f5d0fe0c78",
+    "docs/eval/replay_scene_facts.py": "5abc9c081975c385b9ec0e25a5403ff9e9a8f6ad66b488fe4a2e9c3bbd4786bd",
+    "src/narrativewiki/extract/scenes.py": "e12b83c7a5dcf712e7b33a9e085674fa65a99194b5ea8f04db5dd034df3b607e",
+    "src/narrativewiki/extract/adequacy.py": "5cfafd88bd028073511f8dcbb17d35f5afa956f2ae44b6190c92e3aa6a2c69f2",
+    "src/narrativewiki/extract/resolve.py": "cee2f4b2b0f1f903d4165adab84e65e1dd19d4c02903018e05d6f0a0e8f642bf",
+    "src/narrativewiki/extract/scene_schema.py": "369bded25704cf5d2d2681c0be47cda1b0c81efa4802d839a6bd56597e532141",
+    "src/narrativewiki/extract/schema.py": "dd633a09675e046ffd3f7d3f1a7bbfb4cfc44848a491ae105bfdea727ef25d27",
+    "src/narrativewiki/extract/spans.py": "4f3c5fecbe134faa3b89148c92b5d2f3aee792d1723521e26418387b157bf326",
+    "data/spice-and-wolf/01_parsed/v01.jsonl": "5e38f9dee112a65749d32619c8948488b4bc6ae5cfb0a585c8789b48136f9bcb",
+    "data/spice-and-wolf/01_parsed/v02.jsonl": "26cdbb9a9fa360d9c8438973edcf8273e82818d2f1428eb53be1b7e2caebe48f",
+    "data/spice-and-wolf/03_claims/scene_v01.jsonl": "57c0d171080a7d0ca67085b841417d41946a6ce6ea05d31b262709d37976e4ba",
+    "data/spice-and-wolf/03_claims/scene_v02.jsonl": "a05bfb9ef07b96ed504003f637acaef2f2cff50b725dfa78bc0d875b816fa580"
+  }
+}

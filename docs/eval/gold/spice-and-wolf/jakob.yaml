@@ -1,0 +1,49 @@
+# Hand-transcribed gold data for Phase 21 part 4's evaluation harness (wiki audit eval).
+# See holo.yaml's header comment for the WebFetch-blocked / WebSearch-transcription caveat and
+# what `eval_vol`/`in_scope` mean. Jacob Tarantino's Fandom page is tagged an article stub
+# (Category:Article stubs) with a separate /Gallery subpage but no evidence of a distinct
+# "History" heading found via WebSearch -- outline below omits it rather than guess it exists.
+# Added 2026-09-09 to extend gold-data coverage beyond the original 3 characters (Phase 21 part 4
+# known gap #2, docs/handover/PHASE_21.md) with the next best-attested character in the v1-2
+# roster: Jacob runs the Ruvinheigen branch of the Rowen Trading Guild that Lawrence belongs to,
+# entirely within Volume 2's Ruvinheigen arc -- no later-volume spoiler risk found for this
+# character, so every fact below is in_scope: true.
+entity_id: jakob
+canonical: Jakob
+source_url: https://spiceandwolf.fandom.com/wiki/Jacob_Tarantino
+transcribed: "2026-09-09"
+eval_vol: 2
+
+outline:
+  - Appearance
+  - Personality
+  - Relationships
+  - Trivia
+  - Gallery
+
+facts:
+  - text: "Jacob Tarantino is a middle-aged man, around 40 years old, of hefty build with black hair and a black mustache."
+    in_scope: true
+  - text: "Jacob wears a long-sleeved red shirt and a work apron."
+    in_scope: true
+  - text: "Jacob runs the Ruvinheigen branch of the Rowen Trading Guild, the guild Lawrence belongs to."
+    in_scope: true
+  - text: "Jacob is a very friendly man, usually with a smile on his face."
+    in_scope: true
+  - text: "Jacob treats guild members like his own sons or daughters, and tries his best to help a member who runs into economic trouble outside their own control."
+    in_scope: true
+  - text: "Jacob puts the guild's reputation above any individual member, and will not give special treatment to bail someone out of their own bad business decision."
+    in_scope: true
+  - text: "Jacob is a business associate of Kraft Lawrence and sees him as a son, enjoying teasing him while holding him in great trust and respect."
+    in_scope: true
+  - text: "Jacob is one of the few people who addresses Lawrence by his first name, Kraft, owing to their long-standing acquaintance."
+    in_scope: true
+  - text: "Lawrence jokingly refers to himself as \"son of the great Jakob Tarantino.\""
+    in_scope: true
+
+# Phase 23 C3. The joke above is real (in-scope, above) -- but the false inference drawn from it
+# is exactly what the live graph got wrong: CHILD_OF was emitted in BOTH directions from that one
+# line, rendering Lawrence simultaneously as Jakob's child AND his parent. See docs/vision/PHASE_23.md.
+negative_facts:
+  - "Jakob is not the parent of Kraft Lawrence."
+  - "Jakob is not the child of Kraft Lawrence."
