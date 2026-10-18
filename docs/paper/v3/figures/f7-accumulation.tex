@@ -1,0 +1,73 @@
+% F7 (v3, full width): where accumulation helps (RQ3). Coordinates are typed from the tables of
+% Appendix H (tab:central-cutoff treated block; tab:artifact-size Anne rows) and the DROP-* keys
+% of results.tex (MEASUREMENTS 2026-10-11, recall-by-centrality-20261011). Re-type if they change.
+\begin{tikzpicture}[x=1cm, y=0.82cm, font=\figfont,
+  ptitle/.style={anchor=north west, font=\figfont\bfseries, text=nwink, inner sep=0pt},
+  tick/.style={font=\fontsize{5.6}{6}\selectfont, text=nwSlate},
+  val/.style={font=\fontsize{5.4}{6}\selectfont, text=nwink, inner sep=1pt},
+  sB5/.style={nwCyan, line width=1.3pt},
+  sB1/.style={nwSlate, line width=0.8pt},
+  sB2/.style={nwMid, line width=0.7pt},
+  sB4/.style={nwLav, line width=0.8pt, dashed},
+  sB3/.style={nwMid, line width=0.6pt, dotted}]
+\def\Hh{2.5}\def\X{0.78}
+
+% ------------------------------------------------------------- (a) central-three recall, treated
+\begin{scope}[shift={(0,0)}]
+\node[ptitle] at (-0.35,3.25) {(a) Recall on the central three, treated};
+\def\py#1{{(#1-0.3)/0.7*\Hh}}
+\foreach \v/\l in {0.3/0.3, 0.65/0.65, 1.0/1.0}{\draw[nwgrid] (0,\py{\v}) -- (4*\X+0.1,\py{\v}); \node[tick, anchor=east] at (0,\py{\v}) {\l};}
+\foreach \t in {1,...,5}{\node[tick] at ({(\t-1)*\X},-0.2) {$t{=}\t$};}
+\draw[sB3] (0,\py{0.357}) -- (\X,\py{0.429}) -- (2*\X,\py{0.387}) -- (3*\X,\py{0.432}) -- (4*\X,\py{0.368});
+\draw[sB4] (0,\py{0.643}) -- (\X,\py{0.524}) -- (2*\X,\py{0.677}) -- (3*\X,\py{0.568}) -- (4*\X,\py{0.632});
+\draw[sB2] (0,\py{0.857}) -- (\X,\py{0.667}) -- (2*\X,\py{0.613}) -- (3*\X,\py{0.622}) -- (4*\X,\py{0.684});
+\draw[sB1] (0,\py{1.000}) -- (\X,\py{0.905}) -- (2*\X,\py{0.742}) -- (3*\X,\py{0.730}) -- (4*\X,\py{0.763});
+\draw[sB5] (0,\py{0.857}) -- (\X,\py{0.905}) -- (2*\X,\py{0.935}) -- (3*\X,\py{0.946}) -- (4*\X,\py{0.947});
+\foreach \t/\v in {0/0.857,1/0.905,2/0.935,3/0.946,4/0.947}{\fill[nwCyan] (\t*\X,\py{\v}) circle (1.5pt);}
+\foreach \t/\v in {0/1.000,1/0.905,2/0.742,3/0.730,4/0.763}{\node[draw=nwSlate, fill=white, inner sep=0pt, minimum size=0.09cm, line width=0.5pt] at (\t*\X,\py{\v}) {};}
+\node[val, anchor=west, text=nwCyan!75!black] at (4*\X+0.05,\py{0.947}) {\res{CEN-annedecon-t5-B5}};
+\node[val, anchor=west, text=nwSlate] at (4*\X+0.05,\py{0.763}) {\res{CEN-annedecon-t5-B1}};
+% legend
+\draw[sB5] (0,-0.5) -- (0.25,-0.5); \node[tick, anchor=west] at (0.25,-0.5) {\sys};
+\draw[sB1] (2.0,-0.5) -- (2.25,-0.5); \node[tick, anchor=west] at (2.25,-0.5) {B1};
+\draw[sB2] (2.6,-0.5) -- (2.85,-0.5); \node[tick, anchor=west] at (2.85,-0.5) {B2};
+\draw[sB4] (3.2,-0.5) -- (3.45,-0.5); \node[tick, anchor=west] at (3.45,-0.5) {B4};
+\draw[sB3] (3.8,-0.5) -- (4.05,-0.5); \node[tick, anchor=west] at (4.05,-0.5) {B3};
+\end{scope}
+
+% ------------------------------------------------------------- (b) Anne's page length
+\begin{scope}[shift={(5.55,0)}]
+\node[ptitle] at (-0.45,3.25) {(b) Words on Anne Shirley's page};
+\def\py#1{{#1/4000*\Hh}}
+\foreach \v/\l in {0/0, 2000/2k, 4000/4k}{\draw[nwgrid] (0,\py{\v}) -- (4*\X+0.1,\py{\v}); \node[tick, anchor=east] at (0,\py{\v}) {\l};}
+\foreach \t in {1,...,5}{\node[tick] at ({(\t-1)*\X},-0.2) {$t{=}\t$};}
+\fill[nwCyan!18] (0,0) -- (0,\py{1813}) -- (\X,\py{2363}) -- (2*\X,\py{2688}) -- (3*\X,\py{3719}) -- (4*\X,\py{3439}) -- (4*\X,0) -- cycle;
+\draw[sB5] (0,\py{1813}) -- (\X,\py{2363}) -- (2*\X,\py{2688}) -- (3*\X,\py{3719}) -- (4*\X,\py{3439});
+\draw[sB1] (0,\py{864}) -- (\X,\py{852}) -- (2*\X,\py{913}) -- (3*\X,\py{984}) -- (4*\X,\py{1157});
+\draw[sB2] (0,\py{699}) -- (\X,\py{553}) -- (2*\X,\py{708}) -- (3*\X,\py{711}) -- (4*\X,\py{688});
+\draw[sB3] (0,\py{620}) -- (\X,\py{731}) -- (2*\X,\py{653}) -- (3*\X,\py{554}) -- (4*\X,\py{410});
+\node[val, anchor=north west, text=nwCyan!75!black] at (0.05,\py{1813}) {1,813};
+\node[val, anchor=south, text=nwCyan!75!black] at (3*\X,\py{3719}) {3,719};
+\node[val, anchor=south, text=nwSlate] at (4*\X,\py{1157}) {1,157};
+\node[tick, anchor=west, align=left] at (0.05,-0.5) {B1--B3: one call per page, fixed sentence budget};
+\end{scope}
+
+% ------------------------------------------------------------- (c) facts lost at the next cutoff
+\begin{scope}[shift={(11.35,0)}]
+\node[ptitle] at (-0.75,3.25) {(c) Facts lost at the next cutoff};
+\def\Sc{0.15}
+\foreach \v in {0,10,20}{\draw[nwgrid] (\v*\Sc,-0.05) -- (\v*\Sc,2.8); \node[tick] at (\v*\Sc,-0.2) {\v};}
+% \lost{y}{name}{orig}{treated}{treated colour}
+\newcommand{\lost}[5]{\node[tick, anchor=east, text=nwink] at (-0.05,#1) {#2};
+  \fill[nwMid] (0,#1+0.02) rectangle (#3*\Sc,#1+0.16); \node[val, anchor=west] at (#3*\Sc,#1+0.09) {#3};
+  \fill[#5] (0,#1-0.16) rectangle (#4*\Sc,#1-0.02); \node[val, anchor=west] at (#4*\Sc,#1-0.09) {#4};}
+\lost{2.55}{\sys}{1}{1}{nwCyan}
+\lost{2.1}{B4 (same graph)}{12}{14}{nwLav}
+\lost{1.65}{B1}{10}{14}{nwMagenta}
+\lost{1.2}{B2}{4}{24}{nwMagenta}
+\lost{0.75}{B3}{19}{13}{nwMagenta}
+\lost{0.3}{X2}{7}{11}{nwMagenta}
+\fill[nwMid] (0,-0.55) rectangle (0.15,-0.45); \node[tick, anchor=west] at (0.15,-0.5) {original};
+\fill[nwMagenta] (1.05,-0.55) rectangle (1.2,-0.45); \node[tick, anchor=west] at (1.2,-0.5) {treated, $t{=}1..4$};
+\end{scope}
+\end{tikzpicture}

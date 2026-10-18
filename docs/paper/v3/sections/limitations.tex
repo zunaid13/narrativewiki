@@ -1,0 +1,58 @@
+% Limitations (v3). Each paragraph opens with the boundary it names, then the check that bounds it
+% and the control that would remove it. No new results (ARR): numbers live in the body.
+\section*{Limitations}
+\label{sec:limitations}
+
+\paragraph{One series, one generator, one build per cell.}
+The evaluation covers five volumes of one English public-domain series and one generator,
+so run-to-run variance is unknown, and cutoffs share characters and evidence rather than
+being independent samples. Precision and citation sufficiency rest on 40 sampled assertions
+per cell. All five volumes fit in the generator's context window, which favors direct
+prompting; longer series, other genres, languages and generators would test where
+accumulation pays (Section~\ref{sec:discussion}).
+
+\paragraph{The Anne series informed development and is not a held-out test set.}
+The reported \sys is the second of two builds, revised after the first was labeled;
+Table~\ref{tab:builds} reports both under one rule, and the revision moved metrics in both
+directions. The baselines, configured on another novel, were not retuned. The prefix-index
+wikis of Section~\ref{sec:results-scope} were built on the original text only and labeled in
+one pass.
+
+\paragraph{An unblinded LLM finalized the labels; human checks cover original-text subsets.}
+The finalizing annotator, Claude Opus~5.5, knew which system produced each output and
+assisted in building the system. Two human reviewers relabeled original-text gold, recall,
+precision and citation items (Table~\ref{tab:human-agreement}); disclosure and treated-text
+labels have no human check, and agreement is lowest for precision and citation
+sufficiency. Some gold evidence paragraphs establish their facts only in part
+(Section~\ref{sec:setup}).
+
+\paragraph{Lexical candidate retrieval under-samples pronoun-mediated disclosures.}
+Disclosure is assessed for a selected inventory of later facts through candidate retrieval,
+validated on seeded fixtures written by the same LLM annotator (Table~\ref{tab:seeds}). The
+line between an implied disclosure and an eligible prediction rests on the annotator. A zero
+count therefore does not certify spoiler-free output, and \sys's larger output leaves more
+room for missed disclosures.
+
+\paragraph{Accumulation gains are measured against sentence-budgeted, not length-matched, pages.}
+The comparison systems write each page in one call under a sentence budget, while \sys
+renders every eligible claim; an append-only or length-matched baseline would separate graph
+representation from page length, and was not run. The central/other split was chosen after
+the results were known, and facts lost across cutoffs also count labeling inconsistencies
+between adjacent cutoffs. Identity-dependence rates compare single builds. B4 differs from
+\sys in page scope and generation as well as citation attachment, and neither the account of
+Section~\ref{sec:discussion} nor the proposed repairs have been tested by ablation.
+
+\paragraph{Renaming and paraphrase reduce recognition without removing it.}
+The treated text was not proofread against its source: some paragraphs keep inflected
+source names, the name map creates namesakes, and one paraphrase changes a fact
+(Appendix~\ref{app:contamination}). Its fidelity to the gold facts was checked by an
+unblinded LLM. A work published after the generator's training cutoff would offer a
+complementary test \citep{karpinska2024nocha}.
+
+\paragraph{The representation is coarse and readers were not studied.}
+Cutoffs are whole volumes; identity links are not dated; attribute intervals track explicit
+replacements rather than implicit aging; a value that changes within one volume is
+arbitrated as an extraction conflict (Appendix~\ref{app:prompts}); and cross-claim inference
+is limited (Appendix~\ref{app:observations}). We do not measure readers' ability to find
+information or their experience of spoilers. External search engines and deliberately opened
+later cutoffs are outside the audited artifact.

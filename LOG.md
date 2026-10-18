@@ -7,6 +7,21 @@ and why*; this file records *what is done*. Append a new entry at the **top**; k
 Once this file exceeds ~15 entries, drop everything older than the last 8 — `git log` is the
 archive (the old `docs/log/LOG_ARCHIVE_*.md` files were removed 2026-09-14).
 
+## 2026-10-18 — Paper v3: presentation overhaul from the Gemini blueprint (no model call, no new number)
+
+- **Deliverable:** `docs/paper/v3/` (self-contained; shares only `../results.tex` and `../refs.bib`), PDF
+  `docs/paper/NarrativeWiki-paper-v3.pdf` (40 pages, was 62; main body still 8). Build: `sh docs/paper/v3/build.sh`.
+- **Applied:** RQ1–RQ5 spine (intro + declarative §6 headings); "paper at a glance" table; image-model teaser
+  replaced by a TikZ schematic from stored intervals; four new TikZ data figures (control dashboard, accumulation,
+  context collapse + identity, per-cutoff); screenshots → structured diff table; one colour grammar (cyan gain,
+  violet headline, magenta failure, lavender confounded); Tables 1+11, 5+6+7, 12+18, 25+26 merged; Appendix O
+  30 pp → 3 pp (stage table + 4 defect callouts); formal propositions (App. I) and six reporting recommendations
+  (App. J); limitations with declarative openings. Zero raster images remain.
+- **Checked against the blueprint, corrected there:** X2 facts lost are 7 orig / 11 treated (blueprint swapped);
+  its dashboard mislabelled B2–B5 ("Multi-Agent Debate", "BM25 RAG"); screenshot citations (ch.14 P8, +26, XVII P36).
+- **Not done:** Tier A bootstrap CIs (conflicts with the no-intervals rule) and Tier B runs (bill the API); appendix
+  section titles left nominal. All numbers come from existing `\res` keys or tables already in the paper.
+
 ## 2026-10-12 — Paper v2 checked against the external "v3 ARR review" (no model call)
 
 - **Asked:** judge each point of `NarrativeWiki-v3-ARR-review.md`; fix the paper where it is right; look at

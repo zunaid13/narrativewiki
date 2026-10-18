@@ -1,0 +1,35 @@
+% Master results table (v3): the former Table 1 (treated beside original) merged with the former
+% Table 11 (original summary, distinct assertions, tokens). Original-text standard deviations are
+% in Table tab:stats. Both labels point here so earlier references resolve.
+\begin{table*}[tp]
+\centering\footnotesize
+\setlength{\tabcolsep}{2pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llccccccccccc@{}}
+\toprule
+ &  & \multicolumn{3}{c}{\nwhead{Recall $\uparrow$}} & \multicolumn{2}{c}{\nwhead{Precision $\uparrow$}} & \multicolumn{2}{c}{\nwhead{Citation suff.\ $\uparrow$}} & \multicolumn{2}{c}{\nwhead{Later facts /220 $\downarrow$}} & \nwhead{Distinct} & \nwhead{Tokens} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}
+\multicolumn{2}{@{}l}{\nwhead{System}} & \nwhead{treated} & \nwhead{orig.} & \nwhead{diff.} & \nwhead{treated} & \nwhead{orig.} & \nwhead{treated} & \nwhead{orig.} & \nwhead{orig.} & \nwhead{treated} & \nwhead{assertions} & \nwhead{in / out (M)} \\
+\midrule
+B1 & Long context & \cellcolor{nwhighcyan}\best{\res{M1-annedecon-avg-B1}}\sdev{\res{M1-annedecon-sd-B1}} & \cellcolor{nwhighcyan}\best{\respt{M1-anne-avg-B1}} & \res{M1-annedecon-diff-B1} & \res{M3-annedecon-avg-B1}\sdev{\res{M3-annedecon-sd-B1}} & \respt{M3-anne-avg-B1} & \res{M8-annedecon-avg-B1}\sdev{\res{M8-annedecon-sd-B1}} & \respt{M8-anne-avg-B1} & \cellcolor{nwhighcyan}\respt{M4-anne-total-B1} & \cellcolor{nwhighcyan}\respt{M4-annedecon-total-B1} & \res{ND-anne-avg-B1} & \res{TOK-anne-B1} \\
+B2 & Prefix retrieval & \res{M1-annedecon-avg-B2}\sdev{\res{M1-annedecon-sd-B2}} & \respt{M1-anne-avg-B2} & \res{M1-annedecon-diff-B2} & \res{M3-annedecon-avg-B2}\sdev{\res{M3-annedecon-sd-B2}} & \respt{M3-anne-avg-B2} & \res{M8-annedecon-avg-B2}\sdev{\res{M8-annedecon-sd-B2}} & \respt{M8-anne-avg-B2} & \cellcolor{nwhighcyan}\respt{M4-anne-total-B2} & \cellcolor{nwhighcyan}\respt{M4-annedecon-total-B2} & \res{ND-anne-avg-B2} & \cellcolor{nwhighviolet}\best{\res{TOK-anne-B2}} \\
+B3 & LightRAG & \res{M1-annedecon-avg-B3}\sdev{\res{M1-annedecon-sd-B3}} & \respt{M1-anne-avg-B3} & \res{M1-annedecon-diff-B3} & \cellcolor{nwhighcyan}\best{\res{M3-annedecon-avg-B3}}\sdev{\res{M3-annedecon-sd-B3}} & \respt{M3-anne-avg-B3} & \res{M8-annedecon-avg-B3}\sdev{\res{M8-annedecon-sd-B3}} & \respt{M8-anne-avg-B3} & \cellcolor{nwhighcyan}\respt{M4-anne-total-B3} & \cellcolor{nwhighcyan}\respt{M4-annedecon-total-B3} & \res{ND-anne-avg-B3} & \res{TOK-anne-B3} \\
+B4 & Graph baseline & \res{M1-annedecon-avg-B4}\sdev{\res{M1-annedecon-sd-B4}} & \respt{M1-anne-avg-B4} & \res{M1-annedecon-diff-B4} & \res{M3-annedecon-avg-B4}\sdev{\res{M3-annedecon-sd-B4}} & \cellcolor{nwhighcyan}\best{\respt{M3-anne-avg-B4}} & \cellcolor{nwhighcyan}\best{\res{M8-annedecon-avg-B4}}\sdev{\res{M8-annedecon-sd-B4}} & \cellcolor{nwhighcyan}\best{\respt{M8-anne-avg-B4}} & \respt{M4-anne-total-B4} & \cellcolor{nwhighpink}\best{\respt{M4-annedecon-total-B4}} & \res{ND-anne-avg-B4} & +\res{TOK-anne-B4} \\
+B5 & \sys & \res{M1-annedecon-avg-B5}\sdev{\res{M1-annedecon-sd-B5}} & \respt{M1-anne-avg-B5} & \cellcolor{nwhighviolet}\best{\res{M1-annedecon-diff-B5}} & \res{M3-annedecon-avg-B5}\sdev{\res{M3-annedecon-sd-B5}} & \respt{M3-anne-avg-B5} & \res{M8-annedecon-avg-B5}\sdev{\res{M8-annedecon-sd-B5}} & \respt{M8-anne-avg-B5} & \cellcolor{nwhighpink}\best{\respt{M4-anne-total-B5}} & \cellcolor{nwhighpink}\best{\respt{M4-annedecon-total-B5}} & \cellcolor{nwhighviolet}\best{\res{ND-anne-avg-B5}} & \res{TOK-anne-B5} \\
+\midrule
+X1 & Closed book & \res{M1-annedecon-avg-X1}\sdev{\res{M1-annedecon-sd-X1}} & \respt{M1-anne-avg-X1} & \cellcolor{nwhighpink}\best{\res{M1-annedecon-diff-X1}} & \res{M3-annedecon-avg-X1}\sdev{\res{M3-annedecon-sd-X1}} & \respt{M3-anne-avg-X1} & -- & -- & \cellcolor{nwhighpink}\best{\respt{M4-anne-total-X1}} & \respt{M4-annedecon-total-X1} & \res{ND-anne-avg-X1} & \res{TOK-anne-X1} \\
+X2 & Full text & \res{M1-annedecon-avg-X2}\sdev{\res{M1-annedecon-sd-X2}} & \respt{M1-anne-avg-X2} & \res{M1-annedecon-diff-X2} & \res{M3-annedecon-avg-X2}\sdev{\res{M3-annedecon-sd-X2}} & \respt{M3-anne-avg-X2} & \res{M8-annedecon-avg-X2}\sdev{\res{M8-annedecon-sd-X2}} & \respt{M8-anne-avg-X2} & \cellcolor{nwhighpink}\best{\respt{M4-anne-total-X2}} & \cellcolor{nwhighpink}\best{\respt{M4-annedecon-total-X2}} & \res{ND-anne-avg-X2} & \res{TOK-anne-X2} \\
+\bottomrule
+\end{tabular}}
+\caption{Main results on the original text and on the treated text (names replaced,
+paragraphs paraphrased), with unchanged code, prompts and gold facts. Rates are unweighted
+means over $t=1..5$; treated rates carry sample standard deviations (original-text
+distributions: Table~\ref{tab:stats}). Diff.: treated minus original, before rounding.
+Later facts: stated or implied disclosures of the 220 assessed fact--cutoff pairs,
+$t=1..4$. Distinct assertions are means per cutoff (original text); tokens cover all five
+cutoffs (B4: page generation added to \sys's build). X1 and X2 are diagnostics; X1 cites
+nothing. Colours follow one grammar throughout the paper: cyan, best in class;
+violet, the headline trade-off (inventory, cost, the one recall gain under treatment);
+magenta, failure or disclosure.}
+\label{tab:decon}\label{tab:main}
+\end{table*}

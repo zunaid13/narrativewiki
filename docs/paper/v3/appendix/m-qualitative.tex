@@ -1,0 +1,44 @@
+% Appendix (v3): one page at two cutoffs, as a structured diff. Every cell is transcribed from the
+% screenshots of the reported B5 tree dist/anne@v2/wiki (figures/qual/*.png, kept in the repository;
+% docs/paper/_build/qual_shots.py). Citations are printed as the site prints them:
+% volume, chapter, paragraph. Contains spoilers of the series.
+\section{Qualitative Example: One Page at Two Cutoffs}
+\label{app:qualitative}
+
+Table~\ref{tab:qual-diff} compares Gilbert Blythe's page in the reported \sys site at
+cutoffs~2 and~4; volume~4 first establishes his marriage to Anne. The reader picks a cutoff
+on the home page before seeing any content, and each cutoff's pages use only claims whose
+evidence volume is at most that cutoff (Figure~\ref{fig:overview}a shows the stored
+intervals behind the relationship block). The pages themselves were not annotated;
+precision labels in Section~\ref{sec:results} assess sampled atoms of the underlying pages.
+The upper block of the table shows the intended behaviour of intervals; the lower block
+shows four defects of the reported build.
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{3.85cm}>{\raggedright\arraybackslash}p{4.45cm}>{\raggedright\arraybackslash}p{4.45cm}@{}}
+\toprule
+\nwhead{Field} & \nwhead{Cutoff 2 (\emph{Anne of Avonlea})} & \nwhead{Cutoff 4 (\emph{Anne's House of Dreams})} & \nwhead{Mechanism} \\
+\midrule
+\multicolumn{4}{@{}l}{\cellcolor{nwhighcyan}\nwhead{Intended behaviour}} \\
+Role & teacher [v1 ch.\,XXXVI P24, v2 ch.\,I P55, +7] & country doctor (since v4) [v4 ch.\,14 P8]; \emph{previously:} teacher (v1--v2); Daily News employee (v3) & Supersession: an earlier value becomes a closed interval when a later one opens. \\
+Titles & president (since v2) [v2 ch.\,VI P8] & adds Captain of the Freshman football team (v3), president of the Freshman Class (v3), doctor (v4) & Accumulation: volume-dated titles are appended; none is evicted. \\
+Family & (no line) & Anne Shirley (spouse) & Withholding: no family claim has evidence by volume~2. \\
+Anne--Gilbert block & rival; romantically involved with; saved; enemy (ended v1); comrade (since v2); friend (since v2) & the same six lines, with more citations, and \emph{Spouse of} --- husband and wife (since v4) [v4 ch.\,1 P5, ch.\,2 P7, ch.\,3 P29, +26] & History is kept as intervals; long context prints one line (``Spouse of --- husband, former schoolmate and college rival''). \\
+Block prose & ends with the two as close friends & ends with the marriage & Each cutoff's prose is generated from its own filtered claims. \\
+\midrule
+\multicolumn{4}{@{}l}{\cellcolor{nwhighpink}\nwhead{Defects of the reported build}} \\
+(i) Relation label & \emph{Romantically involved with} --- harbors romantic feelings for her, open from v1 [v1 ch.\,XXV P55] & unchanged & The label is stronger than its qualifier and evidence: \sys's uncertain disclosure verdicts (Section~\ref{sec:results-main}). \\
+(ii) Line keys in prose & none & prose prints ``[R3, R4, S1, S4]'' and ``[R2, R7, S41, S67]'' & The renderer resolves keys into the \emph{Sources} line but leaves them in the prose: 5 of 341 non-timeline pages at $t{=}4$. \\
+(iii) Age & nearly fourteen [v1 ch.\,XV P24] & nearly fourteen, beside the marriage & An attribute with no later extracted value stays open; elapsed years are not inferred. \\
+(iv) Second entity & --- & a block ``Shirley'' holds \emph{Rival of} [v1 ch.\,XVII P36] & The build merged two of three Anne entities; the bare surname remains separate (Appendix~\ref{app:additional}). \\
+\bottomrule
+\end{tabular}
+\caption{Gilbert Blythe's page in the reported \sys site at cutoffs~2 and~4, transcribed from
+the delivered pages (screenshots are released with the code). Citations are printed as the
+site prints them (volume, chapter, paragraph; ``+$n$'': further citations). Cyan: intended
+interval behaviour; magenta: defects.}
+\label{tab:qual-diff}\label{fig:qual-overview}\label{fig:qual-rel}
+\end{table*}

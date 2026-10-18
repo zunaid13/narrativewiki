@@ -1,0 +1,32 @@
+% Appendix: comparison with the closest prior work (the matrix behind Section 2).
+\section{Comparison with Prior Work}
+\label{app:related}
+
+Table~\ref{tab:prior} compares \sys with closely related systems and evaluations. The entries
+follow each cited paper's description of its task, output, and evaluation. Among these works,
+none combines a published reference artifact, a reader-selected volume cutoff, and evaluation
+of atomic assertions across the delivered pages.
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}Z{2.4cm}Z{1.9cm}Z{2.0cm}Z{1.65cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+\nwhead{Work} & \nwhead{Task} & \nwhead{Output artifact} & \nwhead{Cutoff} & \nwhead{Construction scope} & \nwhead{Evaluation unit} \\
+\midrule
+\citet{jones2018spoilers} & spoiler-free wiki browsing & archived fan-wiki revision & episode air date & human-written revisions saved before the cutoff & revision selected for a requested date \\
+CHIRON \citep{gurung2024chiron} & character representation & character sheet & story snippet & story so far & generated statement; masked-character prediction \\
+TimeChara \citep{ahn2024timechara} & point-in-time role-play & dialogue answers & story moment & not applicable & response to one interview question \\
+Living the Novel \citep{huang2025living} & conversational agent & dialogue & narrative present & whole novel, retrieval gated at $t$ & character dialogue; user study \\
+STORM \citep{shao2024storm} & article writing & article & none & web search, target article excluded & outline headings; article sentence citations \\
+Narrative\-Fact\-Score \citep{jeong2025narrativefactscore} & summary evaluation & factuality score and feedback & none & whole narrative & atomic fact of a summary \\
+STORYSUMM \citep{subbiah2024storysumm} & faithfulness benchmark & labels & none & not applicable & summary sentence \\
+NS-ST-GraphRAG \citep{lin2026nsst} & question answering & answers & temporal scope of a query & whole work, subgraph selected at query time & answer to a question \\
+SearchWiki \citep{singh2026searchwiki} & information seeking & linked wiki for an agent & none & whole corpus & downstream answer \\
+\midrule
+\sys (this work) & reference generation & linked wiki per cutoff & reading volume & all volumes, rendered from facts filtered at $t$; compared with prefix-only builds & atomic assertion of a delivered page; later gold fact against every page \\
+\bottomrule
+\end{tabularx}
+\caption{Comparison with prior work by task, artifact, cutoff, construction scope, and evaluation unit.}
+\label{tab:prior}
+\end{table*}

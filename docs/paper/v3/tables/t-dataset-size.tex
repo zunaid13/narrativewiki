@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\nwhead{Primary-matrix unit} & \nwhead{Original} & \nwhead{Treated} \\
+\midrule
+System--cutoff artifacts & \res{DATA-orig-artifact-cells} & \res{DATA-treated-artifact-cells} \\
+Selected gold records & \res{T1-anne-gold-t5} & \res{T1-anne-gold-t5} \\
+Cast characters & \res{T1-anne-cast} & \res{T1-anne-cast} \\
+Recall judgments & \res{DATA-orig-recall-assessments} & \res{DATA-treated-recall-assessments} \\
+Disclosure judgments & \res{DATA-orig-disclosure-assessments} & \res{DATA-treated-disclosure-assessments} \\
+Sampled assertion records & \res{DATA-orig-precision-sample-rows} & \res{DATA-treated-precision-sample-rows} \\
+Excluded frame errors & \res{DATA-orig-precision-frame-errors} & \res{DATA-treated-precision-frame-errors} \\
+Evaluated precision atoms & \res{DATA-orig-precision-evaluated-atoms} & \res{DATA-treated-precision-evaluated-atoms} \\
+\bottomrule
+\end{tabular}
+\caption{Size of the primary evaluation matrix, excluding earlier and prefix-build diagnostics.
+Counts describe records and judgments, not independent trials. Both conditions reuse the same
+gold inventory. Citation sufficiency uses the sampled assertion records; X1 supplies no citations.}
+\label{tab:dataset-size}
+\end{table}

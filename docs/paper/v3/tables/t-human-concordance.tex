@@ -1,0 +1,30 @@
+% Human--AI concordance matrix (v3): the former tables tab:human-agreement, tab:human-ai-agreement
+% and tab:human-alpha merged without dropping a value. Source: supplied reviewer CSVs and
+% accepted_answers.csv; recomputed_agreement_20261010.json (MEASUREMENTS 2026-10-10).
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.1pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrcccccccccc@{}}
+\toprule
+ & & \multicolumn{2}{c}{\nwhead{Reviewer 1 vs.\ 2}} & \multicolumn{2}{c}{\nwhead{Reviewer 1 vs.\ AI}} & \multicolumn{2}{c}{\nwhead{Reviewer 2 vs.\ AI}} & \multicolumn{3}{c}{\nwhead{All three label sets}} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-11}
+\nwhead{Task} & \nwhead{Items} & \nwhead{Agr.} & \nwhead{$\kappa$} & \nwhead{Agr.} & \nwhead{$\kappa$} & \nwhead{Agr.} & \nwhead{$\kappa$} & \nwhead{$\alpha$} & \nwhead{Mean pairwise} & \nwhead{Unanimous} \\
+\midrule
+Gold evidence & \res{HREV-G-n} & \res{HREV-G-agreement} & \res{HREV-G-kappa} & \res{HRAI-r1-G-agreement} & \res{HRAI-r1-G-kappa} & \res{HRAI-r2-G-agreement} & \res{HRAI-r2-G-kappa} & \res{HRAL-G-alpha} & \res{HRAL-G-agreement} & \res{HRAL-G-unanimous} \\
+Recall (M1) & \res{HREV-R-n} & \cellcolor{nwhighcyan}\best{\res{HREV-R-agreement}} & \cellcolor{nwhighcyan}\best{\res{HREV-R-kappa}} & \cellcolor{nwhighcyan}\best{\res{HRAI-r1-R-agreement}} & \cellcolor{nwhighcyan}\best{\res{HRAI-r1-R-kappa}} & \cellcolor{nwhighcyan}\best{\res{HRAI-r2-R-agreement}} & \cellcolor{nwhighcyan}\best{\res{HRAI-r2-R-kappa}} & \cellcolor{nwhighcyan}\best{\res{HRAL-R-alpha}} & \res{HRAL-R-agreement} & \res{HRAL-R-unanimous} \\
+Precision (M3) & \res{HREV-P-n} & \cellcolor{nwhighlavender}\res{HREV-P-agreement} & \cellcolor{nwhighlavender}\res{HREV-P-kappa} & \res{HRAI-r1-P-agreement} & \res{HRAI-r1-P-kappa} & \res{HRAI-r2-P-agreement} & \res{HRAI-r2-P-kappa} & \cellcolor{nwhighlavender}\res{HRAL-P-alpha} & \res{HRAL-P-agreement} & \res{HRAL-P-unanimous} \\
+Citation (M8) & \res{HREV-C-n} & \res{HREV-C-agreement} & \res{HREV-C-kappa} & \res{HRAI-r1-C-agreement} & \res{HRAI-r1-C-kappa} & \res{HRAI-r2-C-agreement} & \res{HRAI-r2-C-kappa} & \res{HRAL-C-alpha} & \res{HRAL-C-agreement} & \res{HRAL-C-unanimous} \\
+\midrule
+\emph{Pair placement} & \res{HREV-PAIR-n} & \res{HREV-PAIR-agreement} & \res{HREV-PAIR-kappa} & \res{HRAI-r1-PAIR-agreement} & \res{HRAI-r1-PAIR-kappa} & \res{HRAI-r2-PAIR-agreement} & \res{HRAI-r2-PAIR-kappa} & \res{HRAL-PAIR-alpha} & \res{HRAL-PAIR-agreement} & \res{HRAL-PAIR-unanimous} \\
+\bottomrule
+\end{tabular}
+\caption{Human--AI concordance on the \res{HREV-total} doubly reviewed original-text items.
+Agr.: percentage agreement; $\kappa$: Cohen's kappa per task; $\alpha$: nominal
+Krippendorff's alpha over the accepted AI-assisted reference and both human label sets;
+mean pairwise agreement averages the three label-set pairs; unanimous: identical labels in
+all three sets. Pair placement is a subset of the precision sample, not additional items.
+No mixed-task coefficient is pooled. Cyan: highest agreement; lavender: lowest, the
+context-sensitive precision task.}
+\label{tab:human-agreement}\label{tab:human-ai-agreement}\label{tab:human-alpha}
+\end{table*}

@@ -1,0 +1,61 @@
+% Appendix (v3): reporting recommendations distilled from the audits of this paper. Every number
+% is a \res key; nothing here is a new measurement.
+\section{Reporting Recommendations}
+\label{app:recommendations}
+
+The audits behind this paper suggest six practices for evaluating cutoff-bounded or
+spoiler-sensitive generation over published narratives. Each is followed by the result of
+this paper that motivates it.
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{6.5cm}@{}}
+\toprule
+\nwhead{Recommendation} & \nwhead{Practice} & \nwhead{Why: evidence from this paper} \\
+\midrule
+R1\enspace Pair every score with a paraphrase control &
+Report a closed-book floor and an aligned renamed-and-paraphrased condition beside any score
+on published fiction, with a recognition check of the treatment. &
+Renaming alone leaves the author identifiable in \res{MEM-author-remap} of paragraphs;
+with paraphrase, closed-book recall falls from \respt{M1-anne-avg-X1} to
+\respt{M1-annedecon-avg-X1}, and the treatment exposes X2's disclosures
+(\res{M4U-anne-X2} to \res{M4U-annedecon-X2} unique later facts) and B1's citation decline
+(\respt{M8-annedecon-t1-B1} at $t{=}1$ to \respt{M8-annedecon-t4-B1} at $t{=}4$). \\
+R2\enspace Add a single-call baseline on the same graph &
+Pair a multi-surface graph renderer with a baseline that writes pages in one call from the
+same graph and evidence. &
+B4, reading \sys's graph, reaches precision \respt{M3-anne-avg-B4} and citation sufficiency
+\respt{M8-anne-avg-B4} against \sys's \respt{M3-anne-avg-B5} and \respt{M8-anne-avg-B5}:
+without it the gap would be attributed to extraction rather than to publication. \\
+R3\enspace Score statement truth and page support separately &
+Label sampled assertions both as standalone statements and in the page that prints them,
+and report both, by kind of page. &
+On relationship pages \res{M3K-anne-B5-rel-atom} of \sys's sampled lines are true as
+statements but \res{M3K-anne-B5-rel} are supported on the page; page-context precision alone
+conflates misplacement with invention (Proposition~4). \\
+R4\enspace Audit construction scope against the prefix &
+Compare entities resolved over the whole series with indexes discovered from volumes
+$1..t$ at every cutoff before $N$. &
+Filtering claims leaves construction dependence intact: \res{ID-anne-t1-rate} of
+character pages at $t{=}1$ differ from a prefix-built index, \respt{ID-anne-strict-t1}
+regrouped or absent (Table~\ref{tab:identity}). \\
+R5\enspace Report retention across cutoffs, not only means &
+Count facts conveyed at $t$ and lost at $t+1$, and stratify recall by how much the text
+says about a character. &
+Unweighted means (B1 \respt{M1-anne-avg-B1}, \sys \respt{M1-anne-avg-B5}) hide that
+budgeted rewrites lose \res{DROP-anne-B2}--\res{DROP-annedecon-B2} conveyed facts across
+cutoffs while \sys loses \res{DROP-anne-B5} per text (Proposition~2). \\
+R6\enspace Validate the disclosure search and bound zero counts &
+Measure the candidate search on seeded paraphrases and pronoun references, and report
+character-clustered upper bounds with every zero. &
+The search retrieves \respt{SEED-para} of named paraphrases but 0.309--0.355 when a
+pronoun on another character's page refers to the character (Table~\ref{tab:seeds}); a zero count at $t{=}1$ is compatible with a
+character-level rate up to \res{M4-anne-bound-t1} (\res{M4-anne-bound-t4} at $t{=}4$). \\
+\bottomrule
+\end{tabular}
+\caption{Six reporting recommendations for cutoff-bounded generation over published
+narratives, each with the result that motivates it.}
+\label{tab:recommendations}
+\end{table*}

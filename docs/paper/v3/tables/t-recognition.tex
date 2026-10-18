@@ -1,0 +1,22 @@
+% The renamed-only control was probed for recognition; it is not an additional
+% complete condition of the wiki comparison.
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\nwhead{Text condition} & \nwhead{Title} & \nwhead{Author} \\
+\midrule
+Original & \res{MEM-title-orig} & \res{MEM-author-orig} \\
+Names remapped & \res{MEM-title-remap} & \res{MEM-author-remap} \\
+Remapped and paraphrased & \cellcolor{nwhighcyan}\res{MEM-title-decon} & \cellcolor{nwhighcyan}\res{MEM-author-decon} \\
+\bottomrule
+\end{tabular}
+\caption{Recognition ablation on 200 aligned paragraphs. Values are the share for which
+the frozen generator identifies an Anne title or its author. Renaming and paraphrasing
+both reduce recognition, while residual recognition remains. Cyan highlights the combined
+treatment. This probe does not establish
+that a wiki fact was memorized.}
+\label{tab:recognition}
+\end{table}

@@ -1,0 +1,44 @@
+% Appendix: baseline adaptations and settings.
+\section{Comparison Systems}
+\label{app:baselines}
+
+All comparison systems (B1--B4, X1, X2) use the same cast list, character-page template,
+generator, and intended character-page budget:
+the shared sections and sentence limits (appearance 2--4, personality 2--6, history 3--12), at most five
+quotes, and a shared citation format (Table~\ref{tab:baselines}). For systems supplied with
+passages, citations to paragraphs outside their input are removed, and characters absent
+from the eligible text receive no page but remain in the evaluation denominators. Settings were chosen on the development novel
+(\emph{Middlemarch}) and fixed before the Anne runs. \sys itself is not given the cast: it
+discovers entities and also publishes pages for other characters, relationships,
+codex entries, and a timeline. The shared template therefore controls the evaluated cast's
+character pages, while the complete artifacts differ in scope (Table~\ref{tab:kinds}).
+The exhibited comparison prompts request 2--4 appearance sentences; the archived \sys
+appearance prompt requests 3--4 (Appendix~\ref{app:prompts}). The template budget therefore
+does not imply identical prompt wording or verified enforcement of output length.
+
+\begin{figure}[t]
+\centering
+\input{figures/f3-systems}
+\caption{Information available to each system at cutoff 2 and its cutoff mechanism (left).
+Confirmed disclosures of assessed later facts on the original text, summed over cutoffs
+one to four (right). X1 and X2 are diagnostics.}
+\label{fig:systems}
+\end{figure}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lp{6.5cm}@{}}
+\toprule
+ & \nwhead{Adaptation and settings} \\
+\midrule
+B1 & Every paragraph of volumes $1,\ldots,t$, labeled with its identifier, precedes the task so that pages at a cutoff share a cacheable prefix. Prompts exceeding the model's context limit would be marked unsupported rather than truncated; none exceeded it. \\
+B2 & Prefix-only index of consecutive paragraphs within a chapter (150 words). Okapi BM25 ($k_1{=}1.5$, $b{=}0.75$) and BGE-M3 cosine rankings for the character name alone and with seven facet words (appearance, personality, family, relations, goals, past, speech), fused by reciprocal rank ($k{=}60$); chunks added in fused order up to 20{,}000 tokens of retrieved text, then restored to reading order. Budgets count retrieved text only, estimated as characters divided by four, so a call's provider-counted input, which adds the prompt, can exceed them. Chunk size (150 or 300 words) and budget (6{,}000, 12{,}000 or 20{,}000 tokens) were chosen at $t{=}2$ of the development novel. \\
+B3 & LightRAG 1.5.7, default chunking (1{,}200 tokens) and its default extraction prompt and limits (at most 100 rows and 40 entities per chunk), mode \texttt{mix}, context capped at the same 20{,}000 tokens, reranking off. The index at cutoff $t$ is the index at $t{-}1$ plus volume $t$, so no index sees a later volume. LightRAG supplies retrieval only: its retrieved entities, relations and chunks are passed to the shared generator, and its own extraction calls use the same model. \\
+B4 & The \sys graph built from all five volumes. For each character, the facts visible at $t$ and their evidence paragraphs of volumes $\le t$, up to the same budget, are passed to the shared generator in place of \sys's structured rendering (graph \texttt{anne@v2}). \\
+X1 & The shared prompt with the work's title, the character's name and no passages, with an instruction to write what is known of the character up to volume $t$; citations are empty by construction. \\
+X2 & Every paragraph of volumes 1--5 regardless of $t$, with the instruction to write for a reader of volume $t$ and reveal nothing later. \\
+\bottomrule
+\end{tabular}
+\caption{Adaptations of the comparison systems.}
+\label{tab:baselines}
+\end{table}

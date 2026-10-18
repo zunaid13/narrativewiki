@@ -1,0 +1,43 @@
+% Full-width vector diagram. Candidate search is explicit because disclosure is
+% not an exhaustive manual read of all output assertions.
+\begin{tikzpicture}[font=\small, x=1cm, y=1cm,
+  source/.style={draw=nwgrid, fill=nwgraybg, rounded corners=3pt,
+    align=center, inner sep=5pt, font=\small, minimum height=0.68cm},
+  operation/.style={draw=nwblue!75!nwaccent, fill=nwbluebg, rounded corners=3pt,
+    align=center, inner sep=5pt, font=\small},
+  metric/.style={draw=#1!75!nwaccent, fill=white, rounded corners=3pt,
+    align=left, text width=2.65cm, inner sep=5pt, anchor=north,
+    font=\footnotesize, minimum height=3.0cm},
+  arr/.style={-{Stealth[length=4pt]}, line width=0.8pt, draw=nwgray,
+    rounded corners=4pt, line cap=round, line join=round},
+]
+\node[source, text width=5.7cm] (wiki) at (1.55,0)
+  {\textbf{Published wiki $W_t$}\\all pages, fields, prose, quotations and scene lines};
+\node[source, text width=5.7cm] (gold) at (7.75,0)
+  {\textbf{Gold inventory}\\facts $g$ with reveal volume $r(g)$};
+\node[source, text width=2.65cm] (text) at (12.4,0)
+  {\textbf{Eligible source text}\\$D_{\le t}$};
+\node[operation, text width=5.7cm] (sample) at (1.55,-1.45)
+  {Enumerate assertions, split to atoms; sample 40 uniformly, cited or not.};
+\node[metric=nwcyan, fill=nwbluebg!65] (precision) at (0,-2.6) {%
+  {\color{nwaccent}\textbf{Precision (M3)}}\\[5pt]
+  Read each sampled atom on the page that prints it. Is it fully supported in that context?};
+\node[metric=nwcyan, fill=nwbluebg!65] (citation) at (3.1,-2.6) {%
+  {\color{nwaccent}\textbf{Citation sufficiency (M8)}}\\[5pt]
+  Do the atom's cited, eligible paragraphs jointly establish it? Uncited atoms are insufficient.};
+\node[metric=nwviolet, fill=nwgreenbg!65] (recall) at (6.2,-2.6) {%
+  {\color{nwaccent}\textbf{Recall (M1)}}\\[5pt]
+  Eligible facts $r(g)\le t$: is each conveyed about the correct character anywhere in $W_t$?};
+\node[metric=nwmagenta, fill=nwredbg!40] (disclosure) at (9.3,-2.6) {%
+  {\color{nwaccent}\textbf{Disclosure (M4)}}\\[5pt]
+  Later facts $r(g)>t$: retrieve candidates across $W_t$; read for stated or implied disclosure.};
+\node[metric=nwmagenta, fill=nwredbg!40] (lexical) at (12.4,-2.6) {%
+  {\color{nwaccent}\textbf{Lexical screen}}\\[5pt]
+  Search every output surface for names absent from $D_{\le t}$. A reader-independent check.};
+\draw[arr] (wiki.south) -- (sample.north);
+\draw[arr] (sample.south) -- ++(0,-0.25) -| (precision.north);
+\draw[arr] (sample.south) -- ++(0,-0.25) -| (citation.north);
+\draw[arr] (gold.south) -- ++(0,-1.6) -| (recall.north);
+\draw[arr] (gold.south) -- ++(0,-1.6) -| (disclosure.north);
+\draw[arr] (text.south) -- (lexical.north);
+\end{tikzpicture}

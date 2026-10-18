@@ -1,0 +1,501 @@
+% Appendix: analyses that support Section 6 and did not fit in it.
+\section{Additional Results}
+\label{app:additional}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & \nwhead{Cutoffs} & \nwhead{M1, M3,} & \nwhead{M8} \\
+ & \nwhead{built} & \nwhead{M4} &  \\
+\midrule
+B1, B2, \sys & 1--5 & labeled & labeled \\
+\quad on prefix indexes & 1--4 & labeled & labeled \\
+B3, B4, X2 & 1--5 & labeled & labeled \\
+X1 (cites nothing) & 1--5 & labeled & -- \\
+\sys, first build & 1--5 & labeled & labeled \\
+\quad from a prefix & 2, 3 & labeled & -- \\
+\bottomrule
+\end{tabular}
+\caption{What was built and labeled. Every label is by an LLM annotator
+(Section~\ref{sec:setup}).}
+\label{tab:coverage}
+\end{table}
+
+\paragraph{Coverage of the evaluation.}
+Table~\ref{tab:coverage} lists the available builds and labels. B4's aggregate results are
+included in Table~\ref{tab:main}, with per-cutoff values below. The first build of \sys
+and its prefix variants support the analyses in Sections~\ref{sec:results-quality}
+and~\ref{sec:results-scope}.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\nwhead{Seeded sentence} & \nwhead{Retrieved} & \nwhead{Rate} \\
+\midrule
+Gold claim verbatim & 220 & 1.000 \\
+Paraphrase, names the character & 186 & 0.845 \\
+Paraphrase, pronoun, own page & 169 & 0.768 \\
+Paraphrase, pronoun, other page & 68 & \cellcolor{nwhighpink}\best{0.309} \\
+Implying, names the character & 157 & 0.714 \\
+Implying, pronoun, own page & 137 & 0.623 \\
+Implying, pronoun, other page & 78 & \cellcolor{nwhighpink}\best{0.355} \\
+\bottomrule
+\end{tabular}
+\caption{Recall of the disclosure candidate search on seeded disclosures: 220 fact-by-cutoff
+units ($t=1..4$), one paraphrase and one implying sentence per later fact, each checked to
+establish its fact. Bold magenta cells mark the lowest rate of each kind.}
+\label{tab:seeds}
+\end{table}
+
+\paragraph{What the disclosure search retrieves.}
+Disclosure judgments are limited to sentences returned by candidate search. We therefore
+test retrieval on seeded sentences with known disclosures (Table~\ref{tab:seeds}). Search
+retrieves every verbatim claim, about 85\% of named paraphrases and about 70\% of named
+implications; pronouns on another character's page reduce retrieval to roughly one third.
+The corresponding rates are \res{SEED-direct} for verbatim claims,
+\res{SEED-para} and \res{SEED-para-pron} for paraphrases, and
+\res{SEED-oblique} and \res{SEED-oblique-pron} for implications.
+Search produced \res{M4-cand-anne-B5} candidate sentences for \sys,
+\res{M4-cand-anne-B1} for B1 and \res{M4-cand-anne-all} across systems and builds.
+A lexical-screen hit on X2 exposed an unmatched phrase (``to marry''); after correcting
+the matcher, \res{M4-anne-reread} sentences were reassessed. Of 224 eligible claims passed
+through the same search, 14 became candidates for a later fact about the same character.
+Retrieval alone does not count as disclosure.
+
+The annotator model wrote and checked each fixture for its subject, event and object,
+independently of whether search retrieved it. An earlier fixture version, in which many
+implications did not establish their target fact, had retrieval of approximately one
+quarter and is released alongside the validated version. No second reader validated
+the fixtures. The search-independent checks of Section~\ref{sec:results-main} also have
+limits: lexical screening detects only new names, while zero later-volume assertions in
+a sample of approximately 160 atoms gives limited evidence about rare disclosures.
+Overlapping cutoff wikis and clustering within pages reduce the effective sample size.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{2.3pt}
+\begin{tabular}{@{}l@{\hspace{2pt}}rrrrr@{}}
+\toprule
+ & \nwhead{Share} & \nwhead{$n$} & \nwhead{Page} & \nwhead{Atom} & \nwhead{Suff.} \\
+\midrule
+Character pages, cast & 0.206 & 35 & 31 & 31 & 14 \\
+Character pages, other & 0.171 & 29 & 22 & 24 & 15 \\
+Relationship pages & \cellcolor{nwhighlavender}\best{0.463} & 102 & \cellcolor{nwhighlavender}\best{72} & \cellcolor{nwhighlavender}\best{99} & 60 \\
+Codex pages & 0.057 & 11 & 11 & 11 & 2 \\
+Timeline & 0.090 & 22 & 21 & 21 & 11 \\
+Index & 0.012 & 0 & -- & -- & -- \\
+\midrule
+\sys, all pages & 1.000 & 199 & 157 & 186 & 102 \\
+B1 (cast pages only) & 1.000 & 199 & 185 & 185 & 131 \\
+B2 (cast pages only) & 1.000 & 199 & 191 & 191 & 154 \\
+\bottomrule
+\end{tabular}
+\caption{The precision samples by kind of page, pooled over cutoffs. Share: of the system's
+assertions on that kind of page; $n$: sampled atoms; Page and Atom: supported on the page that
+prints them (relationship pages under the pair rule of Appendix~\ref{app:annotation}), and as
+statements; Suff.: established by their own cited paragraphs. Bold lavender cells highlight
+the largest kind of page and its gap between assertions true as statements and assertions
+supported on the page.}
+\label{tab:kinds}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/f8-collapse}}
+\caption{Context collapse (RQ4) and identity dependence (RQ5), original text. (a) On
+relationship pages nearly every line is true, but a quarter sit under a pair that shares no
+episode; on cast pages the two measures agree. (b) \sys's character pages against an entity
+index discovered from volumes $1..t$; the printed rate is the share that differ.}
+\label{fig:collapse}
+\end{figure*}
+
+\paragraph{Matched and whole-artifact populations.}
+Table~\ref{tab:kinds} separates sampled assertions by page type. The comparison systems
+publish only cast character pages; on this matched population, 31 of \sys's 35 sampled
+atoms are supported. This small subsample does not support a precise comparison with the
+baselines, and no equivalence test is reported. Of \sys's 42 page-context negatives, 30
+occur on relationship pages; 27 of those 30 are supported as statements but placed under
+a pair that shares no episode of the scene.
+
+For every \sys page type, observed citation sufficiency is below the overall values of
+B1 and B2. Cited paragraphs establish 14 of 35 atoms on cast pages, 60 of 102 on
+relationship pages and 11 of 22 on the timeline. Timeline lines can carry up to four
+paragraphs selected to support a chapter-level summary.
+
+
+\paragraph{The graph baseline (B4).}
+Table~\ref{tab:b4} reports B4 at every cutoff, using the reported \sys graph.
+Mean recall is \respt{M1-anne-avg-B4}, versus \respt{M1-anne-avg-B5} for \sys:
+lower at four cutoffs and equal at one. Mean precision is \respt{M3-anne-avg-B4}.
+No assessed later fact was disclosed (\res{M4-anne-total-B4}); B4 publishes
+\res{ND-anne-avg-B4} distinct assertions per cutoff and has \res{SCREEN-anne-B4}
+lexical-screen hit, the same expanded page title found in the prefix baselines.
+
+B4 generates cast character pages from a budgeted selection of retrieved graph facts;
+\sys renders all eligible facts and also publishes relationship, codex and timeline
+pages. B4's higher precision, together with the 30 relationship-page negatives among
+\sys's 42 page-context negatives, suggests that publication context contributes to
+the gap in Table~\ref{tab:main}. This comparison does not isolate context from selection
+and generation.
+
+B4's cited paragraphs suffice for \respt{M8-anne-avg-B4} of sampled assertions, and none
+of its 200 sampled citations is judged wholly unrelated to the assertion.
+The corresponding whole-artifact value for \sys is \respt{M8-anne-avg-B5};
+on character pages it is \res{M8K-anne-char-B5}, versus \res{M8K-anne-char-B4} for B4.
+These observations show that evidence stored in the common graph can support generated
+assertions, while \sys's evidence selection or attachment is less reliable.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & \nwhead{$t=2$} & \nwhead{$t=3$} \\
+\midrule
+Pages, full build & \res{A1-t2-pages-full} & \res{A1-t3-pages-full} \\
+Pages, prefix build & \res{A1-t2-pages-prefix} & \res{A1-t3-pages-prefix} \\
+In both builds & \res{A1-t2-shared} & \res{A1-t3-shared} \\
+\quad same title & 100 & 145 \\
+\quad same alias list & 80 & 128 \\
+\quad alias not in $\Dt$ (full) & 0 & 0 \\
+In one build only & \res{A1-t2-onesided} & \res{A1-t3-onesided} \\
+\quad later-anchored & \cellcolor{nwhighpink}\best{\res{A1-t2-classes-anchored}} & \cellcolor{nwhighpink}\best{\res{A1-t3-classes-anchored}} \\
+\quad second page, same person & \res{A1-t2-classes-duplicate} & \res{A1-t3-classes-duplicate} \\
+\quad same person, new address & \res{A1-t2-classes-renamed} & \res{A1-t3-classes-renamed} \\
+\quad minor entity & \res{A1-t2-classes-selection} & \res{A1-t3-classes-selection} \\
+\quad stating a later fact & 0 & 0 \\
+\midrule
+Recall, prefix build & \res{A1-t2-M1-prefix} & \res{A1-t3-M1-prefix} \\
+Recall, full build & \cellcolor{nwhighcyan}\best{\res{A1-t2-M1-full}} & \cellcolor{nwhighcyan}\best{\res{A1-t3-M1-full}} \\
+Precision, prefix build & \cellcolor{nwhighcyan}\best{\res{A1-t2-M3-prefix}} & \cellcolor{nwhighcyan}\best{\res{A1-t3-M3-prefix}} \\
+Precision, full build & \res{A1-t2-M3-full} & \res{A1-t3-M3-full} \\
+Later facts disclosed & 0/65 & 0/45 \\
+Prefix build tokens (M) & \res{TOK-A1-t2-prefix} & \res{TOK-A1-t3-prefix} \\
+\bottomrule
+\end{tabular}
+\caption{Construction scope (character pages), first build of \sys: built from volumes
+$1..t$ alone (prefix) against the same cutoff of its five-volume build (full;
+\res{TOK-anne-first-text} once, for all cutoffs). Precision is under the pair rule of Appendix~\ref{app:annotation}.
+Disclosure counts are identical in the two builds; tokens are input / output, in millions.
+Bold magenta cells mark later-anchored pages; bold cyan cells mark the higher of the two builds
+on recall and precision.}
+\label{tab:scope}
+\end{table}
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}rrrrrrlll@{}}
+\toprule
+\nwhead{$t$} & \nwhead{Pages} & \nwhead{Same} & \nwhead{Alias} & \nwhead{Regrouped} & \nwhead{Absent} & \nwhead{Identity dependence} & \nwhead{Regrouped or absent} & \nwhead{Mentions} \\
+\midrule
+1 & 59 & 36 & 10 & 4 & 9 & \cellcolor{nwhighpink}\best{\res{ID-anne-t1}} & \cellcolor{nwhighpink}\best{\res{ID-anne-strict-t1}} & \cellcolor{nwhighpink}\best{\res{ID-anne-mentions-t1}} \\
+2 & 117 & 87 & 13 & 7 & 10 & \res{ID-anne-t2} & \res{ID-anne-strict-t2} & \res{ID-anne-mentions-t2} \\
+3 & 158 & 137 & 9 & 4 & 8 & \res{ID-anne-t3} & \res{ID-anne-strict-t3} & \res{ID-anne-mentions-t3} \\
+4 & 191 & 174 & 7 & 5 & 5 & \res{ID-anne-t4} & \res{ID-anne-strict-t4} & \res{ID-anne-mentions-t4} \\
+\bottomrule
+\end{tabular}
+\caption{Identity dependence of the reported \sys on the original text. Each character page of the
+five-volume build at cutoff $t$ is compared with the entity index built from volumes $1..t$ alone.
+\emph{Same}: a prefix-built character has exactly its set of names seen by $t$. \emph{Alias}: one
+counterpart, with a name linked in one build only. \emph{Regrouped}: names that one build gives
+one character the other gives two. \emph{Absent}: no prefix-built entity carries any of its names.
+\emph{Mentions}: character mentions in volumes $1..t$ under the prefix index, as a share of the
+full build's. One run per index, so model variance is inside the differences.
+Bold magenta cells mark the cutoff where identity dependence is largest.}
+\label{tab:identity}
+\end{table*}
+
+\paragraph{Identity dependence.}
+Table~\ref{tab:identity} reports the measure defined in Section~\ref{sec:results-scope};
+its mean is \res{ID-anne-mean}. Every prefix-built character has a counterpart in the
+full build, although counterpart existence does not imply identical alias grouping.
+
+Some differences arise deterministically during candidate mining. Of the full build's
+candidates first occurring by $t$, \res{G19-anne-lost} are absent from prefix mining
+($t=1..4$). Most, \res{G19-anne-few}, occur fewer than three times in the prefix and
+reach the miner's frequency threshold only with later occurrences. The remaining
+\res{G19-anne-ratio} fail a separate rule: a single capitalized word must stand alone
+in at least three quarters of its occurrences in some volume. Bare \emph{Gilbert}
+appears alone in 62 of 113 book-one occurrences; the other 51 are in
+\emph{Gilbert Blythe}. Prefix mining therefore omits the alias, while later volumes
+allow the full build to retain it. Disabling this rule admits \res{G19-anne-off}
+additional full-build candidates, mostly sentence-initial words. We retain the reported
+rule because changing it would alter the evaluated index.
+
+Pages absent from the prefix index at $t=1$ include \texttt{walter}, \texttt{jerry}
+and \texttt{marshall}, discussed below, and Anne's mother, whose full name occurs once
+in book one. The four prefix indexes use \res{TOK-ID-anne}, including
+\res{TOK-ID-anne-new} in calls absent from the full build's cache.
+The measure captures entity-index sensitivity to construction scope; wiki outcomes
+on these indexes appear in Table~\ref{tab:prefixv2}.
+
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+ & \nwhead{Build} & \nwhead{$t=1$} & \nwhead{$t=2$} & \nwhead{$t=3$} & \nwhead{$t=4$} \\
+\midrule
+Character pages & full & \res{PX-anne-t1-pages-full} & \res{PX-anne-t2-pages-full} & \res{PX-anne-t3-pages-full} & \res{PX-anne-t4-pages-full} \\
+ & prefix & \res{PX-anne-t1-pages} & \res{PX-anne-t2-pages} & \res{PX-anne-t3-pages} & \res{PX-anne-t4-pages} \\
+Recall & full & \res{M1-anne-t1-B5} & \res{M1-anne-t2-B5} & \res{M1-anne-t3-B5} & \cellcolor{nwhighcyan}\best{\res{M1-anne-t4-B5}} \\
+ & prefix & \res{PX-anne-t1-M1} & \res{PX-anne-t2-M1} & \cellcolor{nwhighcyan}\best{\res{PX-anne-t3-M1}} & \res{PX-anne-t4-M1} \\
+Precision & full & \res{M3-anne-t1-B5} & \res{M3-anne-t2-B5} & \res{M3-anne-t3-B5} & \cellcolor{nwhighcyan}\best{\res{M3-anne-t4-B5}} \\
+ & prefix & \cellcolor{nwhighcyan}\best{\res{PX-anne-t1-M3}} & \cellcolor{nwhighcyan}\best{\res{PX-anne-t2-M3}} & \res{PX-anne-t3-M3} & \res{PX-anne-t4-M3} \\
+Citation sufficiency & full & \res{M8-anne-t1-B5} & \cellcolor{nwhighcyan}\best{\res{M8-anne-t2-B5}} & \res{M8-anne-t3-B5} & \res{M8-anne-t4-B5} \\
+ & prefix & \cellcolor{nwhighcyan}\best{\res{PX-anne-t1-M8}} & \res{PX-anne-t2-M8} & \cellcolor{nwhighcyan}\best{\res{PX-anne-t3-M8}} & \cellcolor{nwhighcyan}\best{\res{PX-anne-t4-M8}} \\
+Later facts disclosed & full & \res{M4-anne-t1-B5} & \res{M4-anne-t2-B5} & \cellcolor{nwhighpink}\best{\res{M4-anne-t3-B5}} & \res{M4-anne-t4-B5} \\
+ & prefix & \res{PX-anne-t1-M4} & \res{PX-anne-t2-M4} & \cellcolor{nwhighcyan}\best{\res{PX-anne-t3-M4}} & \res{PX-anne-t4-M4} \\
+Assertions & full & \res{N-anne-t1-B5} & \res{N-anne-t2-B5} & \res{N-anne-t3-B5} & \res{N-anne-t4-B5} \\
+ & prefix & \res{PX-anne-t1-N} & \res{PX-anne-t2-N} & \res{PX-anne-t3-N} & \res{PX-anne-t4-N} \\
+\midrule
+Tokens, in / out (M) & prefix & \res{PX-anne-t1-TOK} & \res{PX-anne-t2-TOK} & \res{PX-anne-t3-TOK} & \res{PX-anne-t4-TOK} \\
+\bottomrule
+\end{tabular}
+\caption{The reported \sys built on entity indexes discovered from the prefix (\emph{prefix}: one build
+per cutoff, every stage on volumes $1..t$) against the same cutoff of its five-volume build (\emph{full}).
+Metrics as in Table~\ref{tab:full-results}; precision is on a different sample of 40 assertions in each
+build. The prefix builds received a single LLM labeling pass; the full build's labels were
+finalized by Claude Opus~5.5 (Appendix~\ref{app:annotation}). The full
+build's tokens, for all five cutoffs at once, are in Table~\ref{tab:efficiency}.
+Bold cyan cells mark the higher rate where the builds differ; bold magenta cells mark non-zero
+disclosure counts.}
+\label{tab:prefixv2}
+\end{table*}
+
+\paragraph{Wikis built on the prefix indexes.}
+Table~\ref{tab:prefixv2} evaluates the complete reported pipeline on each prefix
+$t=1..4$, using that prefix's entity index. Pooled recall is
+\res{PX-anne-M1-pooled} gold-fact assessments for the prefix builds and
+\res{PX-anne-M1-pooled-full} for the full build. Per-cutoff differences comprise one
+to three facts in either direction: prefix builds lose a minor character's trait
+and gain an office or prize omitted by the full build. Pooled precision is
+\res{PX-anne-M3-pooled}, versus \res{PX-anne-M3-pooled-full}, on different samples.
+Citation sufficiency is \res{PX-anne-M8-pooled}, versus
+\res{PX-anne-M8-pooled-full}, using different samples with labels finalized by Claude.
+
+Neither build states a later fact. Both contain the same implied disclosure at $t=3$,
+the bridesmaid relation inverted from eligible text. Prefix builds publish fewer
+character pages at early cutoffs: \texttt{walter} and \texttt{jerry}, retained by the
+full build at every cutoff because of book-five characters, never appear in prefix
+builds; \texttt{marshall}, from book four, appears only at $t=4$.
+Prefix-specific discovery avoids using later text in entity construction while retaining
+the observed pooled gold recall. This is not evidence of equivalence on all outcomes:
+the approach requires a build per cutoff, and the four prefix builds together use more
+tokens than the single full build.
+
+\paragraph{Construction scope.}
+Table~\ref{tab:scope} compares prefix and full graphs made with first-build code;
+this complete graph comparison was not repeated for the reported build.
+The pooled recall difference is \res{A1-dM1}, with seven discordant facts; the precision
+difference is \res{A1-dM3}, using separate samples. These comparisons cannot isolate
+construction-scope effects from differences in entity indexes and model runs.
+
+At $t=2$, later-anchored pages include \texttt{walter} (Walter Blythe of book five,
+127 of the entity's 130 mentions, but an early page describing Anne's father);
+\texttt{di} (Di Blythe, with an early duplicate page for Diana Barry under a nickname
+used once in the first two books); \texttt{mary} (Mary Vance, showing the twins' mother);
+\texttt{jerry} (Jerry Meredith, merging a book-one hired boy with a book-two agent);
+and \texttt{marshall}, \texttt{baxter} and \texttt{sam}.
+An entity-merge audit flags \res{A1-merge-full} entities in the full build and
+\res{A1-merge-prefix} in a volume-one build.
+
+Shared pages have identical titles and no full-build alias absent from $\Dt$.
+Relation lines differ in both directions: at $t=2$, 54 occur in both builds,
+93 only in the full build and 68 only in the prefix build. Separate runs and
+entity lists prevent attributing these differences solely to later volumes.
+Prose on shared pages was not compared.
+
+\paragraph{Later-anchored entities in the reported build.}
+The reported build adjudicates bare names against fuller forms first appearing later,
+and assigns shared first names volume by volume to the locally dominant full name.
+Its \texttt{walter} entity now contains only Anne's father (three mentions), with
+Walter Blythe appearing separately from book five.
+
+A separate screen flags character-page entities with at least ten mentions and
+at least four fifths occurring after the cutoff: \res{LATE-anne-t2} at $t=2$ and
+\res{LATE-anne-t3} at $t=3$. At $t=2$, these are \texttt{susan} (3 of 204 mentions
+by book two; an empty page dominated by Susan Baker of books four and five);
+\texttt{sam} (2 of 10, with prose saying ``Sam does not appear in the story provided'');
+\texttt{joseph} (5 of 54, an early pupil's uncle under an entity later dominated by
+others); \texttt{jerry-corcoran} (6 of 120, correctly described at $t=2$ but later
+absorbing Jerry Meredith); and \texttt{stella-maynard} and \texttt{billy-andrews},
+correctly resolved people introduced early. This screen identifies entities dominated
+by later mentions. It neither establishes dependence for every flagged page nor
+determines what a prefix build would publish instead.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\nwhead{Stage} & \nwhead{Calls} & \nwhead{Input} & \nwhead{Output} \\
+\midrule
+Entity discovery & \res{T5-gazetteer-calls} & \res{T5-gazetteer-in} & \res{T5-gazetteer-out} \\
+Chapter pass & \res{T5-scenes-calls} & \res{T5-scenes-in} & \cellcolor{nwhighviolet}\best{\res{T5-scenes-out}} \\
+Mention pass & \cellcolor{nwhighviolet}\best{\res{T5-extract-calls}} & \cellcolor{nwhighviolet}\best{\res{T5-extract-in}} & \res{T5-extract-out} \\
+Long-context pass & \res{T5-infobox-calls} & \res{T5-infobox-in} & \res{T5-infobox-out} \\
+Arbitration & \res{T5-graph-calls} & \res{T5-graph-in} & \res{T5-graph-out} \\
+Verification & \res{T5-verify-calls} & \res{T5-verify-in} & \res{T5-verify-out} \\
+Prose & \res{T5-synth-calls} & \res{T5-synth-in} & \res{T5-synth-out} \\
+Shared-page summaries & \res{T5-site-calls} & \res{T5-site-in} & \res{T5-site-out} \\
+\midrule
+Total, reported runs & \res{T5-total-calls} & \res{T5-total-in} & \res{T5-total-out} \\
+Rebuild from cache & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Size of the reported \sys build for all five cutoffs, including verification
+rechecks after one re-extraction: model calls, and input and output tokens in millions. Every call of the build is counted, whether or not the
+provider served it at a discount, so the token column of Table~\ref{tab:main} is comparable
+across systems. A rebuild from the call cache sends nothing. Ingestion, assembly and linking
+make no model call. Bold violet cells identify the stage consuming the most resources in
+each column.}
+\label{tab:efficiency}
+\end{table}
+
+\paragraph{Cost.}
+Table~\ref{tab:efficiency} breaks down model use by stage; extraction dominates.
+Prose and shared-page summaries are generated once per distinct filtered fact set,
+across all five cutoffs, and included in the total. Verification includes rechecks
+after one re-extraction, so its count slightly exceeds a cold build from an empty cache.
+The first build used \res{TOK-anne-first-text} under the same accounting.
+B4 adds \res{TOK-anne-B4} million tokens (input / output) of page generation to the
+graph it shares with \sys; latency, hardware and the local evaluation models are not
+costed for any system.
+
+Long-context input grows with the prefix (\res{COST-anne-B1-input} tokens at $t=1..5$),
+which is sent once per page. The all-cutoff \sys build uses
+\res{COST-anne-B5-input} input tokens. LightRAG's \res{TOK-anne-B3} million tokens
+(input / output) comprise \res{TOK-anne-B3-index} for five incremental indexes
+and \res{TOK-anne-B3-pages} for page generation. Prefix retrieval indexes use local
+embeddings and BM25, so its \res{TOK-anne-B2} million tokens cover page generation.
+The closed-book diagnostic uses \res{TOK-anne-X1}.
+
+\paragraph{Verification.}
+At audit, the verifier had marked \res{VERIFY-unsupported} facts unsupported by their
+cited evidence; these facts are withheld. Table~\ref{tab:efficiency} counts verification
+calls rather than distinct facts. On a challenge set of \res{M12-n} items created by
+minimal substitutions in source-verified facts, the verifier accepted
+\res{M12-false-admit} labeled unsupported candidates and rejected
+\res{M12-false-reject} labeled supported ones (Appendix~\ref{app:evaluator}).
+This synthetic challenge does not establish performance on naturally occurring
+extraction errors.
+
+\paragraph{Facts \sys misses.}
+At $t=5$, \sys misses \res{M1-anne-miss-t5} of the \res{T1-anne-gold-t5} gold facts;
+B1 or B2 conveys \res{M1-anne-miss-t5-prefix} of those omissions. Examples include
+Gilbert's teaching appointment at White Sands and Cooper Prize, Diana's role as
+improvement-society treasurer, Rilla's position as the youngest Blythe child,
+Leslie's mother's pressure to marry, Mr.\ Phillips's interest in Prissy Andrews,
+and Paul Irving's place of origin. Conversely, four facts are conveyed by \sys
+but neither B1 nor B2: Anne's fictional heroine, her mother's letters, Gilbert's
+boat rescue of Anne and Walter's hatred of a schoolmate. Four facts are conveyed
+by none of these three systems.
+
+\paragraph{Typical errors.}
+\sys still merges namesakes. Priscilla Grant's page lists the book-one schoolgirl
+``Prissy Andrews'' as an alias. The \texttt{james-a} page joins Mr.\ Harrison of
+book two, who also has a separate page, with a deceased James of book three and
+a book-four sailor. A duplicate page for Anne, \texttt{shirley}, also absorbs her
+son Shirley at $t=5$ (``the little brown boy'').
+
+Other errors include a remark by Mrs.\ Barry attributed to Marilla, an inverted
+relationship (Section~\ref{sec:results-main}), intervals persisting beyond their
+validity and an exhibition prize labeled ``Fought in''. Generated commentary
+about the input can reach pages: one subject ``does not appear in the story
+provided'', and 5 of the 341 non-timeline pages at $t=4$ retain source-line keys
+(``[R3, R4, S1, S4]''; Table~\ref{tab:qual-diff}).
+Two first-build errors were not observed in the reported build: Anne's mother's
+death specified as ``of yellow fever'', beyond the text, and a merger of two men
+named George.
+
+B1 and X2 also misattribute biographies: at $t=5$, both place one man's courtship
+and marriage on another man's page. The closed-book diagnostic imports material
+outside the five-book corpus, describing Anne's years at ``Windy Willows''.
+
+\paragraph{Uncertain disclosure verdicts.}
+\input{tables/t-disclosure-units}
+System-level uncertain counts at $t=1..4$ are \res{M4-anne-uncertain}.
+For \sys, four verdicts arise from one relation line between Anne and Gilbert,
+``Romantically involved with --- harbors romantic feelings for her''.
+The interval opens in book one from a friend's report that Gilbert kept a rose
+Anne dropped. Assessed at $t=1$ and $t=2$ against two later facts about the
+couple, the line yields four uncertain judgments because it could suggest
+their book-four marriage.
+
+\paragraph{Unique facts and error mechanisms.}
+Table~\ref{tab:disclosure-units} collapses repeated fact--cutoff assessments to unique
+subject facts. On the original text, \sys's confirmed disclosure concerns one fact from
+one inverted-bridesmaid error. On the treated text, its four confirmed assessments cover
+two reciprocal marriage facts at two cutoffs, arising from a single prediction-to-marriage
+failure mechanism. B4's two treated assessments concern those same reciprocal facts.
+These witness-based descriptions do not establish that every output error has been found
+or that error mechanisms are independent. Grouping systems by information available to
+page generation includes B4 alongside B1--B3 and B5: together they have
+\res{M4-anne-total-cut} original-text assessments, or
+\res{M4-anne-total-cut-incl} including uncertain verdicts.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & \nwhead{First} & \nwhead{Reported} \\
+\midrule
+Recall & \cellcolor{nwhighcyan}\best{\res{REV-M1-first}} & \respt{M1-anne-avg-B5} \\
+Precision, scene rule & \res{REV-M3-first} & \cellcolor{nwhighcyan}\best{\respt{M3-anne-avg-B5}} \\
+Precision, line rule & \res{REV-M3L-first} & \cellcolor{nwhighcyan}\best{\res{REV-M3L}} \\
+True as statements & \cellcolor{nwhighcyan}\best{\res{REV-M3A-first}} & \res{REV-M3A} \\
+Citation sufficiency & \res{REV-M8-first} & \cellcolor{nwhighcyan}\best{\respt{M8-anne-avg-B5}} \\
+With a paragraph citation (all) & \res{REV-CITE-first} & \cellcolor{nwhighcyan}\best{\res{CITE-anne-B5}} \\
+Later facts disclosed & \best{\res{REV-M4-first}} & \cellcolor{nwhighpink}\res{M4-anne-total-B5} \\
+Lexical screen hits & \res{REV-SCREEN-first} & \cellcolor{nwhighcyan}\best{\res{SCREEN-anne-B5}} \\
+Assertions per cutoff & \res{REV-N-first} & \res{N-anne-avg-B5} \\
+\quad distinct & \res{REV-ND-first} & \res{ND-anne-avg-B5} \\
+Pair lines sharing an episode & \res{REV-pair-first} & \cellcolor{nwhighcyan}\best{\res{REV-pair}} \\
+Participants per scene record & \res{REV-part-first} & \res{REV-part} \\
+Tokens, in / out (M) & \res{TOK-anne-first} & \res{TOK-anne-B5} \\
+\bottomrule
+\end{tabular}
+\caption{The two builds of \sys, means over cutoffs $t=1..5$. Every relationship line of both
+samples was read by Claude Opus~5.5 under one rule; all other labels come from each build's
+own labeling round, the first build's before the revision and the reported build's after.
+Bold marks the better of the two builds where a direction exists; cyan emphasizes selected
+improvements, and magenta marks the observed disclosure.}
+\label{tab:builds}
+\end{table}
+
+\paragraph{The two builds and the pair rule.}
+Table~\ref{tab:builds} compares the first and reported builds.
+The revision (Appendix~\ref{app:implementation}) lowered recall and raised
+citation sufficiency, merged two of the protagonist's three entities, removed
+three of four lexical-screen hits and introduced the implied disclosure.
+Precision is \res{REV-M3-first} and \respt{M3-anne-avg-B5} under the main
+scene-sharing rule; \res{REV-M3L-first} and \res{REV-M3L} when the pair must
+participate in the line's own event; and \res{REV-M3A-first} and
+\res{REV-M3A} when assertions are assessed without page context.
+Rule choice changes the observed estimate more than the revision does.
+At 40 atoms per cutoff, these estimates do not establish equal precision across
+builds.
+
+Two earlier estimates are superseded because their judgment rules differ:
+\res{REV-M3-first-lenient}, allowing both pair members anywhere in a chapter,
+and \res{REV-M3-firstpass}, an initial reported-build pass.
+The provisional and finalized passes agree on \res{ANN-pair-agree} pair verdicts. Eight of nine
+disagreements involve lines accepted in the finalized pass; four occur on
+Anne's duplicate page, whose identity the provisional pass rejects.
+Substituting the provisional pair verdicts while retaining all other
+labels yields precision \res{REV-M3-pair2}.
+
+The page-context error has a structural mechanism: scene records summarize
+chapters (median 38 paragraphs) and list their participants; pair pages print
+every line of every record naming both members. The revision requested
+participants rather than merely mentioned characters, reducing participants
+per record from \res{REV-part-first} to \res{REV-part} and implied pairs from
+\res{REV-pairs-first} to \res{REV-pairs}. The share of sampled pair lines whose
+characters share an episode rises from \res{REV-pair-first} to \res{REV-pair}.
+Episode-level records are a possible remedy that has not been tested.

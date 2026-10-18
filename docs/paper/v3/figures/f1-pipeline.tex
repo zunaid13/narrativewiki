@@ -1,0 +1,79 @@
+% F1 (full width): the pipeline on one real example. Every artifact shown is from the frozen Anne
+% build: paragraph v01:c15:p0051; the entity anne-shirley; the stored intervals for Anne and
+% Gilbert Blythe (ENEMY_OF v1-v1, RIVAL_OF v1-, COMRADE_OF v2-, SPOUSE_OF v4-); the rendered line of
+% dist/anne/wiki/v02/relationships/anne-shirley--gilbert-blythe.md. A purple "LLM" tag marks a
+% stage that calls the generator; a grey "rule" tag marks a deterministic stage.
+\begin{tikzpicture}[font=\scriptsize,
+  head/.style={rounded corners=3pt, minimum height=0.52cm, text width=3.5cm, align=left, inner sep=3pt, font=\scriptsize\bfseries, text=nwink},
+  card/.style={draw=#1!75!nwaccent, fill=white, rounded corners=3pt, text width=3.5cm, align=left, inner sep=4pt, font=\figfont, minimum height=1.95cm, anchor=north},
+  num/.style={circle, fill=white, text=nwaccent, font=\figfont\bfseries, inner sep=1pt, minimum size=0.33cm},
+  tagllm/.style={fill=nwpurplebg, text=nwink, rounded corners=2pt, font=\figfont\bfseries, inner sep=1.5pt},
+  tagrule/.style={fill=nwcyan!50, text=nwink, rounded corners=2pt, font=\figfont\bfseries, inner sep=1.5pt},
+  gate/.style={fill=nwredbg, draw=nwred!65!nwink, rounded corners=1.5pt, font=\figfont, inner sep=2pt, text=nwink, text width=3.3cm, align=left, minimum height=0pt, anchor=center},
+  arr/.style={-{Stealth[length=4pt]}, line width=0.9pt, draw=nwgray,
+    rounded corners=4pt, line cap=round, line join=round},
+]
+\def\dx{4.0}
+% ---------------- phase bands
+\begin{scope}[on background layer]
+  \fill[nwbluebg, rounded corners=5pt] (-2.0,0.75) rectangle (14.05,-3.42);
+  \fill[nwgreenbg, rounded corners=5pt] (-2.0,-3.9) rectangle (14.05,-7.75);
+\end{scope}
+\node[anchor=west, font=\scriptsize\bfseries, text=nwaccent] at (-1.9,0.5) {BUILD \;\textnormal{once, from all $N$ volumes}};
+\node[anchor=east, font=\scriptsize\bfseries, text=nwaccent] at (13.95,-4.14) {PUBLISH \;\textnormal{for every cutoff $t$, from the same graph}};
+% ---------------- row 1: build
+\foreach \i/\t/\tag/\lbl in {0/Ingest/rule/rule, 1/Discover entities/llm/LLM, 2/Extract claims/llm/LLM, 3/Graph and verify/llm/LLM}{
+  \pgfmathtruncatemacro{\n}{\i+1}
+  \node[head, fill=nwcyan!72] (h\n) at (\i*\dx,0) {\hspace{0.45cm}\t};
+  \node[num=nwblue] at ($(h\n.west)+(0.28,0)$) {\n};
+  \node[tag\tag, anchor=east] at ($(h\n.east)+(-0.08,0)$) {\lbl};
+}
+\node[card=nwblue] (c1) at (0*\dx,-0.4) {%
+  EPUB $\rightarrow$ ordered paragraphs with stable identifiers, chapters and scene breaks.\\[3pt]
+  {\ttfamily v01:c15:p0051}\\
+  \emph{``I shall never forgive Gilbert Blythe,'' said Anne firmly.}};
+\node[card=nwblue] (c2) at (1*\dx,-0.4) {%
+  Names are mined from the text, typed, and merged into entities. Each surface form keeps the volume in which it first occurs.\\[3pt]
+  {\ttfamily gilbert-blythe}: Gilbert Blythe (v1), Gilbert (v1), Gil (v1)};
+\node[card=nwblue] (c3) at (2*\dx,-0.4) {%
+  $\langle$Anne Shirley, {\ttfamily ENEMY\_OF}, Gilbert Blythe$\rangle$\\
+  {\ttfamily first\_vol = 1}\\
+  quote: ``I shall never forgive Gilbert Blythe'' {\ttfamily @v01:c15:p0051}\\[2pt]
+  \tikz[baseline=-2pt]\node[gate]{check: the quote occurs verbatim in the cited paragraph, which names subject and object};};
+\node[card=nwblue] (c4) at (3*\dx,-0.4) {%
+  Claims become volume intervals:\\
+  {\ttfamily ENEMY\_OF\phantom{xx} [v1, v1]}\\
+  {\ttfamily RIVAL\_OF\phantom{xx} [v1, --)}\\
+  {\ttfamily COMRADE\_OF [v2, --)}\\
+  {\ttfamily SPOUSE\_OF\phantom{x} [v4, --)}\\[2pt]
+  \tikz[baseline=-2pt]\node[gate]{verifier: each fact is judged against its own evidence; unsupported facts are withheld};};
+% ---------------- row 2: publish
+\foreach \i/\t/\tag/\lbl in {0/Filter at cutoff $t$/rule/rule, 1/Assemble page/rule/rule, 2/Write short prose/llm/LLM, 3/Link and publish/rule/rule}{
+  \pgfmathtruncatemacro{\n}{\i+5}
+  \node[head, fill=nwred!78] (h\n) at (\i*\dx,-4.53) {\hspace{0.45cm}\t};
+  \node[num=nwgreen] at ($(h\n.west)+(0.28,0)$) {\n};
+  \node[tag\tag, anchor=east] at ($(h\n.east)+(-0.08,0)$) {\lbl};
+}
+\node[card=nwgreen] (c5) at (0*\dx,-4.93) {%
+  Keep intervals that start at or before $t$, and only quotes from volumes $\le t$. At $t=2$:\\[2pt]
+  {\color{nwaccent}\checkmark}\,{\ttfamily ENEMY\_OF}\quad{\color{nwaccent}\checkmark}\,{\ttfamily RIVAL\_OF}\\
+  {\color{nwaccent}\checkmark}\,{\ttfamily COMRADE\_OF}\\
+  {\color{nwaccent}$\times$}\,{\ttfamily SPOUSE\_OF} \emph{(starts in v4)}\\[2pt]
+  An interval that ends after $t$ is shown as open.};
+\node[card=nwgreen] (c6) at (1*\dx,-4.93) {%
+  Names, relations, affiliations and their history are rendered from graph rows; no model writes them.\\[3pt]
+  Anne Shirley --- \emph{Rival of} --- Gilbert Blythe $\cdot$ since v1 {\ttfamily [v01:c17:p0036]}\\
+  \emph{previously: Enemy of} (until v1)};
+\node[card=nwgreen] (c7) at (2*\dx,-4.93) {%
+  A model writes a few bounded sentences per section and one-sentence summaries, \textbf{from the filtered set only}. No evidence: no call, empty section.\\[3pt]
+  Nothing is generated from the full graph and redacted afterwards.};
+\node[card=nwgreen] (c8) at (3*\dx,-4.93) {%
+  Links go only to targets visible at $t$. Each cutoff is its own directory; shared navigation names no character.\\[3pt]
+  {\ttfamily wiki/v02/}\\
+  {\ttfamily \ \ character/ relationships/}\\
+  {\ttfamily \ \ codex/ timeline/ source/}};
+% ---------------- arrows
+\foreach \a/\b in {1/2,2/3,3/4,5/6,6/7,7/8}{ \draw[arr] (h\a.east) -- (h\b.west); }
+\draw[arr] (c4.south) -- ++(0,-0.3) -| (h5.north);
+\node[font=\figfont\itshape, text=nwgray, fill=white, inner sep=1.5pt] at (6.0,-3.62) {the graph is built once; every cutoff is a filter over it};
+\end{tikzpicture}

@@ -1,0 +1,70 @@
+% Method (v2). Stage details, prompts and Algorithm 1 are in Appendix~\ref{app:implementation}.
+\section{The Probe: \sys}
+\label{sec:method}
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/f1-pipeline}}
+\caption{The \sys pipeline on a stored fact. \textsc{Build} converts all volumes into
+identified paragraphs, entities and claim intervals accepted by the verifier. \textsc{Publish} assembles
+each cutoff's wiki from eligible intervals and quotes. Stages marked \textsc{llm} call the
+generator; other stages are deterministic. Validation gates check verbatim evidence and
+fact-level support.}
+\label{fig:pipeline}
+\end{figure*}
+
+\sys constructs a graph of evidence-bearing claims with volume intervals and renders one
+wiki per cutoff (Figure~\ref{fig:pipeline}). Claims are filtered to evidence volumes $\le t$
+before page assembly and prose generation. Filtering precedes generation because removing
+explicit later facts from generated text can leave implications intact.
+
+\paragraph{Ingestion and entities (stages 1--2).}
+Volumes become ordered paragraphs with stable citation identifiers such as
+\pid{v01:c06:p0003}. Lexical mining identifies capitalized n-grams, honorifics and vocatives;
+the model types them as characters, groups, places, events or objects. Surface forms are
+clustered by exact match, fuzzy match and whole-word subset, followed by model adjudication
+of ambiguous pairs using passages containing both names. A bare name is not automatically
+merged with a fuller name first appearing later. Shared first names are assigned
+volume by volume to the locally dominant full name. Entities use the fullest title occurring
+in their first volume, and surface forms retain their first-occurrence volume.
+
+\paragraph{Claims with evidence (stage 3).}
+Three extraction passes share a schema: subject, predicate, object or value, qualifier,
+first-evidence volume (\firstvol), verbatim quotes and paragraph identifiers.
+A chapter pass covers every paragraph in overlapping spans and extracts scenes, participants
+and summaries backed by up to four paragraphs. A mention pass reads windows around each
+character's mentions; a long-context pass reads all their paragraphs in a volume for
+attributes and background. Claims are retained only when the quote occurs verbatim in its
+cited paragraph, the subject is named in or beside that paragraph (and, for twelve
+two-person relations, the object in it), and relation objects resolve to known entities.
+
+\paragraph{Intervals and verification (stage 4).}
+Claims become volume intervals. Conflicting values of a single-valued attribute within one
+volume are arbitrated as extraction conflicts; values in different volumes are treated as
+story changes, closing the earlier interval when the later one opens. Near-duplicate values
+are clustered with BGE-M3 embeddings \citep{chen2024m3}. A verifier judges each assembled
+fact against its cited evidence in a separate call; rejected facts are withheld.
+On \res{M12-n} constructed minimal-edit items the verifier reaches \res{M12-verifier-bacc}
+balanced accuracy (MiniCheck: \res{M12-mc-bacc}), and \res{OBS-hard-verifier-bacc} on
+\res{OBS-hard-items} harder items of embedded speech (Appendix~\ref{app:evaluator}).
+
+\paragraph{Cutoff assembly and publication (stages 5--8).}
+Deterministic assembly selects intervals opening by $t$
+(Algorithm~\ref{alg:assemble}, Appendix~\ref{app:implementation}). Each quote is filtered
+by its own volume; intervals closing after $t$ appear current to conceal future changes;
+and qualifiers must be supported no later than the interval's start. Names, attributes,
+affiliations and relations are rendered directly from graph rows. The model writes only
+short prose from filtered facts, with sentence limits per section
+(Appendix~\ref{app:implementation}), and is instructed to identify the input lines supporting it.
+Line keys select source paragraphs; returned paragraph IDs are normalized during citation
+resolution. Sections without evidence remain empty without a model call.
+String matching adds links using surface forms revealed by $t$. Cutoffs occupy separate
+directories, shared navigation names no characters, and no site-wide search index is shipped
+because it would span cutoffs.
+
+\paragraph{Build scope.}
+One graph is built from all volumes. Additional cutoffs require no extraction, structured
+content is rendered without model calls, and prose is generated once per distinct eligible
+fact set. This efficiency retains construction dependence (Section~\ref{sec:task}), which
+we assess against prefix-only builds (Section~\ref{sec:results-scope}). Every model stage,
+including verification, uses the generator specified in Section~\ref{sec:setup}.

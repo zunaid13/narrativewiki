@@ -1,0 +1,57 @@
+% Appendix: reproducibility and release.
+\section{Reproducibility and Release}
+\label{app:reproducibility}
+
+\paragraph{Freeze.} Before each block of runs, the source code, configuration, and scripts
+are hashed into a freeze record that every runner checks before making a call. Any change
+requires a new record and an account of which results it invalidates. Changes affecting a
+reported number are logged with the previous and revised values and the cells rebuilt or
+relabeled, including the two label audits in Section~\ref{sec:setup}.
+Sampling seeds are fixed (assertion samples: seed 0).
+
+\paragraph{Provenance.} A shared client caches every model response under a hash of its
+provider, model, prompt, and parameters; each run writes a manifest and call log. Every number
+in the paper maps to a measurement-ledger row identifying the producing command and run.
+All generative calls of the systems and of the treatment used \res{GEN-model}, between 28 September and
+\ifnwdecon 7\else 5\fi{} October 2026. The provider's model name exposes no finer revision.
+Cached responses reproduce the released artifacts exactly; fresh calls need not produce
+identical generations.\ifnwdecon{} On the treated text, \res{DECON-recovered} page of the
+full-text diagnostic returned a list with an incorrect closing bracket in three attempts.
+The runner corrected the bracket in the recorded first response and applied its normal
+validation and rendering; no page was regenerated.\fi{} Appendix~\ref{app:prompts} lists
+every generative stage with its logged call and prints two exchanges in full; the release
+holds one complete logged exchange per stage, with system prompt, input and output. Claude Opus~5.5 finalized all reported AI annotation labels after evidence review.
+The prompt and response defects documented in Appendix~\ref{app:prompts} remain part of
+the archived run configuration. The reported results are not measurements of a repaired
+prompt builder or citation validator.
+
+\paragraph{Commands.} With the corpus parsed, the reported artifacts are produced by:
+\begin{itemize}[leftmargin=*,itemsep=1pt,topsep=2pt]
+  \raggedright
+  \item the reported \sys build of all five cutoffs:\\ \texttt{\small run\_series.py anne@v2 -{}-upto 5}
+    (the first build is the series \texttt{\small anne});
+  \item a comparison cell at cutoff $t$:\\ \texttt{\small run\_baseline.py anne \{X1|B1|B2|B4|X2\} -{}-upto t},
+    with \texttt{\small -{}-chunk-words 150 -{}-budget-tokens 20000} for B2 and
+    \texttt{\small -{}-graph anne@v2 -{}-budget-tokens 20000} for B4, and
+    \texttt{\small b3\_lightrag.py anne -{}-upto t -{}-mode mix};
+  \item the assertion inventory and sample of a cell:\\ \texttt{\small assertion\_inventory.py S -{}-upto t} and
+    \texttt{\small assertion\_precision.py S -{}-upto t -{}-n 40 -{}-population all};
+  \item disclosure candidates:\\ \texttt{\small m4\_tree.py S -{}-upto t};
+  \item the lexical screen:\\ \texttt{\small artifact\_exposure.py S};
+  \item the pair rule and the timeline citations applied to a cell's labels:\\ \texttt{\small apply\_pair\_rule.py S B5};
+  \item table values:\\ \texttt{\small paper\_numbers.py}; their spread over cutoffs:\\ \texttt{\small summary\_stats.py};
+  \item cost of the cells on disk:\\ \texttt{\small run\_cost.py S -{}-final}.
+\end{itemize}
+
+\paragraph{Release.} An anonymized archive provides the submission materials; the repository
+address is \anonrepo. It contains the code, configuration, dependency specification and freeze records;
+prompt templates and logged exchange excerpts; gold facts with evidence identifiers and reveal volumes;
+and AI evaluation label files
+(recall, annotated precision samples, citation sufficiency, disclosure verdicts with the
+sentences assessed, and audit corrections). It also includes per-run cost summaries, every
+system's generated wikis at every cutoff, both builds of \sys, and the human-review package
+(\res{ANN-n-total} items with source context: every gold fact and samples of the recall,
+precision and citation labels), plus the two reviewers' label files, accompanying records,
+provenance manifest, aligned decision audit and recomputed agreement. The reviewer labels
+are entirely human-produced. The source texts
+are public-domain and are fetched from Project Gutenberg by identifier.
