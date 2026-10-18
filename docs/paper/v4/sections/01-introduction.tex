@@ -7,18 +7,14 @@
 \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{figures/teaser-horizon.pdf}
-    \caption{\textbf{The three cutoff horizons across volumes $v_1 \dots v_5$.} \textbf{Top:}
-    our renamed-and-paraphrased control strips closed-book recognition (\texttt{X1}:
-    $.683 \to .003$) and exposes backward spoiler leaks under full-text prompt instructions
-    (\texttt{X2}: $23/220$). \textbf{Middle:} prefix-bounded one-call rewrites
-    (\texttt{B1}--\texttt{B3}) block future leaks ($0/220$), but one-call rewrites under a fixed
-    page budget lose $4$--$24$ conveyed facts across cutoffs as protagonists grow (\texttt{B1}
-    central recall $1.00 \to .76$). \textbf{Bottom:} decomposing text into dated intervals
-    (\textsc{NarrativeWiki}, \texttt{B5}) scales with the story (central recall $.86 \to .95$,
-    $1$ lost fact, $3.8\times$ assertions) and preserves statement truth ($.97$ on pairs;
-    \texttt{B4} reaches $.965$ precision on the same graph), while exposing three context
-    fractures: \emph{(1) modality collapse} ($v_2$ prediction rendered as $v_4$ marriage),
-    \emph{(2) pair-page misplacement} ($.71$), and \emph{(3) $v_1$ identity drift} ($39\%$).}
+    \caption{Three ways the cutoff behaves over volumes $v_1..v_5$; every number names its
+    text (orig.: original; treated: renamed and paraphrased). \textbf{Top:} the control
+    removes closed-book recall (X1) and raises disclosures under a cutoff instruction (X2).
+    \textbf{Middle:} pages rewritten in one call per cutoff (B1--B3) disclose no assessed
+    later fact but lose facts between cutoffs. \textbf{Bottom:} \sys's accumulated claims
+    keep central-character recall rising, but lose context: (1) a volume-2 prediction
+    printed as the volume-4 marriage, (2) true lines placed on the wrong pair page,
+    (3) first-cutoff pages grouped unlike a prefix-built index.}
     \label{fig:teaser}
 \end{figure}
 
@@ -63,10 +59,10 @@ dated no later than the cutoff, in the manner of graph-based retrieval-augmented
 instruction to the generator, and one build serves every cutoff. This paper asks what
 that decomposition gains and what it costs.
 
-We instrument this design rather than advocate for it. \sys is an \emph{analytical probe}:
-it adds verbatim-evidence gates, a claim verifier and logged model calls, which lets us
-trace individual errors to the stage that produced them, and it is placed among systems that
-differ in what the generator can access and in how pages are written (Figure~\ref{fig:systems}).
+\sys instruments this design as an \emph{analytical probe}, not an advocate: verbatim-evidence
+gates, a claim verifier and logged model calls trace each error to its stage, and it is
+compared with systems that differ in what the generator sees and how pages are written
+(Figure~\ref{fig:systems}).
 
 Such a comparison is interpretable only if scores reflect reading: given only a title and
 a character name, the generator recovers \respt{M1-anne-avg-X1} of the eligible gold
@@ -78,21 +74,10 @@ keep theirs (Section~\ref{sec:results-decon}).
 
 Headline means rank \sys below prompting with the text read so far
 (Table~\ref{tab:decon}). The probe asks instead \emph{where} decomposition gains and
-\emph{where} a volume filter fails, through five research questions, each answered in the
-subsection of Section~\ref{sec:results} with its number (Table~\ref{tab:glance}, Appendix~\ref{app:recommendations}):
-\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=2pt]
-  \item \textbf{RQ1 Recognition vs.\ reading.} How much apparent recall comes from knowing
-    the work? Closed-book recall falls from \respt{M1-anne-avg-X1} to
-    \respt{M1-annedecon-avg-X1} under the control.
-  \item \textbf{RQ2 Cutoff enforcement.} Does a volume filter prevent disclosure? A
-    neighbour's prediction becomes a marriage two volumes early (\emph{modality collapse}).
-  \item \textbf{RQ3 Accumulation.} What do accumulated pages gain? The best recall on the
-    most-documented characters and one fact lost across cutoffs per text.
-  \item \textbf{RQ4 Context.} Do losses arise in the graph or the page? True statements lose
-    support where the graph places them (\emph{context collapse}).
-  \item \textbf{RQ5 Construction scope.} Do whole-series entities shape early pages?
-    \res{ID-anne-t1-rate} of pages at $t=1$ differ from a prefix-built index.
-\end{itemize}
+\emph{where} a volume filter fails, through five research questions on recognition,
+cutoff enforcement, accumulation, page context and construction scope (RQ1--RQ5), each
+answered in the subsection of Section~\ref{sec:results} with its number
+(Table~\ref{tab:glance}).
 
 
 Prior work bounds dialogue or answers in time \citep{ahn2024timechara,huang2025living}.
@@ -102,8 +87,8 @@ We study a linked reference artifact at every cutoff:
     separating its gains from failures that a volume filter cannot detect
     (Sections~\ref{sec:method}, \ref{sec:results}).
   \item \textbf{A paired renamed-text control} as evaluation methodology: seven systems
-    rebuilt on aligned treated text with unchanged code, prompts and gold facts, and
-    recognition measured separately from recall (Section~\ref{sec:results-decon}).
+    rebuilt on aligned treated text with unchanged code, prompts and gold facts
+    (Section~\ref{sec:results-decon}).
   \item \textbf{A task, threat model and artifact-level protocol} for cutoff-bounded
     reference generation, with \res{T1-anne-gold-t5} gold facts dated by reveal volume
     (Sections~\ref{sec:task}, \ref{sec:setup}; Appendix~\ref{app:corpus}).

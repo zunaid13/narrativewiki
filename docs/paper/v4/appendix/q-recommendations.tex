@@ -3,59 +3,6 @@
 \section{Reporting Recommendations}
 \label{app:recommendations}
 
-Table~\ref{tab:glance} first summarizes each research question with its answer and the
-boundary that limits it (moved here from Section~\ref{sec:discussion} to keep the main text
-within eight pages).
-
-\begin{table*}[t]
-\centering\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.04}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{6.75cm}>{\raggedright\arraybackslash}p{6.3cm}@{}}
-\toprule
-\nwhead{Question} & \nwhead{What the probe found} & \nwhead{What to be careful about} \\
-\midrule
-RQ1 Recognition vs.\ reading (\S\ref{sec:results-decon}) &
-Closed-book recall is \respt{M1-anne-avg-X1} on the original and \respt{M1-annedecon-avg-X1}
-on treated text; systems given text lose at most \res{M1-annedecon-maxloss}. &
-Treatment reduces recognition without removing it (title \res{MEM-title-decon}, author
-\res{MEM-author-decon}); it was not proofread against its source. \\
-\rowcolor{nwhighpink!45}
-RQ2 Cutoff enforcement (\S\ref{sec:results-main}) &
-Prefix-bounded prompting discloses no assessed later fact on either text; X2 discloses
-\res{M4U-anne-X2} unique later facts on the original and \res{M4U-annedecon-X2} on treated
-text; \sys \res{M4U-anne-B5} and \res{M4U-annedecon-B5}. &
-\sys's treated-text disclosures are one mechanism at two cutoffs; zero counts depend on a
-candidate search that retrieves only 0.309--0.355 of disclosures made by a pronoun on another
-character's page (Table~\ref{tab:seeds}). \\
-\rowcolor{nwhighcyan!60}
-RQ3 Accumulation (\S\ref{sec:results-gains}) &
-Central-three recall \respt{CEN-annedecon-B5} for \sys against \respt{CEN-annedecon-B1}
-for long context (treated); one fact lost across cutoffs per text; \res{ND-anne-avg-B5}
-distinct assertions per cutoff. &
-The central/other split was chosen after the results; the comparison pages are
-sentence-budgeted, not length-matched. \\
-RQ4 Context (\S\ref{sec:results-quality}) &
-\res{REV-M3A} of \sys's sampled assertions are true as statements, but precision in page
-context is \respt{M3-anne-avg-B5}; B4 on the same graph reaches \respt{M3-anne-avg-B4} and
-citation sufficiency \respt{M8-anne-avg-B4}. &
-Page scope differs between \sys and B1--B4; precision rests on 40 sampled assertions per
-cell, with the lowest human agreement of all tasks ($\kappa=\res{HREV-P-kappa}$;
-Table~\ref{tab:human-agreement}). \\
-RQ5 Construction scope (\S\ref{sec:results-scope}) &
-\res{ID-anne-t1-rate} of character pages at $t=1$ differ from a prefix-built index
-(\respt{ID-anne-strict-t1} regrouped or absent); prefix-index wikis match pooled recall
-(\res{PX-anne-M1-pooled}). &
-Single builds per index, so model variance is inside the differences; prefix-index wikis
-were labeled in one pass, on original text only. \\
-\bottomrule
-\end{tabular}
-\caption{The paper at a glance. Each research question with its answer and the boundary
-that limits it. Cyan: the gain the design delivers; magenta: the failure a volume filter
-cannot detect.}
-\label{tab:glance}
-\end{table*}
-
 The audits behind this paper suggest six practices for evaluating cutoff-bounded or
 spoiler-sensitive generation over published narratives. Each is followed by the result of
 this paper that motivates it.
@@ -87,7 +34,7 @@ Label sampled assertions both as standalone statements and in the page that prin
 and report both, by kind of page. &
 On relationship pages \res{M3K-anne-B5-rel-atom} of \sys's sampled lines are true as
 statements but \res{M3K-anne-B5-rel} are supported on the page; page-context precision alone
-conflates misplacement with invention (Proposition~4). \\
+conflates misplacement with invention (Proposition~3). \\
 R4\enspace Audit construction scope against the prefix &
 Compare entities resolved over the whole series with indexes discovered from volumes
 $1..t$ at every cutoff before $N$. &
@@ -99,7 +46,7 @@ Count facts conveyed at $t$ and lost at $t+1$, and stratify recall by how much t
 says about a character. &
 Unweighted means (B1 \respt{M1-anne-avg-B1}, \sys \respt{M1-anne-avg-B5}) hide that
 budgeted rewrites lose \res{DROP-anne-B2}--\res{DROP-annedecon-B2} conveyed facts across
-cutoffs while \sys loses \res{DROP-anne-B5} per text (Proposition~2). \\
+cutoffs while \sys loses \res{DROP-anne-B5} per text (Proposition~1). \\
 R6\enspace Validate the disclosure search and bound zero counts &
 Measure the candidate search on seeded paraphrases and pronoun references, and report
 character-clustered upper bounds with every zero. &

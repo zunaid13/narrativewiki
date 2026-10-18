@@ -7,6 +7,17 @@ and why*; this file records *what is done*. Append a new entry at the **top**; k
 Once this file exceeds ~15 entries, drop everything older than the last 8 — `git log` is the
 archive (the old `docs/log/LOG_ARCHIVE_*.md` files were removed 2026-09-14).
 
+## 2026-10-19 — Paper v4: two-version review applied (no model call)
+
+- Review of V1 (submitted) vs v4 applied item by item; record: `docs/paper/v4/REVIEW_RESPONSE.md`.
+- V1's hedged causal wording and "exploratory" restored; every abstract/teaser number names its text
+  condition; Proposition 2 dropped (premise false); paired-difference definition, X2 "most at t=1",
+  presumed-polarity rendering (checked on the delivered treated pages), "one rule", colour scheme,
+  defect order, Kindle wording and bib initials corrected.
+- Duplicates removed (one copy kept each); glance table back in the main text.
+- Alignment: prompt-stage table no longer floats to p76; App. Q.2 reference fixed; float pages top-aligned.
+- Main text p8, abstract 192–200 words, 74 pages, 0 undefined refs. Ledger: MEASUREMENTS 2026-10-19 rows.
+
 ## 2026-10-19 — Paper v4: page-1 teaser, dimmed palette, one-column prompts (no model call)
 
 - **Teaser** (Gemini SVG) added as Figure 1 at the top of page 1's right column: overlaps removed, labels

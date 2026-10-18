@@ -28,9 +28,11 @@
 raw surface form), a predicate, a kind (attribute, relation or trait), an object entity or a
 scalar value, an optional short qualifier, a polarity (asserted, denied or presumed), the
 volume and chapter of its first evidence, and one or more evidence items, each a paragraph
-identifier with a verbatim quote of at most 240 characters. \emph{Presumed} keeps a belief
+identifier with a verbatim quote of at most 240 characters. \emph{Presumed} is meant to keep a belief
 apart from a fact: a character thought dead in one volume is recorded as presumed dead there,
-not as dead. Polarity and qualifier are part of a claim's identity, so two observations that
+not as dead. The renderer marks a presumed value in attribute and relation lines, but the
+infobox's family field and the list of related characters print it unmarked
+(Section~\ref{sec:results-main}). Polarity and qualifier are part of a claim's identity, so two observations that
 disagree on either never merge. A claim whose subject or object cannot be resolved to a known
 entity is dropped.
 
@@ -73,8 +75,10 @@ summary is retained only if a second call judges every statement to be establish
 input passages. A rejected summary is regenerated once and omitted if it fails again.
 Responses are cached by provider, model, prompt, and parameters, so rebuilding an unchanged
 configuration requires no new calls. All prompts are released verbatim with the code.
-Prompts for \sys and text-reading comparison systems omit the work's title and author;
-the closed-book diagnostic receives the title by design.
+Prompts for \sys and text-reading comparison systems do not state the work's title or
+author, but mined names can carry it: the series title is an entity in \sys's extraction
+prompts, and the typing model's exhibited output names the novel (Appendix~\ref{app:prompts-full}).
+The closed-book diagnostic receives the title by design.
 A character with no STATUS claim is printed as \emph{alive (assumed)}: a configured
 default with no evidence behind it, marked as assumed on the page, since the absence of a
 death claim does not establish that a character is alive.

@@ -19,14 +19,6 @@ coreference, but has no independent validation of complete fidelity. Reduced rec
 does not rule out memorization \citep{cheng2025contamination}.
 
 
-\begin{figure}[t]
-\centering
-\input{figures/f5-decon-recall}
-\caption{Gold recall on original and treated text (means over $t=1..5$) and the change,
-treated minus original. Without source text, recall collapses; with it, recall is largely
-retained.}
-\label{fig:deconrecall}
-\end{figure}
 
 \paragraph{Treatment.}
 The treatment operates paragraph by paragraph, retaining identifiers, chapter boundaries
@@ -200,7 +192,8 @@ At $t=1$, the guardian's page describes the neighbor's widowhood and move,
 the heroine's college attendance and her marriage ``years later''.
 It cites volumes two to four, whose identifiers the harness accepts because
 all volumes are supplied. Reduced recognition therefore does not make the
-instruction reliable; observed disclosure is higher at the first cutoff.
+instruction reliable; the treated-text excess is largest at the first cutoff (\res{M4-annedecon-t1-X2}
+against \res{M4-anne-t1-X2} on the original).
 Familiarity with the original's book boundaries is one untested explanation.
 
 Treated recall is lower at every cutoff (\respt{M1-annedecon-avg-X2} versus

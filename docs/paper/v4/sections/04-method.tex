@@ -5,13 +5,11 @@
 \begin{figure*}[t]
 \centering
 \resizebox{\textwidth}{!}{\input{figures/f1-pipeline}}
-\caption{The \sys pipeline on a stored fact. \textsc{Build} converts all volumes into
-identified paragraphs, entities and claim intervals accepted by the verifier. \textsc{Publish} assembles
-each cutoff's wiki from eligible intervals and quotes. Stages marked \textsc{llm} call the
-generator; other stages are deterministic. Validation gates check verbatim evidence and
-fact-level support. (b) The experimental matrix: what each system can see at cutoff~2, how
-it enforces the cutoff, and the assessed later facts it disclosed over $t=1..4$ on the
-original and the treated text. X1 and X2 are diagnostics.}
+\caption{(a) The \sys pipeline on a stored fact. \textsc{Build} turns all volumes into
+paragraphs, entities and verifier-accepted claim intervals; \textsc{Publish} assembles each
+cutoff's wiki from eligible intervals. \textsc{llm} stages call the generator; the rest are
+deterministic. (b) What each system sees at cutoff~2, how it enforces the cutoff, and the
+later facts it disclosed over $t=1..4$ (original, treated). X1, X2: diagnostics.}
 \label{fig:pipeline}\label{fig:systems}
 \end{figure*}
 
@@ -69,5 +67,8 @@ because it would span cutoffs.
 One graph is built from all volumes. Additional cutoffs require no extraction, structured
 content is rendered without model calls, and prose is generated once per distinct eligible
 fact set. This efficiency retains construction dependence (Section~\ref{sec:task}), which
-we assess against prefix-only builds (Section~\ref{sec:results-scope}). Every model stage,
+we assess against prefix-only builds (Section~\ref{sec:results-scope}). The filter applies to
+published claims, not to build inputs: extraction prompts list each entity's aliases from the
+whole-series index, so volume-1 prompts can name later aliases (Appendix~\ref{app:prompts},
+D3). Every model stage,
 including verification, uses the generator specified in Section~\ref{sec:setup}.

@@ -59,8 +59,8 @@ of $a$ (\emph{sufficient} below); cited paragraphs after the cutoff are ignored,
 citing only later paragraphs is insufficient. The disclosure count of Table~\ref{tab:main} is
 $\sum_{t=1}^{4}|P_t|$; the inclusive count adds the facts whose verdict is \emph{uncertain}. A system's value is the unweighted mean over the cutoffs measured,
 $\bar{M}=\frac{1}{|T|}\sum_{t\in T}M_t$. A paired difference between systems $A$ and $B$ is
-$\Delta=\frac{1}{|T|}\sum_{t\in T}\big(M_t^{A}(E_t)-M_t^{B}(E_t)\big)$, with $E_t$ the page
-entities both have at $t$; its standard deviation, median, lowest and highest value are those of
+$\Delta=\frac{1}{|T|}\sum_{t\in T}\big(M_t^{A}-M_t^{B}\big)$, each system scored on its whole
+artifact against the same gold facts; its standard deviation, median, lowest and highest value are those of
 the per-cutoff differences. The recall gap relative to the closed-book diagnostic is
 $\bar{\text{M1}}-\bar{\text{M1}}{}^{X1}$; it does not isolate the contribution of reading
 from memory. The seeded search recall is the share of seeded
@@ -111,8 +111,8 @@ missing (\emph{four years ago}, \emph{at Christmas}, a color or a material); a w
 missing core element may not: who did it, to whom, or the number when the number is the fact
 (\emph{Una is ten}). The same proposition asserted of a different character does not count (where the statement
 stands does not matter, whom it is about does), and an engagement does not convey a marriage.
-We formalized this rule across all systems after the recall audit in Section~\ref{sec:setup}
-found inconsistent application in the first pass. Labels had been carried forward across
+We formalized this rule across all systems after an audit of the first-pass recall labels
+found it inconsistently applied. Labels had been carried forward across
 cutoffs when similar wording persisted; a fact marked absent early was therefore not
 reassessed when a later wiki paraphrased it. The audit rechecked every gold fact in every
 system using one search pattern per fact and changed
@@ -201,10 +201,8 @@ The coefficient measures concordance among the AI labels and two human label set
 it is not an all-human reliability estimate or an accuracy measure. The recomputed
 coefficients match the summary distributed with the label files. This calculation
 reproduces decisions; it does not adjudicate disagreements or change system scores.
-Table~\ref{tab:human-concordance} gathers the three tables above in one matrix.
 
 \input{tables/t-human-alpha}
-\input{tables/t-human-concordance}
 \fi
 
 \paragraph{Earlier human review.} Claude Opus~5.5 finalized all reported AI labels.

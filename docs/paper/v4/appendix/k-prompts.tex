@@ -27,14 +27,12 @@
 Every generative stage calls the generator through one client that records the system prompt,
 the user prompt and the raw response. Table~\ref{tab:prompt-stages} lists the stages whose
 first successful call from the run behind the reported results is exhibited in the release;
-all used \res{GEN-model}. It first prints the two exchanges a reader needs to reproduce the method (same-volume
-arbitration and the paraphrase that makes the treated text) and the five defects that the
-logged prompts and responses carry; the complete logged exchange of every stage follows
-(Appendix~\ref{app:prompts-full}). Every call log is released
+all used \res{GEN-model}. It first lists the five defects that the logged prompts and responses carry; the complete
+logged exchange of every stage follows (Appendix~\ref{app:prompts-full}). Every call log is released
 (Appendix~\ref{app:reproducibility}); the excerpts are verbatim, with elisions marked. Evaluation labels were not produced by
 these stages (Appendix~\ref{app:annotation}).
 
-\begin{table*}[t]
+\begin{table}[!ht]
 \centering\footnotesize
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{6.3cm}r>{\raggedright\arraybackslash}p{3.75cm}@{}}
@@ -73,49 +71,9 @@ results, with the exhibited character or entry and volume or cutoff in italics. 
 (treatment and probe) in the release. B4's page prompt, the other prose sections and the
 shared-page summary check are in the release only.}
 \label{tab:prompt-stages}
-\end{table*}
+\end{table}
 
-\subsection*{Same-volume arbitration}
-Two values of one attribute from one volume are treated as an extraction conflict
-(Section~\ref{sec:method}). A \texttt{flag} resolution keeps the higher-confidence value
-provisionally (here 11), so the interval sequence has no gap, and records the conflict.
-\begin{nwprompt}{nwViolet}{User prompt (system prompt in the release)}
-Character: anne-shirley
-Attribute: AGE
-Volume: 1
-
-Fact A: value="11", confidence=1.00, evidence: "I was eleven last March," said Anne"
-Fact B: value="13", confidence=0.99, evidence: "It's such a solemn thing to be almost fourteen, Marilla."; ""Just think, Diana, I'm thirteen years old today," remarked Anne in an awed voice."
-
-Which fact is correct? resolution must be one of keep_a, keep_b, keep_both, flag, plus a one-sentence rationale citing the evidence.
-\end{nwprompt}
-\begin{nwprompt}{nwCyan}{Model output}
-{"resolution": "flag",
- "rationale": "Fact A states Anne was eleven based on an earlier passage, while Fact B shows her turning thirteen later in the same volume, indicating a progression of time rather than a single static age."}
-\end{nwprompt}
-
-\subsection*{Paraphrase for the treated text}
-Each renamed paragraph is paraphrased in one call, keeping its identifier.
-\begin{nwprompt}{nwViolet}{System and user prompt (paragraph abridged)}
-SYSTEM: You rewrite passages of fiction in new words for a research corpus. You never add, remove or explain anything.
-
-Rewrite the paragraph below in different words and different sentence structure.
-Rules:
-- Keep every fact, event, number, date and place, and keep them in the same order.
-- Keep every personal and ship name exactly as written. Do not introduce any name that is not in the paragraph.
-- Dialogue stays dialogue, spoken by the same person. Use the same quotation marks as the original (" " stay " "). Only spoken words go inside them; a speech tag such as "said I" stays outside.
-- Keep the narrator's person (first person stays first person).
-- Do not summarise, shorten substantially, or add commentary.
-Return only the rewritten paragraph, nothing else.
-
-Paragraph:
-It was a clear, apple-green evening in May, and Seven Gulls Harbour was mirroring back the clouds of the golden west between its softly dark shores. [...]
-\end{nwprompt}
-\begin{nwprompt}{nwCyan}{Model output (abridged)}
-The May evening was transparent and apple-green, as Seven Gulls Harbour reflected the clouds from the golden west amidst its gently darkened banks. [...]
-\end{nwprompt}
-
-\subsection*{Defects carried by the logged prompts and responses}
+\subsection{Defects carried by the logged prompts and responses}
 The five defects below are part of the reported runs. They are documented, not repaired;
 Section~\ref{sec:discussion} and Appendix~\ref{app:formal} relate each to the results.
 
@@ -132,8 +90,8 @@ The exhibited claim is accepted; the example alone does not measure the defect's
 \begin{nwdefect}{D2\enspace Responses depart from prompt rules the code does not enforce (infobox pass)}
 The volume-1 infobox response gives a \texttt{GENDER} quote that does not contain Anne's
 name, and two \texttt{AGE} values (11 and 13). The code applies the evidence gates of
-Section~\ref{sec:method}, not these two prompt rules; the two ages go to arbitration, shown
-above.
+Section~\ref{sec:method}, not these two prompt rules; the two ages go to arbitration
+(Appendix~\ref{app:prompts-full}).
 \end{nwdefect}
 
 \begin{nwdefect}{D3\enspace Early-volume prompts carry later aliases}
@@ -147,17 +105,17 @@ This is construction dependence reaching the generator's input
 (Section~\ref{sec:results-scope}); the comparisons of this paper do not isolate it.
 \end{nwdefect}
 
-\begin{nwdefect}{D5\enspace A response cites a paragraph ID where a line key was requested (codex summary)}
-The codex prompt asks the model to cite input-line keys such as \texttt{W1}; the response
-returns \texttt{v01:c27:p0000}, a paragraph ID. The parser normalizes returned paragraph IDs
-during citation resolution, which maps an identifier to a paragraph but does not check that
-the paragraph supports the sentence.
-\end{nwdefect}
 
 \begin{nwdefect}{D4\enspace Residue of one prompt serving every corpus}
 The typing prompt lists a type unused here (\texttt{TECH}) and, as logged, repeats one example
 sentence three times; the extraction prompt's JSON example uses a character from another
 series (``Shin''); the paraphrase rule keeps ``personal and ship'' names, which has no effect
 on this series.
+\end{nwdefect}
+\begin{nwdefect}{D5\enspace A response cites a paragraph ID where a line key was requested (codex summary)}
+The codex prompt asks the model to cite input-line keys such as \texttt{W1}; the response
+returns \texttt{v01:c27:p0000}, a paragraph ID. The parser normalizes returned paragraph IDs
+during citation resolution, which maps an identifier to a paragraph but does not check that
+the paragraph supports the sentence.
 \end{nwdefect}
 \endgroup

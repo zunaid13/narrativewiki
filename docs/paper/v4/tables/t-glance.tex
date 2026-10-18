@@ -1,0 +1,43 @@
+% The paper at a glance: one row per research question. Declared in sections/06-results.tex
+% (before RQ4) so that the float can reach the top of page 8. Every number is a \res key.
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.75cm}>{\raggedright\arraybackslash}p{7.75cm}>{\raggedright\arraybackslash}p{5.95cm}@{}}
+\toprule
+\nwhead{Question} & \nwhead{What the probe found} & \nwhead{What limits it} \\
+\midrule
+RQ1 (\S\ref{sec:results-decon})\newline Recognition &
+Closed-book recall \respt{M1-anne-avg-X1} (orig.) falls to \respt{M1-annedecon-avg-X1}
+(treated); systems given text lose at most \res{M1-annedecon-maxloss}. &
+Treatment reduces recognition without removing it (title \res{MEM-title-decon}, author
+\res{MEM-author-decon}). \\
+\rowcolor{nwhighpink!45}
+RQ2 (\S\ref{sec:results-main})\newline Cutoff &
+No assessed later fact from prefix-bounded prompting; unique later facts disclosed: X2
+\res{M4U-anne-X2} (orig.), \res{M4U-annedecon-X2} (treated); \sys \res{M4U-anne-B5},
+\res{M4U-annedecon-B5}. &
+\sys: one mechanism at two cutoffs; the search misses most pronoun-mediated disclosures
+(Table~\ref{tab:seeds}). \\
+\rowcolor{nwhighcyan!60}
+RQ3 (\S\ref{sec:results-gains})\newline Accumulation &
+Central-three recall \respt{CEN-annedecon-B5} against long context's \respt{CEN-annedecon-B1}
+(treated); one fact lost across cutoffs per text. &
+Exploratory split, chosen after the results; comparison pages are budgeted, not
+length-matched. \\
+RQ4 (\S\ref{sec:results-quality})\newline Context &
+\res{REV-M3A} of \sys's assertions are true as statements, \respt{M3-anne-avg-B5} supported
+on their page; B4 on the same graph \respt{M3-anne-avg-B4} (orig.). &
+Page scope differs from B1--B4; 40 assertions per cell; lowest human agreement
+($\kappa=\res{HREV-P-kappa}$). \\
+RQ5 (\S\ref{sec:results-scope})\newline Scope &
+\res{ID-anne-t1-rate} of $t=1$ pages differ from a prefix-built index
+(\respt{ID-anne-strict-t1} regrouped or absent); prefix-index wikis match pooled recall (orig.). &
+One build per index, so model variance is inside the differences. \\
+\bottomrule
+\end{tabular}
+\caption{The paper at a glance: each research question, its answer and what limits it.
+Cyan: the gain the design delivers; magenta: the failure a volume filter cannot detect.}
+\label{tab:glance}
+\end{table*}

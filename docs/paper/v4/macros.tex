@@ -90,3 +90,9 @@
 \definecolor{nwhighviolet}{HTML}{EDE8F8}
 % Figure text size: 7pt, the smallest used in the one-column figures (plan 0015 step 8).
 \newcommand{\figfont}{\fontsize{7}{8}\selectfont}
+
+% Float-only pages start at the top instead of centring their floats vertically (review 2026-10-19).
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@dblfptop}{0pt}
+\makeatother

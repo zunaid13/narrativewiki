@@ -4,10 +4,11 @@
 \section{A Formal Account of the Trade-off}
 \label{app:formal}
 
-The results of Section~\ref{sec:results} share one cause: a claim, not its passage, is the
-generator's input. This appendix states the three consequences precisely. The statements are
-elementary; their use is to say which observed differences are structural, so that they will
-recur in any system built this way, and which depend on a particular build.
+The results of Section~\ref{sec:results} are consistent with one account: a claim, not its
+passage, is the generator's input. This appendix states three of its consequences precisely.
+The statements are elementary; their use is to separate differences that follow from the
+representation from those that depend on a particular build. They are not tested by
+ablation.
 
 \paragraph{Notation.}
 A stored claim is $c=(s,p,o,\mathrm{vol}(c),\mu(c))$: subject, predicate, object or value,
@@ -29,29 +30,13 @@ never removed. $\square$
 
 \emph{Consequence.} Under a fixed entity index, a gold fact conveyed by a structured line at
 $t$ is conveyed at $t+1$. Losses can come only from prose regenerated per cutoff and from
-labelling differences between adjacent cutoffs; \sys loses \res{DROP-anne-B5} conveyed fact
+labelling differences between adjacent cutoffs. A page rewritten in one call per cutoff has no such
+guarantee: whatever a call omits is lost at that cutoff. \sys loses \res{DROP-anne-B5} conveyed fact
 per text (Table~\ref{tab:gains}). The guarantee is conditional on the entity index: with an
 index rebuilt per cutoff (Section~\ref{sec:results-scope}) a page's entity can change between
 cutoffs.
 
-\paragraph{Proposition 2 (a fixed page budget caps recall).}
-Let a system write the page of $e$ in one call under a budget of at most $B$ sentences, each
-conveying at most $k$ gold facts. Then at most $kB$ facts are conveyed, so
-\begin{equation*}
-\mathrm{recall}_t(e)\;\le\;\min\!\Bigl(1,\;\frac{kB}{|\Gt(e)|}\Bigr).
-\end{equation*}
-\emph{Proof.} Immediate from the count of conveyed facts. $\square$
-
-\emph{Consequence.} For a character whose record keeps growing, the ceiling falls with $t$
-once $|\Gt(e)|>kB$; Proposition~1 imposes no such ceiling on rendered claims. The shared
-template of B1--B4 allows at most $B=22$ sentences (appearance 2--4, personality 2--6,
-history 3--12; Appendix~\ref{app:baselines}), while the eligible checks on the three central
-characters grow from 14 at $t=1$ to 38 at $t=5$ (Table~\ref{tab:central-cutoff}). The bound
-is consistent with, but does not by itself explain, B1's fall on these characters
-(Figure~\ref{fig:accumulation}a): $k$ is not fixed, and the generator also chooses which
-facts to keep.
-
-\paragraph{Proposition 3 (a volume filter is blind to modality).}
+\paragraph{Proposition 2 (a volume filter is blind to modality).}
 Let the renderer print $(s,p,o)$ for every claim with $\phi_t(c)=1$, whatever $\mu(c)$.
 If some claim has $\mathrm{vol}(c)\le t$, $\mu(c)\neq\textit{asserted}$, and $(s,p,o)$
 states a later gold fact $g\in\Ft$, then the page at $t$ discloses $g$.
@@ -66,7 +51,7 @@ was stored as a presumed marriage and printed as a spouse relation at $t=2$ and 
 keeps the passage, with speaker and mood, in the generator's input, and disclosed no
 assessed later fact.
 
-\paragraph{Proposition 4 (routing by co-mention loses support).}
+\paragraph{Proposition 3 (routing by co-mention loses support).}
 Let a scene record $k$ with participants $P_k$ produce a summary line $a$ that is routed to
 every pair page $\{u,v\}\subseteq P_k$, and let a line be supported on a pair page only when
 $u$ and $v$ share an episode of the scene (the pair rule of Appendix~\ref{app:annotation}).

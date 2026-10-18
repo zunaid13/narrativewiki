@@ -13,8 +13,8 @@ accumulation pays (Section~\ref{sec:discussion}).
 
 \paragraph{The Anne series informed development and is not a held-out test set.}
 The reported \sys is the second of two builds, revised after the first was labeled;
-Table~\ref{tab:builds} reports both under one rule, and the revision moved metrics in both
-directions. The baselines, configured on another novel, were not retuned. The prefix-index
+Table~\ref{tab:builds} reports both, with only their relationship lines re-read under one
+rule, and the revision moved metrics in both directions. The baselines, configured on another novel, were not retuned. The prefix-index
 wikis of Section~\ref{sec:results-scope} were built on the original text only and labeled in
 one pass.
 
@@ -22,8 +22,10 @@ one pass.
 The finalizing annotator, Claude Opus~5.5, knew which system produced each output and
 assisted in building the system. Two human reviewers relabeled original-text gold, recall,
 precision and citation items (Table~\ref{tab:human-agreement}); disclosure and treated-text
-labels have no human check, and agreement is lowest for precision and citation
-sufficiency. Some gold evidence paragraphs establish their facts only in part
+labels have no human check, nor do the citation labels of B3, B4 and X2, added after the
+human sample was drawn. Where the human check disagreed with the reported labels, only six
+recall facts were re-read; precision and citation labels were left unchanged. Agreement is
+lowest for precision and citation sufficiency. Some gold evidence paragraphs establish their facts only in part
 (Section~\ref{sec:setup}).
 
 \paragraph{Lexical candidate retrieval under-samples pronoun-mediated disclosures.}
@@ -53,6 +55,8 @@ complementary test \citep{karpinska2024nocha}.
 Cutoffs are whole volumes; identity links are not dated; attribute intervals track explicit
 replacements rather than implicit aging; a value that changes within one volume is
 arbitrated as an extraction conflict (Appendix~\ref{app:prompts}); and cross-claim inference
-is limited (Appendix~\ref{app:observations}). We do not measure readers' ability to find
+is limited (Appendix~\ref{app:observations}). The reported extraction and verifier prompts
+contain implementation notes in place of semantic definitions, with unmeasured effect
+(Appendix~\ref{app:prompts}). We do not measure readers' ability to find
 information or their experience of spoilers. External search engines and deliberately opened
 later cutoffs are outside the audited artifact.

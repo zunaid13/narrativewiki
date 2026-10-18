@@ -7,18 +7,17 @@ into a graph of claims filtered by volume. We instrument this design as \sys and
 against six systems at every cutoff of a five-volume series
 (\res{T1-anne-gold-t5} gold facts; LLM-finalized labels\ifnwhuman{}; two human reviewers
 relabeled \res{HREV-total} original-text items\fi{}). A renamed and paraphrased copy (the
-treated text) tests recall: closed-book recall falls
+treated text) tests reliance on recognition: closed-book recall falls
 from \respt{M1-anne-avg-X1} to \respt{M1-annedecon-avg-X1}, while systems given text lose
-at most \res{M1-annedecon-maxloss}. Here the design trades context for
-accumulation. Rendered without a length budget, \sys's pages grow with the story: on
-treated text it best covers the most-documented characters
-(recall \respt{CEN-annedecon-B5}; long context \respt{CEN-annedecon-B1}), loses one fact
-across cutoffs per text (others: \res{DROP-anne-B2}--\res{DROP-annedecon-B2}), and
-publishes 3.8 times as many distinct assertions. But claims lose their context: \sys
-inverts a relation, turns a prediction into a marriage, groups entities unlike
-prefix-built indexes (\respt{ID-anne-strict-t1} of first-cutoff pages, original text) and
-misplaces true statements. Prompting with only the text read discloses no assessed later
-fact; an instruction to withhold later volumes
-discloses \res{M4U-annedecon-X2} later facts on treated text (original:
-\res{M4U-anne-X2}). Code, gold facts and labels: \anonrepo.
+at most \res{M1-annedecon-maxloss}. The design trades context for accumulation. \sys's
+pages grow with the story: on treated text it best covers the most-documented characters
+(recall \respt{CEN-annedecon-B5}; long context \respt{CEN-annedecon-B1}; original:
+\respt{CEN-anne-B5}, \respt{CEN-anne-B1}), loses one fact across cutoffs per text (others:
+\res{DROP-anne-B2}--\res{DROP-annedecon-B2}), and on the original text publishes 3.8 times
+long context's distinct assertions. But claims lose context: \sys turns a prediction into a
+marriage (treated text), groups entities unlike prefix-built indexes
+(\respt{ID-anne-strict-t1} of first-cutoff pages, original text) and misplaces true
+statements. Prompting with only the text read discloses no assessed later fact; an
+instruction to withhold later volumes discloses \res{M4U-annedecon-X2} later facts on
+treated text (original: \res{M4U-anne-X2}). Code, gold facts and labels: \anonrepo.
 \end{abstract}
