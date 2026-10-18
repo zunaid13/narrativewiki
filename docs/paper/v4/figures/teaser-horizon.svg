@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 435 338" width="435" height="338">
+  <!-- Teaser (Gemini design, 2026-10-19), revised: overlaps removed, labels enlarged for a
+       single-column figure, numbers checked against results.tex, palette dimmed to the v2 tones.
+       Plotted values: X1 recall per cutoff 0.826 0.652 0.652 0.663 0.622 (M1-anne-t*-X1);
+       B1 central-three treated 14/14 19/21 23/31 27/37 29/38; NarrativeWiki 12/14 19/21 29/31
+       35/37 36/38 (tab:central-cutoff). Shapes of the interval bars and fracture marks are schematic. -->
+  <defs>
+    <style>
+      .zone   { font-family: "Times New Roman", Georgia, serif; font-style: italic; font-size: 11px; fill: #475569; }
+      .axis   { font-family: "Times New Roman", Georgia, serif; font-size: 12px; fill: #243247; }
+      .lab    { font-family: Arial, Helvetica, sans-serif; font-size: 10px; }
+      .labb   { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 700; }
+      .num    { font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: 700; fill: #FFFFFF; }
+      .head   { font-family: "Times New Roman", Georgia, serif; font-size: 13.5px; font-weight: bold; }
+      .body   { font-family: "Times New Roman", Georgia, serif; font-size: 12px; fill: #475569; }
+      .met    { font-family: "Times New Roman", Georgia, serif; font-size: 12px; }
+    </style>
+    <marker id="am" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#C97AA3" />
+    </marker>
+    <marker id="av" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#8D89D8" />
+    </marker>
+    <linearGradient id="gi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4A4F7E" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#74B6CC" stop-opacity="0.22" />
+    </linearGradient>
+    <linearGradient id="gt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#74B6CC" stop-opacity="0.24" />
+      <stop offset="100%" stop-color="#74B6CC" stop-opacity="0.07" />
+    </linearGradient>
+  </defs>
+  <rect width="435" height="338" fill="#FFFFFF" />
+
+  <!-- shared volume guides and the reader cutoff -->
+  <rect x="94" y="18" width="126" height="282" fill="#FCF0F6" fill-opacity="0.75" />
+  <g stroke="#E2E8F0" stroke-width="0.8">
+    <line x1="28" y1="18" x2="28" y2="300" /><line x1="72" y1="18" x2="72" y2="300" />
+    <line x1="116" y1="18" x2="116" y2="300" /><line x1="160" y1="18" x2="160" y2="300" />
+    <line x1="204" y1="18" x2="204" y2="300" />
+  </g>
+  <text x="50" y="13" class="zone" text-anchor="middle">read so far</text>
+  <text x="157" y="13" class="zone" text-anchor="middle" fill="#A3507D">not yet read</text>
+  <line x1="94" y1="4" x2="94" y2="302" stroke="#C97AA3" stroke-width="1.4" stroke-dasharray="4,2.5" />
+
+  <!-- ============ layer 1: prompt and memory (X1, X2) ============ -->
+  <line x1="18" y1="88" x2="220" y2="88" stroke="#CBD5E1" stroke-width="0.9" />
+  <polyline fill="none" stroke="#8D89D8" stroke-width="1.3" stroke-dasharray="2.5,2"
+            points="28,42.6 72,52.1 116,52.1 160,51.5 204,53.8" />
+  <g fill="#FFFFFF" stroke="#8D89D8" stroke-width="1.2">
+    <circle cx="28" cy="42.6" r="2.2" /><circle cx="72" cy="52.1" r="2.2" /><circle cx="116" cy="52.1" r="2.2" />
+    <circle cx="160" cy="51.5" r="2.2" /><circle cx="204" cy="53.8" r="2.2" />
+  </g>
+  <text x="22" y="32" class="lab" fill="#665FB0">X1 original .68</text>
+  <line x1="28" y1="46" x2="28" y2="82" stroke="#8D89D8" stroke-width="1.1" stroke-dasharray="1.5,1.5" marker-end="url(#av)" />
+  <line x1="72" y1="55.5" x2="72" y2="82" stroke="#8D89D8" stroke-width="1.1" stroke-dasharray="1.5,1.5" marker-end="url(#av)" />
+  <line x1="28" y1="86.5" x2="204" y2="86.5" stroke="#8D89D8" stroke-width="1.8" />
+  <rect x="25.8" y="84.3" width="4.4" height="4.4" fill="#8D89D8" />
+  <rect x="69.8" y="84.3" width="4.4" height="4.4" fill="#8D89D8" />
+  <text x="24" y="100" class="labb" fill="#665FB0">treated .003</text>
+  <!-- X2: later facts carried back across the cutoff -->
+  <path d="M 116,84 C 110,56 84,56 76,78" fill="none" stroke="#C97AA3" stroke-width="1.4" marker-end="url(#am)" />
+  <path d="M 160,84 C 142,40 80,40 60,78" fill="none" stroke="#C97AA3" stroke-width="1.6" marker-end="url(#am)" />
+  <path d="M 204,84 C 176,30 70,30 40,78" fill="none" stroke="#C97AA3" stroke-width="1.4" stroke-dasharray="3,1.5" marker-end="url(#am)" />
+  <g fill="#C97AA3"><circle cx="116" cy="84" r="2.5" /><circle cx="160" cy="84" r="2.5" /><circle cx="204" cy="84" r="2.5" /></g>
+  <rect x="104" y="17" width="96" height="14" rx="2.5" fill="#F6E1ED" stroke="#C97AA3" stroke-width="0.8" />
+  <text x="152" y="27.5" class="labb" fill="#A3507D" text-anchor="middle">X2: 23/220 leaks</text>
+  <polyline fill="none" stroke="#94A3B8" stroke-width="0.7" points="200,24 228,24" />
+  <text x="232" y="28" class="head" fill="#665FB0">Prompt &amp; memory (X1, X2)</text>
+  <text x="232" y="43" class="body">The control strips recognition</text>
+  <text x="232" y="58" class="met" fill="#665FB0">X1 recall .68 → .003</text>
+  <text x="232" y="73" class="met" fill="#A3507D">X2 leaks 8 → <tspan font-weight="bold">23</tspan> of 220</text>
+
+  <!-- ============ layer 2: budgeted rewrite (B1-B4) ============ -->
+  <line x1="18" y1="182" x2="220" y2="182" stroke="#CBD5E1" stroke-width="0.9" />
+  <line x1="22" y1="113" x2="212" y2="113" stroke="#94A3B8" stroke-width="1.0" stroke-dasharray="3,2" />
+  <text x="212" y="109.5" class="lab" fill="#64748B" text-anchor="end">fixed page budget</text>
+  <line x1="94" y1="113" x2="94" y2="182" stroke="#74B6CC" stroke-width="2.6" />
+  <polygon points="28,118 72,127.5 116,143.8 160,145 204,141.7 204,182 28,182" fill="url(#gt)" />
+  <ellipse cx="94" cy="136" rx="25" ry="8" transform="rotate(21 94 136)" fill="#74B6CC" fill-opacity="0.10" stroke="#74B6CC" stroke-width="0.9" />
+  <polyline fill="none" stroke="#5FA5BE" stroke-width="2.0" points="28,118 72,127.5 116,143.8 160,145 204,141.7" />
+  <g fill="#5FA5BE">
+    <circle cx="28" cy="118" r="2.6" /><circle cx="72" cy="127.5" r="2.6" /><circle cx="116" cy="143.8" r="2.6" />
+    <circle cx="160" cy="145" r="2.6" /><circle cx="204" cy="141.7" r="2.6" />
+  </g>
+  <rect x="104" y="117" width="98" height="13" rx="2" fill="#DDEFF8" stroke="#74B6CC" stroke-width="0.7" />
+  <text x="153" y="127" class="labb" fill="#3D7F98" text-anchor="middle">0/220 leaks (B1–B3)</text>
+  <g fill="none" stroke="#C97AA3" stroke-width="1.1" stroke-dasharray="2,1.5">
+    <path d="M 72,127.5 C 88,150 98,166 112,175" /><path d="M 116,143.8 C 132,159 142,169 154,176" />
+    <path d="M 160,145 C 174,160 184,169 196,176" />
+  </g>
+  <g fill="#FFFFFF" stroke="#C97AA3" stroke-width="1.1">
+    <circle cx="112" cy="175" r="2.2" /><circle cx="154" cy="176" r="2.2" /><circle cx="196" cy="176" r="2.2" />
+  </g>
+  <text x="160" y="195" class="labb" fill="#A3507D" text-anchor="middle">4–24 lost at t → t+1</text>
+  <polyline fill="none" stroke="#94A3B8" stroke-width="0.7" points="204,141.7 220,120 228,120" />
+  <text x="232" y="124" class="head" fill="#3D7F98">Budgeted rewrite (B1–B4)</text>
+  <text x="232" y="139" class="body">One call per page, fixed budget</text>
+  <text x="232" y="154" class="met" fill="#3D7F98">B1 central recall 1.00 → .76</text>
+  <text x="232" y="169" class="met" fill="#A3507D">4–24 facts lost across cutoffs</text>
+  <text x="232" y="184" class="met" fill="#64748B">B1 citations .88 → <tspan fill="#A3507D" font-weight="bold">.30</tspan> (treated)</text>
+
+  <!-- ============ layer 3: NarrativeWiki (B5) ============ -->
+  <line x1="18" y1="290" x2="220" y2="290" stroke="#CBD5E1" stroke-width="0.9" />
+  <polygon points="28,248.3 72,225.7 116,211.6 160,206.5 204,206 204,290 28,290" fill="url(#gi)" />
+  <rect x="28" y="277" width="44" height="5" rx="1" fill="#94A3B8" />
+  <rect x="28" y="268" width="176" height="5" rx="1" fill="#6A6F9C" fill-opacity="0.8" />
+  <rect x="72" y="259" width="132" height="5" rx="1" fill="#6A6F9C" fill-opacity="0.8" />
+  <rect x="116" y="250" width="88" height="5" rx="1" fill="#74B6CC" />
+  <rect x="160" y="241" width="44" height="5" rx="1" fill="#74B6CC" />
+  <polyline fill="none" stroke="#4A4F7E" stroke-width="2.3" points="28,248.3 72,225.7 116,211.6 160,206.5 204,206" />
+  <g fill="#4A4F7E">
+    <circle cx="28" cy="248.3" r="2.8" /><circle cx="72" cy="225.7" r="2.8" /><circle cx="116" cy="211.6" r="2.8" />
+    <circle cx="160" cy="206.5" r="2.8" /><circle cx="204" cy="206" r="3.0" />
+  </g>
+  <!-- (1) modality collapse: a v2 prediction printed as the v4 marriage -->
+  <rect x="72" y="232" width="21" height="5" rx="1" fill="#C97AA3" />
+  <path d="M 160,243 C 136,231 106,231 86,234.5" fill="none" stroke="#C97AA3" stroke-width="1.2" stroke-dasharray="2,1.5" marker-end="url(#am)" />
+  <circle cx="126" cy="232" r="5.5" fill="#C97AA3" /><text x="126" y="235.2" class="num" text-anchor="middle">1</text>
+  <!-- (2) context collapse on pair pages -->
+  <line x1="160" y1="206.5" x2="160" y2="232" stroke="#C97AA3" stroke-width="1.6" />
+  <circle cx="160" cy="232" r="2.4" fill="#C97AA3" />
+  <circle cx="170" cy="221" r="5.5" fill="#C97AA3" /><text x="170" y="224.2" class="num" text-anchor="middle">2</text>
+  <!-- (3) identity drift: whole-series entities reach volume 1 -->
+  <path d="M 204,286 C 146,300 76,300 34,286" fill="none" stroke="#C97AA3" stroke-width="1.1" stroke-dasharray="2.5,1.5" marker-end="url(#am)" />
+  <circle cx="148" cy="296" r="5.5" fill="#C97AA3" /><text x="148" y="299.2" class="num" text-anchor="middle">3</text>
+  <polyline fill="none" stroke="#94A3B8" stroke-width="0.7" points="204,206 220,212 228,212" />
+  <text x="232" y="216" class="head" fill="#3E4470">NarrativeWiki (B5)</text>
+  <text x="232" y="231" class="body">Accumulates claims; loses context</text>
+  <text x="232" y="246" class="met" fill="#3E4470">central .86 → <tspan font-weight="bold">.95</tspan> · <tspan font-weight="bold">1</tspan> fact lost</text>
+  <text x="232" y="261" class="met" fill="#3E4470">3.8× distinct assertions</text>
+  <text x="232" y="276" class="met" fill="#3D7F98">B4, same graph: .965 prec · .915 cite</text>
+  <text x="232" y="291" class="met" fill="#A3507D">(1) modality 4/220 · (2) pair .71</text>
+  <text x="232" y="306" class="met" fill="#A3507D">(3) v1 identity drift .39</text>
+
+  <!-- bottom axis -->
+  <g class="axis" text-anchor="middle">
+    <text x="28" y="314">v₁</text><text x="72" y="314">v₂</text><text x="116" y="314">v₃</text>
+    <text x="160" y="314">v₄</text><text x="204" y="314">v₅</text>
+  </g>
+  <rect x="73" y="320" width="42" height="14" rx="2" fill="#C97AA3" />
+  <text x="94" y="330.5" class="labb" fill="#FFFFFF" text-anchor="middle">cutoff t</text>
+  <text x="125" y="331" class="zone" text-anchor="start">reading order (volumes)</text>
+</svg>

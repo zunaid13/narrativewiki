@@ -50,55 +50,6 @@ Familiar-text compliance overstated the instruction's reliability. B1's precisio
 falls from \respt{M8-annedecon-t1-B1} at $t=1$ to \respt{M8-annedecon-t4-B1} at $t=4$
 (Figure~\ref{fig:control}d), as citations keep a paragraph number and lose its volume.
 
-% The paper-at-a-glance table of Section 7, declared here so the float lands beside the results.
-\begin{table*}[t]
-\centering\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.04}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{6.75cm}>{\raggedright\arraybackslash}p{6.3cm}@{}}
-\toprule
-\nwhead{Question} & \nwhead{What the probe found} & \nwhead{What to be careful about} \\
-\midrule
-RQ1 Recognition vs.\ reading (\S\ref{sec:results-decon}) &
-Closed-book recall is \respt{M1-anne-avg-X1} on the original and \respt{M1-annedecon-avg-X1}
-on treated text; systems given text lose at most \res{M1-annedecon-maxloss}. &
-Treatment reduces recognition without removing it (title \res{MEM-title-decon}, author
-\res{MEM-author-decon}); it was not proofread against its source. \\
-\rowcolor{nwhighpink!45}
-RQ2 Cutoff enforcement (\S\ref{sec:results-main}) &
-Prefix-bounded prompting discloses no assessed later fact on either text; X2 discloses
-\res{M4U-anne-X2} unique later facts on the original and \res{M4U-annedecon-X2} on treated
-text; \sys \res{M4U-anne-B5} and \res{M4U-annedecon-B5}. &
-\sys's treated-text disclosures are one mechanism at two cutoffs; zero counts depend on a
-candidate search that retrieves only 0.309--0.355 of disclosures made by a pronoun on another
-character's page (Table~\ref{tab:seeds}). \\
-\rowcolor{nwhighcyan!60}
-RQ3 Accumulation (\S\ref{sec:results-gains}) &
-Central-three recall \respt{CEN-annedecon-B5} for \sys against \respt{CEN-annedecon-B1}
-for long context (treated); one fact lost across cutoffs per text; \res{ND-anne-avg-B5}
-distinct assertions per cutoff. &
-The central/other split was chosen after the results; the comparison pages are
-sentence-budgeted, not length-matched. \\
-RQ4 Context (\S\ref{sec:results-quality}) &
-\res{REV-M3A} of \sys's sampled assertions are true as statements, but precision in page
-context is \respt{M3-anne-avg-B5}; B4 on the same graph reaches \respt{M3-anne-avg-B4} and
-citation sufficiency \respt{M8-anne-avg-B4}. &
-Page scope differs between \sys and B1--B4; precision rests on 40 sampled assertions per
-cell, with the lowest human agreement of all tasks ($\kappa=\res{HREV-P-kappa}$;
-Table~\ref{tab:human-agreement}). \\
-RQ5 Construction scope (\S\ref{sec:results-scope}) &
-\res{ID-anne-t1-rate} of character pages at $t=1$ differ from a prefix-built index
-(\respt{ID-anne-strict-t1} regrouped or absent); prefix-index wikis match pooled recall
-(\res{PX-anne-M1-pooled}). &
-Single builds per index, so model variance is inside the differences; prefix-index wikis
-were labeled in one pass, on original text only. \\
-\bottomrule
-\end{tabular}
-\caption{The paper at a glance. Each research question with its answer and the boundary
-that limits it. Cyan: the gain the design delivers; magenta: the failure a volume filter
-cannot detect.}
-\label{tab:glance}
-\end{table*}
 
 \subsection{RQ2. Volume filters block future evidence, but modality collapse still spoils}
 \label{sec:results-main}

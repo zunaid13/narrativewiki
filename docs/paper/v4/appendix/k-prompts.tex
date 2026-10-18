@@ -3,6 +3,8 @@
 % needs to reproduce the method, and the documented defects as callouts. The complete exchanges
 % are unchanged in docs/paper/appendix/k-prompts.tex (v1/v2) and in the released call logs;
 % excerpts below are copied from them verbatim (scripts/papers/prompt_appendix.py).
+\clearpage
+\onecolumn
 \begingroup
 \newtcblisting{nwprompt}[3][]{
   enhanced, breakable, listing only,
@@ -17,8 +19,8 @@
   #1}
 \newtcolorbox{nwdefect}[1]{enhanced, breakable, colback=nwhighpink!45!white, colframe=nwMagenta,
   boxrule=0.5pt, arc=1.5mm, left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=6pt,
-  after skip=6pt, title={#1}, fonttitle=\sffamily\bfseries\footnotesize, colbacktitle=nwMagenta,
-  coltitle=white, fontupper=\small}
+  after skip=6pt, title={#1}, fonttitle=\sffamily\bfseries\footnotesize, colbacktitle=nwmagenta,
+  coltitle=nwink, fontupper=\small}
 
 \section{Prompts and Model Exchanges}
 \label{app:prompts}

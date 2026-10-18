@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 435 328" width="100%" height="100%">
+  <defs>
+    <style>
+      .serif-italic { font-family: "Linux Libertine O", "Times New Roman", Georgia, serif; font-style: italic; font-size: 10px; fill: #334155; }
+      .serif-axis   { font-family: "Linux Libertine O", "Times New Roman", Georgia, serif; font-size: 10px; fill: #1E293B; }
+      .sans-tiny    { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 8px; fill: #475569; }
+      .sans-badge   { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 7.5px; font-weight: 700; }
+      .call-head    { font-family: "Linux Libertine O", "Times New Roman", Georgia, serif; font-size: 11px; font-weight: bold; }
+      .call-body    { font-family: "Linux Libertine O", "Times New Roman", Georgia, serif; font-size: 9.8px; }
+      .call-metric  { font-family: "Linux Libertine O", "Times New Roman", Georgia, serif; font-size: 9.8px; }
+    </style>
+    <marker id="arr-magenta" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#D81B60" />
+    </marker>
+    <marker id="arr-violet" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#6C5CE7" />
+    </marker>
+    <marker id="arr-teal" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#0E8795" />
+    </marker>
+    <linearGradient id="grad-indigo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E1B4B" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0E8795" stop-opacity="0.22" />
+    </linearGradient>
+    <linearGradient id="grad-teal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0E8795" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#0E8795" stop-opacity="0.06" />
+    </linearGradient>
+  </defs>
+  <rect width="435" height="328" fill="#FFFFFF" />
+  <g id="shared-volume-guides">
+    <rect x="94" y="18" width="126" height="274" fill="#FFF1F2" fill-opacity="0.55" />
+    <line x1="28" y1="18" x2="28" y2="292" stroke="#E2E8F0" stroke-width="0.8" />
+    <line x1="72" y1="18" x2="72" y2="292" stroke="#E2E8F0" stroke-width="0.8" />
+    <line x1="116" y1="18" x2="116" y2="292" stroke="#E2E8F0" stroke-width="0.8" />
+    <line x1="160" y1="18" x2="160" y2="292" stroke="#E2E8F0" stroke-width="0.8" />
+    <line x1="204" y1="18" x2="204" y2="292" stroke="#E2E8F0" stroke-width="0.8" />
+    <text x="58" y="13" class="serif-italic" text-anchor="middle">eligible prefix (D≤t)</text>
+    <text x="157" y="13" class="serif-italic" fill="#9F1239" text-anchor="middle">unread future (r(g) > t)</text>
+    <line x1="94" y1="15" x2="94" y2="295" stroke="#D81B60" stroke-width="1.4" stroke-dasharray="4,2.5" />
+  </g>
+  <g id="layer-1-prompt-memory">
+    <line x1="18" y1="88" x2="220" y2="88" stroke="#CBD5E1" stroke-width="0.9" />
+    <path d="M 28,42 C 55,49 85,52 116,52 C 150,52 180,53 204,55" fill="none" stroke="#6C5CE7" stroke-width="1.3" stroke-dasharray="2.5,2" />
+    <circle cx="28" cy="42" r="2.2" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="1.2" />
+    <circle cx="72" cy="51" r="2.2" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="1.2" />
+    <text x="50" y="37" class="sans-tiny" fill="#6C5CE7">X1 orig (.68)</text>
+    <line x1="28" y1="46" x2="28" y2="82" stroke="#6C5CE7" stroke-width="1.1" stroke-dasharray="1.5,1.5" marker-end="url(#arr-violet)" />
+    <line x1="72" y1="55" x2="72" y2="82" stroke="#6C5CE7" stroke-width="1.1" stroke-dasharray="1.5,1.5" marker-end="url(#arr-violet)" />
+    <line x1="28" y1="86.5" x2="204" y2="86.5" stroke="#6C5CE7" stroke-width="1.8" />
+    <rect x="25.8" y="84.3" width="4.4" height="4.4" fill="#6C5CE7" />
+    <rect x="69.8" y="84.3" width="4.4" height="4.4" fill="#6C5CE7" />
+    <text x="52" y="82" class="sans-badge" fill="#6C5CE7" text-anchor="middle">treated: .003</text>
+    <path d="M 116,84 C 110,52 82,52 75,78" fill="none" stroke="#D81B60" stroke-width="1.4" marker-end="url(#arr-magenta)" />
+    <path d="M 160,84 C 142,32 78,32 58,78" fill="none" stroke="#D81B60" stroke-width="1.7" marker-end="url(#arr-magenta)" />
+    <path d="M 204,84 C 175,18 68,18 38,78" fill="none" stroke="#D81B60" stroke-width="1.4" stroke-dasharray="3,1.5" marker-end="url(#arr-magenta)" />
+    <circle cx="116" cy="84" r="2.5" fill="#D81B60" />
+    <circle cx="160" cy="84" r="2.5" fill="#D81B60" />
+    <circle cx="204" cy="84" r="2.5" fill="#D81B60" />
+    <rect x="102" y="25" width="86" height="13" rx="2.5" fill="#FFE4E6" stroke="#D81B60" stroke-width="0.8" />
+    <text x="145" y="34" class="sans-badge" fill="#BE123C" text-anchor="middle">X2: 23/220 leaks</text>
+    <polyline fill="none" stroke="#334155" stroke-width="0.7" points="188,31 245,31 262,31" />
+    <text x="267" y="33" class="call-head" fill="#6C5CE7">Prompt &amp; memory (X2, X1)</text>
+    <text x="267" y="46" class="call-body" fill="#475569">Treated control strips recognition</text>
+    <text x="267" y="59" class="call-metric" fill="#6C5CE7">X1 recall .68 → .003 <tspan fill="#D81B60" font-weight="bold">· 23/220 leaks</tspan></text>
+  </g>
+  <g id="layer-2-budgeted-rewrite">
+    <line x1="18" y1="180" x2="220" y2="180" stroke="#CBD5E1" stroke-width="0.9" />
+    <line x1="94" y1="112" x2="94" y2="180" stroke="#0E8795" stroke-width="2.6" />
+    <rect x="99" y="116" width="58" height="12" rx="2" fill="#E0F7FA" stroke="#0E8795" stroke-width="0.7" />
+    <text x="128" y="124.5" class="sans-badge" fill="#006064" text-anchor="middle">0/220 leaks</text>
+    <line x1="22" y1="133" x2="212" y2="133" stroke="#64748B" stroke-width="1.0" stroke-dasharray="3,2" />
+    <text x="25" y="129" class="sans-tiny" fill="#64748B">1-call page budget ceiling (~1k words)</text>
+    <polygon points="28,120 72,126 116,143 160,145 204,142 204,180 28,180" fill="url(#grad-teal)" />
+    <polyline fill="none" stroke="#0E8795" stroke-width="2.0" points="28,120 72,126 116,143 160,145 204,142" />
+    <circle cx="28" cy="120" r="2.6" fill="#0E8795" />
+    <circle cx="72" cy="126" r="2.6" fill="#0E8795" />
+    <circle cx="116" cy="143" r="2.6" fill="#0E8795" />
+    <circle cx="160" cy="145" r="2.6" fill="#0E8795" />
+    <circle cx="204" cy="142" r="2.6" fill="#0E8795" />
+    <path d="M 72,126 C 88,148 98,164 112,174" fill="none" stroke="#D81B60" stroke-width="1.1" stroke-dasharray="2,1.5" />
+    <circle cx="112" cy="174" r="2.2" fill="#FFFFFF" stroke="#D81B60" stroke-width="1.1" />
+    <path d="M 116,143 C 132,158 142,168 154,175" fill="none" stroke="#D81B60" stroke-width="1.1" stroke-dasharray="2,1.5" />
+    <circle cx="154" cy="175" r="2.2" fill="#FFFFFF" stroke="#D81B60" stroke-width="1.1" />
+    <path d="M 160,145 C 174,159 184,168 196,175" fill="none" stroke="#D81B60" stroke-width="1.1" stroke-dasharray="2,1.5" />
+    <circle cx="196" cy="175" r="2.2" fill="#FFFFFF" stroke="#D81B60" stroke-width="1.1" />
+    <text x="155" y="168" class="sans-badge" fill="#D81B60" text-anchor="middle">10–24 facts evicted (t → t+1)</text>
+    <ellipse cx="94" cy="134.5" rx="26" ry="8" transform="rotate(21 94 134.5)" fill="#0E8795" fill-opacity="0.08" stroke="#0E8795" stroke-width="0.9" />
+    <polyline fill="none" stroke="#334155" stroke-width="0.7" points="204,142 245,125 262,125" />
+    <text x="267" y="127" class="call-head" fill="#0E8795">Budgeted rewrite (B1–B4)</text>
+    <text x="267" y="140" class="call-body" fill="#475569">Prefix-safe, but evicts early facts</text>
+    <text x="267" y="153" class="call-metric" fill="#0E8795">central 1.00 → .76 · <tspan fill="#D81B60" font-weight="bold">14 lost (B1, B4)</tspan></text>
+    <text x="267" y="166" class="call-metric" fill="#64748B">B1 treated citations: .88 → <tspan fill="#D81B60" font-weight="bold">.30</tspan></text>
+  </g>
+  <g id="layer-3-narrativewiki">
+    <line x1="18" y1="288" x2="220" y2="288" stroke="#CBD5E1" stroke-width="0.9" />
+    <polygon points="28,248 72,235 116,222 160,210 204,205 204,288 28,288" fill="url(#grad-indigo)" />
+    <rect x="28" y="275" width="44" height="5" rx="1" fill="#64748B" fill-opacity="0.7" />
+    <rect x="28" y="266" width="176" height="5" rx="1" fill="#1E1B4B" fill-opacity="0.75" />
+    <rect x="72" y="257" width="132" height="5" rx="1" fill="#1E1B4B" fill-opacity="0.75" />
+    <rect x="116" y="248" width="88" height="5" rx="1" fill="#0E8795" fill-opacity="0.75" />
+    <rect x="160" y="239" width="44" height="5" rx="1" fill="#0E8795" fill-opacity="0.75" />
+    <polyline fill="none" stroke="#1E1B4B" stroke-width="2.3" points="28,248 72,235 116,222 160,210 204,205" />
+    <circle cx="28" cy="248" r="2.8" fill="#1E1B4B" />
+    <circle cx="72" cy="235" r="2.8" fill="#1E1B4B" />
+    <circle cx="116" cy="222" r="2.8" fill="#1E1B4B" />
+    <circle cx="160" cy="210" r="2.8" fill="#1E1B4B" />
+    <circle cx="204" cy="205" r="3.0" fill="#1E1B4B" />
+    <rect x="72" y="227" width="22" height="5" rx="1" fill="#D81B60" />
+    <path d="M 160,239 C 135,224 105,224 85,227" fill="none" stroke="#D81B60" stroke-width="1.2" stroke-dasharray="2,1.5" marker-end="url(#arr-magenta)" />
+    <text x="132" y="220" class="sans-badge" fill="#D81B60" text-anchor="middle">1. modality leak (4/220)</text>
+    <line x1="160" y1="210" x2="160" y2="233" stroke="#D81B60" stroke-width="1.6" />
+    <circle cx="160" cy="233" r="2.6" fill="#D81B60" />
+    <text x="155" y="203" class="sans-badge" fill="#1E1B4B" text-anchor="end">2. stmt .97 → <tspan fill="#D81B60">pair .71</tspan></text>
+    <path d="M 204,282 C 145,295 75,295 32,283" fill="none" stroke="#D81B60" stroke-width="1.1" stroke-dasharray="2.5,1.5" marker-end="url(#arr-magenta)" />
+    <text x="82" y="285" class="sans-badge" fill="#BE123C">3. v1 identity drift: 39%</text>
+    <polyline fill="none" stroke="#334155" stroke-width="0.7" points="204,205 245,205 262,205" />
+    <text x="267" y="207" class="call-head" fill="#1E1B4B">NarrativeWiki (B5)</text>
+    <text x="267" y="220" class="call-body" fill="#475569">Accumulates claims; loses context</text>
+    <text x="267" y="233" class="call-metric" fill="#1E1B4B">central .86 → <tspan font-weight="bold">.95</tspan> · <tspan font-weight="bold">1 lost</tspan> · 3.8× facts</text>
+    <text x="267" y="246" class="call-metric" fill="#0E8795">B4 same graph: <tspan font-weight="bold">.965</tspan> prec · <tspan font-weight="bold">.915</tspan> cite</text>
+    <text x="267" y="259" class="call-metric" fill="#D81B60">pair context .71 · modality 4/220</text>
+  </g>
+  <g id="bottom-axis">
+    <text x="28" y="306" class="serif-axis" text-anchor="middle">v₁</text>
+    <text x="72" y="306" class="serif-axis" text-anchor="middle">v₂</text>
+    <text x="116" y="306" class="serif-axis" text-anchor="middle">v₃</text>
+    <text x="160" y="306" class="serif-axis" text-anchor="middle">v₄</text>
+    <text x="204" y="306" class="serif-axis" text-anchor="middle">v₅</text>
+    <rect x="74" y="311" width="40" height="13" rx="2" fill="#D81B60" />
+    <text x="94" y="320" class="sans-badge" fill="#FFFFFF" text-anchor="middle">cutoff t</text>
+    <text x="180" y="321" class="serif-italic" text-anchor="middle">reading progression (volumes)</text>
+  </g>
+</svg>

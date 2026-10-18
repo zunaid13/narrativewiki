@@ -2,6 +2,26 @@
 \section{Introduction}
 \label{sec:intro}
 
+% Teaser (Gemini design, revised: figures/teaser-horizon.svg, printed to vector PDF by headless
+% Edge). Numbers checked against results.tex; see the comment at the top of the SVG.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/teaser-horizon.pdf}
+    \caption{\textbf{The three cutoff horizons across volumes $v_1 \dots v_5$.} \textbf{Top:}
+    our renamed-and-paraphrased control strips closed-book recognition (\texttt{X1}:
+    $.683 \to .003$) and exposes backward spoiler leaks under full-text prompt instructions
+    (\texttt{X2}: $23/220$). \textbf{Middle:} prefix-bounded one-call rewrites
+    (\texttt{B1}--\texttt{B3}) block future leaks ($0/220$), but one-call rewrites under a fixed
+    page budget lose $4$--$24$ conveyed facts across cutoffs as protagonists grow (\texttt{B1}
+    central recall $1.00 \to .76$). \textbf{Bottom:} decomposing text into dated intervals
+    (\textsc{NarrativeWiki}, \texttt{B5}) scales with the story (central recall $.86 \to .95$,
+    $1$ lost fact, $3.8\times$ assertions) and preserves statement truth ($.97$ on pairs;
+    \texttt{B4} reaches $.965$ precision on the same graph), while exposing three context
+    fractures: \emph{(1) modality collapse} ($v_2$ prediction rendered as $v_4$ marriage),
+    \emph{(2) pair-page misplacement} ($.71$), and \emph{(3) $v_1$ identity drift} ($39\%$).}
+    \label{fig:teaser}
+\end{figure}
+
 A reader consulting a character wiki midway through a series may encounter a later identity,
 marriage or death while seeking a reminder of events already read. A reader who has finished
 \emph{Anne of Avonlea}, the second book of L.~M.~Montgomery's Anne series, may learn from
@@ -59,7 +79,7 @@ keep theirs (Section~\ref{sec:results-decon}).
 Headline means rank \sys below prompting with the text read so far
 (Table~\ref{tab:decon}). The probe asks instead \emph{where} decomposition gains and
 \emph{where} a volume filter fails, through five research questions, each answered in the
-subsection of Section~\ref{sec:results} with its number (Table~\ref{tab:glance}):
+subsection of Section~\ref{sec:results} with its number (Table~\ref{tab:glance}, Appendix~\ref{app:recommendations}):
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=2pt]
   \item \textbf{RQ1 Recognition vs.\ reading.} How much apparent recall comes from knowing
     the work? Closed-book recall falls from \respt{M1-anne-avg-X1} to

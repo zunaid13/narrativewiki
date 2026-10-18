@@ -7,6 +7,16 @@ and why*; this file records *what is done*. Append a new entry at the **top**; k
 Once this file exceeds ~15 entries, drop everything older than the last 8 — `git log` is the
 archive (the old `docs/log/LOG_ARCHIVE_*.md` files were removed 2026-09-14).
 
+## 2026-10-19 — Paper v4: page-1 teaser, dimmed palette, one-column prompts (no model call)
+
+- **Teaser** (Gemini SVG) added as Figure 1 at the top of page 1's right column: overlaps removed, labels
+  enlarged for one column, numbers corrected (4–24 not 10–24 facts lost; 0/220 is B1–B3 only; X2 not X1 owns
+  23/220; 3.8× assertions), printed to vector PDF with headless Edge (`v4/figures/teaser-horizon.{svg,html,pdf}`;
+  Gemini's original kept as `teaser-horizon-gemini.svg`).
+- **Palette** back to the dimmed v2 tones (`v4/macros.tex`); **prompts appendix** single-column as in the
+  submitted PDF (`\clearpage\onecolumn`).
+- To keep 8 pages the "paper at a glance" table moved (not deleted) to Appendix J. PDF 76 pages.
+
 ## 2026-10-19 — Paper v4: v3 combined with the checked parts of Gemini's rewrite (no model call, no new number)
 
 - **Deliverable:** `docs/paper/v4/`, PDF `docs/paper/NarrativeWiki-paper-v4.pdf` (40 pages, main body 8).

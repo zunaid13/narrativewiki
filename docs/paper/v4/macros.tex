@@ -51,45 +51,42 @@
 \newcommand{\ie}{i.e.,\xspace}
 \newcommand{\pid}[1]{\texttt{\small #1}}   % a paragraph identifier, v01:c06:p0003
 
-% ---- Shared figure, table and appendix palette (v3: one semantic grammar) -------------------
-% Every table highlight and every plotted series uses one of four meanings, plus neutral greys:
-%   cyan     verified gain / best in class          (stroke 12B5CB, cell fill D4F4F9)
-%   violet   headline trade-off: inventory, cost    (stroke 7B1FA2, cell fill EAE0F6)
-%   magenta  failure, later-fact leak, collapse     (stroke F538A0, cell fill FADCE8)
-%   lavender confounded or context-sensitive        (stroke C58AF9, cell fill F0E6FA)
-%   greys    baselines and context                  (575B5F slate, AAAAAA, CCCCCC)
-\definecolor{nwCyan}{HTML}{12B5CB}
-\definecolor{nwViolet}{HTML}{7B1FA2}
-\definecolor{nwMagenta}{HTML}{F538A0}
-\definecolor{nwLav}{HTML}{C58AF9}
-\definecolor{nwSlate}{HTML}{575B5F}
-\definecolor{nwMid}{HTML}{AAAAAA}
-\definecolor{nwLight}{HTML}{CCCCCC}
-\definecolor{nwBlue}{HTML}{1A73E8}
-\definecolor{nwhighcyan}{HTML}{D4F4F9}
-\definecolor{nwhighviolet}{HTML}{EAE0F6}
-\definecolor{nwhighpink}{HTML}{FADCE8}
-\definecolor{nwhighlavender}{HTML}{F0E6FA}
-% Older names, re-mapped onto the same four hues so the shared figures follow the grammar.
-\definecolor{nwindigo}{HTML}{C58AF9}
-\definecolor{nwcyan}{HTML}{A6E6EF}
-\definecolor{nwviolet}{HTML}{CDB0E3}
-\definecolor{nwlavender}{HTML}{E2CCFC}
-\definecolor{nwmagenta}{HTML}{F9B5D8}
-\definecolor{nwaccent}{HTML}{7B1FA2}
-\definecolor{nwink}{HTML}{111111}
-\definecolor{nwgrid}{HTML}{E3E3E3}
-\definecolor{nwblue}{HTML}{12B5CB}
-\definecolor{nwbluebg}{HTML}{EEFAFC}
-\definecolor{nwgreen}{HTML}{C58AF9}
-\definecolor{nwgreenbg}{HTML}{F7F1FD}
-\definecolor{nworange}{HTML}{7B1FA2}
-\definecolor{nworangebg}{HTML}{F5EFFA}
-\definecolor{nwred}{HTML}{F538A0}
-\definecolor{nwredbg}{HTML}{FDEEF5}
-\definecolor{nwgray}{HTML}{575B5F}
-\definecolor{nwgraybg}{HTML}{F5F5F5}
-\definecolor{nwpurple}{HTML}{C58AF9}
-\definecolor{nwpurplebg}{HTML}{F7F1FD}
+% ---- Shared figure, table and appendix palette -------------------------------------------------
+% v4 (2026-10-19): back to the dimmed v2 tones on request. The colour meanings stay: cyan, best;
+% violet, headline trade-off; magenta (pink), failure or disclosure; lavender, context-sensitive.
+% v2 names and values:
+\definecolor{nwindigo}{HTML}{8D89D8}
+\definecolor{nwcyan}{HTML}{AADDED}
+\definecolor{nwviolet}{HTML}{B9A3E3}
+\definecolor{nwlavender}{HTML}{CECDF0}
+\definecolor{nwmagenta}{HTML}{EBC2D9}
+\definecolor{nwaccent}{HTML}{665FB0}
+\definecolor{nwhighcyan}{HTML}{DDEFF8}
+\definecolor{nwhighpink}{HTML}{F6E1ED}
+\definecolor{nwhighlavender}{HTML}{E8E4F6}
+\definecolor{nwink}{HTML}{243247}
+\definecolor{nwgrid}{HTML}{D8DEE7}
+\definecolor{nwblue}{HTML}{8D89D8}
+\definecolor{nwbluebg}{HTML}{EFF5FC}
+\definecolor{nwgreen}{HTML}{B9A3E3}
+\definecolor{nwgreenbg}{HTML}{F2EEF9}
+\definecolor{nworange}{HTML}{9B94CB}
+\definecolor{nworangebg}{HTML}{F1EFF8}
+\definecolor{nwred}{HTML}{EBC2D9}
+\definecolor{nwredbg}{HTML}{FCF0F6}
+\definecolor{nwgray}{HTML}{657183}
+\definecolor{nwgraybg}{HTML}{F3F5F8}
+\definecolor{nwpurple}{HTML}{B9A3E3}
+\definecolor{nwpurplebg}{HTML}{F3EFFA}
+% Names added in v3, now given dimmed values in the same family (lines stay visible on white):
+\definecolor{nwCyan}{HTML}{74B6CC}
+\definecolor{nwViolet}{HTML}{8D89D8}
+\definecolor{nwMagenta}{HTML}{C97AA3}
+\definecolor{nwLav}{HTML}{B9A3E3}
+\definecolor{nwSlate}{HTML}{657183}
+\definecolor{nwMid}{HTML}{A7B0BE}
+\definecolor{nwLight}{HTML}{D8DEE7}
+\definecolor{nwBlue}{HTML}{8D89D8}
+\definecolor{nwhighviolet}{HTML}{EDE8F8}
 % Figure text size: 7pt, the smallest used in the one-column figures (plan 0015 step 8).
 \newcommand{\figfont}{\fontsize{7}{8}\selectfont}
