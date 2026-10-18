@@ -1,0 +1,38 @@
+% Related work (v3). The prior-work matrix is in Appendix~\ref{app:related}.
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Spoilers, characters and temporal bounds.}
+Spoiler detection labels review sentences without conditioning on a reader's position
+\citep{wan2019spoiler}; \citet{jones2018spoilers} serve fan-wiki revisions archived before an
+episode aired, and e-readers offer position-bounded answers \citep{amazon2025kindle} without a
+published evaluation. CHIRON builds validated character sheets \citep{gurung2024chiron},
+BookWorm pairs books with character descriptions \citep{papoudakis2024bookworm}, and
+EvolvTrip graphs characters' mental states over time \citep{yang2025evolvtrip}. TimeChara
+measures point-in-time hallucination in role-play \citep{ahn2024timechara}; Living the Novel
+gates conversation to the narrative present \citep{huang2025living}, the
+filter-before-generate principle we adopt; NS-ST-GraphRAG answers from temporally valid
+subgraphs \citep{lin2026nsst}; temporal knowledge graphs attach validity intervals to facts
+\citep{dasgupta2018hyte}, ours indexed by reading volume rather than story time. These works
+bound answers or dialogue in time; none evaluates a complete linked reference artifact at
+every cutoff (Table~\ref{tab:prior}). LitBank annotates identities using the whole text,
+including revelations unavailable at an earlier mention \citep{bamman2020litbank}.
+
+\paragraph{Grounded article and wiki generation.}
+STORM outlines Wikipedia-like articles \citep{shao2024storm}; GraphRAG summarizes a corpus
+entity graph \citep{edge2024graphrag}; LightRAG, a baseline here, combines graph structure with
+lightweight retrieval \citep{guo2024lightrag}; SearchWiki builds linked wikis for agents
+\citep{singh2026searchwiki}; book-length benchmarks evaluate question answering and
+summarization \citep{wang2024novelqa,chang2024booookscore}. Our reference also depends on the
+reader's position.
+
+\paragraph{Factuality, attribution and contamination.}
+We evaluate atomic support \citep{min2023factscore}, attribution to identified sources
+\citep{rashkin2021ais} and citation quality \citep{gao2023alce} across the whole artifact and
+in page context. Automatic raters of book-length text can disagree with knowledgeable readers
+\citep{kim2024fables}; on STORYSUMM, MiniCheck's Flan-T5 checker \citep{tang2024minicheck}
+scored below chance \citep{subbiah2024storysumm}, so we use evidence-reading annotators.
+Published novels may be known to the generator \citep{chang2023speak,cheng2025contamination};
+renaming entities is an established control \citep{gupta2025whodunit,zhang2024infinitebench},
+and rewriting can damage the narrative it protects \citep{sun2025emperor}; we add aligned
+paraphrase and audit the treatment.

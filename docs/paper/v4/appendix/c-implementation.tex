@@ -1,0 +1,111 @@
+% Appendix: implementation. Values are those of the configuration used for the reported build.
+\section{Implementation Details}
+\label{app:implementation}
+
+\begin{algorithm*}[t]
+\caption{Assembling the page of entity $e$ at cutoff $t$.}
+\label{alg:assemble}
+\small
+\begin{algorithmic}[1]
+\Require graph of verifier-accepted intervals; entity $e$; cutoff $t$
+\State $I \gets$ copies of $\{\, i \in \textsc{Intervals}(e) : i.\mathit{start} \le t \,\}$ \Comment{a local view; the graph is not modified}
+\If{$I = \varnothing$} \Return no page \Comment{an entity with no interval by $t$ has no page and is no link target}
+\EndIf
+\For{$i \in I$}
+  \State $i.\mathit{quotes} \gets \{\, q \in i.\mathit{quotes} : \mathrm{vol}(q) \le t \,\}$ \Comment{each quote filtered by its own volume}
+  \If{$i.\mathit{end} > t$} \State $i.\mathit{end} \gets \bot$ \Comment{do not reveal that, or when, it ends}
+  \EndIf
+\EndFor
+\State $I \gets \{\, i \in I : \textsc{Verified}(i) \,\}$ \Comment{facts the verifier rejected are withheld}
+\State $\mathit{fields} \gets \textsc{Render}(I)$ \Comment{deterministic: names, attributes, relations, history}
+\State $\mathit{prose} \gets \textsc{Generate}(I)$ \Comment{model sees only $I$; no evidence $\Rightarrow$ no call, empty section}
+\State $\mathit{page} \gets \textsc{Link}(\mathit{fields}, \mathit{prose}, \{\, s : \mathrm{vol}(s) \le t \,\})$ \Comment{surface forms and targets revealed by $t$}
+\State \Return $\mathit{page}$ with cutoff-$t$ title and navigation
+\end{algorithmic}
+\end{algorithm*}
+
+\paragraph{Claim schema.} A claim is a record with a subject (an entity identifier, never a
+raw surface form), a predicate, a kind (attribute, relation or trait), an object entity or a
+scalar value, an optional short qualifier, a polarity (asserted, denied or presumed), the
+volume and chapter of its first evidence, and one or more evidence items, each a paragraph
+identifier with a verbatim quote of at most 240 characters. \emph{Presumed} keeps a belief
+apart from a fact: a character thought dead in one volume is recorded as presumed dead there,
+not as dead. Polarity and qualifier are part of a claim's identity, so two observations that
+disagree on either never merge. A claim whose subject or object cannot be resolved to a known
+entity is dropped.
+
+\paragraph{Ontology.} Entities are typed as character, group, place, event or object; only
+characters get their own pages, and the other types share codex pages. There are nine
+attributes (age, gender, status, rank, title, nickname, origin, occupation, appearance), five
+trait keys (personality, motivation, skill, fear, background) and twenty relation predicates
+covering kinship (parent, child, sibling, relative, spouse), affect (romantic, friend, rival,
+enemy), roles (mentor, student, commands, serves under, comrade, affiliated with) and events
+(origin, participated in, pilots, killed, saved). The ontology is shared by all series and was
+not adapted to the evaluated work.
+
+\paragraph{Extraction settings.} The chapter pass reads spans of about 4{,}000 tokens with 500
+tokens of overlap and records, for each scene, a summary, the characters who take part and up
+to four paragraphs that support the summary. The mention pass reads a window of four
+paragraphs before and after a mention, never across a hard scene break, with at most 40
+windows per entity per volume, one window per call and at most 6{,}000 tokens per window (a
+denser cluster of mentions is split into consecutive windows). The long-context pass reads all of a character's paragraphs in a volume
+(up to 150{,}000 tokens) for gender, age and origin, and separately for background. A claim
+needs a self-reported confidence of at least 0.5 to be kept and 0.7 to fill a structured
+field. An evidence-adequacy gate rejects quotes shorter than six words, quotes in which the
+subject is not named within one paragraph, and quotes carrying irrealis markers (``would
+have'', ``might have'').
+
+\paragraph{Intervals.} Single-valued attributes supersede: a value's interval closes when the
+next distinct value first appears. Relations in a declared conflict group supersede the same
+way; every other relation and multi-valued attribute is an open interval that opens at its
+earliest evidence, with its qualifier taken from evidence no later than that volume. Free-text
+values whose BGE-M3 embeddings have cosine similarity of at least 0.86 are clustered before
+intervals are built.
+
+\paragraph{Generation.} Every model call uses \res{GEN-model}. The intended character-page
+template specifies appearance 2--4, personality 2--6, and history 3--12 sentences; shared-page
+summaries request one sentence. The archived \sys appearance prompt instead requests
+3--4 sentences (Appendix~\ref{app:prompts}). These are prompt requirements, not a measurement
+of output-length enforcement. Generation prompts request keys identifying the input lines
+supporting the text, which map back to source paragraphs. The parser also normalizes returned
+paragraph IDs during citation resolution, as in the codex example below. A shared-page
+summary is retained only if a second call judges every statement to be established by its
+input passages. A rejected summary is regenerated once and omitted if it fails again.
+Responses are cached by provider, model, prompt, and parameters, so rebuilding an unchanged
+configuration requires no new calls. All prompts are released verbatim with the code.
+Prompts for \sys and text-reading comparison systems omit the work's title and author;
+the closed-book diagnostic receives the title by design.
+A character with no STATUS claim is printed as \emph{alive (assumed)}: a configured
+default with no evidence behind it, marked as assumed on the page, since the absence of a
+death claim does not establish that a character is alive.
+
+\paragraph{Prompt and response defects.} The extraction prompt of the reported runs
+exposes internal revision labels, module paths, and implementation notes in the STATUS and
+APPEARANCE descriptions. The prompt builder passes the same canonicalization note to the
+verifier as the \emph{definition} of APPEARANCE, which the verifier is told to judge
+against; a rule for deduplicating values does not define a physical characteristic. The
+exhibited call accepts its appearance claim; the effect on other decisions is not measured.
+The codex response returns a paragraph ID where the prompt requests an input-line key; the
+parser maps it to its paragraph during citation resolution, without checking that the
+paragraph supports the sentence. All reported results use this configuration; a repaired
+prompt builder would require new runs, which this paper does not report.
+
+\paragraph{Changes between builds.} The reported build differs from the first
+build (Section~\ref{sec:results-quality}, Table~\ref{tab:builds}) by one batch of changes,
+made after the first build had been labeled and applied to every series alike.
+\emph{Entity resolution:} a bare name and a fuller name first seen in a later volume go to
+the model instead of merging for free; a first name shared by several people is assigned per
+volume; fuzzy matching may not exchange a whole word; the cap on model-judged name pairs
+rose from 1{,}000 to 5{,}000; hyphenated names and titles of the form ``X of the Y'' are
+mined whole. \emph{Ingestion:} publisher's back matter is dropped. \emph{Scenes:} the
+participants of a scene are those who take part, not those mentioned, and each summary names
+up to four supporting paragraphs. \emph{Citations:} generated text names the input lines it
+rests on, and scene lines print their paragraphs on timeline, pair and codex pages; the first
+build cited a chapter for a scene line and nothing for most prose. \emph{Gates:} a prose
+answer that says it found nothing is discarded, and summaries on shared pages pass the check
+described above. \emph{Windows:} the 6{,}000-token ceiling on a mention window, which the
+first build did not enforce on a dense cluster. One side effect: the first
+build held two entities for several main characters, and each entity received its own
+windows, so the same text was read twice; with the entities merged it is read once, and the
+claims stored for two such characters fell from 162 and 66 to 118 and 46 on as many windows.
+We did not isolate this change's contribution to the reported build's lower recall.

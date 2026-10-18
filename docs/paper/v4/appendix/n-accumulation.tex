@@ -1,0 +1,190 @@
+% Appendix (v2 only): the data behind Section 6.3, where pages rendered from accumulated claims are
+% ahead. Every value: MEASUREMENTS 2026-10-11 (recall-by-centrality-20261011), from
+% `.venv/Scripts/python.exe -X utf8 scripts/eval/recall_by_centrality.py`, which reads the stored
+% recall labels and the built wikis and makes no model call. Head-to-head counts: MEASUREMENTS
+% 2026-10-09 common-assessment recall pairing. Summary: docs/eval/narrativewiki_advantages.md.
+\section{Where Accumulation Helps}
+\label{app:accumulation}
+
+Section~\ref{sec:results-gains} reports three situations in which \sys is ahead of the
+systems that rewrite each page per cutoff. This appendix gives the data behind them. Nothing here required a model call: all values come from the
+stored recall labels and the built wikis. On the treated text, characters are named by
+their original names.
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+ & & \nwhead{$t=1$} & \nwhead{2} & \nwhead{3} & \nwhead{4} & \nwhead{5} & \nwhead{Pooled} \\
+ & & \nwhead{(14)} & \nwhead{(21)} & \nwhead{(31)} & \nwhead{(37)} & \nwhead{(38)} & \nwhead{(141)} \\
+\midrule
+\multirow{6}{*}{\rotatebox{90}{\scriptsize original}}
+ & B1 & 11 & \best{19} & 25 & 30 & 33 & 118 \\
+ & B2 & \best{12} & 15 & 22 & 29 & 32 & 110 \\
+ & B3 & 3 & 13 & 12 & 19 & 20 & 67 \\
+ & B4 & \best{12} & 15 & 22 & 29 & 28 & 106 \\
+ & \sys & \best{12} & 18 & \best{27} & \best{34} & \best{35} & \cellcolor{nwhighcyan}\best{126} \\
+ & X2 & 12 & 16 & 25 & 31 & 31 & 115 \\
+\midrule
+\multirow{6}{*}{\rotatebox{90}{\scriptsize treated}}
+ & B1 & \best{14} & \best{19} & 23 & 27 & 29 & 112 \\
+ & B2 & 12 & 14 & 19 & 23 & 26 & 94 \\
+ & B3 & 5 & 9 & 12 & 16 & 14 & 56 \\
+ & B4 & 9 & 11 & 21 & 21 & 24 & 86 \\
+ & \sys & 12 & \best{19} & \best{29} & \best{35} & \best{36} & \cellcolor{nwhighcyan}\best{131} \\
+ & X2 & 12 & 14 & 16 & 26 & 27 & 95 \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+\nwhead{Character} & \nwhead{Text} & \nwhead{B5} & \nwhead{B1} & \nwhead{B2} & \nwhead{B3} \\
+\midrule
+Anne (81) & original & \best{78} & 64 & 60 & 41 \\
+ & treated & \best{72} & 61 & 53 & 41 \\
+Gilbert (39) & original & 31 & 33 & \best{34} & 12 \\
+ & treated & \best{38} & 31 & 30 & 8 \\
+Diana (21) & original & 17 & \best{21} & 16 & 14 \\
+ & treated & \best{21} & 20 & 11 & 7 \\
+\bottomrule
+\end{tabular}
+\caption{Gold facts conveyed about the three central characters (Anne Shirley, Gilbert
+Blythe, Diana Barry). Top: at each cutoff, eligible fact checks in parentheses; bold, best
+of B1--B5 per column and text. Bottom: per character, pooled over $t=1..5$ (fact checks in
+parentheses); B5 is \sys; bold, best per row.}
+\label{tab:central-cutoff}\label{tab:central-subject}
+\end{table}
+
+\paragraph{Central characters.}
+The three central characters are those with the most gold fact checks: Anne Shirley (81
+of 335), Gilbert Blythe (39) and Diana Barry (21). They are selected by that count alone,
+which does not depend on any system's output; the decision to report recall by this
+split was made after the results were known. Table~\ref{tab:central-cutoff} gives the per-cutoff
+counts. On treated text \sys's recall on them rises from 86\% at $t=1$ to 95\% at $t=4$
+and $t=5$, while long context falls from 100\% to 73--76\% and prefix retrieval from 86\%
+to 61--68\%. On the original text the lead comes from the protagonist alone; on the
+treated text \sys leads on all three characters (Table~\ref{tab:central-subject}).
+
+
+
+\paragraph{Why pages diverge in length.}
+Comparison systems write one page per character in one call under a shared template with
+sentence limits per section, and the retrieval systems pass at most 20,000 tokens of
+passages (Appendix~\ref{app:baselines}). Their pages therefore stay roughly the same length
+however much the story says about a character. \sys renders every eligible claim.
+Table~\ref{tab:artifact-size} gives the length of Anne Shirley's page and of each wiki,
+in words with citations removed. Length is not monotone: Anne Shirley's \sys page has
+3,719 words at $t=4$ and 3,439 at $t=5$.
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+\nwhead{Measure} & \nwhead{System} & \nwhead{$t=1$} & \nwhead{$t=2$} & \nwhead{$t=3$} & \nwhead{$t=4$} & \nwhead{$t=5$} \\
+\midrule
+Pages published & \sys & 97 & 193 & 275 & 345 & 440 \\
+ & B1, B2, B3 & 14 & 21 & 25 & 33 & 43 \\
+\midrule
+Words in the wiki & \sys & 38,910 & 80,165 & 113,891 & 148,154 & 194,562 \\
+ & B1 & 6,058 & 10,585 & 14,018 & 18,170 & 24,625 \\
+ & B2 & 6,627 & 10,762 & 13,217 & 17,352 & 22,989 \\
+ & B3 & 4,736 & 8,384 & 10,386 & 14,273 & 18,951 \\
+\midrule
+Words on Anne Shirley's page & \sys & 1,813 & 2,363 & 2,688 & 3,719 & 3,439 \\
+ & B1 & 864 & 852 & 913 & 984 & 1,157 \\
+ & B2 & 699 & 553 & 708 & 711 & 688 \\
+ & B3 & 620 & 731 & 653 & 554 & 410 \\
+\midrule
+Related characters on Anne Shirley's page & \sys & 18 & 26 & 31 & 39 & 42 \\
+ & B1 & 10 & 10 & 13 & 12 & 15 \\
+ & B2 & 8 & 5 & 9 & 10 & 10 \\
+ & B3 & 8 & 8 & 8 & 5 & 5 \\
+\bottomrule
+\end{tabular}
+\caption{Size of what each system publishes at each cutoff, original text. Words exclude
+front matter and citation blocks. \sys repeats a relation line on both characters' pages
+and on the pair's page, so its word count overstates distinct content; distinct assertions
+per cutoff (\res{ND-anne-avg-B5} for \sys against \res{ND-anne-avg-B1}, \res{ND-anne-avg-B2}
+and \res{ND-anne-avg-B3} for B1--B3) are the deduplicated measure: assertions identical
+after lower-casing and folding punctuation count once, so paraphrases, reciprocal phrasings
+and alias variants still count separately. Related characters:
+relationship blocks on the page, each linked to that character's page.}
+\label{tab:artifact-size}
+\end{table*}
+
+\paragraph{Facts kept across cutoffs.}
+A comparison system writes each cutoff's page afresh, so a fact present at $t$ can be
+absent at $t+1$. For \sys, every claim eligible at $t$ is still eligible at $t+1$; a value
+superseded by a later one is shown as a closed interval rather than removed.
+\input{tables/t-gains}
+Table~\ref{tab:gains} counts the transitions. B4, which reads \sys's graph but
+writes each page in one call, loses \res{DROP-anne-B4} and \res{DROP-annedecon-B4}, within
+the range of the prefix-bounded systems, which locates the stability in rendering rather
+than in the graph.
+
+\paragraph{What is published.}
+At $t=1..5$ \sys publishes 59, 117, 158, 191 and 236 character pages, 34, 71, 111, 147 and
+196 relationship pages (one per pair of characters), one timeline page per volume and three
+shared pages for groups, places and objects. The comparison systems publish the character
+pages of the evaluated cast. Relations keep their history as intervals: at $t=4$ the
+Anne--Gilbert block on Anne's page holds seven typed lines with paragraph citations
+(rival; romantically involved with; saved by; enemy, ended v1; comrade, since v2; friend,
+since v2; spouse, since v4), where long context prints one line, ``Spouse of ---
+Husband, former schoolmate and college rival''. The cutoff-2 block lacks the spouse line,
+whose evidence is in book four (Appendix~\ref{app:qualitative}).
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+ & \nwhead{Input} & \nwhead{Pages} & \nwhead{Input} & \nwhead{Distinct} & \nwhead{Input per} \\
+ & \nwhead{tokens} & & \nwhead{per page} & \nwhead{per cutoff} & \nwhead{distinct} \\
+\midrule
+B5 & 33.13M & 1,350 & \best{24,541} & \best{6,970} & 951 \\
+B1 & 69.23M & 136 & 509,044 & 1,821 & 7,604 \\
+B2 & \best{3.42M} & 136 & 25,147 & 1,718 & \best{398} \\
+B3 & 5.08M & 136 & 37,353 & 1,404 & 724 \\
+\bottomrule
+\end{tabular}
+\caption{Input tokens for all five cutoffs relative to what is published (B5: \sys;
+pages delivered over all cutoffs; distinct assertions as a mean per cutoff, and input per
+distinct assertion over their sum across the five cutoffs). Derived from
+Table~\ref{tab:main} totals and the page counts of Table~\ref{tab:artifact-size}; not a
+separate run. Pages differ in length and kind across systems.}
+\label{tab:cost-per-unit}
+\end{table}
+
+\paragraph{Cost for the amount published.}
+One \sys build serves every cutoff, while long context resends the whole prefix for every
+page (Table~\ref{tab:cost-per-unit}). Per distinct assertion \sys uses one eighth of long
+context's input. Prefix retrieval remains the cheapest: its 9.7-fold advantage in total
+input tokens becomes 2.4-fold per distinct assertion and about equal per page.
+
+\paragraph{Against LightRAG.}
+On the 335 common fact checks, \sys alone conveys \res{H2H-anne-B5only-B3} and LightRAG
+alone \res{H2H-anne-B3only} on the original text (both 175, neither 49); on the treated
+text \res{H2H-annedecon-B5only-B3} and \res{H2H-annedecon-B3only}. LightRAG remains ahead
+on precision, citation sufficiency and input tokens (Table~\ref{tab:decon}).
+
+\paragraph{Facts only \sys conveys.}
+Gold facts that \sys conveys while B1 and B2 both miss them number \res{UNIQ-anne-B5} on
+the original text (facts, with fact checks in parentheses): Anne's braids and changeable
+eye color, her mother's old letters, her longing for puffed sleeves, her story heroine
+Averil Lester, Gilbert rowing to her when her flat sinks, Rachel Lynde's ``red as
+carrots'', and Walter's hatred of Dan Reese. On the treated text they number
+\res{UNIQ-annedecon-B5}: six of the above and, among others, Anne realizing she loves
+Gilbert when he falls ill, Gilbert giving up the Avonlea school for her, and his refused
+proposal. Most are
+early-book details about main characters that a later, budget-limited page no longer has
+room for. The reverse, facts B1 and B2 both convey and \sys misses, numbers
+\res{UNIQ-anne-B12} on the original text and \res{UNIQ-annedecon-B12} on the treated text.
+
+\paragraph{The other 40 characters.}
+\sys trails on the other 40 characters. Much of that deficit lies in characters about whom
+it conveys no gold fact at any cutoff on the original text (Mr.\ Phillips, 0 of 10 fact
+checks; Charlotta, 0 of 4; Reverend Jo, 0 of 3; Roy Gardner, 0 of 3). Facts lost across
+cutoffs compare labels at adjacent cutoffs, so a labeling inconsistency between them also
+counts as a loss.

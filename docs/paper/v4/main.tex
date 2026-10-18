@@ -1,0 +1,122 @@
+% NarrativeWiki paper, version 4 (2026-10-19): v3 combined with the parts of Gemini's rewrite that
+% were checked against the sources (see GEMINI_CHECK.md). Self-contained except ../results.tex
+% (the one number registry, shared with v1-v3) and ../refs.bib. Build: sh build.sh.
+\documentclass[11pt]{article}
+% Keep included figure PDFs' own metadata (titles, creator tools, file names) out of the output.
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=-1\fi
+
+% ---------------------------------------------------------------------------------------------
+% Switches. Edit these lines only.
+% ---------------------------------------------------------------------------------------------
+\newif\ifnwdraft      \nwdraftfalse     % true: placeholders print in red. false: nothing unfinished prints
+\newif\ifnwreview     \nwreviewtrue     % true: anonymous submission with line numbers; false: camera-ready
+\newif\ifnwappendix   \nwappendixtrue   % false: main paper only
+\newif\ifnwdecon      \nwdecontrue     % true once the decontaminated condition is measured: prints its blocks
+\newif\ifnwreaderstudy\nwreaderstudyfalse % true only if the reader study (appendix K) was run
+\newif\ifnwhuman      \nwhumantrue      % true: include the earlier acceptance pass and the later two-reviewer agreement check
+\newif\ifnwheldout    \nwheldoutfalse   % true once the held-out series (Oz) is labelled: prints sections/06c-heldout
+
+\ifnwreview\usepackage[review]{acl}\else\usepackage[final]{acl}\fi
+% Anonymous review with line numbers is the default submission build.
+% Set \nwlinenofalse below to build without margin line numbers.
+\newif\ifnwlineno \nwlinenotrue
+\ifdefined\nwreading \nwlinenofalse \fi
+\ifnwreview\ifnwlineno\else\AtBeginDocument{\nolinenumbers}\fi\fi
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\newcolumntype{Z}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[table]{xcolor}
+% colortbl 1.0k expects this helper from newer array releases. Older TeX
+% installations use insert@column for paragraph cells; current releases
+% already define insert@pcolumn and are left untouched.
+\makeatletter
+\@ifundefined{insert@pcolumn}{\let\insert@pcolumn\insert@column}{}
+\makeatother
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,shapes.misc,backgrounds}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{xspace}
+\usepackage{listings}
+\usepackage{needspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,listings,skins}
+\lstset{basicstyle=\ttfamily\scriptsize, breaklines=true, breakatwhitespace=false, columns=fullflexible,
+  keepspaces=true, frame=single, aboveskip=2pt, belowskip=6pt}
+
+\def\nwvtwo{1}  % read by the shared files that differ slightly between the two versions
+\input{macros}
+% \hypersetup{linkcolor=nwaccent, citecolor=nwaccent, urlcolor=nwaccent}
+\input{tables/table_sty}
+\input{../results}
+
+% \title{What Decomposition Loses: Probing Graph-Built\\Character Wikis at Reader-Selected Narrative Cutoffs}
+% \title{NarrativeWiki: Probing What Decomposition Loses in Graph-Built Character Wikis at Reader-Selected Narrative Cutoffs}
+\title{NarrativeWiki: Probing the Trade-offs of Decomposition in Graph-Built Character Wikis at Reader-Selected Narrative Cutoffs}
+
+
+\ifnwreview
+  \author{Anonymous ACL submission}
+\else
+  \author{First Author \\ Affiliation \\ \texttt{email@domain}}
+\fi
+
+\begin{document}
+\maketitle
+
+\input{sections/00-abstract}
+\input{sections/01-introduction}
+\input{sections/02-related}
+\input{sections/03-task}
+\input{sections/04-method}
+\input{sections/05-setup}
+\input{sections/06-results}
+\input{sections/07-discussion}
+\input{sections/08-conclusion}
+\label{nw:end-main}
+
+% Separate the page-limited contribution from the excluded end matter.
+\clearpage
+\input{sections/limitations}
+\input{sections/ethics}
+\ifnwreview\else\input{sections/statements}\fi
+
+\bibliography{refs}
+
+\ifnwappendix
+\clearpage
+\appendix
+\input{appendix/contents}
+\input{appendix/r-related}
+\input{appendix/a-annotation}
+\input{appendix/b-corpus}
+\input{appendix/c-implementation}
+\input{appendix/d-baselines}
+\input{appendix/e-full-results}
+\input{appendix/g-additional-results}
+\input{appendix/n-accumulation}
+\input{appendix/p-formal}
+\input{appendix/q-recommendations}
+\input{appendix/f-evaluator}
+\input{appendix/h-leak-casebook}
+\input{appendix/m-qualitative}
+\ifnwdecon\input{appendix/i-contamination}\fi
+\input{appendix/l-observations}
+\input{appendix/j-reproducibility}
+\input{appendix/k-prompts}
+\fi
+
+\end{document}

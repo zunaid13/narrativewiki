@@ -1,0 +1,89 @@
+% F0 (v3, full width): replaces the image-model teaser. Top: the four stored Anne--Gilbert
+% intervals of the reported build (data/anne@v2/04_graph/graph.db; same rows as figures/f0-cutoff.tex)
+% and the cutoff-2 page rendered from them. Bottom: the three channels of Section 3, each with
+% its measured size. Every number is a \res key. \pid is redefined locally (the figure is a group).
+\renewcommand{\pid}[1]{{\ttfamily\fontsize{6}{7}\selectfont #1}}%
+\begin{tikzpicture}[x=1cm, y=0.86cm, font=\figfont,
+  vol/.style={draw=nwLight, fill=nwgraybg, rounded corners=1.5pt, minimum width=1.38cm,
+              minimum height=0.42cm, inner sep=0pt, font=\figfont\bfseries, text=nwSlate},
+  rel/.style={anchor=east, font=\ttfamily\fontsize{6.4}{7}\selectfont, text=nwink},
+  ok/.style={fill=nwCyan, rounded corners=1.5pt},
+  okfade/.style={fill=nwCyan!22, rounded corners=1.5pt},
+  held/.style={fill=nwLight!45, draw=nwMid, dashed, rounded corners=1.5pt},
+  chan/.style={draw=nwMagenta, line width=0.6pt, rounded corners=3pt, fill=white,
+               minimum width=5.05cm, minimum height=2.5cm, anchor=north west},
+  chead/.style={fill=nwMagenta, text=white, font=\figfont\bfseries, rounded corners=2pt,
+                inner sep=2.2pt, anchor=west},
+  flowbox/.style={draw=nwLight, fill=nwgraybg, rounded corners=2pt, inner sep=2pt,
+               align=center, font=\fontsize{6.2}{7}\selectfont, text width=1.3cm},
+  arr/.style={-{Latex[length=1.5mm]}, nwSlate, line width=0.5pt}]
+
+% ---------------------------------------------------------------- (a) top tier
+\node[anchor=west, font=\small\bfseries\sffamily, text=nwink] at (-0.1,1.35)
+  {(a) Filter, then generate: the design under test at cutoff $t{=}2$};
+\foreach \i/\x in {1/3.05, 2/4.5, 3/5.95, 4/7.4, 5/8.85}{\node[vol] at (\x,0.3) {Vol.~\i};}
+\node[anchor=east, text=nwSlate, font=\figfont\itshape] at (2.25,0.3) {stored interval};
+% later text, withheld
+\fill[nwgraybg] (5.22,-0.05) rectangle (9.6,-2.45);
+\node[anchor=north east, font=\figfont\itshape, text=nwSlate] at (9.58,-2.47) {later text: withheld};
+\draw[nwMagenta, line width=1.1pt, dash pattern=on 3pt off 2pt] (5.22,0.62) -- (5.22,-2.45);
+\node[fill=nwMagenta, text=white, rounded corners=2pt, inner sep=1.6pt,
+      font=\figfont\bfseries] at (5.22,0.82) {reader cutoff $t{=}2$};
+% rows: relation and stored interval on the left, citation of the opening evidence on the right
+\node[rel] at (2.25,-0.35) {ENEMY\_OF [v1,v1]};
+\fill[ok] (2.37,-0.45) rectangle (3.73,-0.25);
+\node[anchor=west, text=nwSlate] at (5.35,-0.35) {closed \pid{v01:c15:p0051}};
+\node[rel] at (2.25,-0.95) {RIVAL\_OF [v1,--)};
+\fill[ok] (2.37,-1.05) rectangle (5.2,-0.85); \fill[okfade] (5.24,-1.05) rectangle (9.53,-0.85);
+\node[anchor=west, text=nwink] at (5.35,-0.95) {open \pid{v01:c17:p0036}};
+\node[rel] at (2.25,-1.55) {COMRADE\_OF [v2,--)};
+\fill[ok] (3.82,-1.65) rectangle (5.2,-1.45); \fill[okfade] (5.24,-1.65) rectangle (9.53,-1.45);
+\node[anchor=west, text=nwink] at (5.35,-1.55) {open \pid{v02:c01:p0055}};
+\node[rel] at (2.25,-2.15) {SPOUSE\_OF [v4,--)};
+\draw[held] (6.72,-2.31) rectangle (9.53,-1.99);
+\node[text=nwSlate] at (8.125,-2.15) {withheld \pid{v04:c04:p0000}};
+% legend of the bars
+\fill[ok] (0.0,-2.72) rectangle (0.3,-2.6);
+\node[anchor=west, text=nwSlate] at (0.33,-2.66) {\pid{first\_vol} $\le t$: eligible};
+\draw[held] (3.25,-2.72) rectangle (3.55,-2.6);
+\node[anchor=west, text=nwSlate] at (3.58,-2.66) {\pid{first\_vol} $> t$: withheld};
+% rendered page
+\node[draw=nwCyan, line width=0.6pt, fill=nwbluebg, rounded corners=3pt, anchor=north west,
+      text width=5.3cm, align=left, inner sep=4pt] (page) at (10.5,0.62) {%
+  {\bfseries\color{nwCyan!70!black}Cutoff-2 relationship page}\\[1pt]
+  \textbf{Anne Shirley --- Gilbert Blythe}\\[2pt]
+  \emph{Rival of}, since Vol.~1 \hfill\pid{[v01:c17:p0036]}\\[1pt]
+  \emph{Comrade of}, since Vol.~2 \hfill\pid{[v02:c01:p0055]}\\[1pt]
+  \emph{Previously: Enemy of}, until Vol.~1 \hfill\pid{[v01:c15:p0051]}\\[3pt]
+  {\color{nwSlate}No \emph{Spouse of} line, link or prose. Prose is generated
+  \emph{from} the filtered set, never redacted afterwards.}};
+\draw[arr, nwCyan!80!black, line width=0.7pt] (9.65,-1.25) -- node[above, font=\fontsize{6}{7}\selectfont, text=nwSlate]{render} (page.west |- 0,-1.25);
+
+% ---------------------------------------------------------------- (b) bottom tier
+\node[anchor=west, font=\small\bfseries\sffamily, text=nwink] at (-0.1,-3.3)
+  {(b) Three channels the volume filter does not close};
+% \channel{x}{name}{n1}{box1}{box2}{box3}{caption}: one card of three steps.
+\newcommand{\channel}[7]{%
+  \node[chan] (c#3) at (#1,-3.62) {};
+  \node[chead] at ([xshift=4pt,yshift=-8pt]c#3.north west) {#2};
+  \node[flowbox] (#3a) at (#1+0.85,-4.72) {#4};
+  \node[flowbox] (#3b) at (#1+2.525,-4.72) {#5};
+  \node[flowbox, draw=nwMagenta, fill=nwredbg] (#3c) at (#1+4.2,-4.72) {#6};
+  \draw[arr] (#3a) -- (#3b); \draw[arr] (#3b) -- (#3c);
+  \node[anchor=north west, text width=4.85cm, align=left] at (#1+0.1,-5.35) {#7};}
+\channel{0.0}{1\enspace Parametric memory}{p}
+  {title +\\character name\\(no text)}{generator\\writes the\\page (X1)}
+  {recall \res{M1-anne-avg-X1}\\on original\\text}
+  {Recognition, not reading: on the renamed, paraphrased text this recall falls to
+   \res{M1-annedecon-avg-X1}.}
+\channel{5.35}{2\enspace Modality collapse}{m}
+  {a neighbour's\\prediction\\in Vol.~2}{stored as\\presumed spouse,\\$\firstvol{=}2$}
+  {printed\\\emph{Spouse of}\\at $t{=}2,3$}
+  {The filter checks \emph{when} evidence appears, not \emph{what} it licenses
+   (\sys, treated text: \res{M4-annedecon-total-B5}).}
+\channel{10.7}{3\enspace Construction dependence}{d}
+  {entities\\resolved over\\Vols.~1--5}{character\\pages at\\$t{=}1$}
+  {\res{ID-anne-t1-rate} differ\\from a prefix\\index}
+  {Later volumes shape early names and groupings: \respt{ID-anne-strict-t1} of
+   $t{=}1$ pages are regrouped or absent.}
+\end{tikzpicture}

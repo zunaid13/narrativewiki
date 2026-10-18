@@ -1,0 +1,54 @@
+% Appendix: disclosure cases by channel. Contains spoilers of the evaluated series.
+\section{Disclosure Casebook}
+\label{app:casebook}
+
+Table~\ref{tab:casebook} illustrates disclosure channels observed in the reported builds
+and the first build of \sys, including lexical-screen hits that did not disclose later facts.
+Table~\ref{tab:casebook-development} documents defects found and corrected during
+development. The examples reveal plot points of the evaluated series.
+
+\begin{table*}[tp]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}llZ{2.0cm}Z{4.0cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+\nwhead{System} & \nwhead{$t$} & \nwhead{Surface} & \nwhead{Delivered text} & \nwhead{Source and reveal volume} & \nwhead{Verdict} \\
+\midrule
+X2 & 2 & character page (Priscilla Grant) & ``She entered Redmond College in Kingsport, taking up the Second Year work alongside Anne.'' & Anne studies at Redmond: \pid{v03:c01:p0013}, reveal 3 & stated; the later text was in the input with an instruction not to use it \\
+X2 & 2 & character page (Jane Andrews) & ``Later, Jane accepted a teaching position in Winnipeg, West Canada, where she became engaged to a wealthy English millionaire.'' & Jane leaves for the West: \pid{v03:c14:p0030}, reveal 3 & stated \\
+X2 & 4 & character page (Susan Baker) & ``Role: Housekeeper at Ingleside'' & Anne lives at Ingleside: \pid{v05:c01:p0001}, reveal 5 & stated \\
+X1 & 1 & character page (Billy Andrews) & ``Too bashful to propose to her himself, he sends his sister Jane to propose marriage to Anne on his behalf.'' & \pid{v03:c08:p0012}, reveal 3 & stated; no text in the input, so the source is the generator's memory \\
+X1 & 4 & character page (Little Jem) & ``When Gilbert's medical practice expands, the Blythe family moves to Ingleside in Glen St.\ Mary.'' & \pid{v05:c01:p0001}, reveal 5 & stated (memory) \\
+\sys & 3 & relation summary on a character page (Phil Gordon) & ``Phil later serves as a bridesmaid for Anne.'' & Anne marries Gilbert: \pid{v04:c04:p0000}, reveal 4 & implied: a reader infers Anne's wedding, and by the end of book three she is engaged to Gilbert (\pid{v03:c41:p0036}). Written from eligible text and wrong: in \pid{v03:c39:p0039} Anne is Phil's bridesmaid \\
+\sys & 1, 2 & relation line on two character pages and a pair page & ``Anne Shirley --- Romantically involved with --- Gilbert Blythe --- harbors romantic feelings for her $\cdot$ since v1'', citing \pid{v01:c25:p0055} & Anne marries Gilbert: \pid{v04:c04:p0000}, reveal 4 & uncertain: in the cited passage a friend reports that Gilbert kept a rose Anne dropped; the label reads towards the later romance \\
+B1 & 2 & character page (Rachel Lynde) & ``\ldots allowing Anne to attend Redmond College'' & decision in book two, attendance \pid{v03:c01:p0013} & uncertain \\
+B4$^{\dagger}$ & 2 & quote on a character page (Ruby Gillis) & ``Oh, she does look really dead.'' (\pid{v01:c28:p0013}, said of Anne playing a corpse) & Ruby Gillis dies: \pid{v03:c14:p0033}, reveal 3 & not a disclosure; an entailment screen scored it 0.52 \\
+B1--B4 & 3 & title of a character page & ``Reverend Jo'', the name under which the evaluated cast lists the character & book three has ``the Rev.\ Jo'' (\pid{v03:c39:p0039}); spelled out first in book four & expanded name form supplied by the evaluation's page list; no fact revealed \\
+\sys$^{\dagger}$ & 2 & existence and title of a character page (\texttt{walter}) & a page ``Walter'' describing Anne's father, wrongly & the entity is Walter Blythe of book five (127 of its 130 mentions) & later-anchored page; no fact revealed; absent from the prefix build and corrected in the reported build \\
+\sys & 2 & existence of a character page (\texttt{susan}) & an empty page titled ``Susan'' & the entity is Susan Baker of books four and five (3 of its 204 mentions by book two) & later-anchored page; no fact revealed \\
+\sys & 1 & codex page (groups) & ``Conservatives'' & book one has the singular & plural form; lexical screen hit, no fact revealed \\
+\bottomrule
+\end{tabularx}
+\caption{Cases from the reported builds and the first build of \sys, by disclosure channel.
+Each row gives the delivered text, the source and reveal volume of the fact concerned, and
+the verdict. $^{\dagger}$: the first build of \sys, or B4 on its graph.}
+\label{tab:casebook}
+\end{table*}
+
+\begin{table*}[tp]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}llZ{2.0cm}Z{4.0cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+\nwhead{System} & \nwhead{$t$} & \nwhead{Surface} & \nwhead{Delivered text} & \nwhead{Cause or correction} & \nwhead{Verdict} \\
+\midrule
+baselines & 1 & list of pages and their titles & pages for eleven characters whose names do not occur in book one & the page-selection rule matched any single word of a name & disclosure by page title; rule changed to ``a gold fact by $t$ or the full name in $\Dt$'' \\
+\sys & 3 & page title and address & a page for Leslie Moore, who first appears in book four & a book-three mention ``Will Leslie'' was resolved to her & disclosure by title; resolution fixed \\
+\sys & 1 & relation qualifier & a qualifier written from book-two evidence on a relation opened in book one & qualifier now taken from evidence no later than the interval's first volume & premature detail; fixed \\
+\sys & all & shared navigation & names of later characters in a menu shared by every cutoff & the menu listed all pages of the site & disclosure by menu; shared navigation now names no character \\
+\bottomrule
+\end{tabularx}
+\caption{Development defects and the corrections applied before generating the reported
+evaluation cells.}
+\label{tab:casebook-development}
+\end{table*}

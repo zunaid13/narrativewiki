@@ -1,0 +1,208 @@
+% Results (v3): one subsection per research question, with declarative headings. Subsection labels
+% are those of v2, which the appendices reference. Every number is a \res key.
+\section{Results}
+\label{sec:results}
+% tables/t2b-decon is declared in sections/05-setup.tex for float placement.
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/f6-control}}
+\caption{The renamed-and-paraphrased control (RQ1, RQ2). (a) Renaming alone leaves the
+work recognizable; paraphrase hides most of it. (b) Recall without text collapses; recall
+from text survives. (c) The instruction to withhold later volumes (X2) fails more often once
+the work is unrecognizable. (d) Long-context citations lose their volume on treated text; B4
+on \sys's graph does not.}
+\label{fig:control}\label{fig:deconrecall}
+\end{figure*}
+
+\subsection{RQ1. Without the text, memory writes the wiki; without memory, recall needs reading}
+\label{sec:results-decon}
+
+\paragraph{Title and name alone recover two-thirds of the gold facts.}
+Given only the title and a character's name, the generator recovers
+\respt{M1-anne-avg-X1} of the eligible gold facts (\respt{M1-anne-t1-X1} at $t=1$), states
+\res{M4-anne-total-X1} assessed later facts and reaches sampled precision
+\respt{M3-anne-avg-X1} against text it never received. On a well-known work, a score is
+not evidence of reading.
+
+\paragraph{Renaming leaves the author recognizable; paraphrase hides the book.}
+Title identification falls from \res{MEM-title-orig} to \res{MEM-title-remap} after
+renaming alone and to \res{MEM-title-decon} after paraphrase (Figure~\ref{fig:control}a).
+Renaming alone, a common control \citep{gupta2025whodunit,zhang2024infinitebench}, leaves
+the author identifiable in \res{MEM-author-remap} of paragraphs: the prose carries the work,
+not only its names.
+
+\paragraph{Recall without text collapses; recall from text survives.}
+Closed-book recall falls from \respt{M1-anne-avg-X1} to \respt{M1-annedecon-avg-X1}; its
+single remaining match (\res{M1-annedecon-count-X1}) is a death that also occurs in the
+generator's invented story. Every system given text changes far less
+(Figure~\ref{fig:control}b): B1 by \res{M1-annedecon-diff-B1}, \sys by
+\res{M1-annedecon-diff-B5}, at most \res{M1-annedecon-maxloss} (X2). The closed-book
+generator still writes full, invented pages (Appendix~\ref{app:contamination}).
+
+\paragraph{Stripping recognition nearly triples instruction leaks and breaks long-context citations.}
+X2 discloses \res{M4-annedecon-total-X2} assessed later facts on treated text against
+\res{M4-anne-total-X2} on the original (unique facts: \res{M4U-annedecon-X2} against
+\res{M4U-anne-X2}; Figure~\ref{fig:control}c), most at $t=1$; two treated-text assessments
+come from a namesake created by the name map (Appendix~\ref{app:contamination}).
+Familiar-text compliance overstated the instruction's reliability. B1's precision holds
+(\respt{M3-annedecon-avg-B1} versus \respt{M3-anne-avg-B1}), but its citation sufficiency
+falls from \respt{M8-annedecon-t1-B1} at $t=1$ to \respt{M8-annedecon-t4-B1} at $t=4$
+(Figure~\ref{fig:control}d), as citations keep a paragraph number and lose its volume.
+
+% The paper-at-a-glance table of Section 7, declared here so the float lands beside the results.
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.04}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{6.75cm}>{\raggedright\arraybackslash}p{6.3cm}@{}}
+\toprule
+\nwhead{Question} & \nwhead{What the probe found} & \nwhead{What to be careful about} \\
+\midrule
+RQ1 Recognition vs.\ reading (\S\ref{sec:results-decon}) &
+Closed-book recall is \respt{M1-anne-avg-X1} on the original and \respt{M1-annedecon-avg-X1}
+on treated text; systems given text lose at most \res{M1-annedecon-maxloss}. &
+Treatment reduces recognition without removing it (title \res{MEM-title-decon}, author
+\res{MEM-author-decon}); it was not proofread against its source. \\
+\rowcolor{nwhighpink!45}
+RQ2 Cutoff enforcement (\S\ref{sec:results-main}) &
+Prefix-bounded prompting discloses no assessed later fact on either text; X2 discloses
+\res{M4U-anne-X2} unique later facts on the original and \res{M4U-annedecon-X2} on treated
+text; \sys \res{M4U-anne-B5} and \res{M4U-annedecon-B5}. &
+\sys's treated-text disclosures are one mechanism at two cutoffs; zero counts depend on a
+candidate search that retrieves only 0.309--0.355 of disclosures made by a pronoun on another
+character's page (Table~\ref{tab:seeds}). \\
+\rowcolor{nwhighcyan!60}
+RQ3 Accumulation (\S\ref{sec:results-gains}) &
+Central-three recall \respt{CEN-annedecon-B5} for \sys against \respt{CEN-annedecon-B1}
+for long context (treated); one fact lost across cutoffs per text; \res{ND-anne-avg-B5}
+distinct assertions per cutoff. &
+The central/other split was chosen after the results; the comparison pages are
+sentence-budgeted, not length-matched. \\
+RQ4 Context (\S\ref{sec:results-quality}) &
+\res{REV-M3A} of \sys's sampled assertions are true as statements, but precision in page
+context is \respt{M3-anne-avg-B5}; B4 on the same graph reaches \respt{M3-anne-avg-B4} and
+citation sufficiency \respt{M8-anne-avg-B4}. &
+Page scope differs between \sys and B1--B4; precision rests on 40 sampled assertions per
+cell, with the lowest human agreement of all tasks ($\kappa=\res{HREV-P-kappa}$;
+Table~\ref{tab:human-agreement}). \\
+RQ5 Construction scope (\S\ref{sec:results-scope}) &
+\res{ID-anne-t1-rate} of character pages at $t=1$ differ from a prefix-built index
+(\respt{ID-anne-strict-t1} regrouped or absent); prefix-index wikis match pooled recall
+(\res{PX-anne-M1-pooled}). &
+Single builds per index, so model variance is inside the differences; prefix-index wikis
+were labeled in one pass, on original text only. \\
+\bottomrule
+\end{tabular}
+\caption{The paper at a glance. Each research question with its answer and the boundary
+that limits it. Cyan: the gain the design delivers; magenta: the failure a volume filter
+cannot detect.}
+\label{tab:glance}
+\end{table*}
+
+\subsection{RQ2. Volume filters block future evidence, but modality collapse still spoils}
+\label{sec:results-main}
+
+\paragraph{Prefix-bounded prompting discloses no assessed later fact.}
+B1, B2 and B3 each have no stated or implied disclosure in 220 fact--cutoff assessments on
+either text (Figure~\ref{fig:systems}; Table~\ref{tab:decon}); B4 has none on the original.
+
+\paragraph{A prediction becomes a marriage.}
+On treated text, \sys lists the two leads as spouses at $t=2$ and $t=3$, a book-four fact
+(\res{M4-annedecon-total-B5}: reciprocal facts at two cutoffs from one mechanism;
+Table~\ref{tab:disclosure-units}). The cited evidence is a neighbour's prediction in book
+two; extraction stored a presumed marriage, and deterministic rendering printed presumed
+spouses as spouses. B4, generating from the same graph, qualifies the pair as an
+``anticipated future marriage'' without the speaker (\res{M4-annedecon-total-B4},
+implied). Once stored, the claim keeps a coarse \emph{presumed} flag but not who spoke or
+that it was a prediction: a volume filter checks \emph{when} evidence appears, not
+\emph{what} it licenses (Proposition~3, Appendix~\ref{app:formal}). On the original text
+\sys has one implied disclosure: at $t=3$ a summary says Phil Gordon \emph{later serves as a
+bridesmaid for Anne}, where the eligible passage makes Anne Phil's bridesmaid.
+
+\paragraph{Zero counts are bounded, not certified.}
+Counting uncertain verdicts raises the original-text count of B1--B5 from
+\res{M4-anne-total-cut} to \res{M4-anne-total-cut-incl} assessments (\sys: five). The
+candidate search retrieves \respt{SEED-para} of seeded paraphrases that name the character,
+and fewer when only a pronoun refers to it (Table~\ref{tab:seeds}); no sampled assertion at
+$t\le4$ in \sys or B1--B3 is established only by later volumes (\sys: \res{M5-anne-B5}).
+\subsection{RQ3. Accumulated claims grow with the protagonists; budgeted rewrites forget}
+\label{sec:results-gains}
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/f7-accumulation}}
+\caption{Where accumulation helps (RQ3). (a) On the three most-documented characters \sys's
+recall rises with the prefix while budgeted rewrites fall. (b) \sys's page for Anne grows
+with the story. (c) Facts conveyed at $t$ and lost at $t+1$: B4 reads the same graph but
+rewrites each page, so stability comes from rendering stored claims.}
+\label{fig:accumulation}
+\end{figure*}
+
+\paragraph{Central-character recall rises as budgeted pages decay.}
+Comparison systems rewrite every page at every cutoff in one call under a shared sentence
+budget (Appendix~\ref{app:baselines}); \sys renders every eligible claim, so Anne Shirley's
+page grows from \res{ANNEW-t1-B5} words to \res{ANNEW-t5-B5}, while B1's never exceeds
+\res{ANNEW-max-B1} (Figure~\ref{fig:accumulation}b). On the three characters with the most gold assessments, \sys has the highest recall of any
+system on treated text (\respt{CEN-annedecon-B5}, against B1's \respt{CEN-annedecon-B1})
+and, by a smaller margin, on the original (\respt{CEN-anne-B5} against
+\respt{CEN-anne-B1}). On treated text its recall on them rises from
+\res{CEN-annedecon-t1-B5} at $t=1$ to \res{CEN-annedecon-t5-B5} at $t=5$, while B1's falls
+from \res{CEN-annedecon-t1-B1} to \res{CEN-annedecon-t5-B1} (Figure~\ref{fig:accumulation}a),
+as a fixed budget predicts (Proposition~2).
+
+\paragraph{Stored claims are not forgotten.}
+A fact conveyed at $t$ and lost at $t+1$ occurs once for \sys on each text; every other
+system loses \res{DROP-anne-B2}--\res{DROP-anne-B3} on the original and
+\res{DROP-annedecon-X2}--\res{DROP-annedecon-B2} on treated text
+(Figure~\ref{fig:accumulation}c). B4 reads the same graph and loses \res{DROP-anne-B4} and
+\res{DROP-annedecon-B4}: the stability comes from rendering stored claims (Proposition~1),
+not from the graph alone.
+
+\paragraph{One build publishes 3.8 times the distinct assertions.}
+On the original text, one build publishes a mean of
+\res{ND-anne-avg-B5} textually distinct assertions per cutoff, against at most
+\res{ND-anne-avg-B1} for B1--B4 (Table~\ref{tab:cost-per-unit}).
+
+\subsection{RQ4. Context, not truth, costs precision}
+\label{sec:results-quality}
+
+
+\paragraph{Coverage trails on minor characters.}
+The central-character gain does not carry to the average: on the original text \sys
+trails long context (\respt{M1-anne-avg-B5} versus \respt{M1-anne-avg-B1}) and prefix
+retrieval (paired difference \respt{M1-anne-avg-B5-minus-B2}; Table~\ref{tab:paired}),
+which uses a tenth of the input tokens. The deficit lies with the other 40 characters
+(\respt{OTH-anne-B5}, against \respt{OTH-anne-B1} and \respt{OTH-anne-B2}; Table~\ref{tab:gains}).
+
+\paragraph{Placement, not invention, lowers precision.}
+Whole-artifact precision is \respt{M3-anne-avg-B5} for \sys (\res{REV-M3L} under the
+stricter line rule), yet \res{REV-M3A} of its sampled assertions are true as statements.
+On cast character pages, the matched population, \sys reaches \res{M3K-anne-B5-cast},
+versus B1's pooled \res{M3K-anne-B1}. The gap concentrates on relationship pages
+(\res{M3K-anne-B5-rel-share} of its assertions): \res{M3K-anne-B5-rel-atom} are true as
+statements but \res{M3K-anne-B5-rel} are supported in page context, because scene lines
+naming both characters reach the pair's page even when the two share no episode
+(Figure~\ref{fig:collapse}a, Appendix~\ref{app:additional}; Proposition~4).
+
+\paragraph{The same graph supports precise, well-cited pages.}
+Citation sufficiency is \respt{M8-anne-avg-B5} for \sys against \respt{M8-anne-avg-B1} (B1)
+and \respt{M8-anne-avg-B2} (B2), and \res{M8C-anne-B5} against \res{M8C-anne-B1} and
+\res{M8C-anne-B2} on sampled assertions that carry a citation, so omission does not explain
+the gap. B4, which writes cast pages from facts retrieved from \sys's graph, has lower
+recall (\respt{M1-anne-avg-B4}) but the highest original-text precision and citation
+sufficiency (\respt{M3-anne-avg-B4}, \respt{M8-anne-avg-B4}): much of the gap arises where
+claims are selected, published and cited.
+
+\subsection{RQ5. Later volumes shape early pages}
+\label{sec:results-scope}
+For the reported build, \res{ID-anne-t1-rate} of character
+pages at $t=1$ and \res{ID-anne-t4-rate} at $t=4$ have no prefix-built character with
+exactly their set of names observed by $t$; excluding alias-only differences,
+\respt{ID-anne-strict-t1} and \respt{ID-anne-strict-t4} are regrouped or have no prefix
+counterpart (Figure~\ref{fig:collapse}b; Tables~\ref{tab:identity},~\ref{tab:scope}). Wikis built on those
+prefix indexes match the full build's pooled recall (\res{PX-anne-M1-pooled} each,
+$t=1..4$) and state no later fact, though both keep the implied bridesmaid disclosure at
+$t=3$ (Table~\ref{tab:prefixv2}): prefix-built indexes remove the dependence at no cost in
+pooled recall, though they need one build per cutoff. Early-volume prompts also carry later aliases (Appendix~\ref{app:prompts},
+D3), a channel these comparisons do not isolate.

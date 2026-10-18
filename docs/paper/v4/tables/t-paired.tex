@@ -1,0 +1,25 @@
+% Paired differences: mean, SD, median, lowest and highest per-cutoff difference (STAT-* keys, summary_stats.py).
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{1.6pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+\nwhead{Metric} & \nwhead{$\mathrm{B5}-$} & \nwhead{Mean} & \nwhead{SD} & \nwhead{Median} & \nwhead{Min} & \nwhead{Max} \\
+\midrule
+Recall & B1 & \cellcolor{nwhighcyan}\best{\res{STAT-M1-B5-minus-B1-mean}} & \res{STAT-M1-B5-minus-B1-sd} & \res{STAT-M1-B5-minus-B1-median} & \res{STAT-M1-B5-minus-B1-min} & \res{STAT-M1-B5-minus-B1-max} \\
+ & B2 & \res{STAT-M1-B5-minus-B2-mean} & \res{STAT-M1-B5-minus-B2-sd} & \res{STAT-M1-B5-minus-B2-median} & \res{STAT-M1-B5-minus-B2-min} & \res{STAT-M1-B5-minus-B2-max} \\
+ & B3 & \cellcolor{nwhighcyan}\best{\res{STAT-M1-B5-minus-B3-mean}} & \res{STAT-M1-B5-minus-B3-sd} & \res{STAT-M1-B5-minus-B3-median} & \res{STAT-M1-B5-minus-B3-min} & \res{STAT-M1-B5-minus-B3-max} \\
+ & X1 & \res{STAT-M1-B5-minus-X1-mean} & \res{STAT-M1-B5-minus-X1-sd} & \res{STAT-M1-B5-minus-X1-median} & \res{STAT-M1-B5-minus-X1-min} & \res{STAT-M1-B5-minus-X1-max} \\
+ & X2 & \res{STAT-M1-B5-minus-X2-mean} & \res{STAT-M1-B5-minus-X2-sd} & \res{STAT-M1-B5-minus-X2-median} & \res{STAT-M1-B5-minus-X2-min} & \res{STAT-M1-B5-minus-X2-max} \\
+\midrule
+Disclosure & X1 & \res{STAT-M4-B5-minus-X1-mean} & \res{STAT-M4-B5-minus-X1-sd} & \res{STAT-M4-B5-minus-X1-median} & \res{STAT-M4-B5-minus-X1-min} & \res{STAT-M4-B5-minus-X1-max} \\
+ & X2 & \cellcolor{nwhighcyan}\best{\res{STAT-M4-B5-minus-X2-mean}} & \res{STAT-M4-B5-minus-X2-sd} & \res{STAT-M4-B5-minus-X2-median} & \res{STAT-M4-B5-minus-X2-min} & \res{STAT-M4-B5-minus-X2-max} \\
+\bottomrule
+\end{tabular}
+\caption{Paired differences of \sys (B5) from each system, mean over cutoffs of the per-cutoff difference on the entities both
+systems have; SD, median, lowest and highest value are over the per-cutoff differences
+(five cutoffs for recall, four for disclosure).
+Recall minus X1 compares source-conditioned output with the closed-book diagnostic.
+Bold cyan cells mark the largest mean difference in each direction.}
+\label{tab:paired}
+\end{table}

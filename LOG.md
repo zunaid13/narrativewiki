@@ -7,6 +7,19 @@ and why*; this file records *what is done*. Append a new entry at the **top**; k
 Once this file exceeds ~15 entries, drop everything older than the last 8 — `git log` is the
 archive (the old `docs/log/LOG_ARCHIVE_*.md` files were removed 2026-09-14).
 
+## 2026-10-19 — Paper v4: v3 combined with the checked parts of Gemini's rewrite (no model call, no new number)
+
+- **Deliverable:** `docs/paper/v4/`, PDF `docs/paper/NarrativeWiki-paper-v4.pdf` (40 pages, main body 8).
+  Build: `sh docs/paper/v4/build.sh`. Check report: `docs/paper/v4/GEMINI_CHECK.md`.
+- **Taken from Gemini (each verified against results.tex / v2 appendices / logged prompts):** pipeline figure
+  panel (b) with the system-access matrix (separate systems figure removed); codex paragraph-ID defect restored
+  (D5); exhibit targets in the stage table; Phil Gordon named; verifier withhold share; other-40 recall; prefix
+  builds cost one build per cutoff; two sharper glance caveats.
+- **Rejected:** 330-word abstract, "up to 559,824 tokens per call", 2–4 vs 3–4 sentence prompt, swapped X2
+  facts-lost, unsupported ethics claims, overclaims ("matching the theoretical ceiling") — full list in the report.
+- **Text kept close to v3;** to hold 8 pages: two RQ headings shortened, Statistics paragraph merged, one
+  sentence repeating RQ1 removed, figure spacing tightened.
+
 ## 2026-10-18 — Paper v3: presentation overhaul from the Gemini blueprint (no model call, no new number)
 
 - **Deliverable:** `docs/paper/v3/` (self-contained; shares only `../results.tex` and `../refs.bib`), PDF

@@ -1,0 +1,53 @@
+% Appendix: observations made while building the systems that bear on the reported results.
+\section{Development Observations}
+\label{app:observations}
+
+% The stored prompts are from a commercial development series: no value from it is printed (README, "Rules
+% that are easy to break"; Ethical Considerations). The OBS-bake-* keys stay declared and unused.
+\paragraph{Choice of generator.} We sent stored claim-extraction prompts from a commercial
+development series to three Gemini Flash models, then checked the outputs of two of them,
+3.1 Flash-Lite and 3.6 Flash, against their cited paragraphs. No numerical results from that series are reported
+(Appendix~\ref{app:corpus}). Qualitatively, Gemini~3.1 Flash-Lite returned more facts than
+Gemini~3.6 Flash, with a lower share fully supported and some unsupported claims; no
+unsupported claims were observed in the reviewed 3.6 Flash outputs. We selected 3.6 Flash
+for all stages and comparison systems. Model choice also affects entity discovery: from
+the same volume-one Anne candidate list, Flash-Lite retained \res{OBS-gaz-lite} entities
+and 3.6 Flash retained \res{OBS-gaz-f36}. This illustrates an effect on the entity inventory
+before page generation.
+
+\paragraph{Stories within the story.} Characters tell stories, invent companions and make
+false confessions. Entity discovery admitted figures from embedded stories, including a
+story-club heroine and a child's imagined cave lady, and verification accepted claims about
+them (Appendix~\ref{app:evaluator}). Local evidence can therefore be insufficient to
+distinguish the main narrative from an embedded or imagined account.
+
+\paragraph{Reveal volumes need an earliest-statement check.} Disclosure assessment found
+\res{OBS-gold-late} draft facts assigned reveal volumes later than their earliest supporting
+statements. Pages containing these facts were consequently eligible. Reveal-volume
+annotation requires searching for the earliest support, rather than retaining the first
+passage encountered by the annotator.
+
+\paragraph{Implicit temporal progression.}
+Gilbert's age, \emph{nearly fourteen}, is extracted from volume one and remains on his
+cutoff-4 page alongside the later marriage (Table~\ref{tab:qual-diff}). No extracted
+age supersedes it, so its interval stays open. The graph records explicit changes; it does
+not advance ages with narrative time. Reveal volumes order evidence rather than elapsed
+story years. A historical age should therefore be marked as an observation at a particular
+story time unless a supported update is available.
+
+\paragraph{Cross-claim inference.}
+Some updates require combining claims rather than extracting one explicit statement.
+As an illustrative example, suppose Anne is two years younger than Gilbert and marries
+him at age 25. The premises imply that Gilbert is 27 at their marriage. These ages are
+hypothetical, not verified annotations of the displayed example. The current pipeline
+does not systematically derive such updates. An extension would need to retain the
+supporting premises, align their narrative times and expose a derived claim only after
+all required premises become available at the reader's cutoff.
+
+\paragraph{Coreference across extraction windows.}
+Pronouns and other referring expressions can link a character or fact across sentences
+and scenes without repeating a name. Extraction may miss these links or attribute a
+claim to the wrong person when the relevant context lies outside its window. Both backward
+and forward references require discourse context, while a later identity revelation must
+remain unavailable at an earlier cutoff. These are qualitative failure modes; no error
+rate for them is measured here.

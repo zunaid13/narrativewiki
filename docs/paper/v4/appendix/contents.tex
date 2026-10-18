@@ -1,0 +1,38 @@
+% A compact appendix contents box in the two-column flow (ACL: appendices are two-column).
+\phantomsection
+\pdfbookmark[1]{Appendix contents}{appendix-contents}
+\section*{Appendix Contents}
+\label{app:contents}
+The appendices provide annotation rules, implementation details, complete results, a formal
+account of the trade-off, reporting recommendations and the prompt and defect record.
+% Select an entry to open its section.
+
+\newcommand{\nwcontentsentry}[2]{%
+  \noindent\hangindent=1.6em\hyperref[#1]{\makebox[1.6em][l]{\bfseries\ref*{#1}}#2}%
+  \nobreak\hskip0.5em\dotfill\hyperref[#1]{\makebox[1.2em][r]{\pageref*{#1}}}\par\smallskip}
+\begin{tcolorbox}[enhanced, colback=white, colframe=nwlavender,
+  boxrule=0.6pt, arc=3mm, left=3mm, right=3mm, top=3mm, bottom=2mm, fontupper=\small]
+\nwcontentsentry{app:related}{Comparison with Prior Work}
+\nwcontentsentry{app:annotation}{Annotation Rules and Metric Definitions}
+\nwcontentsentry{app:corpus}{Corpus and Evaluation Dataset}
+\nwcontentsentry{app:implementation}{Implementation Details}
+\nwcontentsentry{app:baselines}{Comparison Systems}
+\nwcontentsentry{app:full-results}{Results at Every Cutoff}
+\nwcontentsentry{app:additional}{Additional Results}
+\nwcontentsentry{app:accumulation}{Where Accumulation Helps}
+\nwcontentsentry{app:formal}{A Formal Account of the Trade-off}
+\nwcontentsentry{app:recommendations}{Reporting Recommendations}
+\nwcontentsentry{app:evaluator}{Validation of Automatic Judges}
+\nwcontentsentry{app:casebook}{Disclosure Casebook}
+\nwcontentsentry{app:qualitative}{Qualitative Example: One Page, Two Cutoffs}
+\ifnwdecon
+\ifdefined\nwvtwo
+\nwcontentsentry{app:contamination}{Contamination and the Treated Text}
+\else
+\nwcontentsentry{app:contamination}{Contamination Diagnostics and the Decontaminated Condition}
+\fi
+\fi
+\nwcontentsentry{app:observations}{Development Observations}
+\nwcontentsentry{app:reproducibility}{Reproducibility and Release}
+\nwcontentsentry{app:prompts}{Prompts and Model Exchanges}
+\end{tcolorbox}

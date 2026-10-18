@@ -1,0 +1,8 @@
+% Loaded once in the preamble after macros.tex; generated intensities are in the tables.
+% A legacy light tint and selective pastel accents for table findings.
+\colorlet{nwtablebase}{nwindigo!40!white}
+\newcommand{\nwshade}[1]{\cellcolor{nwtablebase!#1}}
+\newcommand{\nwkey}[2]{\cellcolor{#1}#2}
+\newcommand{\nwhead}[1]{{\bfseries\boldmath #1}}
+% A smaller, lowered uncertainty suffix without changing the mean's font size.
+\newcommand{\sdev}[1]{\textsubscript{\ensuremath{\pm}\,#1}}

@@ -1,0 +1,31 @@
+% Appendix: what was measured about the automatic components used in evaluation and admission.
+\section{Validation of Automatic Judges}
+\label{app:evaluator}
+
+Claude Opus~5.5 finalized the reported recall, precision, citation-sufficiency and disclosure
+labels after reading the source text (Section~\ref{sec:setup}). We evaluated two types of
+automatic component: the verifier used by \sys and potential screens for evaluation.
+
+\paragraph{The verifier inside \sys.} Negatives were produced by minimal word substitutions in
+source-verified facts, following \citet{jeong2025narrativefactscore}, each confirmed false
+against the text and stratified by type (entity, attribute, negation, reversed relation). On
+these \res{M12-n} items the verifier reached a balanced accuracy of \res{M12-verifier-bacc}
+(\res{M12-false-admit} unsupported admitted, \res{M12-false-reject} supported rejected). A
+second, harder set of \res{OBS-hard-items} items pairs a quoted lie, a hypothetical, and a
+character's embedded story with true counterparts from the same passages. The verifier's
+balanced accuracy on this set is \res{OBS-hard-verifier-bacc}; it admitted every claim
+drawn from the embedded story.
+These measurements concern the reported verifier. Its logged \texttt{APPEARANCE} call
+contains a definition error (Appendix~\ref{app:implementation}); no corrected verifier
+was evaluated.
+
+\paragraph{Screens considered for evaluation.} On the same minimal-edit set, MiniCheck
+\citep{tang2024minicheck} reached a balanced accuracy of \res{M12-mc-bacc}, rejecting nearly
+every negative but also more than half of the true facts, and a local instruction model,
+Qwen2.5-14B-Instruct \citep{qwen2024qwen25} (4-bit, served by Ollama), reached
+\res{F-judge-bacc}. On the hard set they reached \res{OBS-hard-mc-bacc} and
+\res{OBS-hard-qwen-bacc}. Consistent with the finding of \citet{subbiah2024storysumm} that
+entailment classifiers transfer poorly to narrative, neither screen assigns evaluation
+labels. The same local model splits prose into atomic assertions, and string search retrieves
+candidate disclosure sentences. Claude finalized the sampled-atom and candidate labels
+against the source text.

@@ -1,0 +1,85 @@
+% F6 (v3, full width): the renamed-and-paraphrased control in one view (RQ1/RQ2). Vector redraw of
+% the dashboard proposed in the 2026-10-18 review, with the system names corrected. Plotted
+% coordinates are typed from results.tex keys and must be re-typed if they change:
+% (a) MEM-title-*, MEM-author-*, MEM-cloze-*; (b) M1-anne-avg-*, M1-annedecon-avg-*;
+% (c) M4-anne-total-*, M4-annedecon-total-*; (d) M8-anne-t*-B1, M8-annedecon-t*-B1, M8-annedecon-t*-B4.
+% Printed labels are \res keys wherever the value is printed.
+\begin{tikzpicture}[x=1cm, y=0.82cm, font=\figfont,
+  ptitle/.style={anchor=north west, font=\figfont\bfseries, text=nwink, inner sep=0pt},
+  tick/.style={font=\fontsize{5.6}{6}\selectfont, text=nwSlate},
+  val/.style={font=\fontsize{5.4}{6}\selectfont, text=nwink, inner sep=1pt}]
+\def\Hh{2.5}
+
+% ------------------------------------------------------------- (a) recognition
+\begin{scope}[shift={(0,0)}]
+\node[ptitle] at (-0.2,3.35) {(a) Recognition, 200 paragraphs};
+\foreach \v/\l in {0/0, 0.5/0.5, 1/1.0}{\draw[nwgrid] (0,\v*\Hh) -- (3.45,\v*\Hh); \node[tick, anchor=east] at (0,\v*\Hh) {\l};}
+% bars: \bar{x}{value}{colour}
+\newcommand{\rbar}[3]{\fill[#3] (#1,0) rectangle (#1+0.26,#2*\Hh); \node[val, anchor=south] at (#1+0.13,#2*\Hh) {\rotatebox{90}{#2}};}
+\rbar{0.15}{0.820}{nwMid}\rbar{0.43}{0.325}{nwLav}\rbar{0.71}{0.110}{nwCyan}
+\rbar{1.30}{0.865}{nwMid}\rbar{1.58}{0.625}{nwLav}\rbar{1.86}{0.195}{nwCyan}
+\rbar{2.60}{0.165}{nwMid}\rbar{2.88}{0.000}{nwCyan}
+\node[tick] at (0.56,-0.2) {title}; \node[tick] at (1.71,-0.2) {author}; \node[tick] at (2.87,-0.2) {name cloze};
+\fill[nwMid] (0.05,-0.52) rectangle (0.2,-0.42); \node[tick, anchor=west] at (0.2,-0.47) {original};
+\fill[nwLav] (1.05,-0.52) rectangle (1.2,-0.42); \node[tick, anchor=west] at (1.2,-0.47) {renamed};
+\fill[nwCyan] (2.05,-0.52) rectangle (2.2,-0.42); \node[tick, anchor=west] at (2.2,-0.47) {+ paraphrase};
+\end{scope}
+
+% ------------------------------------------------------------- (b) recall, original vs treated
+\begin{scope}[shift={(4.25,0)}]
+\node[ptitle] at (-0.95,3.35) {(b) Gold recall, mean over $t$};
+\def\W{2.6}
+\foreach \v/\l in {0/0, 0.5/0.5, 1/1.0}{\draw[nwgrid] (\v*\W,-0.05) -- (\v*\W,2.85); \node[tick] at (\v*\W,-0.2) {\l};}
+% \dumb{y}{name}{orig}{treated}{colour}{change}
+\newcommand{\dumb}[6]{\node[tick, anchor=east, text=nwink] at (-0.05,#1) {#2};
+  \draw[nwMid, line width=0.6pt] (#3*\W,#1) -- (#4*\W,#1);
+  \draw[nwSlate, fill=white, line width=0.45pt] (#3*\W,#1) circle (1.6pt);
+  \fill[#5] (#4*\W,#1) circle (1.6pt);
+  \node[tick, anchor=west, text=#5!80!black] at (\W+0.05,#1) {#6};}
+\dumb{2.7}{B1}{0.848}{0.845}{nwSlate}{\res{M1-annedecon-diff-B1}}
+\dumb{2.3}{B2}{0.834}{0.784}{nwSlate}{\res{M1-annedecon-diff-B2}}
+\dumb{1.9}{B3}{0.536}{0.470}{nwSlate}{\res{M1-annedecon-diff-B3}}
+\dumb{1.5}{B4}{0.761}{0.704}{nwSlate}{\res{M1-annedecon-diff-B4}}
+\dumb{1.1}{B5}{0.802}{0.843}{nwCyan}{\res{M1-annedecon-diff-B5}}
+\dumb{0.6}{X2}{0.814}{0.744}{nwSlate}{\res{M1-annedecon-diff-X2}}
+\dumb{0.2}{X1}{0.683}{0.003}{nwMagenta}{\res{M1-annedecon-diff-X1}}
+\draw[nwSlate, fill=white, line width=0.45pt] (0.0,-0.47) circle (1.6pt); \node[tick, anchor=west] at (0.08,-0.47) {original};
+\fill[nwSlate] (1.2,-0.47) circle (1.6pt); \node[tick, anchor=west] at (1.28,-0.47) {treated};
+\end{scope}
+
+% ------------------------------------------------------------- (c) later facts disclosed
+\begin{scope}[shift={(9.05,0)}]
+\node[ptitle] at (-0.6,3.35) {(c) Later facts disclosed / 220};
+\def\Sc{0.105}
+\foreach \v in {0,10,20}{\draw[nwgrid] (\v*\Sc,-0.05) -- (\v*\Sc,2.85); \node[tick] at (\v*\Sc,-0.2) {\v};}
+% \disc{y}{name}{orig}{treated}
+\newcommand{\disc}[4]{\node[tick, anchor=east, text=nwink] at (-0.05,#1) {#2};
+  \fill[nwMid] (0,#1+0.02) rectangle (#3*\Sc+0.001,#1+0.17); \node[val, anchor=west] at (#3*\Sc,#1+0.095) {#3};
+  \fill[nwMagenta] (0,#1-0.17) rectangle (#4*\Sc+0.001,#1-0.02); \node[val, anchor=west] at (#4*\Sc,#1-0.095) {#4};}
+\disc{2.55}{B1--B3}{0}{0}
+\disc{2.0}{B4}{0}{2}
+\disc{1.45}{B5}{1}{4}
+\disc{0.9}{X1}{4}{0}
+\disc{0.35}{X2}{8}{23}
+\fill[nwMid] (0.0,-0.52) rectangle (0.15,-0.42); \node[tick, anchor=west] at (0.15,-0.47) {original};
+\fill[nwMagenta] (1.1,-0.52) rectangle (1.25,-0.42); \node[tick, anchor=west] at (1.25,-0.47) {treated};
+\end{scope}
+
+% ------------------------------------------------------------- (d) citation sufficiency by cutoff
+\begin{scope}[shift={(12.75,0)}]
+\node[ptitle] at (-0.45,3.35) {(d) Citation sufficiency by $t$};
+\def\X{0.75}
+\foreach \v/\l in {0.2/0.2, 0.6/0.6, 1.0/1.0}{\draw[nwgrid] (0,{(\v-0.2)/0.8*\Hh}) -- (3.0,{(\v-0.2)/0.8*\Hh}); \node[tick, anchor=east] at (0,{(\v-0.2)/0.8*\Hh}) {\l};}
+\foreach \t in {1,...,5}{\node[tick] at ({(\t-1)*\X},-0.2) {\t};}
+\def\py#1{{(#1-0.2)/0.8*\Hh}}
+\draw[nwMid, line width=0.7pt, dashed] (0,\py{0.800}) -- (\X,\py{0.650}) -- (2*\X,\py{0.700}) -- (3*\X,\py{0.590}) -- (4*\X,\py{0.550});
+\draw[nwCyan, line width=0.9pt] (0,\py{0.850}) -- (\X,\py{0.900}) -- (2*\X,\py{0.875}) -- (3*\X,\py{0.949}) -- (4*\X,\py{0.900});
+\draw[nwMagenta, line width=0.9pt] (0,\py{0.875}) -- (\X,\py{0.675}) -- (2*\X,\py{0.425}) -- (3*\X,\py{0.300}) -- (4*\X,\py{0.375});
+\foreach \t/\v in {0/0.850,1/0.900,2/0.875,3/0.949,4/0.900}{\fill[nwCyan] (\t*\X,\py{\v}) circle (1.3pt);}
+\foreach \t/\v in {0/0.875,1/0.675,2/0.425,3/0.300,4/0.375}{\fill[nwMagenta] (\t*\X,\py{\v}) circle (1.3pt);}
+\node[val, anchor=north east, text=nwMagenta!80!black] at (3*\X-0.04,\py{0.300}) {\respt{M8-annedecon-t4-B1}};
+\draw[nwMid, dashed, line width=0.7pt] (0,-0.47) -- (0.25,-0.47); \node[tick, anchor=west] at (0.25,-0.47) {B1 orig.};
+\draw[nwMagenta, line width=0.9pt] (1.05,-0.47) -- (1.3,-0.47); \node[tick, anchor=west] at (1.3,-0.47) {B1 treat.};
+\draw[nwCyan, line width=0.9pt] (2.15,-0.47) -- (2.4,-0.47); \node[tick, anchor=west] at (2.4,-0.47) {B4 treat.};
+\end{scope}
+\end{tikzpicture}

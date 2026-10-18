@@ -1,0 +1,78 @@
+% Introduction (v2, probe framing). Every number is a \res key.
+\section{Introduction}
+\label{sec:intro}
+
+A reader consulting a character wiki midway through a series may encounter a later identity,
+marriage or death while seeking a reminder of events already read. A reader who has finished
+\emph{Anne of Avonlea}, the second book of L.~M.~Montgomery's Anne series, may learn from
+Anne Shirley's whole-series page about her marriage to Gilbert Blythe in book four
+(Figure~\ref{fig:overview}).\footnote{Examples in this paper reveal plot points of the
+series.} A useful reference must respect the reader's progress: at cutoff $t$, every
+statement should be established by the first $t$ volumes.
+
+% The overview comes first in the source so that it can take the top of page 2.
+\begin{figure*}[t]
+\centering
+% v3: a vector schematic drawn from stored graph rows replaces the image-model teaser.
+\resizebox{\textwidth}{!}{\input{figures/f0-overview}}
+\caption{Overview. (a) The filter-before-generate design that \sys implements and this paper
+probes, on the four stored Anne--Gilbert intervals: at cutoff~2 only intervals whose first
+evidence volume is at most~2 reach the page, so the volume-4 marriage is withheld. (b) The
+three channels through which later information still reaches a reader, each with its
+measured size (Sections~\ref{sec:results-decon}, \ref{sec:results-main} and
+\ref{sec:results-scope}).}
+\label{fig:overview}
+\end{figure*}
+
+The natural engineering answer is structural. Decompose the text into a graph of claims,
+date each claim by the volume of its evidence, and generate each page from the claims
+dated no later than the cutoff, in the manner of graph-based retrieval-augmented generation
+\citep{edge2024graphrag,guo2024lightrag}. The boundary is then enforced by data, not by an
+instruction to the generator, and one build serves every cutoff. This paper asks what
+that decomposition gains and what it costs.
+
+We instrument this design rather than advocate for it. \sys is an \emph{analytical probe}:
+it adds verbatim-evidence gates, a claim verifier and logged model calls, which lets us
+trace individual errors to the stage that produced them, and it is placed among systems that
+differ in what the generator can access and in how pages are written (Figure~\ref{fig:systems}).
+
+Such a comparison is interpretable only if scores reflect reading: given only a title and
+a character name, the generator recovers \respt{M1-anne-avg-X1} of the eligible gold
+facts. We therefore pair every measurement with a \emph{renamed-text control}: a
+\emph{treated} copy of the series renames characters and places and paraphrases nearly
+every paragraph, keeping paragraph identifiers so that gold facts and citations stay aligned.
+Closed-book recall falls to \respt{M1-annedecon-avg-X1}, while systems given text largely
+keep theirs (Section~\ref{sec:results-decon}).
+
+Headline means rank \sys below prompting with the text read so far
+(Table~\ref{tab:decon}). The probe asks instead \emph{where} decomposition gains and
+\emph{where} a volume filter fails, through five research questions, each answered in the
+subsection of Section~\ref{sec:results} with its number (Table~\ref{tab:glance}):
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=2pt]
+  \item \textbf{RQ1 Recognition vs.\ reading.} How much apparent recall comes from knowing
+    the work? Closed-book recall falls from \respt{M1-anne-avg-X1} to
+    \respt{M1-annedecon-avg-X1} under the control.
+  \item \textbf{RQ2 Cutoff enforcement.} Does a volume filter prevent disclosure? A
+    neighbour's prediction becomes a marriage two volumes early (\emph{modality collapse}).
+  \item \textbf{RQ3 Accumulation.} What do accumulated pages gain? The best recall on the
+    most-documented characters and one fact lost across cutoffs per text.
+  \item \textbf{RQ4 Context.} Do losses arise in the graph or the page? True statements lose
+    support where the graph places them (\emph{context collapse}).
+  \item \textbf{RQ5 Construction scope.} Do whole-series entities shape early pages?
+    \res{ID-anne-t1-rate} of pages at $t=1$ differ from a prefix-built index.
+\end{itemize}
+
+
+Prior work bounds dialogue or answers in time \citep{ahn2024timechara,huang2025living}.
+We study a linked reference artifact at every cutoff:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=2pt]
+  \item \textbf{A probe study of structural decomposition} under a reading cutoff,
+    separating its gains from failures that a volume filter cannot detect
+    (Sections~\ref{sec:method}, \ref{sec:results}).
+  \item \textbf{A paired renamed-text control} as evaluation methodology: seven systems
+    rebuilt on aligned treated text with unchanged code, prompts and gold facts, and
+    recognition measured separately from recall (Section~\ref{sec:results-decon}).
+  \item \textbf{A task, threat model and artifact-level protocol} for cutoff-bounded
+    reference generation, with \res{T1-anne-gold-t5} gold facts dated by reveal volume
+    (Sections~\ref{sec:task}, \ref{sec:setup}; Appendix~\ref{app:corpus}).
+\end{itemize}

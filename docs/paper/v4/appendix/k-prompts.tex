@@ -1,0 +1,161 @@
+% Appendix O (v3): prompt and defect architecture. The v2 appendix printed every logged exchange in
+% full (about 30 pages); v3 keeps one table of every exhibited stage, the two exchanges a reader
+% needs to reproduce the method, and the documented defects as callouts. The complete exchanges
+% are unchanged in docs/paper/appendix/k-prompts.tex (v1/v2) and in the released call logs;
+% excerpts below are copied from them verbatim (scripts/papers/prompt_appendix.py).
+\begingroup
+\newtcblisting{nwprompt}[3][]{
+  enhanced, breakable, listing only,
+  colback=#2!8!white, colframe=#2,
+  colbacktitle=#2!35!white, coltitle=nwink,
+  title={#3}, fonttitle=\sffamily\bfseries\footnotesize,
+  boxrule=0.45pt, arc=1.5mm, left=1.5mm, right=1.5mm, top=1mm, bottom=1mm,
+  before skip=5pt, after skip=6pt,
+  listing options={basicstyle=\ttfamily\scriptsize, columns=fullflexible, keepspaces=true,
+    breaklines=true, breakatwhitespace=false, breakindent=1em, showstringspaces=false,
+    frame=none, aboveskip=0pt, belowskip=0pt},
+  #1}
+\newtcolorbox{nwdefect}[1]{enhanced, breakable, colback=nwhighpink!45!white, colframe=nwMagenta,
+  boxrule=0.5pt, arc=1.5mm, left=2mm, right=2mm, top=1mm, bottom=1mm, before skip=6pt,
+  after skip=6pt, title={#1}, fonttitle=\sffamily\bfseries\footnotesize, colbacktitle=nwMagenta,
+  coltitle=white, fontupper=\small}
+
+\section{Prompts and Model Exchanges}
+\label{app:prompts}
+Every generative stage calls the generator through one client that records the system prompt,
+the user prompt and the raw response. Table~\ref{tab:prompt-stages} lists the stages whose
+first successful call from the run behind the reported results is exhibited in the release;
+all used \res{GEN-model}. This appendix prints two of those exchanges in full, the two a
+reader needs to reproduce the method (same-volume arbitration and the paraphrase that makes
+the treated text), and the five defects that the logged prompts and responses carry. The
+complete prompts and every call log are released (Appendix~\ref{app:reproducibility}); the
+excerpts below are verbatim, with elisions marked. Evaluation labels were not produced by
+these stages (Appendix~\ref{app:annotation}).
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{6.3cm}r>{\raggedright\arraybackslash}p{3.75cm}@{}}
+\toprule
+\nwhead{Stage} & \nwhead{Role} & \nwhead{Tokens in / out} & \nwhead{Run} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{\sys build}} \\
+Entity typing & Types each mined name candidate (gazetteer) (\emph{``Anne'', v1}) & 518 / 39 & \nolinkurl{20261004T193719-gazetteer-v1-5} \\
+Alias adjudication & Decides whether two surface forms are one entity (gazetteer) (\emph{Charlie vs.\ Carrie Sloane}) & 548 / 50 & \nolinkurl{20261004T193719-gazetteer-v1-5} \\
+Claim extraction & Extracts dated, quoted claims about one character from one evidence window (\emph{Anne Shirley, v5}) & 8,884 / 734 & \nolinkurl{20261005T070204-extract-v5-5} \\
+Scene extraction & Records scenes, participants and events over a chapter span (\emph{v5, chapter 2}) & 5,729 / 202 & \nolinkurl{20261004T195945-scenes-v5-5} \\
+Infobox pass & Long-context pass for gender, age and origin (\emph{Anne Shirley, v1}) & 93,403 / 490 & \nolinkurl{20261005T070216-infobox-v1-5} \\
+Backstory pass & Long-context pass for background facts (\emph{Marilla Cuthbert, v1}) & 135,267 / 309 & \nolinkurl{20261005T070229-backstory-v1-5} \\
+Arbitration & Resolves a same-volume conflict between two values (\emph{Anne Shirley, AGE, v1}) & 258 / 55 & \nolinkurl{20261005T070243-graph_build-v1-5} \\
+Verification & Checks a stored fact against its own cited evidence (\emph{Anne Shirley, APPEARANCE}) & 2,833 / 5 & \nolinkurl{20261005T053635-verify-upto5} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{\sys publication}} \\
+Page prose (appearance) & Writes a physical description from the cutoff-filtered claims (\emph{Anne Shirley, $t{=}1$}) & 1,045 / 174 & \nolinkurl{20261005T070347-synthesize-upto5} \\
+Codex summary & Writes the one-sentence summary of a shared codex entry (\emph{Aid Society, $t{=}1$}) & 1,974 / 69 & \nolinkurl{20261005T070527-site_build-upto5} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Comparison systems and diagnostics}} \\
+B1 page & Long context: one character page from the whole prefix (\emph{Anne Shirley, $t{=}4$}) & 559,824 / 5,688 & \nolinkurl{20261001T043209-baseline-b1-v4} \\
+B2 page & Prefix retrieval: one character page from retrieved passages (\emph{Marilla Cuthbert, $t{=}1$}) & 24,083 / 2,477 & \nolinkurl{20261002T095544-baseline-b2-v1} \\
+B3 index & LightRAG's own entity and relation extraction while building its index & 3,243 / 1,022 & \nolinkurl{20260929T225346-baseline-b3-v5} \\
+B3 page & LightRAG: one character page from LightRAG context (\emph{Anne Shirley, $t{=}5$}) & 17,438 / 2,191 & \nolinkurl{20261001T142328-baseline-b3-v5} \\
+X1 page & Closed book: title and character name only (\emph{Matthew Cuthbert, $t{=}5$}) & 451 / 1,087 & \nolinkurl{20260930T214444-baseline-x1-v5} \\
+X2 page & Full text: all five volumes and the cutoff instruction (\emph{Gilbert Blythe, $t{=}1$}) & 689,967 / 2,449 & \nolinkurl{20260930T222548-baseline-x2-v1} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Treated text and recognition}} \\
+Paraphrase & Paraphrases one renamed paragraph & 385 / 209 & \nolinkurl{20261003T165238-decontaminate-v5} \\
+Memorization probe & Name cloze or title identification on one paragraph & 227 / 9 & \nolinkurl{20261003T165318-probe-memorization-v1-5} \\
+\bottomrule
+\end{tabular}
+\caption{Every exhibited model stage: the first successful call of the run behind the reported
+results, with the exhibited character or entry and volume or cutoff in italics. Runs are under \nolinkurl{anne@v2/} (build and pages) or \nolinkurl{anne-decon/}
+(treatment and probe) in the release. B4's page prompt, the other prose sections and the
+shared-page summary check are in the release only.}
+\label{tab:prompt-stages}
+\end{table*}
+
+\subsection*{Same-volume arbitration}
+Two values of one attribute from one volume are treated as an extraction conflict
+(Section~\ref{sec:method}). A \texttt{flag} resolution keeps the higher-confidence value
+provisionally (here 11), so the interval sequence has no gap, and records the conflict.
+\begin{nwprompt}{nwViolet}{User prompt (system prompt in the release)}
+Character: anne-shirley
+Attribute: AGE
+Volume: 1
+
+Fact A: value="11", confidence=1.00, evidence: "I was eleven last March," said Anne"
+Fact B: value="13", confidence=0.99, evidence: "It's such a solemn thing to be almost fourteen, Marilla."; ""Just think, Diana, I'm thirteen years old today," remarked Anne in an awed voice."
+
+Which fact is correct? resolution must be one of keep_a, keep_b, keep_both, flag, plus a one-sentence rationale citing the evidence.
+\end{nwprompt}
+\begin{nwprompt}{nwCyan}{Model output}
+{"resolution": "flag",
+ "rationale": "Fact A states Anne was eleven based on an earlier passage, while Fact B shows her turning thirteen later in the same volume, indicating a progression of time rather than a single static age."}
+\end{nwprompt}
+
+\subsection*{Paraphrase for the treated text}
+Each renamed paragraph is paraphrased in one call, keeping its identifier.
+\begin{nwprompt}{nwViolet}{System and user prompt (paragraph abridged)}
+SYSTEM: You rewrite passages of fiction in new words for a research corpus. You never add, remove or explain anything.
+
+Rewrite the paragraph below in different words and different sentence structure.
+Rules:
+- Keep every fact, event, number, date and place, and keep them in the same order.
+- Keep every personal and ship name exactly as written. Do not introduce any name that is not in the paragraph.
+- Dialogue stays dialogue, spoken by the same person. Use the same quotation marks as the original (" " stay " "). Only spoken words go inside them; a speech tag such as "said I" stays outside.
+- Keep the narrator's person (first person stays first person).
+- Do not summarise, shorten substantially, or add commentary.
+Return only the rewritten paragraph, nothing else.
+
+Paragraph:
+It was a clear, apple-green evening in May, and Seven Gulls Harbour was mirroring back the clouds of the golden west between its softly dark shores. [...]
+\end{nwprompt}
+\begin{nwprompt}{nwCyan}{Model output (abridged)}
+The May evening was transparent and apple-green, as Seven Gulls Harbour reflected the clouds from the golden west amidst its gently darkened banks. [...]
+\end{nwprompt}
+
+\subsection*{Defects carried by the logged prompts and responses}
+The five defects below are part of the reported runs. They are documented, not repaired;
+Section~\ref{sec:discussion} and Appendix~\ref{app:formal} relate each to the results.
+
+\begin{nwdefect}{D1\enspace Implementation notes used as field definitions (extraction and verification)}
+The extraction prompt defines STATUS and APPEARANCE with internal revision labels and code
+paths, and the verifier is told to judge an APPEARANCE fact by that same text:
+\begin{nwprompt}{nwMagenta}{Verification user prompt (excerpt)}
+Fact: APPEARANCE = "little pale face with seven freckles on the nose" -- evidence: [v02:c27:p0041] [...]
+Definition of APPEARANCE: subsume (Phase 22 A2): drop a value that is redundant next to a longer sibling ('hair' next to 'long brown hair') or a bare single-word noun standing alone -- see graph/canonicalize.py::subsume_values. Deterministic, no embed call.
+\end{nwprompt}
+The exhibited claim is accepted; the example alone does not measure the defect's effect.
+\end{nwdefect}
+
+\begin{nwdefect}{D2\enspace Responses depart from prompt rules the code does not enforce (infobox pass)}
+The volume-1 infobox response gives a \texttt{GENDER} quote that does not contain Anne's
+name, and two \texttt{AGE} values (11 and 13). The code applies the evidence gates of
+Section~\ref{sec:method}, not these two prompt rules; the two ages go to arbitration, shown
+above.
+\end{nwdefect}
+
+\begin{nwdefect}{D3\enspace Early-volume prompts carry later aliases}
+Alias lists come from the whole-series entity index, so the volume-1 infobox call already
+names Anne by her married names:
+\begin{nwprompt}{nwMagenta}{Infobox user prompt, volume 1 (excerpt)}
+Character: "Anne Shirley" (aliases: Anne, Anne-girl, Mistress Blythe, Mrs. Blythe, Mrs. Doctor, Mrs. Doctor, dear, Mrs. Dr. dear, Queen Anne, the Anne-girl, young Mrs. Doctor)
+Volume 1.
+\end{nwprompt}
+This is construction dependence reaching the generator's input
+(Section~\ref{sec:results-scope}); the comparisons of this paper do not isolate it.
+\end{nwdefect}
+
+\begin{nwdefect}{D5\enspace A response cites a paragraph ID where a line key was requested (codex summary)}
+The codex prompt asks the model to cite input-line keys such as \texttt{W1}; the response
+returns \texttt{v01:c27:p0000}, a paragraph ID. The parser normalizes returned paragraph IDs
+during citation resolution, which maps an identifier to a paragraph but does not check that
+the paragraph supports the sentence.
+\end{nwdefect}
+
+\begin{nwdefect}{D4\enspace Residue of one prompt serving every corpus}
+The typing prompt lists a type unused here (\texttt{TECH}) and, as logged, repeats one example
+sentence three times; the extraction prompt's JSON example uses a character from another
+series (``Shin''); the paraphrase rule keeps ``personal and ship'' names, which has no effect
+on this series.
+\end{nwdefect}
+\endgroup

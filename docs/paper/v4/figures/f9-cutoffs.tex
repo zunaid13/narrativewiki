@@ -1,0 +1,72 @@
+% F9 (v3, full width): recall, precision and disclosures at every cutoff, original text. TikZ redraw
+% of figures/f2-cutoff-anne.pdf (its generator, scripts/plot_cutoffs.py, is not in this repository)
+% in the paper's colour grammar. Coordinates are typed from results.tex keys M1-anne-t*-*,
+% M3-anne-t*-* and M4-anne-t*-* (Table tab:full-results); re-type them if those keys change.
+\begin{tikzpicture}[x=1cm, y=0.82cm, font=\figfont,
+  ptitle/.style={anchor=north west, font=\figfont\bfseries, text=nwink, inner sep=0pt},
+  tick/.style={font=\fontsize{5.6}{6}\selectfont, text=nwSlate},
+  val/.style={font=\fontsize{5.4}{6}\selectfont, text=nwink, inner sep=1pt},
+  sB5/.style={nwCyan, line width=1.3pt},
+  sB1/.style={nwSlate, line width=0.8pt},
+  sB2/.style={nwMid, line width=0.7pt},
+  sB3/.style={nwMid, line width=0.6pt, dotted},
+  sB4/.style={nwLav, line width=0.8pt, dashed},
+  sX1/.style={nwMagenta, line width=0.7pt, dashed},
+  sX2/.style={nwViolet!70, line width=0.7pt, dash dot}]
+\def\Hh{2.6}\def\X{0.85}
+% \series{style}{y1}{y2}{y3}{y4}{y5}: one polyline over t=1..5 (y already a rate).
+\newcommand{\series}[6]{\draw[#1] (0,{(#2-\lo)/(1-\lo)*\Hh}) -- (\X,{(#3-\lo)/(1-\lo)*\Hh}) -- (2*\X,{(#4-\lo)/(1-\lo)*\Hh}) -- (3*\X,{(#5-\lo)/(1-\lo)*\Hh}) -- (4*\X,{(#6-\lo)/(1-\lo)*\Hh});}
+\newcommand{\axes}[1]{%
+  \foreach \v in {#1}{\draw[nwgrid] (0,{(\v-\lo)/(1-\lo)*\Hh}) -- (4*\X+0.1,{(\v-\lo)/(1-\lo)*\Hh}); \node[tick, anchor=east] at (0,{(\v-\lo)/(1-\lo)*\Hh}) {\v};}
+  \foreach \t in {1,...,5}{\node[tick] at ({(\t-1)*\X},-0.2) {$t{=}\t$};}}
+
+% ------------------------------------------------------------- (a) recall
+\begin{scope}[shift={(0,0)}]
+\def\lo{0.3}
+\node[ptitle] at (-0.4,3.3) {(a) Gold recall};
+\axes{0.3,0.6,1.0}
+\series{sB3}{0.304}{0.630}{0.545}{0.607}{0.595}
+\series{sX1}{0.826}{0.652}{0.652}{0.663}{0.622}
+\series{sB4}{0.826}{0.696}{0.758}{0.787}{0.739}
+\series{sX2}{0.870}{0.761}{0.803}{0.843}{0.793}
+\series{sB2}{0.913}{0.783}{0.758}{0.854}{0.865}
+\series{sB1}{0.870}{0.870}{0.818}{0.843}{0.838}
+\series{sB5}{0.826}{0.761}{0.803}{0.820}{0.802}
+\end{scope}
+
+% ------------------------------------------------------------- (b) precision
+\begin{scope}[shift={(5.3,0)}]
+\def\lo{0.6}
+\node[ptitle] at (-0.4,3.3) {(b) Precision in page context};
+\axes{0.6,0.8,1.0}
+\series{sX1}{0.725}{0.875}{0.897}{0.800}{0.775}
+\series{sX2}{0.900}{0.900}{0.825}{0.950}{0.975}
+\series{sB3}{0.975}{0.950}{0.950}{0.950}{0.925}
+\series{sB2}{0.925}{1.000}{0.950}{0.949}{0.975}
+\series{sB1}{0.950}{0.900}{0.950}{0.897}{0.950}
+\series{sB4}{0.975}{0.975}{0.950}{0.950}{0.975}
+\series{sB5}{0.825}{0.718}{0.875}{0.850}{0.675}
+\end{scope}
+
+% ------------------------------------------------------------- (c) disclosures
+\begin{scope}[shift={(10.6,0)}]
+\node[ptitle] at (-0.4,3.3) {(c) Later facts disclosed (count / $|F_t|$)};
+\def\Sy{0.36}
+\foreach \v in {0,2,4,6}{\draw[nwgrid] (0,\v*\Sy) -- (4.5,\v*\Sy); \node[tick, anchor=east] at (0,\v*\Sy) {\v};}
+% \dbar{x}{count}{colour}
+\newcommand{\dbar}[3]{\fill[#3] (#1,0) rectangle (#1+0.24,#2*\Sy); \ifnum#2>0 \node[val, anchor=south] at (#1+0.12,#2*\Sy) {#2};\fi}
+\foreach \t/\d in {1/88, 2/65, 3/45, 4/22}{\node[tick, align=center] at ({(\t-1)*1.15+0.55},-0.32) {$t{=}\t$\\[-1pt]/\d};}
+\dbar{0.2}{0}{nwMagenta}\dbar{0.44}{1}{nwMagenta!45}\dbar{0.68}{0}{nwViolet!70}
+\dbar{1.35}{0}{nwMagenta}\dbar{1.59}{1}{nwMagenta!45}\dbar{1.83}{6}{nwViolet!70}
+\dbar{2.5}{1}{nwMagenta}\dbar{2.74}{0}{nwMagenta!45}\dbar{2.98}{0}{nwViolet!70}
+\dbar{3.65}{0}{nwMagenta}\dbar{3.89}{2}{nwMagenta!45}\dbar{4.13}{2}{nwViolet!70}
+\node[tick, anchor=north east, text=nwink, fill=white, inner sep=1.5pt] at (4.5,2.55) {B1--B4: 0 at every cutoff};
+\end{scope}
+
+% ------------------------------------------------------------- legend
+\begin{scope}[shift={(0,-0.95)}]
+\foreach \s/\n/\x in {sB5/\sys/0, sB1/B1 long context/2.0, sB2/B2 prefix retrieval/4.0, sB3/B3 LightRAG/6.25, sB4/B4 graph baseline/8.0, sX1/X1 closed book/10.25, sX2/X2 full text/12.25}{
+  \draw[\s] (\x,0) -- (\x+0.35,0); \node[tick, anchor=west, text=nwink] at (\x+0.38,0) {\n};}
+\fill[nwMagenta] (14.0,-0.06) rectangle (14.15,0.06); \node[tick, anchor=west, text=nwink] at (14.17,0) {bars: \sys{} (solid), X1 (light), X2 (violet)};
+\end{scope}
+\end{tikzpicture}
