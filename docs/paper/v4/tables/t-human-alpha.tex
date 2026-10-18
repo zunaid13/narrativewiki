@@ -1,0 +1,24 @@
+% Source: supplied reviewer CSVs and accepted_answers.csv; recomputed_agreement_20261010.json.
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\nwhead{Task} & \nwhead{Items} & \nwhead{$\alpha$} & \nwhead{Mean pairwise agreement} & \nwhead{Unanimous items} \\
+\midrule
+Gold evidence & \res{HRAL-G-n} & \res{HRAL-G-alpha} & \res{HRAL-G-agreement} & \res{HRAL-G-unanimous} \\
+Recall (M1) & \res{HRAL-R-n} & \res{HRAL-R-alpha} & \res{HRAL-R-agreement} & \res{HRAL-R-unanimous} \\
+Precision (M3) & \res{HRAL-P-n} & \res{HRAL-P-alpha} & \res{HRAL-P-agreement} & \res{HRAL-P-unanimous} \\
+Citation sufficiency (M8) & \res{HRAL-C-n} & \res{HRAL-C-alpha} & \res{HRAL-C-agreement} & \res{HRAL-C-unanimous} \\
+\midrule
+Pair placement & \res{HRAL-PAIR-n} & \res{HRAL-PAIR-alpha} & \res{HRAL-PAIR-agreement} & \res{HRAL-PAIR-unanimous} \\
+\bottomrule
+\end{tabular}
+\caption{Nominal Krippendorff's $\alpha$ recomputed jointly over the accepted
+AI-assisted reference and the two human reviewers' final-label sets. All \res{HRAL-total}
+items have complete labels from all three. Mean pairwise agreement averages the three
+label-set pairs; unanimous items have identical labels in all three sets.
+Pair placement is a subset of precision, not additional items. No mixed-task $\alpha$ is pooled.}
+\label{tab:human-alpha}
+\end{table*}

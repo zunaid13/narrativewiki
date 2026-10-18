@@ -13,14 +13,26 @@ statement should be established by the first $t$ volumes.
 % The overview comes first in the source so that it can take the top of page 2.
 \begin{figure*}[t]
 \centering
-% v3: a vector schematic drawn from stored graph rows replaces the image-model teaser.
-\resizebox{\textwidth}{!}{\input{figures/f0-overview}}
-\caption{Overview. (a) The filter-before-generate design that \sys implements and this paper
-probes, on the four stored Anne--Gilbert intervals: at cutoff~2 only intervals whose first
-evidence volume is at most~2 reach the page, so the volume-4 marriage is withheld. (b) The
-three channels through which later information still reaches a reader, each with its
-measured size (Sections~\ref{sec:results-decon}, \ref{sec:results-main} and
-\ref{sec:results-scope}).}
+% The teaser has no editable source. f0-teaser-v2.pdf is f0-teaser.pdf with its right-hand
+% heading (``Our solution: ...'') and its badge (``No spoilers'') removed from the text layer
+% (scripts/papers/redact_teaser_v2.py); both are re-lettered here. Coordinates are fractions
+% of the image.
+\begin{tikzpicture}
+\node[anchor=south west, inner sep=0] (img) at (0,0)
+  {\includegraphics[width=\textwidth]{figures/f0-teaser-v2.pdf}};
+\begin{scope}[x={(img.south east)}, y={(img.north west)}]
+  \node[font=\sffamily\bfseries\small, text=nwink] at (0.76,0.921)
+    {The design under test: \textcolor{nwaccent}{filter, then generate}};
+  \node[anchor=north, fill=nwlavender, rounded corners=1pt, inner sep=1.5pt, align=center,
+        minimum width=0.08\textwidth, text=nwink,
+        font=\sffamily\bfseries\fontsize{5.5}{6}\selectfont] at (0.946,0.207)
+    {Cutoff-filtered\\page};
+\end{scope}
+\end{tikzpicture}
+\caption{Overview. Left: a whole-series wiki reveals Anne's marriage to Gilbert (volume~4)
+to a reader at volume~2. Later information can enter through a full-series index, generator
+memory or surfaces shared across cutoffs. Right: the filter-before-generate design that
+\sys implements and this paper probes.}
 \label{fig:overview}
 \end{figure*}
 

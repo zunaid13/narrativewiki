@@ -17,6 +17,8 @@ archive (the old `docs/log/LOG_ARCHIVE_*.md` files were removed 2026-09-14).
   builds cost one build per cutoff; two sharper glance caveats.
 - **Rejected:** 330-word abstract, "up to 559,824 tokens per call", 2–4 vs 3–4 sentence prompt, swapped X2
   facts-lost, unsupported ethics claims, overclaims ("matching the theoretical ceiling") — full list in the report.
+- **Restored on review (same day):** every figure, table and prompt log v3/v4 had dropped is back (art Figure 1,
+  screenshots, full prompt logs, original tables and figures); v4 PDF now 68 pages, main body still 8.
 - **Text kept close to v3;** to hold 8 pages: two RQ headings shortened, Statistics paragraph merged, one
   sentence repeating RQ1 removed, figure spacing tightened.
 

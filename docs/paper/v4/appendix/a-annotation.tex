@@ -168,7 +168,7 @@ agreement with the AI annotations or correctness of the annotations. Each review
 every item from scratch, without seeing the AI answers, so these judgments are not anchored
 on them.
 
-\input{tables/t-human-concordance}
+\input{tables/t-human-agreement}
 
 Table~\ref{tab:human-ai-agreement} compares each reviewer's label set with the accepted
 AI-assisted review snapshot finalized by Claude. Its mapping to the accepted source sheet
@@ -186,6 +186,8 @@ proposed these decisions. Both CSVs cover the complete review
 packet, and their labels match the accompanying response records. A released aligned audit
 maps each decision to its original item and marks remaining disagreements as unadjudicated.
 
+\input{tables/t-human-ai-agreement}
+
 \paragraph{Joint agreement across the three label sets.}
 Table~\ref{tab:human-alpha} recomputes nominal Krippendorff's $\alpha$ for the same accepted
 AI-assisted reference and the two reviewers' final-label sets. All \res{HRAL-total}
@@ -199,6 +201,10 @@ The coefficient measures concordance among the AI labels and two human label set
 it is not an all-human reliability estimate or an accuracy measure. The recomputed
 coefficients match the summary distributed with the label files. This calculation
 reproduces decisions; it does not adjudicate disagreements or change system scores.
+Table~\ref{tab:human-concordance} gathers the three tables above in one matrix.
+
+\input{tables/t-human-alpha}
+\input{tables/t-human-concordance}
 \fi
 
 \paragraph{Earlier human review.} Claude Opus~5.5 finalized all reported AI labels.

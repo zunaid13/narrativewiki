@@ -19,6 +19,15 @@ coreference, but has no independent validation of complete fidelity. Reduced rec
 does not rule out memorization \citep{cheng2025contamination}.
 
 
+\begin{figure}[t]
+\centering
+\input{figures/f5-decon-recall}
+\caption{Gold recall on original and treated text (means over $t=1..5$) and the change,
+treated minus original. Without source text, recall collapses; with it, recall is largely
+retained.}
+\label{fig:deconrecall}
+\end{figure}
+
 \paragraph{Treatment.}
 The treatment operates paragraph by paragraph, retaining identifiers, chapter boundaries
 and scene breaks so citations remain aligned.

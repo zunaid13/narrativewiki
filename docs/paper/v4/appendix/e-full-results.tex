@@ -2,6 +2,7 @@
 \section{Results at Every Cutoff}
 \label{app:full-results}
 
+\input{tables/t2-main}
 \input{tables/e-full-results}
 \input{tables/e-decon-cells}
 \input{tables/t-stats}
@@ -9,12 +10,22 @@
 
 \begin{figure*}[t]
 \centering
-\resizebox{\textwidth}{!}{\input{figures/f9-cutoffs}}
+\includegraphics[width=\textwidth]{figures/f2-cutoff-anne.pdf}
 \caption{Recall and precision at each cutoff (lines), and counts of assessed later facts
+disclosed (bars). Dashed lines denote the X1 and X2 diagnostics. B1--B4 have zero observed
+disclosures at every cutoff. Disclosure denominators are $|\Ft|=88,65,45,22$ at
+$t=1,\ldots,4$; disclosure is undefined at $t=5$.}
+\label{fig:cutoffplot}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/f9-cutoffs}}
+\caption{The values of Figure~\ref{fig:cutoffplot} redrawn in the colour grammar of this paper: recall and precision at each cutoff (lines), and counts of assessed later facts
 disclosed (bars), original text. Dashed lines denote the X1 and X2 diagnostics; \sys{} is cyan.
 B1--B4 have zero observed disclosures at every cutoff. Disclosure denominators are $|\Ft|=88,65,45,22$ at
 $t=1,\ldots,4$; disclosure is undefined at $t=5$.}
-\label{fig:cutoffplot}
+\label{fig:cutoffplot-tikz}
 \end{figure*}
 
 Tables~\ref{tab:full-results} (original text) and~\ref{tab:decon-cells} (treated text) report the individual cells underlying the means in

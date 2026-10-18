@@ -25,11 +25,11 @@
 Every generative stage calls the generator through one client that records the system prompt,
 the user prompt and the raw response. Table~\ref{tab:prompt-stages} lists the stages whose
 first successful call from the run behind the reported results is exhibited in the release;
-all used \res{GEN-model}. This appendix prints two of those exchanges in full, the two a
-reader needs to reproduce the method (same-volume arbitration and the paraphrase that makes
-the treated text), and the five defects that the logged prompts and responses carry. The
-complete prompts and every call log are released (Appendix~\ref{app:reproducibility}); the
-excerpts below are verbatim, with elisions marked. Evaluation labels were not produced by
+all used \res{GEN-model}. It first prints the two exchanges a reader needs to reproduce the method (same-volume
+arbitration and the paraphrase that makes the treated text) and the five defects that the
+logged prompts and responses carry; the complete logged exchange of every stage follows
+(Appendix~\ref{app:prompts-full}). Every call log is released
+(Appendix~\ref{app:reproducibility}); the excerpts are verbatim, with elisions marked. Evaluation labels were not produced by
 these stages (Appendix~\ref{app:annotation}).
 
 \begin{table*}[t]

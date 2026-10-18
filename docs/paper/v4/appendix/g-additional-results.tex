@@ -127,6 +127,26 @@ relationship pages and 11 of 22 on the timeline. Timeline lines can carry up to 
 paragraphs selected to support a chapter-level summary.
 
 
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}cllllr@{}}
+\toprule
+\nwhead{$t$} & \nwhead{Recall} & \nwhead{Precision} & \nwhead{Citation} & \nwhead{Disclosed} & \nwhead{Assertions} \\
+\midrule
+1 & \cellcolor{nwhighcyan}\best{\res{M1-anne-t1-B4}} & \res{M3-anne-t1-B4} & \res{M8-anne-t1-B4} & \res{M4-anne-t1-B4} & \res{N-anne-t1-B4} \\
+2 & \cellcolor{nwhighpink}\best{\res{M1-anne-t2-B4}} & \res{M3-anne-t2-B4} & \res{M8-anne-t2-B4} & \res{M4-anne-t2-B4} & \res{N-anne-t2-B4} \\
+3 & \res{M1-anne-t3-B4} & \res{M3-anne-t3-B4} & \res{M8-anne-t3-B4} & \res{M4-anne-t3-B4} & \res{N-anne-t3-B4} \\
+4 & \res{M1-anne-t4-B4} & \res{M3-anne-t4-B4} & \res{M8-anne-t4-B4} & \res{M4-anne-t4-B4} & \res{N-anne-t4-B4} \\
+5 & \res{M1-anne-t5-B4} & \res{M3-anne-t5-B4} & \res{M8-anne-t5-B4} & -- & \res{N-anne-t5-B4} \\
+\bottomrule
+\end{tabular}
+\caption{B4, the graph baseline (the full graph, filtered at retrieval time), at every cutoff. Columns as in
+Table~\ref{tab:full-results}; Claude finalized the citation labels at every cutoff.
+Bold marks the highest and lowest recall, highlighted in cyan and pink, respectively.}
+\label{tab:b4}
+\end{table*}
+
 \paragraph{The graph baseline (B4).}
 Table~\ref{tab:b4} reports B4 at every cutoff, using the reported \sys graph.
 Mean recall is \respt{M1-anne-avg-B4}, versus \respt{M1-anne-avg-B5} for \sys:

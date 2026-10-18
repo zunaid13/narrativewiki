@@ -9,7 +9,7 @@ wholesale: it rewrites almost every sentence, and the request was to keep the te
 
 | Gemini change | Check | Where in v4 |
 |---|---|---|
-| Pipeline figure gains panel (b): what each system sees at t=2, how the cutoff is enforced, disclosures original/treated | counts = `M4-anne-total-*` / `M4-annedecon-total-*` (0/0, 0/0, 0/0, 0/2, 1/4, 8/23, 4/0) | Fig. 2(b); the separate systems figure is removed, `fig:systems` points here |
+| Pipeline figure gains panel (b): what each system sees at t=2, how the cutoff is enforced, disclosures original/treated | counts = `M4-anne-total-*` / `M4-annedecon-total-*` (0/0, 0/0, 0/0, 0/2, 1/4, 8/23, 4/0) | Fig. 2(b); the original systems figure is kept in App. E |
 | Codex-summary defect: response cites `v01:c27:p0000` instead of the requested key `W1` | true — logged in v2 `k-prompts.tex` ("Paragraph-ID normalization"); v3 had dropped it | App. Q, defect D5 |
 | Each logged stage names its exhibited target (Anne v1, Charlie vs. Carrie Sloane, Marilla v1, Aid Society t=1, B1 Anne t=4, B2 Marilla t=1, B3 Anne t=5, X1 Matthew t=5, X2 Gilbert t=1, …) | all match the logged prompts | App. Q stage table |
 | The t=3 bridesmaid summary is on Phil Gordon's page | casebook row in v2 `h-leak-casebook.tex` | §6.2 |
@@ -51,3 +51,12 @@ wholesale: it rewrites almost every sentence, and the request was to keep the te
 | "three prompt and parser defects" | five are logged (App. Q, D1–D5) |
 | Ethics: the human label sets were "produced by the authors/reviewers"; "SHA-256 provenance manifests" | new claims with no source in the repository; v3 ethics text kept |
 | Paraphrase and cloze listed as one run (`decon-v5`) | they are two runs (`…-decontaminate-v5`, `…-probe-memorization-v1-5`) |
+
+## Restored after review (2026-10-19)
+
+Nothing that v2 contained is removed in v4. Restored: the image-model overview illustration as
+Figure 1 (the TikZ overview is kept, in the qualitative appendix); the website screenshots and the
+cutoff-interval figure (beside the diff table); the complete logged exchanges of every stage (after
+the stage table and defects); the original main table with standard deviations; the B4 per-cutoff
+table; the three human-agreement tables (beside the merged matrix); the systems figure; the
+recall-change figure; and the original per-cutoff plot (beside its colour-harmonized redraw).
